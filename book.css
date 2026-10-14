@@ -1,4 +1,4 @@
-/* 공공 AX 디자인 패턴 — 웹북 스타일
+/* 모두의 공공AX 디자인 패턴 — 웹북 스타일
    Layout: 왼쪽 차례 레일 + 65ch 본문 칼럼, 패턴 프로필은 '부품 명세서' 판형(ID 명판 + 요약 표 + 도면).
    계층 색은 카탈로그 v0.7.1과 같은 계열을 쓴다. */
 :root{
@@ -305,3 +305,6 @@ figure.fig.screen .src{display:block;margin-top:2px;font-size:.78rem;color:var(-
 .pattern .starlink a{font-weight:600}
 .pattern .starlink span{color:var(--muted);font-size:.8rem}
 @media print{.pattern .starlink span{display:none}}
+
+/* 저작권·라이선스 표기 */
+.license{margin-top:40px;padding-top:14px;border-top:1px solid var(--rule);font-size:.8rem;line-height:1.6;color:var(--muted)}
