@@ -1,0 +1,308 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>이 책을 읽는 법 · 공공 AX 디자인 패턴</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700;800;900&family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap"><link rel="stylesheet" href="book.css"></head><body><div class="bar"><button class="navbtn" type="button" aria-controls="toc" aria-expanded="false">차례</button><a class="bk" href="index.html">공공 AX 디자인 패턴</a><span class="where">이 책을 읽는 법</span><span class="pn"><a href="preface.html">← 이전</a><a href="case-background.html">다음 →</a></span></div><div class="layout"><nav class="toc" id="toc" aria-label="책 차례"><a href="index.html"><b>표지 · 차례</b></a><div class="part">앞붙이</div><a href="preface.html"><span class="n"></span>서문</a><a href="reading.html" class="on" aria-current="page"><span class="n"></span>이 책을 읽는 법</a><a href="case-background.html"><span class="n"></span>사례 배경: 가람시(가상)</a><div class="part">1부 기초</div><a href="ch01.html"><span class="n">1</span>공공 AX와 패턴 언어</a><a href="ch02.html"><span class="n">2</span>AX 성숙도와 측정 눈금자</a><a href="ch03.html"><span class="n">3</span>디자인 패턴의 원리</a><a href="ch04.html"><span class="n">4</span>카탈로그의 구조</a><div class="part">2부 패턴 레퍼런스</div><a href="ch05.html"><span class="n">5</span>B 업무 컴포넌트</a><a href="ch06.html"><span class="n">6</span>B′ 제어 흐름 원형</a><a href="ch07.html"><span class="n">7</span>A 공통 서비스</a><a href="ch08.html"><span class="n">8</span>C 운영 컴포넌트</a><a href="ch09.html"><span class="n">9</span>S 보안 패턴</a><a href="ch10.html"><span class="n">10</span>F 상호작용 패턴</a><a href="ch11.html"><span class="n">11</span>D 서비스 블록</a><div class="part">3부 적용</div><a href="ch12.html"><span class="n">12</span>조립: 적용 절차와 서비스 유형별 템플릿</a><a href="ch13.html"><span class="n">13</span>조립 예시와 축 교차표</a><a href="ch14.html"><span class="n">14</span>안티패턴</a><a href="ch15.html"><span class="n">15</span>태깅·검증·참조 구현 레지스트리</a><a href="ch16.html"><span class="n">16</span>PAX 557건으로 본 공공 AX의 현재</a><a href="ch17.html"><span class="n">17</span>PAX 가이드라인과 리소스</a><div class="part">부록</div><a href="appx-a.html"><span class="n">A</span>패턴 한눈에 보기</a><a href="appx-b.html"><span class="n">B</span>판정 규칙 개정 이력 R1~R28</a><a href="appx-c.html"><span class="n">C</span>용어집</a><a href="appx-d.html"><span class="n">D</span>참고문헌</a><a href="appx-e.html"><span class="n">E</span>공공 AX 가이드라인 문서 해설</a><a href="appx-f.html"><span class="n">F</span>사례 케이스북: PAX 사례로 읽는 패턴 활용</a></nav><main class="content" id="reading"><header class="chap-head"><div class="eyebrow">앞붙이</div><h1>이 책을 읽는 법</h1><p class="lede">책의 구성, 패턴 프로필 한 건이 어떤 순서로 짜여 있는지, 그림과 상자와 표기가 무엇을 뜻하는지, 그리고 독자 유형에 따라 어디부터 읽으면 되는지를 안내한다.</p><div class="goals"><b>이 장에서 얻을 것</b><ul><li>책의 세 부와 부록이 각각 무엇을 다루는지 안다</li><li>패턴 프로필의 열네 부분을 순서대로 찾아 읽을 수 있다</li><li>계층 색, 상자 종류, 선과 화살표, 구현 상태 표기를 읽을 수 있다</li><li>자기 역할에 맞는 읽기 경로를 고를 수 있다</li></ul></div></header>
+
+<p>이 책은 처음부터 끝까지 읽어도 되고, 필요한 패턴 하나만 찾아 읽어도 된다. 두 번째 방식이 가능하려면 모든 패턴이 같은 형식으로 쓰여 있어야 하고, 모든 그림이 같은 기호를 써야 한다. 그 형식과 기호를 아래에 한데 모았다. 2부의 패턴 프로필을 처음 펼치기 전에 한 번 읽어 두면, 그다음부터는 어느 쪽을 펼치든 같은 정보를 같은 자리에서 찾는다.</p>
+
+<h2>책의 구성</h2>
+<p>책은 앞붙이, 세 부, 부록으로 이루어진다(그림 R.1). 앞붙이의 사례 배경이 가상 기관 가람시를 소개한다. 가람시 이야기는 그 뒤 1장부터 16장까지 장마다 이어진다. 17장은 이야기를 벗어나 PAX 사이트의 가이드라인과 리소스를 안내한다.</p>
+<ul>
+<li><strong>1부 기초(1~4장)</strong>는 왜 패턴 언어로 공공 AX를 읽는지(1장), 성숙도를 어떻게 재는지(2장), 디자인 패턴이 무엇이고 어디서 왔으며 왜, 어떻게 쓰는지(3장), 카탈로그의 계층·패턴 서명·환경 조건·서비스 유형이 어떻게 짜여 있는지(4장)를 다룬다.</li>
+<li><strong>2부 패턴 레퍼런스(5~11장)</strong>는 계층별로 한 장씩, 디렉터리 107개 항목 중 안티패턴을 뺀 91개의 패턴 프로필을 싣는다. 각 장은 계층 서론으로 시작한다. 서론에는 계층 전체의 지도, 그 안에서 패턴을 고르는 결정 흐름, 이웃 계층과의 경계가 실려 있다.</li>
+<li><strong>3부 적용(12~17장)</strong>에는 부품을 조립하는 절차와 서비스 유형별 템플릿(12장), 실제 조립 예시와 축 교차표(13장), 안티패턴 16종(14장), 태깅·검증·참조 구현 레지스트리(15장), PAX 557건으로 본 공공 AX의 현재(16장), PAX 가이드라인과 리소스(17장)가 차례로 놓인다.</li>
+<li><strong>부록</strong>은 패턴 한눈에 보기(A), 판정 규칙 R1~R28 개정 이력(B), 용어집(C), 참고문헌(D)이다.</li>
+</ul>
+
+<figure class="fig" id="fig-R-1"><div class="canvas"><svg viewBox="0 0 900 350" role="img" aria-label="앞붙이, 1부 기초, 2부 패턴 레퍼런스, 3부 적용, 부록의 구성과 가람시 여정">
+<defs><marker id="ah-R-1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+<rect class="n" x="20" y="30" width="150" height="200" rx="6"/>
+<text class="t b" x="34" y="54">앞붙이</text><text class="t3" x="34" y="72">읽기 전에</text>
+<text class="t2" x="34" y="102">서문</text><text class="t2" x="34" y="122">이 책을 읽는 법</text><text class="t2" x="34" y="142">사례 배경: 가람시</text>
+<rect class="n" x="190" y="30" width="150" height="200" rx="6"/>
+<text class="t b" x="204" y="54">1부 기초</text><text class="t3" x="204" y="72">왜, 무엇으로 읽나</text>
+<text class="t2" x="204" y="102">1장 패턴 언어</text><text class="t2" x="204" y="122">2장 성숙도 눈금자</text><text class="t2" x="204" y="142">3장 패턴의 원리</text><text class="t2" x="204" y="162">4장 카탈로그 구조</text>
+<rect class="n acc" x="360" y="30" width="190" height="200" rx="6"/>
+<text class="t b tacc" x="374" y="54">2부 패턴 레퍼런스</text><text class="t3" x="374" y="72">계층별 프로필</text>
+<rect class="n b" x="374" y="86" width="10" height="10"/><text class="t2" x="390" y="96">5장 B 업무 컴포넌트</text>
+<rect class="n bp" x="374" y="104" width="10" height="10"/><text class="t2" x="390" y="114">6장 B′ 제어 흐름</text>
+<rect class="n a" x="374" y="122" width="10" height="10"/><text class="t2" x="390" y="132">7장 A 공통 서비스</text>
+<rect class="n c" x="374" y="140" width="10" height="10"/><text class="t2" x="390" y="150">8장 C 운영 컴포넌트</text>
+<rect class="n s" x="374" y="158" width="10" height="10"/><text class="t2" x="390" y="168">9장 S 보안 패턴</text>
+<rect class="n f" x="374" y="176" width="10" height="10"/><text class="t2" x="390" y="186">10장 F 상호작용</text>
+<rect class="n d" x="374" y="194" width="10" height="10"/><text class="t2" x="390" y="204">11장 D 서비스 블록</text>
+<rect class="n" x="570" y="30" width="160" height="200" rx="6"/>
+<text class="t b" x="584" y="54">3부 적용</text><text class="t3" x="584" y="72">어떻게 조립하나</text>
+<text class="t2" x="584" y="102">12장 조립 템플릿</text><text class="t2" x="584" y="122">13장 조립 예시</text><text class="t2" x="584" y="142">14장 안티패턴</text><text class="t2" x="584" y="162">15장 태깅·레지스트리</text><text class="t2" x="584" y="182">16장 PAX 557건의 현재</text><text class="t2" x="584" y="202">17장 가이드라인·리소스</text>
+<rect class="n soft" x="748" y="30" width="132" height="200" rx="6"/>
+<text class="t b" x="762" y="54">부록</text><text class="t3" x="762" y="72">찾아보기</text>
+<text class="t2" x="762" y="102">A 한눈에 보기</text><text class="t2" x="762" y="122">B 규칙 개정 이력</text><text class="t2" x="762" y="142">C 용어집</text><text class="t2" x="762" y="162">D 참고문헌</text>
+<path class="ln" d="M170,130 L188,130" marker-end="url(#ah-R-1)"/><path class="ln" d="M340,130 L358,130" marker-end="url(#ah-R-1)"/><path class="ln" d="M550,130 L568,130" marker-end="url(#ah-R-1)"/><path class="ln" d="M730,130 L746,130" marker-end="url(#ah-R-1)"/>
+<rect class="n d" x="20" y="256" width="860" height="80" rx="6"/>
+<text class="t b td" x="34" y="278">가람시(가상) 여정</text>
+<path class="ln" d="M60,302 L850,302"/>
+<circle class="dot ok" cx="90" cy="302" r="6"/><circle class="dot ok" cx="194" cy="302" r="6"/><circle class="dot ok" cx="298" cy="302" r="6"/><circle class="dot ok" cx="402" cy="302" r="6"/><circle class="dot ok" cx="506" cy="302" r="6"/><circle class="dot ok" cx="610" cy="302" r="6"/><circle class="dot ok" cx="714" cy="302" r="6"/><circle class="dot ok" cx="818" cy="302" r="6"/>
+<text class="t3" x="90" y="324" text-anchor="middle">배경</text><text class="t3" x="194" y="324" text-anchor="middle">1장 문제</text><text class="t3" x="298" y="324" text-anchor="middle">4장 서명</text><text class="t3" x="402" y="324" text-anchor="middle">5~11장 부품</text><text class="t3" x="506" y="324" text-anchor="middle">12~13장 조립</text><text class="t3" x="610" y="324" text-anchor="middle">14장 점검</text><text class="t3" x="714" y="324" text-anchor="middle">15장 태깅</text><text class="t3" x="818" y="324" text-anchor="middle">16장 회고</text>
+</svg></div>
+<figcaption><b>그림 R.1</b> 책의 구성. 1부가 읽는 법과 눈금자를, 2부가 계층별 패턴 프로필을, 3부가 조립과 점검을 다룬다. 아래 띠는 가상 기관 가람시의 이야기가 장마다 이어지는 순서다.</figcaption></figure>
+
+<h2>패턴 프로필 해부도</h2>
+<p>2부의 패턴 프로필은 모두 같은 순서로 짜여 있다. 이 형식은 두 참고서의 장치를 합친 것이다. Erl의 『SOA Design Patterns』에서는 질문형 요구(Requirement), 여섯 행의 프로필 요약표, 문제·해법 그림 한 쌍, 적용·영향·관계, 가상 기관의 사례 연구를 가져왔다. Gulli의 『Agentic Design Patterns』에서는 패턴마다 끝에 붙는 한눈에 보기(At a Glance)의 무엇·왜·경험칙 세 줄을 가져왔다. 그 사이에 카탈로그 고유 항목인 사용 현황, 환경 조건, 배선 예시, 판정(식별 신호와 구현 상태)을 끼웠다. 그림 R.2는 <a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span>검토 큐</a>를 예로 프로필 한 건의 부분을 위에서 아래로 보여 준다.</p>
+
+<figure class="fig" id="fig-R-2"><div class="canvas"><svg viewBox="0 0 920 1134" role="img" aria-label="패턴 프로필 한 건의 열네 부분을 위에서 아래 순서로 보여 주는 해부도">
+<rect class="n" x="20" y="10" width="460" height="1114" rx="6"/>
+<rect class="n c" x="36" y="30" width="60" height="48" rx="6"/><text class="t b tc" x="66" y="59" text-anchor="middle">C1</text>
+<text class="t b" x="110" y="50">검토 큐</text><text class="t3" x="110" y="68">Review Queue · HITL · 담당자 최종 확인</text>
+<rect class="n" x="332" y="40" width="50" height="22" rx="11"/><text class="t2 tok" x="357" y="55" text-anchor="middle">확립</text>
+<rect class="n soft" x="400" y="30" width="48" height="48" rx="6"/><rect class="n c" x="408" y="46" width="12" height="16" rx="2"/><path class="ln" d="M420,54 L430,54"/><rect class="n person" x="430" y="46" width="12" height="16" rx="2"/>
+<text class="t2" x="36" y="113" style="font-style:italic">요구 · 어떻게 하면 AI 산출물이 확인 없이 나가지 않게 할까?</text>
+<path class="ln acc" d="M38,136 L38,164"/><text class="t2" x="48" y="155">의도 · 다음 단계로 가기 전에 사람이 확인·확정한다</text>
+<rect class="n soft" x="36" y="176" width="80" height="23"/><rect class="n" x="116" y="176" width="348" height="23"/><text class="t2" x="46" y="192">문제</text><rect class="bar-bg" x="128" y="184" width="250" height="7" rx="3"/>
+<rect class="n soft" x="36" y="199" width="80" height="23"/><rect class="n" x="116" y="199" width="348" height="23"/><text class="t2" x="46" y="215">해법</text><rect class="bar-bg" x="128" y="207" width="290" height="7" rx="3"/>
+<rect class="n soft" x="36" y="222" width="80" height="23"/><rect class="n" x="116" y="222" width="348" height="23"/><text class="t2" x="46" y="238">적용</text><rect class="bar-bg" x="128" y="230" width="220" height="7" rx="3"/>
+<rect class="n soft" x="36" y="245" width="80" height="23"/><rect class="n" x="116" y="245" width="348" height="23"/><text class="t2" x="46" y="261">영향</text><rect class="bar-bg" x="128" y="253" width="270" height="7" rx="3"/>
+<rect class="n soft" x="36" y="268" width="80" height="23"/><rect class="n" x="116" y="268" width="348" height="23"/><text class="t2" x="46" y="284">원칙</text><rect class="bar-bg" x="128" y="276" width="160" height="7" rx="3"/>
+<rect class="n soft" x="36" y="291" width="80" height="23"/><rect class="n" x="116" y="291" width="348" height="23"/><text class="t2" x="46" y="307">적용 범위</text><rect class="bar-bg" x="128" y="299" width="90" height="7" rx="3"/>
+<rect class="n" x="36" y="326" width="140" height="42" rx="6"/><text class="t b" x="48" y="345">46</text><text class="t3" x="48" y="361">PAX 사례 557건 중</text>
+<rect class="n" x="186" y="326" width="150" height="42" rx="6"/><text class="t b" x="198" y="345">8.3%</text><text class="t3" x="198" y="361">PAX 사용 비율</text>
+<text class="t b" x="36" y="404">① 문제</text><text class="t3" x="36" y="422">동기 · 맥락 · 힘</text>
+<rect class="bar-bg" x="36" y="430" width="200" height="7" rx="3"/><rect class="bar-bg" x="36" y="442" width="170" height="7" rx="3"/>
+<rect class="n soft" x="36" y="456" width="210" height="22" rx="6"/><text class="t3" x="46" y="471">⇄ 정확성·책임성 vs 처리 속도</text>
+<rect class="n" x="268" y="394" width="196" height="88" rx="6"/>
+<rect class="n b" x="278" y="414" width="44" height="30" rx="6"/><text class="tm tb" x="300" y="433" text-anchor="middle">B1</text>
+<rect class="n missing" x="340" y="414" width="44" height="30" rx="6"/><text class="tm twarn" x="362" y="433" text-anchor="middle">?</text>
+<rect class="n person" x="402" y="414" width="50" height="30" rx="6"/><text class="t3" x="427" y="433" text-anchor="middle">공문</text>
+<path class="ln" d="M322,429 L338,429"/><path class="ln warn" d="M384,429 L400,429"/>
+<text class="t3" x="366" y="472" text-anchor="middle">문제 그림</text>
+<text class="t b" x="36" y="514">② 해법</text><text class="t3" x="36" y="532">해법 · 해법 그림 · 구조도 · 변형</text>
+<rect class="bar-bg" x="36" y="540" width="210" height="7" rx="3"/>
+<rect class="n" x="36" y="560" width="70" height="22" rx="11"/><text class="t3" x="71" y="575" text-anchor="middle">전건 검토형</text>
+<rect class="n" x="110" y="560" width="70" height="22" rx="11"/><text class="t3" x="145" y="575" text-anchor="middle">예외 검수형</text>
+<rect class="n" x="184" y="560" width="76" height="22" rx="11"/><text class="t3" x="222" y="575" text-anchor="middle">자기서비스형</text>
+<rect class="n" x="268" y="504" width="196" height="88" rx="6"/>
+<rect class="n b" x="278" y="524" width="44" height="30" rx="6"/><text class="tm tb" x="300" y="543" text-anchor="middle">B1</text>
+<rect class="n c" x="340" y="524" width="44" height="30" rx="6"/><text class="tm tc" x="362" y="543" text-anchor="middle">C1</text>
+<rect class="n person" x="402" y="524" width="50" height="30" rx="6"/><text class="t3" x="427" y="543" text-anchor="middle">공문</text>
+<path class="ln" d="M322,539 L338,539"/><path class="ln ok" d="M384,539 L400,539"/>
+<text class="t3" x="366" y="582" text-anchor="middle">해법 그림 · 구조도</text>
+<text class="t b" x="36" y="622">③ 적용</text><text class="t3" x="36" y="638">사용 절차 · 체크리스트 · 환경 조건 · 배선 예시 · 적용 노트</text>
+<circle class="dot" cx="45" cy="656" r="8"/><text class="t3 ti" x="45" y="660" text-anchor="middle">1</text><rect class="bar-bg" x="60" y="652" width="170" height="7" rx="3"/>
+<circle class="dot" cx="45" cy="675" r="8"/><text class="t3 ti" x="45" y="679" text-anchor="middle">2</text><rect class="bar-bg" x="60" y="671" width="150" height="7" rx="3"/>
+<rect class="n" x="268" y="648" width="10" height="10" rx="2"/><rect class="bar-bg" x="284" y="650" width="150" height="7" rx="3"/>
+<rect class="n" x="268" y="666" width="10" height="10" rx="2"/><rect class="bar-bg" x="284" y="668" width="120" height="7" rx="3"/>
+<rect class="n soft" x="36" y="686" width="428" height="20" rx="6"/><text class="tm" x="46" y="700">A2.4 → B1 → C1 → C4   (배선 예시)</text>
+<text class="t b" x="36" y="736">④ 영향</text>
+<rect class="n" x="36" y="744" width="210" height="38" rx="6"/><text class="t2 tok" x="141" y="768" text-anchor="middle">이득 · 쓸 때</text>
+<rect class="n" x="254" y="744" width="210" height="38" rx="6"/><text class="t2 twarn" x="359" y="768" text-anchor="middle">대가 · 쓰지 말 때</text>
+<text class="t b" x="36" y="812">⑤ 판정</text>
+<rect class="n" x="36" y="822" width="90" height="22" rx="11"/><text class="tm tok" x="81" y="837" text-anchor="middle">present</text>
+<rect class="n" x="132" y="822" width="110" height="22" rx="11"/><text class="tm tc" x="187" y="837" text-anchor="middle">implemented</text>
+<rect class="n" x="248" y="822" width="80" height="22" rx="11"/><text class="tm" x="288" y="837" text-anchor="middle">planned</text>
+<text class="t3" x="36" y="860">식별 신호 · 헷갈리는 이웃</text>
+<text class="t b" x="36" y="892">⑥ 관계</text>
+<rect class="n b" x="100" y="902" width="44" height="22" rx="6"/><text class="tm tb" x="122" y="917" text-anchor="middle">B1</text>
+<rect class="n c" x="204" y="902" width="44" height="22" rx="6"/><text class="tm tc" x="226" y="917" text-anchor="middle">C1</text>
+<rect class="n c" x="308" y="902" width="44" height="22" rx="6"/><text class="tm tc" x="330" y="917" text-anchor="middle">C4</text>
+<rect class="n f" x="408" y="902" width="44" height="22" rx="6"/><text class="tm tf" x="430" y="917" text-anchor="middle">F2</text>
+<path class="ln thin" d="M144,913 L204,913"/><path class="ln thin" d="M248,913 L308,913"/><path class="ln thin" d="M352,913 L408,913"/>
+<text class="t3" x="36" y="944">관계도 · 의존 · 안티패턴</text>
+<rect class="n d" x="36" y="964" width="428" height="42" rx="6"/><text class="t b td" x="50" y="982">사례 연구 · 가람시(가상)</text><text class="t3" x="50" y="998">부서 하나가 이 패턴을 들이는 이야기와 배선 한 줄</text>
+<rect class="n" x="36" y="1024" width="428" height="50" rx="6" style="stroke-width:2.6"/><text class="t b" x="50" y="1044">한눈에 보기</text><text class="t3" x="50" y="1062">무엇 · 왜 · 경험칙</text>
+<text class="t3" x="36" y="1100">출처 · 카탈로그 절 · 문헌 · PAX 근거</text>
+<path class="ln thin" d="M466,54 H503"/><path class="ln thin" d="M466,109 H503"/><path class="ln thin" d="M466,150 H503"/><path class="ln thin" d="M466,245 H503"/><path class="ln thin" d="M466,347 H503"/><path class="ln thin" d="M466,436 H503"/><path class="ln thin" d="M466,546 H503"/><path class="ln thin" d="M466,658 H503"/><path class="ln thin" d="M466,753 H503"/><path class="ln thin" d="M466,831 H503"/><path class="ln thin" d="M466,913 H503"/><path class="ln thin" d="M466,985 H503"/><path class="ln thin" d="M466,1048 H503"/><path class="ln thin" d="M466,1097 H503"/>
+<circle class="n acc" cx="516" cy="54" r="11"/><text class="tm tacc" x="516" y="58" text-anchor="middle">1</text><text class="t b" x="536" y="44">ID 명판</text><text class="t2" x="536" y="61">ID · 이름 · 별칭 · 등재 상태 · 아이콘</text><text class="t2" x="536" y="76">확립은 사용례 3건 이상, 후보는 1~2건</text>
+<circle class="n acc" cx="516" cy="109" r="11"/><text class="tm tacc" x="516" y="113" text-anchor="middle">2</text><text class="t b" x="536" y="105">요구</text><text class="t2" x="580" y="105">패턴이 답하는 질문 한 문장</text>
+<circle class="n acc" cx="516" cy="150" r="11"/><text class="tm tacc" x="516" y="154" text-anchor="middle">3</text><text class="t b" x="536" y="146">의도</text><text class="t2" x="580" y="146">패턴이 하는 일 한 문장</text>
+<circle class="n acc" cx="516" cy="245" r="11"/><text class="tm tacc" x="516" y="249" text-anchor="middle">4</text><text class="t b" x="536" y="235">프로필 요약표</text><text class="t2" x="536" y="252">문제·해법·적용·영향·원칙·적용 범위</text><text class="t2" x="536" y="267">급할 때는 이 여섯 행만 읽어도 된다</text>
+<circle class="n acc" cx="516" cy="347" r="11"/><text class="tm tacc" x="516" y="351" text-anchor="middle">5</text><text class="t b" x="536" y="337">사용 현황</text><text class="t2" x="536" y="354">PAX 557건 중 사용 사례 수</text><text class="t2" x="536" y="369">557건 대비 사용 비율(%)</text>
+<circle class="n acc" cx="516" cy="436" r="11"/><text class="tm tacc" x="516" y="440" text-anchor="middle">6</text><text class="t b" x="536" y="426">① 문제</text><text class="t2" x="536" y="443">동기 · 맥락 · 힘(상충 요인)</text><text class="t2" x="536" y="458">문제 그림: 부품이 빠진 조립(점선)</text>
+<circle class="n acc" cx="516" cy="546" r="11"/><text class="tm tacc" x="516" y="550" text-anchor="middle">7</text><text class="t b" x="536" y="536">② 해법</text><text class="t2" x="536" y="553">해법 · 해법 그림 · 구조도 · 변형</text><text class="t2" x="536" y="568">해법 그림은 문제 그림과 같은 배치</text>
+<circle class="n acc" cx="516" cy="658" r="11"/><text class="tm tacc" x="516" y="662" text-anchor="middle">8</text><text class="t b" x="536" y="648">③ 적용</text><text class="t2" x="536" y="665">사용 절차 · 체크리스트 · 환경 조건</text><text class="t2" x="536" y="680">배선 예시와 적용 노트</text>
+<circle class="n acc" cx="516" cy="753" r="11"/><text class="tm tacc" x="516" y="757" text-anchor="middle">9</text><text class="t b" x="536" y="743">④ 영향</text><text class="t2" x="536" y="760">이득과 대가, 쓸 때와 쓰지 말 때</text><text class="t2" x="536" y="775">장점보다 비용을 적는다</text>
+<circle class="n acc" cx="516" cy="831" r="11"/><text class="tm tacc" x="516" y="835" text-anchor="middle">10</text><text class="t b" x="536" y="821">⑤ 판정</text><text class="t2" x="536" y="838">식별 신호와 구현 상태 3단계</text><text class="t2" x="536" y="853">헷갈리는 이웃 패턴과의 경계</text>
+<circle class="n acc" cx="516" cy="913" r="11"/><text class="tm tacc" x="516" y="917" text-anchor="middle">11</text><text class="t b" x="536" y="903">⑥ 관계</text><text class="t2" x="536" y="920">관계도 · 의존 부품 · 관련 안티패턴</text>
+<circle class="n acc" cx="516" cy="985" r="11"/><text class="tm tacc" x="516" y="989" text-anchor="middle">12</text><text class="t b" x="536" y="975">사례 연구 · 가람시(가상)</text><text class="t2" x="536" y="992">가상 부서가 이 패턴을 들이는 이야기</text>
+<circle class="n acc" cx="516" cy="1048" r="11"/><text class="tm tacc" x="516" y="1052" text-anchor="middle">13</text><text class="t b" x="536" y="1038">한눈에 보기</text><text class="t2" x="536" y="1055">무엇 · 왜 · 경험칙 세 줄. 복습은 여기부터</text>
+<circle class="n acc" cx="516" cy="1097" r="11"/><text class="tm tacc" x="516" y="1101" text-anchor="middle">14</text><text class="t b" x="536" y="1093">출처</text><text class="t2" x="580" y="1093">카탈로그 절 · 문헌 · PAX 근거</text>
+</svg></div>
+<figcaption><b>그림 R.2</b> 패턴 프로필 해부도. 왼쪽은 C1 검토 큐 프로필을 축소한 지면이고, 오른쪽 번호는 각 부분의 이름과 읽는 법이다. 머리부(1~5)만 읽어도 패턴의 요지를 알 수 있고, ①~⑥은 설계하거나 판정할 때 펼친다.</figcaption></figure>
+
+<p>열네 부분은 아래 순서로 놓인다. 같은 내용을 한 장으로 줄인 것이 표 R.1이다.</p>
+<ol>
+<li><strong>ID 명판.</strong> 계층 문자와 번호로 된 ID, 한국어 정식 이름, 별칭(영문 이름과 현장에서 쓰는 다른 이름), 등재 상태, 아이콘이 한 줄에 놓인다. 등재 상태는 Rule of Three를 따른다. 독립된 사용례가 3건 이상이면 <em>확립</em>, 1~2건이면 <em>후보</em>다. 안티패턴은 따로 <em>안티패턴</em>으로 표시한다. 아이콘은 해법을 축약한 미니 도식이다.</li>
+<li><strong>요구.</strong> "어떻게 하면 ~할 수 있는가?" 꼴의 질문 한 문장으로, 이 패턴이 채우는 요구를 적는다. 자기 과제의 고민이 이 질문과 같다면 그 패턴을 읽을 차례다.</li>
+<li><strong>의도.</strong> 패턴이 조립도 안에서 맡는 일을 한 문장으로 적는다. 디렉터리의 요약(summary)이다.</li>
+<li><strong>프로필 요약표.</strong> 여섯 행이다. 문제(한 문장), 해법(한 문장), 적용(어디에 어떻게 끼우나), 영향(대가·부담·위험), 원칙(관련 설계 원칙), 적용 범위(과업·서비스·기관·범정부 중). 원칙 칸에는 AX 설계 원칙 AIM01~AIM06이나 PAX 원칙(통제 우선·증거 우선·운영 증거)이 들어간다. 원칙의 뜻은 2장에서 다룬다.</li>
+<li><strong>사용 현황.</strong> 두 수치를 나란히 두고, 그 아래에 공공AX 패턴 성좌의 디렉터리로 가는 링크를 단다(17.10절). 링크를 열면 이 부품을 쓰는 PAX 사례 목록과 같이 쓰이는 부품이 나온다. PAX 사례 557건 중 이 패턴이 쓰인 사례 수와, 그 수를 557건으로 나눈 사용 비율이다. B는 주 부품이나 보조 부품으로 태깅된 사례를, C·S·F는 present나 implemented로 판정된 사례를 센다. 안티패턴 프로필에는 그 함정에 해당한다고 태깅된 사례 수만 싣는다.</li>
+<li><strong>① 문제.</strong> 동기(부품이 없을 때 사람이 겪는 문제), 맥락(적용 전제), 힘(서로 당기는 상충 요인)을 적는다. 문제 그림은 이 패턴이 빠진 조립을 보여 준다. 빠진 자리는 붉은 점선 상자다.</li>
+<li><strong>② 해법.</strong> 해법 서술, 해법 그림, 구조도(입력·출력·참여 부품), 변형을 싣는다. 해법 그림은 문제 그림과 배치와 크기가 같아서 두 그림을 겹쳐 보면 무엇이 바뀌었는지 드러난다.</li>
+<li><strong>③ 적용.</strong> 사용 절차(단계 번호), 점검 체크리스트, 환경 조건(어느 E축에 민감하고 조건별로 무엇이 바뀌는지), 배선 예시, 적용 노트를 싣는다. 2부에서 가장 긴 부분이다.</li>
+<li><strong>④ 영향.</strong> 이득과 대가, 쓸 때와 쓰지 말 때를 짝으로 적는다. 눈여겨볼 곳은 대가 칸이다. 이득을 되풀이하는 대신 운영 인력, 처리 지연, 감사 부담 같은 비용을 적는다.</li>
+<li><strong>⑤ 판정.</strong> 보고서나 사례 설명에서 이 패턴을 알아보는 식별 신호, 구현 상태 3단계(present·implemented·planned) 각각의 판정 기준, 자주 헷갈리는 이웃 패턴과의 경계를 적는다. 과제 검토자와 태깅 담당자가 가장 자주 펼치는 부분이다.</li>
+<li><strong>⑥ 관계.</strong> 관계도, 이 패턴이 전제하는 의존 부품, 관련 안티패턴을 싣는다. 관계도의 화살표에는 "의존한다", "함께 쓴다", "대안이다" 같은 동사구를 단다.</li>
+<li><strong>사례 연구 · 가람시(가상).</strong> 가람시의 한 부서가 이 패턴이 필요한 상황을 만나고, 도입하고, 무엇이 달라졌는지를 짧은 이야기로 쓴다. 이야기 끝에 조립 배선 한 줄이 붙는다.</li>
+<li><strong>한눈에 보기.</strong> 무엇(이 패턴이 푸는 문제), 왜(해법의 핵심 이유), 경험칙("~이면 쓴다 / ~이면 쓰지 않는다") 세 줄이다. 다 읽은 뒤 복습할 때, 또는 시간이 없을 때 여기부터 읽는다.</li>
+<li><strong>출처.</strong> 카탈로그의 해당 절, 패턴의 뿌리가 된 문헌, PAX 근거를 적는다.</li>
+</ol>
+
+<div class="tbl"><table><caption><b>표 R.1</b> 패턴 프로필 부분별 내용과 쓰임</caption>
+<thead><tr><th>부분</th><th>담는 것</th><th>참고서의 대응</th><th>주로 쓰는 때</th></tr></thead>
+<tbody>
+<tr><td class="k">ID 명판</td><td>ID·이름·별칭·확립/후보·아이콘</td><td>Erl 헤더 박스·아이콘</td><td>찾기</td></tr>
+<tr><td class="k">요구</td><td>질문형 한 문장</td><td>Erl Requirement</td><td>내 고민과 맞는지 확인</td></tr>
+<tr><td class="k">의도</td><td>패턴이 하는 일 한 문장</td><td>GoF intent</td><td>훑어보기</td></tr>
+<tr><td class="k">프로필 요약표</td><td>문제·해법·적용·영향·원칙·적용 범위</td><td>Erl Profile Summary</td><td>훑어보기·비교</td></tr>
+<tr><td class="k">사용 현황</td><td>PAX 557건 중 사용 사례 수와 사용 비율</td><td>카탈로그 고유</td><td>얼마나 검증됐나</td></tr>
+<tr><td class="k">① 문제</td><td>동기·맥락·힘, 문제 그림</td><td>Erl Problem</td><td>설계</td></tr>
+<tr><td class="k">② 해법</td><td>해법·해법 그림·구조도·변형</td><td>Erl Solution</td><td>설계</td></tr>
+<tr><td class="k">③ 적용</td><td>절차·체크리스트·환경 조건·배선·노트</td><td>Erl Application</td><td>구축</td></tr>
+<tr><td class="k">④ 영향</td><td>이득/대가, 쓸 때/쓰지 말 때</td><td>Erl Impacts</td><td>도입 결정</td></tr>
+<tr><td class="k">⑤ 판정</td><td>식별 신호·구현 상태·헷갈리는 이웃</td><td>카탈로그 고유(§12)</td><td>평가·태깅</td></tr>
+<tr><td class="k">⑥ 관계</td><td>관계도·의존·안티패턴</td><td>Erl Relationships</td><td>조립</td></tr>
+<tr><td class="k">사례 연구</td><td>가람시(가상) 이야기와 배선 한 줄</td><td>Erl Case Study Example</td><td>감 잡기</td></tr>
+<tr><td class="k">한눈에 보기</td><td>무엇·왜·경험칙</td><td>Gulli At a Glance</td><td>복습</td></tr>
+<tr><td class="k">출처</td><td>카탈로그 절·문헌·PAX 근거</td><td>Erl·Gulli References</td><td>더 읽기</td></tr>
+</tbody></table></div>
+
+<aside class="note"><span class="lbl">참고</span>
+<p>안티패턴(X) 프로필은 같은 틀을 쓰되 뜻을 뒤집는다. 문제 그림은 함정에 빠진 조립이고, 해법 그림은 리팩터링한 뒤의 조립이다. 사례 연구는 가람시가 그 함정에 빠졌다가 빠져나오는 이야기다. D 서비스 블록은 문제 그림 자리에 시민과 담당자의 동작 흐름을, 해법 그림 자리에 그 블록을 받치는 B·C·F 조립을 둔다.</p>
+</aside>
+
+<aside class="key"><span class="lbl">핵심 요약</span><ul>
+<li>프로필은 명판·요구·의도·요약표·사용 현황의 머리부, ①~⑥ 본문, 사례 연구·한눈에 보기·출처의 마무리로 이루어진다.</li>
+<li>훑어볼 때는 머리부와 한눈에 보기만, 설계할 때는 ①~④, 평가할 때는 ⑤를 펼친다.</li>
+<li>문제 그림과 해법 그림은 같은 배치라서 겹쳐 보면 바뀐 부품이 드러난다.</li>
+</ul></aside>
+
+<h2>기호·그림·표기 규칙</h2>
+<h3>계층 색과 상자</h3>
+<p>책의 모든 그림은 같은 색과 같은 상자를 쓴다. 색은 계층을 뜻한다(그림 R.3 위). 본문에서 패턴 이름 앞에 붙는 ID 배지의 색도 같은 규칙을 따른다. 그림 안에서 색이 없는 흰 상자는 카탈로그 부품이 아닌 것(업무 시스템, 문서, 부서)이다. 그 밖에 네 종류의 상자에는 따로 정한 뜻이 있다(그림 R.3 아래).</p>
+
+<figure class="fig" id="fig-R-3"><div class="canvas"><svg viewBox="0 0 900 200" role="img" aria-label="계층 색 범례 아홉 가지와 특수 상자 네 가지">
+<rect class="n a" x="12" y="16" width="92" height="64" rx="6"/><text class="t b ta" x="58" y="44" text-anchor="middle">A</text><text class="t3" x="58" y="66" text-anchor="middle">공통 서비스</text>
+<rect class="n b" x="110" y="16" width="92" height="64" rx="6"/><text class="t b tb" x="156" y="44" text-anchor="middle">B</text><text class="t3" x="156" y="66" text-anchor="middle">업무 컴포넌트</text>
+<rect class="n bp" x="208" y="16" width="92" height="64" rx="6"/><text class="t b tbp" x="254" y="44" text-anchor="middle">B′</text><text class="t3" x="254" y="66" text-anchor="middle">제어 흐름</text>
+<rect class="n c" x="306" y="16" width="92" height="64" rx="6"/><text class="t b tc" x="352" y="44" text-anchor="middle">C</text><text class="t3" x="352" y="66" text-anchor="middle">운영</text>
+<rect class="n s" x="404" y="16" width="92" height="64" rx="6"/><text class="t b ts" x="450" y="44" text-anchor="middle">S</text><text class="t3" x="450" y="66" text-anchor="middle">보안</text>
+<rect class="n f" x="502" y="16" width="92" height="64" rx="6"/><text class="t b tf" x="548" y="44" text-anchor="middle">F</text><text class="t3" x="548" y="66" text-anchor="middle">상호작용</text>
+<rect class="n d" x="600" y="16" width="92" height="64" rx="6"/><text class="t b td" x="646" y="44" text-anchor="middle">D</text><text class="t3" x="646" y="66" text-anchor="middle">서비스 블록</text>
+<rect class="n e" x="698" y="16" width="92" height="64" rx="6"/><text class="t b te" x="744" y="44" text-anchor="middle">E</text><text class="t3" x="744" y="66" text-anchor="middle">환경 조건</text>
+<rect class="n x" x="796" y="16" width="92" height="64" rx="6"/><text class="t b tx" x="842" y="44" text-anchor="middle">X</text><text class="t3" x="842" y="66" text-anchor="middle">안티패턴</text>
+<rect class="n acc" x="12" y="110" width="200" height="60" rx="6"/><text class="t b tacc" x="112" y="136" text-anchor="middle">강조</text><text class="t3" x="112" y="156" text-anchor="middle">이 그림이 말하려는 부품·경로</text>
+<rect class="n missing" x="232" y="110" width="200" height="60" rx="6"/><text class="t b twarn" x="332" y="136" text-anchor="middle">빠진 부품</text><text class="t3" x="332" y="156" text-anchor="middle">있어야 하는데 없는 자리</text>
+<rect class="n zone" x="452" y="110" width="200" height="60" rx="6"/><text class="t b" x="552" y="136" text-anchor="middle">묶음 구역</text><text class="t3" x="552" y="156" text-anchor="middle">망 · 기관 · 부서 · 단계</text>
+<rect class="n person" x="672" y="110" width="216" height="60" rx="6"/><text class="t b" x="780" y="136" text-anchor="middle">사람</text><text class="t3" x="780" y="156" text-anchor="middle">담당자 · 검토자 · 시민</text>
+</svg></div>
+<figcaption><b>그림 R.3</b> 위는 계층 색 범례다. 같은 색은 같은 계층이다. 아래는 특수 상자다. 붉은 점선 상자는 결손 부품, 회색 점선 구역은 망이나 조직의 경계, 테두리가 진한 상자는 사람을 뜻한다.</figcaption></figure>
+
+<h3>선과 화살표</h3>
+<p>선의 모양과 색은 그 연결의 성격을 뜻한다(그림 R.4). 화살표 방향은 데이터나 산출물이 흐르는 방향이다. 배선을 본문에서 글로 적을 때도 같은 방향으로 <code>A2.4 → B1 → C1 → C4</code>처럼 쓴다. 화살표 왼쪽이 오른쪽에 무언가를 넘겨준다.</p>
+
+<figure class="fig" id="fig-R-4"><div class="canvas"><svg viewBox="0 0 900 190" role="img" aria-label="선과 화살표 여섯 종류의 뜻">
+<defs>
+<marker id="ah-R-4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker>
+<marker id="ah-R-4a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah acc"/></marker>
+<marker id="ah-R-4w" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah warn"/></marker>
+<marker id="ah-R-4o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah ok"/></marker>
+</defs>
+<path class="ln" d="M24,40 L144,40" marker-end="url(#ah-R-4)"/><text class="t b" x="164" y="36">기본 흐름</text><text class="t3" x="164" y="53">데이터·산출물이 넘어가는 방향</text>
+<path class="ln acc" d="M24,100 L144,100" marker-end="url(#ah-R-4a)"/><text class="t b" x="164" y="96">강조 경로</text><text class="t3" x="164" y="113">이 그림의 주인공이 놓인 경로</text>
+<path class="ln dash" d="M24,160 L144,160" marker-end="url(#ah-R-4)"/><text class="t b" x="164" y="156">조건부·계획 연결</text><text class="t3" x="164" y="173">조건이 맞을 때만, 또는 아직 없는 연결</text>
+<path class="ln warn" d="M474,40 L594,40" marker-end="url(#ah-R-4w)"/><text class="t b" x="614" y="36">문제 경로</text><text class="t3" x="614" y="53">통제 없이 지나가는 흐름, 깨진 연결</text>
+<path class="ln ok" d="M474,100 L594,100" marker-end="url(#ah-R-4o)"/><text class="t b" x="614" y="96">개선된 경로</text><text class="t3" x="614" y="113">부품을 끼운 뒤의 흐름</text>
+<path class="ln thin" d="M474,160 L594,160"/><text class="t b" x="614" y="156">보조선</text><text class="t3" x="614" y="173">지시선 · 관계 · 묶음 표시</text>
+</svg></div>
+<figcaption><b>그림 R.4</b> 선과 화살표의 뜻. 붉은 선은 문제 그림에서, 초록 선은 해법 그림에서 주로 쓴다. 점선은 조건이 맞을 때만 생기거나 아직 계획 단계인 연결이다.</figcaption></figure>
+
+<h3>ID와 패턴 표기</h3>
+<ul>
+<li>패턴 ID는 계층 문자와 번호다(<code>A1</code>, <code>C9</code>, <code>X16</code>). 변형이나 하위 항목은 소수점을 붙인다(<code>A2.4</code> 내부망 프록시, <code>C1.2</code> 심의 게이트, <code>D8.3</code> 초안·기안). 제어 흐름 원형은 프라임 기호를 붙여 <code>B′1</code>~<code>B′10</code>으로 쓰고, 기억 관리는 <code>B′+</code>다.</li>
+<li>본문에서 패턴을 가리킬 때는 <a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span>검토 큐</a>처럼 ID 배지가 붙은 이름을 쓴다. 누르면 그 패턴의 프로필로 간다.</li>
+<li>그림과 표 번호는 <em>장.순번</em>이다(그림 5.2, 표 12.2). 앞붙이는 장 번호 대신 P(서문)·R(읽는 법)·K(사례 배경)를 쓰고, 부록은 A~F를 쓴다. 본문은 그림을 먼저 언급하고 그 뒤에 그림을 둔다.</li>
+<li>판정 규칙은 R 번호로 부른다(R1 가치 흐름, R3 구현 상태 등). 모든 규칙의 개정 이력은 부록 B에 있다.</li>
+<li>환경 조건은 E1(배포망)·E2(모델 의존)·E3(실행 형태)·E4(권한 범위)·E5(데이터 등급)로 적고, 권한 범위의 값은 P0~P4로 적는다.</li>
+</ul>
+
+<h3>구현 상태</h3>
+<p>카탈로그는 부품이 "있다"는 말을 세 단계로 나눈다(R3, R12). 같은 부품도 어느 단계로 판정되느냐에 따라 무게가 크게 다르다. 운영 부품(C)의 present 판정은 특히 엄격하다.</p>
+
+<div class="tbl"><table><caption><b>표 R.2</b> 구현 상태 3단계</caption>
+<thead><tr><th>표기</th><th>뜻</th><th>판정 기준</th></tr></thead>
+<tbody>
+<tr><td class="k">present</td><td>운영에서 작동함</td><td>실제 운영에서 최소 1회 완결된 실행 사이클의 기록이 있다(재학습 실행, 절체 실행, 검토 건수 등).</td></tr>
+<tr><td class="k">implemented</td><td>구현됐으나 실측 전</td><td>코드나 기능은 있으나 운영 기록이 없다. "하고 있다", "할 예정이다" 같은 진행형·의지형 서술은 이 단계가 상한이다.</td></tr>
+<tr><td class="k">planned</td><td>계획만 있음</td><td>설계서·계획서에만 있다.</td></tr>
+</tbody></table></div>
+
+<h3>본문 상자</h3>
+<p>본문 사이에 끼는 상자는 일곱 종류다. 상자마다 테두리와 머리글이 다르다.</p>
+<div class="tbl"><table><caption><b>표 R.3</b> 본문 상자의 종류</caption>
+<thead><tr><th>머리글</th><th>담는 것</th></tr></thead>
+<tbody>
+<tr><td class="k">핵심</td><td>정의나 원칙처럼 기억해야 할 한두 문장</td></tr>
+<tr><td class="k">핵심 요약</td><td>개념이 무거운 절의 끝에서 그 절의 결론을 2~4개로 압축</td></tr>
+<tr><td class="k">참고</td><td>범위 단서, 다른 장 참조, 오해 방지</td></tr>
+<tr><td class="k">주의</td><td>흔한 실수와 함정</td></tr>
+<tr><td class="k">판정 규칙</td><td>카탈로그 판정 규칙 R1~R28의 원문 요지</td></tr>
+<tr><td class="k">사례 연구 · 가람시(가상)</td><td>가상 기관 가람시의 이야기. 실재 기관·제품·수치는 쓰지 않는다.</td></tr>
+<tr><td class="k">한눈에 보기</td><td>무엇·왜·경험칙 세 줄 요약</td></tr>
+</tbody></table></div>
+
+<aside class="warn"><span class="lbl">주의</span>
+<p>"사례 연구 · 가람시(가상)" 상자 안의 기관, 부서, 시스템, 수치는 모두 지어낸 것이다. 상자 밖 본문에 나오는 사례(PAX 사례 제목과 기관)와 수치는 카탈로그와 PAX 집계에서 가져온 것이다.</p>
+</aside>
+
+<h3>수치의 출처</h3>
+<p>책에 나오는 수치는 PAX 사례 아카이브 557건(2026년 10월 13일 원장 기준)에서 온다. 패턴 태깅과 4축 평가 모두 557건 전수를 대상으로 다시 집계했다. 사용 수를 세는 기준은 계층마다 다르다. B는 주 부품과 보조 부품을 함께 세고, C·S·F는 present와 implemented를 센다. present만 따로 센 수치는 본문에 그렇다고 밝혔다. 카탈로그 v0.7.1 문서가 작성될 당시의 수치를 인용할 때는 "카탈로그 v0.7.1 작성 당시(459건)"처럼 시점을 붙였다. 어느 기준인지는 그림과 표의 캡션에도 밝혀 두었다.</p>
+
+<h2>독자 유형별 읽기 경로</h2>
+<p>이 책의 독자는 넷으로 나뉜다. 기관에서 AX 과제를 기획하고 조립하는 담당자와 정보화 부서, 과제를 검토하고 판정하는 과제 검토자·감사 담당자, 업무 도구를 직접 만드는 공직 개인 개발자다. 그림 R.5와 표 R.4가 각자 먼저 읽을 장을 권한다. 어느 경로든 1장과 이 장은 공통이다.</p>
+
+<figure class="fig" id="fig-R-5"><div class="canvas"><svg viewBox="0 0 900 290" role="img" aria-label="담당자, 과제 검토자, 개발자 세 독자 유형의 권장 읽기 순서">
+<defs><marker id="ah-R-5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+<rect class="n person" x="20" y="24" width="170" height="60" rx="6"/><text class="t b" x="105" y="50" text-anchor="middle">AX 담당자</text><text class="t3" x="105" y="68" text-anchor="middle">정보화 부서 포함</text>
+<rect class="n person" x="20" y="114" width="170" height="60" rx="6"/><text class="t b" x="105" y="140" text-anchor="middle">과제 검토자</text><text class="t3" x="105" y="158" text-anchor="middle">검토 · 감사</text>
+<rect class="n person" x="20" y="204" width="170" height="60" rx="6"/><text class="t b" x="105" y="230" text-anchor="middle">공직 개인 개발자</text><text class="t3" x="105" y="248" text-anchor="middle">바이브 코딩 · MCP · 스킬</text>
+<rect class="n b" x="210" y="39" width="96" height="30" rx="6"/><text class="t2" x="258" y="59" text-anchor="middle">1장 패턴 언어</text>
+<rect class="n b" x="320" y="39" width="96" height="30" rx="6"/><text class="t2" x="368" y="59" text-anchor="middle">4장 서명</text>
+<rect class="n b" x="430" y="39" width="96" height="30" rx="6"/><text class="t2" x="478" y="59" text-anchor="middle">12장 조립</text>
+<rect class="n b" x="540" y="39" width="96" height="30" rx="6"/><text class="t2" x="588" y="59" text-anchor="middle">5~11장 계층</text>
+<rect class="n b" x="650" y="39" width="96" height="30" rx="6"/><text class="t2" x="698" y="59" text-anchor="middle">14장 안티패턴</text>
+<rect class="n b" x="760" y="39" width="96" height="30" rx="6"/><text class="t2" x="808" y="59" text-anchor="middle">16장 현재</text>
+<rect class="n c" x="210" y="129" width="96" height="30" rx="6"/><text class="t2" x="258" y="149" text-anchor="middle">2장 성숙도</text>
+<rect class="n c" x="320" y="129" width="96" height="30" rx="6"/><text class="t2" x="368" y="149" text-anchor="middle">4장 서명</text>
+<rect class="n c" x="430" y="129" width="96" height="30" rx="6"/><text class="t2" x="478" y="149" text-anchor="middle">⑤ 판정 절</text>
+<rect class="n c" x="540" y="129" width="96" height="30" rx="6"/><text class="t2" x="588" y="149" text-anchor="middle">15장 태깅</text>
+<rect class="n c" x="650" y="129" width="96" height="30" rx="6"/><text class="t2" x="698" y="149" text-anchor="middle">14장 안티패턴</text>
+<rect class="n c" x="760" y="129" width="96" height="30" rx="6"/><text class="t2" x="808" y="149" text-anchor="middle">부록 A·B</text>
+<rect class="n a" x="210" y="219" width="96" height="30" rx="6"/><text class="t2" x="258" y="239" text-anchor="middle">1장 패턴 언어</text>
+<rect class="n a" x="320" y="219" width="96" height="30" rx="6"/><text class="t2" x="368" y="239" text-anchor="middle">5장 B0·B1</text>
+<rect class="n a" x="430" y="219" width="96" height="30" rx="6"/><text class="t2" x="478" y="239" text-anchor="middle">7장 A7~A10</text>
+<rect class="n a" x="540" y="219" width="96" height="30" rx="6"/><text class="t2" x="588" y="239" text-anchor="middle">9장 S 계층</text>
+<rect class="n a" x="650" y="219" width="96" height="30" rx="6"/><text class="t2" x="698" y="239" text-anchor="middle">14장 X9</text>
+<rect class="n a" x="760" y="219" width="96" height="30" rx="6"/><text class="t2" x="808" y="239" text-anchor="middle">15장 등재</text>
+<path class="ln" d="M306,54 L318,54" marker-end="url(#ah-R-5)"/><path class="ln" d="M416,54 L428,54" marker-end="url(#ah-R-5)"/><path class="ln" d="M526,54 L538,54" marker-end="url(#ah-R-5)"/><path class="ln" d="M636,54 L648,54" marker-end="url(#ah-R-5)"/><path class="ln" d="M746,54 L758,54" marker-end="url(#ah-R-5)"/>
+<path class="ln" d="M306,144 L318,144" marker-end="url(#ah-R-5)"/><path class="ln" d="M416,144 L428,144" marker-end="url(#ah-R-5)"/><path class="ln" d="M526,144 L538,144" marker-end="url(#ah-R-5)"/><path class="ln" d="M636,144 L648,144" marker-end="url(#ah-R-5)"/><path class="ln" d="M746,144 L758,144" marker-end="url(#ah-R-5)"/>
+<path class="ln" d="M306,234 L318,234" marker-end="url(#ah-R-5)"/><path class="ln" d="M416,234 L428,234" marker-end="url(#ah-R-5)"/><path class="ln" d="M526,234 L538,234" marker-end="url(#ah-R-5)"/><path class="ln" d="M636,234 L648,234" marker-end="url(#ah-R-5)"/><path class="ln" d="M746,234 L758,234" marker-end="url(#ah-R-5)"/>
+</svg></div>
+<figcaption><b>그림 R.5</b> 독자 유형별 권장 읽기 순서. 담당자는 서명을 쓰고 조립하는 순서로, 과제 검토자는 눈금자와 판정 절 중심으로, 개인 개발자는 자기 도구가 속하는 부품과 공유·인수인계 쪽으로 읽는다.</figcaption></figure>
+
+<div class="tbl"><table><caption><b>표 R.4</b> 독자 유형별 출발점과 이 책에서 얻을 것</caption>
+<thead><tr><th>독자</th><th>먼저 읽을 곳</th><th>얻을 것</th></tr></thead>
+<tbody>
+<tr><td class="k">AX 담당자·정보화 부서</td><td>1장, 4장, 12장, 해당 계층 장, 부록 E</td><td>과제를 패턴 서명으로 쓰고, 환경 조건에 맞는 의존 부품을 끼우고, 기관 공통 부품을 찾는 법, 사업 단계마다 펼칠 안내서</td></tr>
+<tr><td class="k">과제 검토자</td><td>2장(2.12~2.16 판정 예시와 워크시트), 4장, 각 프로필의 ⑤ 판정, 15장</td><td>보고서에서 부품을 식별하고 present·implemented·planned를 가르는 기준, 안티패턴 점검표</td></tr>
+<tr><td class="k">공직 개인 개발자</td><td>5장 B0·B1, 7장 A7~A10, 9장, 14장 X9, 부록 F</td><td>자기 도구가 어느 부품인지, 부서 밖으로 퍼지려면 무엇을 갖춰야 하는지, 레지스트리 등재 방법, 비슷한 실제 사례의 배선</td></tr>
+<tr><td class="k">처음 읽는 모든 독자</td><td>사례 배경, 1장, 부록 A</td><td>가람시 이야기의 출발점과 107개 항목의 지도</td></tr>
+</tbody></table></div>
+
+<div class="summary"><h2>핵심 정리</h2><ul>
+<li>책은 1부 기초(1~4장), 2부 계층별 패턴 레퍼런스(5~11장), 3부 적용(12~17장), 부록 A~F로 이루어지고, 가람시(가상) 이야기가 1장부터 16장까지 이어진다.</li>
+<li>패턴 프로필은 명판·요구·의도·요약표·사용 현황, ①문제~⑥관계, 사례 연구·한눈에 보기·출처의 열네 부분으로 짜여 있다.</li>
+<li>색은 계층을 뜻한다. 붉은 점선 상자는 빠진 부품, 붉은 선은 문제 경로, 초록 선은 개선된 경로다.</li>
+<li>구현 상태는 present(운영 작동 기록)·implemented(구현, 실측 전)·planned(계획)로 나눈다.</li>
+<li>패턴은 ID 배지가 붙은 이름으로 가리키고, 배선은 화살표로 적는다(<code>A2.4 → B1 → C1 → C4</code>).</li>
+<li>담당자는 서명과 조립, 과제 검토자는 판정 절, 개인 개발자는 B0·A7~A10과 공유·인수인계 쪽에서 출발한다.</li>
+</ul></div>
+<nav class="pager"><a class="prev" href="preface.html"><small>← 이전</small>서문</a><a class="next" href="case-background.html"><small>다음 →</small>사례 배경: 가람시(가상)</a></nav></main></div><script>
+(function(){var b=document.querySelector('.navbtn');if(b){b.addEventListener('click',function(){var o=document.body.classList.toggle('toc-open');b.setAttribute('aria-expanded',o)});}
+document.querySelectorAll('.toc a').forEach(function(a){a.addEventListener('click',function(){document.body.classList.remove('toc-open')})});
+var on=document.querySelector('.toc a.on');if(on&&on.scrollIntoView){try{on.scrollIntoView({block:'center'})}catch(e){}}})();
+</script></body></html>

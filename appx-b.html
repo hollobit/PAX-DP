@@ -1,0 +1,192 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>판정 규칙 개정 이력 R1~R28 · 공공 AX 디자인 패턴</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700;800;900&family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap"><link rel="stylesheet" href="book.css"></head><body><div class="bar"><button class="navbtn" type="button" aria-controls="toc" aria-expanded="false">차례</button><a class="bk" href="index.html">공공 AX 디자인 패턴</a><span class="where">판정 규칙 개정 이력 R1~R28</span><span class="pn"><a href="appx-a.html">← 이전</a><a href="appx-c.html">다음 →</a></span></div><div class="layout"><nav class="toc" id="toc" aria-label="책 차례"><a href="index.html"><b>표지 · 차례</b></a><div class="part">앞붙이</div><a href="preface.html"><span class="n"></span>서문</a><a href="reading.html"><span class="n"></span>이 책을 읽는 법</a><a href="case-background.html"><span class="n"></span>사례 배경: 가람시(가상)</a><div class="part">1부 기초</div><a href="ch01.html"><span class="n">1</span>공공 AX와 패턴 언어</a><a href="ch02.html"><span class="n">2</span>AX 성숙도와 측정 눈금자</a><a href="ch03.html"><span class="n">3</span>디자인 패턴의 원리</a><a href="ch04.html"><span class="n">4</span>카탈로그의 구조</a><div class="part">2부 패턴 레퍼런스</div><a href="ch05.html"><span class="n">5</span>B 업무 컴포넌트</a><a href="ch06.html"><span class="n">6</span>B′ 제어 흐름 원형</a><a href="ch07.html"><span class="n">7</span>A 공통 서비스</a><a href="ch08.html"><span class="n">8</span>C 운영 컴포넌트</a><a href="ch09.html"><span class="n">9</span>S 보안 패턴</a><a href="ch10.html"><span class="n">10</span>F 상호작용 패턴</a><a href="ch11.html"><span class="n">11</span>D 서비스 블록</a><div class="part">3부 적용</div><a href="ch12.html"><span class="n">12</span>조립: 적용 절차와 서비스 유형별 템플릿</a><a href="ch13.html"><span class="n">13</span>조립 예시와 축 교차표</a><a href="ch14.html"><span class="n">14</span>안티패턴</a><a href="ch15.html"><span class="n">15</span>태깅·검증·참조 구현 레지스트리</a><a href="ch16.html"><span class="n">16</span>PAX 557건으로 본 공공 AX의 현재</a><a href="ch17.html"><span class="n">17</span>PAX 가이드라인과 리소스</a><div class="part">부록</div><a href="appx-a.html"><span class="n">A</span>패턴 한눈에 보기</a><a href="appx-b.html" class="on" aria-current="page"><span class="n">B</span>판정 규칙 개정 이력 R1~R28</a><a href="appx-c.html"><span class="n">C</span>용어집</a><a href="appx-d.html"><span class="n">D</span>참고문헌</a><a href="appx-e.html"><span class="n">E</span>공공 AX 가이드라인 문서 해설</a><a href="appx-f.html"><span class="n">F</span>사례 케이스북: PAX 사례로 읽는 패턴 활용</a></nav><main class="content" id="appx-b"><header class="chap-head"><div class="num-big">B</div><div class="eyebrow">부록 · 부록 B</div><h1>판정 규칙 개정 이력 R1~R28</h1><p class="lede">태깅을 해 보면 카탈로그가 틀린 곳이 드러난다. R1부터 R28까지는 사례를 정독하며 쌓인 피드백이 규칙으로 굳은 기록이다.</p><div class="goals"><b>이 장에서 얻을 것</b><ul><li>판마다 어떤 피드백이 어떤 규칙을 낳았는지 찾아본다</li><li>규칙이 앞선 규칙을 어떻게 고치고 대체했는지 계보로 따라간다</li><li>아직 스키마와 검증기에 반영되지 않은 규칙을 구분한다</li></ul></div></header>
+
+<p>카탈로그 v0.5까지의 판정 기준은 문헌에서 왔다. v0.6부터는 사정이 바뀌었다. 서브에이전트들이 사례 원문을 한 건씩 정독해 태깅했고, 태깅마다 카탈로그가 맞지 않는 지점을 피드백으로 남겼다. 그 피드백이 주제별로 묶여 번호 붙은 판정 규칙이 되었다. v0.6의 R1~R9, v0.7의 R10~R17, v0.7.1의 R18~R28이다.</p>
+
+<p>규칙은 태깅 기준 문서(<code>docs/패턴_분류기준.md</code>)의 본문보다 우선한다. 뒤 판의 규칙이 앞 판의 규칙을 모두 지우지는 않는다. v0.7 개정문은 R1~R9를 유지한다고 밝혔고, 앞 규칙을 대체하는 규칙은 그 사실을 조문에 직접 적어 둔다. 표 B.2~B.4는 규칙을 판별로 정리하고, 그림 B.2는 규칙이 서로를 고친 계보를 그린다.</p>
+
+<h2>판별 개요</h2>
+
+<p>그림 B.1은 카탈로그가 v0.3에서 v0.7.1까지 무엇을 근거로 무엇을 바꿨는지 한 줄로 늘어놓은 것이다. 번호 붙은 규칙은 사례 정독 태깅이 시작된 v0.6부터 나온다.</p>
+
+<figure class="fig" id="fig-B-1"><div class="canvas"><svg viewBox="0 0 900 250" role="img" aria-label="카탈로그 v0.3부터 v0.7.1까지의 판별 근거와 개정 내용 타임라인">
+<path class="ln thin" d="M20,56 L880,56"/>
+<text class="t b" x="82" y="32" text-anchor="middle">v0.3</text>
+<text class="t b" x="229" y="32" text-anchor="middle">v0.4</text>
+<text class="t b" x="376" y="32" text-anchor="middle">v0.5</text>
+<text class="t b tacc" x="523" y="32" text-anchor="middle">v0.6</text>
+<text class="t b tacc" x="670" y="32" text-anchor="middle">v0.7</text>
+<text class="t b tacc" x="817" y="32" text-anchor="middle">v0.7.1</text>
+<circle class="dot" cx="82" cy="56" r="5"/><circle class="dot" cx="229" cy="56" r="5"/><circle class="dot" cx="376" cy="56" r="5"/>
+<circle class="dot" cx="523" cy="56" r="5"/><circle class="dot" cx="670" cy="56" r="5"/><circle class="dot" cx="817" cy="56" r="5"/>
+<rect class="n" x="15" y="76" width="134" height="150" rx="6"/>
+<text class="t2" x="82" y="102" text-anchor="middle">PAX 459건 검증</text>
+<text class="t2" x="82" y="122" text-anchor="middle">E 환경 조건 신설</text>
+<text class="t2" x="82" y="142" text-anchor="middle">부품 6개 추가</text>
+<text class="t3" x="82" y="164" text-anchor="middle">A8·A9·A10</text>
+<text class="t3" x="82" y="180" text-anchor="middle">B0·B8·C8</text>
+<rect class="n" x="162" y="76" width="134" height="150" rx="6"/>
+<text class="t2" x="229" y="102" text-anchor="middle">문헌 10종</text>
+<text class="t2" x="229" y="122" text-anchor="middle">템플릿·등재·뷰</text>
+<text class="t2" x="229" y="142" text-anchor="middle">B′ 원형, F 계층</text>
+<text class="t2" x="229" y="162" text-anchor="middle">C9 평가 세트</text>
+<rect class="n" x="309" y="76" width="134" height="150" rx="6"/>
+<text class="t2" x="376" y="102" text-anchor="middle">보안 문헌 5종</text>
+<text class="t2" x="376" y="122" text-anchor="middle">S 보안 계층</text>
+<text class="t2" x="376" y="142" text-anchor="middle">위협×부품 매트릭스</text>
+<text class="t2" x="376" y="162" text-anchor="middle">신뢰 불가 입력</text>
+<text class="t2" x="376" y="178" text-anchor="middle">규칙</text>
+<rect class="n acc" x="456" y="76" width="134" height="150" rx="6"/>
+<text class="t2" x="523" y="102" text-anchor="middle">사례 정독 태깅</text>
+<text class="t2" x="523" y="122" text-anchor="middle">피드백 반영</text>
+<text class="tm tacc" x="523" y="150" text-anchor="middle">R1~R9</text>
+<text class="t3" x="523" y="176" text-anchor="middle">2026-09-19</text>
+<rect class="n acc" x="603" y="76" width="134" height="150" rx="6"/>
+<text class="t2" x="670" y="102" text-anchor="middle">PAX 459건 정독</text>
+<text class="t2" x="670" y="122" text-anchor="middle">피드백 반영</text>
+<text class="tm tacc" x="670" y="168" text-anchor="middle">R10~R17</text>
+<text class="t3" x="670" y="192" text-anchor="middle">2026-09-19</text>
+<rect class="n acc" x="750" y="76" width="134" height="150" rx="6"/>
+<text class="t2" x="817" y="102" text-anchor="middle">잔여 피드백</text>
+<text class="tm tacc" x="817" y="128" text-anchor="middle">R18~R28</text>
+<text class="t2" x="817" y="152" text-anchor="middle">문서만 개정</text>
+<text class="t3" x="817" y="172" text-anchor="middle">스키마·검증기</text>
+<text class="t3" x="817" y="188" text-anchor="middle">미적용</text>
+<text class="t3" x="817" y="210" text-anchor="middle">2026-09-21</text>
+</svg></div>
+<figcaption><b>그림 B.1</b> 카탈로그 판별 근거와 개정 내용. v0.5까지는 문헌과 PAX 원장으로 부품과 계층을 늘렸고, v0.6부터는 사례 정독 태깅의 피드백이 번호 붙은 판정 규칙(강조색)이 되었다. 459건은 당시 PAX 원장의 규모다.</figcaption></figure>
+
+<p>표 B.1은 번호 규칙이 붙은 세 판의 적용 상태를 정리한다. 문서는 개정되었는데 태깅 스키마와 검증기가 아직 따라오지 않은 규칙이 있어서, 적용 상태를 따로 적었다. 그런 규칙을 통계에 반영하려면 사례를 다시 정독해 태깅해야 한다.</p>
+
+<div class="tbl"><table><caption><b>표 B.1</b> 번호 규칙이 붙은 판과 적용 상태</caption>
+<thead><tr><th>판</th><th>날짜</th><th>근거</th><th>규칙</th><th>적용 상태</th></tr></thead>
+<tbody>
+<tr><td class="k">v0.6</td><td class="num">2026-09-19</td><td>첫 전수 정독 태깅의 피드백</td><td class="mono">R1~R9</td><td>PAX 459건 정독 태깅(v0.7)에 적용</td></tr>
+<tr><td class="k">v0.7</td><td class="num">2026-09-19</td><td>v0.6 규칙으로 사례를 다시 정독 태깅하며 나온 피드백</td><td class="mono">R10~R17</td><td>문서 개정. A2.0과 B′10은 태깅 스키마에 아직 없다</td></tr>
+<tr><td class="k">v0.7.1</td><td class="num">2026-09-21</td><td>태깅 완료 보고에 개별로 남은 잔여 피드백</td><td class="mono">R18~R28</td><td>문서만 개정. 스키마와 검증기 미적용, 재태깅 전</td></tr>
+</tbody></table></div>
+
+<h2>v0.6: 정독 태깅이 요구한 것 (R1~R9)</h2>
+
+<p>v0.6은 피드백을 주제별로 묶어 규칙으로 만들었다. 가장 자주 나온 지적은 환경·권한 어휘가 모자란다는 것이었고, 그다음이 B 우선순위표가 실제 가치 흐름과 부딪친다는 것이었다. 두 지적이 각각 R8과 R1이 되었다. 표 B.2의 이유 칸은 규칙을 낳은 지적을 한 줄로 줄인 것이다.</p>
+
+<div class="tbl"><table><caption><b>표 B.2</b> v0.6 판정 규칙 R1~R9</caption>
+<thead><tr><th>규칙</th><th>결정</th><th>이유</th><th>영향 받는 부품</th></tr></thead>
+<tbody>
+<tr><td class="k">R1</td><td>B 주 부품을 우선순위표 대신 가치 흐름 규칙으로 정한다. 사람이나 국민이 최종으로 받는 산출물을 만드는 부품이 주 부품이고, 파이프라인의 한 단계인 RAG·에이전트·비전 모델은 secondary와 control_flow에 적는다. 우선순위표는 기여도가 비슷할 때만 쓴다.</td><td>우선순위표가 실제 가치 흐름과 충돌</td><td>B0~B8 전부</td></tr>
+<tr><td class="k">R2</td><td>B6은 복수 LLM 역할, 도구 호출 루프, AI의 계획·도구 선택을 모두 갖춰야 한다. 고정 순서 파이프라인은 B′1을 가진 B1이나 B4이고, 스케줄러·크롤러 수준은 B6이 아니다.</td><td>B6 정의가 단일 에이전트·관문 내장·스케줄러를 못 가름</td><td><a class="pat lc-b" href="ch05.html#p-B6"><span class="pid">B6</span>에이전트 오케스트레이터</a>, <a class="pat lc-bp" href="ch06.html#p-Bp1"><span class="pid">B′1</span>순차 파이프라인</a></td></tr>
+<tr><td class="k">R3</td><td>모든 계층에 구현 상태 3단계(present, implemented, planned)를 둔다. C6·C7을 AX 하위점수와 떼어 내고, AI-Ready 이하 과제의 C6·C7은 planned로 강등한다. 전이 단계에 미착수와 구현·미배포를 더한다.</td><td>planned·구현됨 상태 부재, C6·C7 점수 연동이 운영 증거 원칙과 충돌</td><td>모든 부품, 특히 <a class="pat lc-c" href="ch08.html#p-C6"><span class="pid">C6</span>환류 파이프라인</a>·<a class="pat lc-c" href="ch08.html#p-C7"><span class="pid">C7</span>폴백 스위치</a></td></tr>
+<tr><td class="k">R4</td><td>신규 부품을 등재한다. B′9 결정론 판정 게이트, A2.5 비LLM 학습 모델, A2.6 벤더 블랙박스, A11 액추에이션 어댑터, A12 접근성 어댑터, F9·F10·F11, 후보 S12·S13, C1.2 심의 게이트. C5는 시스템 필터로 좁힌다.</td><td>판정·연산 분리에 이름 없음, XAI 표시 부재, 비LLM 모델 자리 없음, 음성·다국어 채널 부재, C5 경계, 물리 통지 채널 부재</td><td><a class="pat lc-bp" href="ch06.html#p-Bp9"><span class="pid">B′9</span>결정론 판정 게이트</a>, <a class="pat lc-a" href="ch07.html#p-A2_5"><span class="pid">A2.5</span>비LLM 학습 모델</a>, <a class="pat lc-a" href="ch07.html#p-A11"><span class="pid">A11</span>액추에이션·현장 통지 어댑터</a>, <a class="pat lc-f" href="ch10.html#p-F9"><span class="pid">F9</span>판정 근거·기여도 표시</a>, <a class="pat lc-c" href="ch08.html#p-C1_2"><span class="pid">C1.2</span>심의 게이트</a> 외</td></tr>
+<tr><td class="k">R5</td><td>B4 변형을 일곱 가지로, B5 변형을 다섯 가지로 늘리고 B5의 비전 전제를 지운다. 추출 결과가 사람 확정 없이 판정으로 흐르면 B4, 초안에서 멈추면 B1이다.</td><td>B4·B5 변형 부족</td><td><a class="pat lc-b" href="ch05.html#p-B4"><span class="pid">B4</span>인식 파이프라인</a>, <a class="pat lc-b" href="ch05.html#p-B5"><span class="pid">B5</span>현장 감지·경보</a></td></tr>
+<tr><td class="k">R6</td><td>S4·S5·S6은 도구 호출이나 시스템 쓰기가 있을 때만 판정한다. 보안 목적 서술 없이 구조만 일치하면 present에 structural을 단다. C8 승인 게이트는 S4~S6의 대체 통제로 인정하지 않는다.</td><td>S4·S5·S6 판정 전제 불명확</td><td><a class="pat lc-s" href="ch09.html#p-S4"><span class="pid">S4</span>행동 선택기</a>, <a class="pat lc-s" href="ch09.html#p-S5"><span class="pid">S5</span>계획 후 실행</a>, <a class="pat lc-s" href="ch09.html#p-S6"><span class="pid">S6</span>격리 LLM·맵리듀스</a></td></tr>
+<tr><td class="k">R7</td><td>서비스 유형 5를 5a(분석 대시보드·브리핑)와 5b(데이터 에이전트)로 나누고 10·11·12를 신설한다. 유형 3의 A5 요건을 완화하고 A11·C1을 더한다. 유형 1·7은 비LLM이면 C7·F7을 면제한다.</td><td>서비스 유형 공백, 필수 부품 불일치</td><td>유형별 필수 부품</td></tr>
+<tr><td class="k">R8</td><td>E 어휘를 보강한다. 배포망에 사내망·민간 클라우드(비CSAP)·온프레미스+아웃바운드, 실행 형태에 모바일 앱·웨어러블과 서버리스·SaaS 조합, 권한에 P2a 물리 작동을 더하고 P2·P3 판정 문장을 둔다.</td><td>환경·권한 어휘 공백</td><td>E1~E5, <a class="pat lc-c" href="ch08.html#p-C8"><span class="pid">C8</span>권한 경계·킬스위치</a></td></tr>
+<tr><td class="k">R9</td><td>안티패턴 X15 빌린 성과표, X16 기준을 노출하는 위조 탐지를 추가한다.</td><td>태깅 중 두 함정에 별도 이름을 붙여 달라는 요청</td><td><a class="pat lc-x" href="ch14.html#p-X15"><span class="pid">X15</span>빌린 성과표</a>, <a class="pat lc-x" href="ch14.html#p-X16"><span class="pid">X16</span>기준을 노출하는 위조 탐지</a></td></tr>
+</tbody></table></div>
+
+<aside class="key"><span class="lbl">핵심 요약</span><ul>
+<li>v0.6은 판정의 근거를 문헌에서 사례 태깅으로 옮겼다. 가장 큰 두 변화는 주 부품을 산출물로 고르는 R1과 구현 상태 3단계를 둔 R3이다.</li>
+<li>R4 한 조항이 부품 열한 개를 등재했다. 이후 판의 규칙 상당수가 이 부품들의 경계를 다시 긋는다.</li>
+</ul></aside>
+
+<h2>v0.7: 다시 읽고 고친 것 (R10~R17)</h2>
+
+<p>v0.7은 v0.6 규칙으로 사례를 다시 정독 태깅하며 나온 피드백을 R10~R17로 묶었다. PAX 사례(당시 원장 459건)를 처음 전수 정독 태깅한 것도 이때다. 가장 많이 지적된 것은 유형별 필수 부품이 에이전트나 학습 모델이 없는 사례에 구조적으로 맞지 않는다는 점이었다. B 주 부품의 가치 흐름 규칙에도 이견이 나왔지만 규칙은 손대지 않았고, 남은 이견은 사례마다 판단할 영역으로 받아들였다.</p>
+
+<div class="tbl"><table><caption><b>표 B.3</b> v0.7 판정 규칙 R10~R17</caption>
+<thead><tr><th>규칙</th><th>결정</th><th>이유</th><th>영향 받는 부품</th></tr></thead>
+<tbody>
+<tr><td class="k">R10</td><td>필수 부품에 대안을 명시한다. 5a는 A2.5 또는 결정론 점수 엔진, 5b는 S5 또는 S6 또는 C8 승인 게이트, 유형 10의 C2는 등급 자동분류가 있을 때만, 유형 3은 A5·A2.2·A2.5 중 하나에 물리 작동이 있을 때만 A11. MCP 서버 단독 사례는 A8·S11만 필수로 한다.</td><td>비에이전트·비ML 과제와 필수 부품 불일치, MCP 서버 단독 사례의 호스트 책임 부품이 늘 결손</td><td><a class="pat lc-a" href="ch07.html#p-A2_5"><span class="pid">A2.5</span>비LLM 학습 모델</a>, <a class="pat lc-a" href="ch07.html#p-A8"><span class="pid">A8</span>MCP 서버·호스트</a>, <a class="pat lc-c" href="ch08.html#p-C2"><span class="pid">C2</span>위험도 라우터</a>, <a class="pat lc-s" href="ch09.html#p-S11"><span class="pid">S11</span>인제스천·공급망 검증</a> 외</td></tr>
+<tr><td class="k">R11</td><td>B′9를 판정 모델 일반(LLM·VLM·비전 분류기·통계 모델)으로 넓히고, 규칙이 먼저 후보를 좁히는 역방향을 B′10으로 신설한다. S6은 보안 목적일 때만, B′9는 그 밖의 판정-확정 분리 구조에 쓴다.</td><td>B′9가 비전·통계 모델 동형 구조를 못 담음</td><td><a class="pat lc-bp" href="ch06.html#p-Bp9"><span class="pid">B′9</span>결정론 판정 게이트</a>, <a class="pat lc-bp" href="ch06.html#p-Bp10"><span class="pid">B′10</span>선게이트·후보축소</a>, <a class="pat lc-s" href="ch09.html#p-S6"><span class="pid">S6</span>격리 LLM·맵리듀스</a></td></tr>
+<tr><td class="k">R12</td><td>present로 판정하려면 운영이나 시범 기간에 실행 사이클(트리거, 처리, 결과 확인)이 한 번 이상 끝까지 돈 기록이 원문에 나와야 한다. 진행형·의지형 서술은 implemented가 상한이다. 화면 캡처와 코드는 implemented의 증거다.</td><td>C6·C7의 present와 implemented 경계가 태거마다 갈림</td><td><a class="pat lc-c" href="ch08.html#p-C6"><span class="pid">C6</span>환류 파이프라인</a>, <a class="pat lc-c" href="ch08.html#p-C7"><span class="pid">C7</span>폴백 스위치</a></td></tr>
+<tr><td class="k">R13</td><td>A2를 모델 서빙 계층으로 확정하고 A2.0(모델 미상)부터 A2.6(벤더 블랙박스)까지 일곱 단계로 정리한다.</td><td>모델 미상·비LLM 자체 학습 자리 부족</td><td><a class="pat lc-a" href="ch07.html#p-A2"><span class="pid">A2</span>모델 서빙 계층</a>, <a class="pat lc-a" href="ch07.html#p-A2_0"><span class="pid">A2.0</span>모델 미상</a></td></tr>
+<tr><td class="k">R14</td><td>A11을 A11a 물리 액추에이션(P2a)과 A11b 통지·알림 채널로 나눈다. 유형 3의 필수는 A11a만 가리킨다.</td><td>물리 작동과 소프트웨어 통지가 한 부품에 묶임</td><td><a class="pat lc-a" href="ch07.html#p-A11"><span class="pid">A11</span>액추에이션·현장 통지 어댑터</a></td></tr>
+<tr><td class="k">R15</td><td>B0 변형에 도구 허브, 데스크톱 유틸리티·RPA, 규칙 편성·최적화, 알림·컨텍스트 복귀, 실시간 현황판, 절차·근거 흐름도, 결정적 재식별을 더한다. B2를 비학습 최적화 알고리즘까지 넓힌다.</td><td>B0 변형이 PAX 자생 도구 구조를 못 담음</td><td><a class="pat lc-b" href="ch05.html#p-B0"><span class="pid">B0</span>결정적 도구</a>, <a class="pat lc-b" href="ch05.html#p-B2"><span class="pid">B2</span>예측·추천기</a></td></tr>
+<tr><td class="k">R16</td><td>전이 단계에 커뮤니티 공개와 참고 사례(민간·해외)를 더하고 개발 중을 구현·미배포로 통일한다. C1에 이용자 본인이 확정하는 자기서비스형을 포함하고 C1.2는 제3자 전문가 심의로 좁힌다.</td><td>전이 단계 값 부족, C1.2와 C1의 경계</td><td><a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span>검토 큐</a>, <a class="pat lc-c" href="ch08.html#p-C1_2"><span class="pid">C1.2</span>심의 게이트</a></td></tr>
+<tr><td class="k">R17</td><td>F에도 present와 planned를 둔다. 서비스 유형 13 비식별·정제 도구(D8.8 전용, 필수 C5·F7)를 신설한다. 순수 검색과 내부 규정 QA는 유형 7이나 5a로 흡수한다.</td><td>F 상태 구분 누락, 유형 공백</td><td>F1~F11, <a class="pat lc-d" href="ch11.html#p-D8_8"><span class="pid">D8.8</span>보호·정제</a></td></tr>
+</tbody></table></div>
+
+<h2>v0.7.1: 태깅이 끝난 뒤 남은 것 (R18~R28)</h2>
+
+<p>v0.7 태깅이 끝난 뒤에도 서브에이전트들은 완료 보고에 개별 피드백을 남겼다. 건수는 적지만 대부분 서비스 유형의 경계에 관한 것이었다. R18~R26은 PAX 사례 태깅에서, R27·R28은 태깅 재검토에서 나왔다. 이 판의 규칙은 문서에만 반영되어 있다.</p>
+
+<div class="tbl"><table><caption><b>표 B.4</b> v0.7.1 판정 규칙 R18~R28</caption>
+<thead><tr><th>규칙</th><th>결정</th><th>출처</th><th>영향 받는 부품</th></tr></thead>
+<tbody>
+<tr><td class="k">R18</td><td>5b를 5b-server(서버 제공자, 필수 A8·S11·문서화된 스키마)와 5b-host(호출자, 필수 C4·F1·S5 또는 S6)로 나눈다.</td><td>PAX 태깅(4건)</td><td><a class="pat lc-a" href="ch07.html#p-A8"><span class="pid">A8</span>MCP 서버·호스트</a>, <a class="pat lc-s" href="ch09.html#p-S11"><span class="pid">S11</span>인제스천·공급망 검증</a>, <a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span>감사 로그·지표</a></td></tr>
+<tr><td class="k">R19</td><td>5a를 5a-brief(LLM 브리핑형, 필수 A2.1·A2.2·A2.6 중 하나, F9, C9)와 5a-agg(비LLM 집계형, 필수 A1·F2·C4)로 나눈다.</td><td>PAX 태깅(3건 이상)</td><td><a class="pat lc-f" href="ch10.html#p-F9"><span class="pid">F9</span>판정 근거·기여도 표시</a>, <a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span>평가 세트·회귀시험</a>, <a class="pat lc-a" href="ch07.html#p-A1"><span class="pid">A1</span>데이터 자산 서비스</a></td></tr>
+<tr><td class="k">R20</td><td>유형 2를 2a 기관 접수·심사와 2b 시민 제출 준비(필수 C1 자기확인 게이트, F2)로 나눈다.</td><td>PAX 태깅(2건)</td><td><a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span>검토 큐</a>, <a class="pat lc-f" href="ch10.html#p-F2"><span class="pid">F2</span>편집 가능한 출력</a></td></tr>
+<tr><td class="k">R21</td><td>유형 1의 A2 요건에 비LLM 결정론 조회일 때 A1로 대체해도 된다는 단서를 붙인다.</td><td>PAX 태깅(1건)</td><td><a class="pat lc-a" href="ch07.html#p-A2"><span class="pid">A2</span>모델 서빙 계층</a>, <a class="pat lc-a" href="ch07.html#p-A1"><span class="pid">A1</span>데이터 자산 서비스</a></td></tr>
+<tr><td class="k">R22</td><td>유형 12의 모델 요건을 A2.1 또는 A2.2로 완화하고, A2.1이면 C7 부재 경고를 유지한다.</td><td>PAX 태깅(3건)</td><td><a class="pat lc-a" href="ch07.html#p-A2_1"><span class="pid">A2.1</span>상용 API 호출</a>, <a class="pat lc-a" href="ch07.html#p-A2_2"><span class="pid">A2.2</span>주권형 온프레미스</a>, <a class="pat lc-c" href="ch08.html#p-C7"><span class="pid">C7</span>폴백 스위치</a></td></tr>
+<tr><td class="k">R23</td><td>문서 라우팅 도구는 승인·반려를 판단하는 목적이 있으면 유형 2, 형식·경로 변환과 전달만 하면 유형 8로 태깅한다.</td><td>PAX 태깅(1건)</td><td><a class="pat lc-d" href="ch11.html#p-D8_6"><span class="pid">D8.6</span>분배·이관</a></td></tr>
+<tr><td class="k">R24</td><td>AI 런타임이 전혀 없는 행정정보시스템은 유형 0, platform 공란, X1을 적고 B0으로 태깅한다. 통계에서는 AI 무관 행정시스템으로 따로 각주한다.</td><td>PAX 태깅(2건)</td><td><a class="pat lc-b" href="ch05.html#p-B0"><span class="pid">B0</span>결정적 도구</a>, <a class="pat lc-x" href="ch14.html#p-X1"><span class="pid">X1</span>AI 스티커</a></td></tr>
+<tr><td class="k">R25</td><td>B7-c 커뮤니티 지식화와 B6-f 에이전트 함대 오케스트레이션을 각각 B7·B6의 변형으로 등재한다.</td><td>PAX 태깅(2건)</td><td><a class="pat lc-b" href="ch05.html#p-B7"><span class="pid">B7</span>콘텐츠 생성기</a>, <a class="pat lc-b" href="ch05.html#p-B6"><span class="pid">B6</span>에이전트 오케스트레이터</a></td></tr>
+<tr><td class="k">R26</td><td>시민이 행정 제출 서류를 스스로 준비하는 도구는 2b를 먼저 적용하고, 접수 기관 연동이 전혀 없으면 유형 0에 민원지원도구 태그를 붙인다. 유형 14 신설은 보류한다.</td><td>PAX 태깅(1건)</td><td>서비스 유형 2b·0</td></tr>
+<tr><td class="k">R27</td><td>신뢰 불가 입력을 격리 LLM에 넣고 그 출력을 규칙 엔진이 확정하는 사례에는 S6과 B′9를 함께 태깅한다. 두 부품은 상호 배타가 아니다.</td><td>태깅 재검토</td><td><a class="pat lc-s" href="ch09.html#p-S6"><span class="pid">S6</span>격리 LLM·맵리듀스</a>, <a class="pat lc-bp" href="ch06.html#p-Bp9"><span class="pid">B′9</span>결정론 판정 게이트</a></td></tr>
+<tr><td class="k">R28</td><td>배포망에 모바일 앱 값을 더한다. 사례가 쓴 데이터가 실사용인지 샘플·시뮬레이션인지 적는 data_realism 축은 다음 개정에서 검토한다.</td><td>태깅 재검토</td><td>E1, <a class="pat lc-x" href="ch14.html#p-X6"><span class="pid">X6</span>데모웨어</a></td></tr>
+</tbody></table></div>
+
+<p>2판을 준비하며 PAX에 새로 들어온 76건을 같은 기준으로 태깅했다. 새 태깅에서 나온 피드백은 R16(전이 단계, C1과 C1.2의 경계), R18·R19(5b·5a 하위유형), R21(유형 1에서 A1 대체), R22(유형 12의 모델 요건 완화)를 다시 지지했다. 같은 규칙이 새 사례에도 들어맞았다는 뜻이다.</p>
+
+<h2>규칙의 계보</h2>
+
+<p>규칙은 서로를 고친다. R4가 등재한 B′9는 R11에서 범위가 넓어졌고, R27에서 S6과의 배타 관계가 풀렸다. R7이 재편한 서비스 유형의 필수 부품은 R10에서 대안을 얻었고, R18~R22에서 다시 하위유형으로 갈라졌다. 그래서 태깅 결과를 읽을 때는 그 사례가 어느 판의 규칙으로 태깅되었는지부터 확인해야 한다. 그림 B.2는 주요 계보 일곱 줄기를 판별 열로 나란히 놓은 것이다.</p>
+
+<figure class="fig" id="fig-B-2"><div class="canvas"><svg viewBox="0 0 900 400" role="img" aria-label="판정 규칙의 계보: v0.6 규칙이 v0.7, v0.7.1 규칙으로 고쳐지는 일곱 줄기">
+<defs><marker id="ah-B-2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+<text class="t b" x="145" y="26" text-anchor="middle">v0.6 · R1~R9</text>
+<text class="t b" x="450" y="26" text-anchor="middle">v0.7 · R10~R17</text>
+<text class="t b" x="755" y="26" text-anchor="middle">v0.7.1 · R18~R28</text>
+<rect class="n" x="20" y="44" width="250" height="34" rx="6"/><text class="t" x="145" y="66" text-anchor="middle">R4 · B′9 결정론 판정 게이트</text>
+<rect class="n acc" x="325" y="44" width="250" height="34" rx="6"/><text class="t" x="450" y="66" text-anchor="middle">R11 · B′9 일반화, B′10 신설</text>
+<rect class="n acc" x="630" y="44" width="250" height="34" rx="6"/><text class="t" x="755" y="66" text-anchor="middle">R27 · S6·B′9 동시 태깅 허용</text>
+<path class="ln" d="M270,61 L321,61" marker-end="url(#ah-B-2)"/><path class="ln" d="M575,61 L626,61" marker-end="url(#ah-B-2)"/>
+<rect class="n" x="20" y="92" width="250" height="34" rx="6"/><text class="t" x="145" y="114" text-anchor="middle">R4 · A2.5·A2.6 신설</text>
+<rect class="n acc" x="325" y="92" width="250" height="34" rx="6"/><text class="t" x="450" y="114" text-anchor="middle">R13 · A2.0~A2.6 일곱 단계</text>
+<path class="ln" d="M270,109 L321,109" marker-end="url(#ah-B-2)"/>
+<rect class="n" x="20" y="140" width="250" height="34" rx="6"/><text class="t" x="145" y="162" text-anchor="middle">R4 · A11 액추에이션 어댑터</text>
+<rect class="n acc" x="325" y="140" width="250" height="34" rx="6"/><text class="t" x="450" y="162" text-anchor="middle">R14 · A11a / A11b 분리</text>
+<path class="ln" d="M270,157 L321,157" marker-end="url(#ah-B-2)"/>
+<rect class="n" x="20" y="188" width="250" height="34" rx="6"/><text class="t" x="145" y="210" text-anchor="middle">R7 · 서비스 유형 재편</text>
+<rect class="n acc" x="325" y="188" width="250" height="34" rx="6"/><text class="t" x="450" y="210" text-anchor="middle">R10 · 필수 부품에 대안 명시</text>
+<rect class="n acc" x="630" y="188" width="250" height="34" rx="6"/><text class="t" x="755" y="210" text-anchor="middle">R18~R22 · 유형 세분·완화</text>
+<path class="ln" d="M270,205 L321,205" marker-end="url(#ah-B-2)"/><path class="ln" d="M575,205 L626,205" marker-end="url(#ah-B-2)"/>
+<rect class="n" x="20" y="236" width="250" height="34" rx="6"/><text class="t" x="145" y="258" text-anchor="middle">R3 · 구현 상태 3단계</text>
+<rect class="n acc" x="325" y="236" width="250" height="34" rx="6"/><text class="t" x="450" y="258" text-anchor="middle">R12 · 1회 완결 실행 사이클</text>
+<path class="ln" d="M270,253 L321,253" marker-end="url(#ah-B-2)"/>
+<rect class="n" x="20" y="284" width="250" height="34" rx="6"/><text class="t" x="145" y="306" text-anchor="middle">R4 · C1.2 심의 게이트</text>
+<rect class="n acc" x="325" y="284" width="250" height="34" rx="6"/><text class="t" x="450" y="306" text-anchor="middle">R16 · C1·C1.2 경계 정리</text>
+<path class="ln" d="M270,301 L321,301" marker-end="url(#ah-B-2)"/>
+<rect class="n" x="20" y="332" width="250" height="34" rx="6"/><text class="t" x="145" y="354" text-anchor="middle">R8 · E 어휘 보강</text>
+<rect class="n acc" x="630" y="332" width="250" height="34" rx="6"/><text class="t" x="755" y="354" text-anchor="middle">R28 · 모바일 앱, data_realism</text>
+<path class="ln dash" d="M270,349 L626,349" marker-end="url(#ah-B-2)"/>
+<text class="t3" x="450" y="390" text-anchor="middle">실선은 앞 규칙을 고치거나 세분한 관계, 점선은 판을 건너뛴 보완이다.</text>
+</svg></div>
+<figcaption><b>그림 B.2</b> 판정 규칙의 계보. 왼쪽 열의 v0.6 규칙이 오른쪽 열의 규칙으로 고쳐지거나 세분된다. 같은 줄의 규칙을 함께 읽어야 그 부품의 현재 판정 기준이 나온다.</figcaption></figure>
+
+<aside class="warn"><span class="lbl">주의</span>R18~R28은 검증기가 아직 검사하지 않는다. 이 책의 PAX 사용 통계(557건)는 v0.7까지의 스키마로 태깅된 결과이므로, 5a-brief·5b-host 같은 하위유형이나 A2.0·B′10은 통계에 나타나지 않는다.</aside>
+
+<h2>번호 밖의 판정 규칙</h2>
+
+<p>R 번호가 붙지 않았지만 태깅에서 늘 쓰는 규칙이 카탈로그 §4.2에 있다. 이 규칙들은 v0.4와 v0.5에서 문헌을 근거로 정해졌고, R 규칙과 함께 적용된다.</p>
+
+<ul>
+<li><strong>최소 요건.</strong> 이름·동기·해법·결과가 없는 항목은 패턴이 아니다. 기술명(RAG, MCP, 에이전트)만으로는 등재하지 않는다.</li>
+<li><strong>Rule of Three.</strong> 태깅한 사례에서 독립된 사용례가 3건 이상이면 확립, 1~2건이면 후보다. 후보는 카탈로그에 남되 통계에서 따로 센다.</li>
+<li><strong>신뢰 불가 입력 규칙.</strong> E4가 P2 이상이고 외부 문서·검색 결과·도구 출력·대민 입력을 읽는 부품은 <a class="pat lc-s" href="ch09.html#p-S4"><span class="pid">S4</span>행동 선택기</a>, <a class="pat lc-s" href="ch09.html#p-S5"><span class="pid">S5</span>계획 후 실행</a>, <a class="pat lc-s" href="ch09.html#p-S6"><span class="pid">S6</span>격리 LLM·맵리듀스</a> 중 하나를 갖춰야 한다. 탐지형인 <a class="pat lc-s" href="ch09.html#p-S8"><span class="pid">S8</span>독립 검증기</a>만으로는 충족되지 않는다.</li>
+<li><strong>변형은 소수점.</strong> 같은 문제에 다른 해법이면 변형(A2.4처럼 소수점 번호), 문제가 다르면 별도 패턴이다.</li>
+<li><strong>퇴출.</strong> 환경이 바뀌어 문제가 사라지면 그 패턴은 안티패턴 목록으로 옮긴다. <a class="pat lc-b" href="ch05.html#p-B8"><span class="pid">B8</span>레거시 오버레이</a>는 표준 시스템에 <a class="pat lc-a" href="ch07.html#p-A8"><span class="pid">A8</span>MCP 서버·호스트</a>가 열리는 순간 퇴출 대상이 된다.</li>
+</ul>
+
+<div class="summary"><h2>핵심 정리</h2><ul>
+<li>R1~R28은 사례를 정독 태깅하며 나온 피드백을 주제별로 묶은 판정 규칙이다. 기준 문서 본문보다 우선한다.</li>
+<li>v0.6(R1~R9)은 사례를 처음 전수 정독 태깅하며 나온 피드백에서, v0.7(R10~R17)은 v0.6 규칙으로 사례를 다시 정독 태깅하며 나온 피드백에서, v0.7.1(R18~R28)은 태깅 완료 보고에 남은 잔여 피드백에서 나왔다. 2판의 신규 76건 태깅은 R16·R18·R19·R21·R22를 다시 지지했다.</li>
+<li>R1 가치 흐름 규칙과 R3 구현 상태 3단계가 판정 방식을 가장 크게 바꿨고, R12가 present의 문턱을 1회 완결 실행 사이클로 못 박았다.</li>
+<li>서비스 유형의 필수 부품은 R7, R10, R18~R22를 거치며 대안과 하위유형을 얻었다.</li>
+<li>B′9는 R4에서 등재된 뒤 R11에서 범위가 넓어졌고, R27부터 S6과 함께 태깅된다.</li>
+<li>v0.7.1 규칙과 A2.0·B′10은 아직 스키마와 검증기에 없으므로, 현재 통계는 그 이전 판의 기준으로 읽는다.</li>
+</ul></div>
+<nav class="pager"><a class="prev" href="appx-a.html"><small>← 이전</small>패턴 한눈에 보기</a><a class="next" href="appx-c.html"><small>다음 →</small>용어집</a></nav></main></div><script>
+(function(){var b=document.querySelector('.navbtn');if(b){b.addEventListener('click',function(){var o=document.body.classList.toggle('toc-open');b.setAttribute('aria-expanded',o)});}
+document.querySelectorAll('.toc a').forEach(function(a){a.addEventListener('click',function(){document.body.classList.remove('toc-open')})});
+var on=document.querySelector('.toc a.on');if(on&&on.scrollIntoView){try{on.scrollIntoView({block:'center'})}catch(e){}}})();
+</script></body></html>

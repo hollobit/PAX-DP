@@ -1,0 +1,65 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>서문 · 공공 AX 디자인 패턴</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700;800;900&family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap"><link rel="stylesheet" href="book.css"></head><body><div class="bar"><button class="navbtn" type="button" aria-controls="toc" aria-expanded="false">차례</button><a class="bk" href="index.html">공공 AX 디자인 패턴</a><span class="where">서문</span><span class="pn"><a href="reading.html">다음 →</a></span></div><div class="layout"><nav class="toc" id="toc" aria-label="책 차례"><a href="index.html"><b>표지 · 차례</b></a><div class="part">앞붙이</div><a href="preface.html" class="on" aria-current="page"><span class="n"></span>서문</a><a href="reading.html"><span class="n"></span>이 책을 읽는 법</a><a href="case-background.html"><span class="n"></span>사례 배경: 가람시(가상)</a><div class="part">1부 기초</div><a href="ch01.html"><span class="n">1</span>공공 AX와 패턴 언어</a><a href="ch02.html"><span class="n">2</span>AX 성숙도와 측정 눈금자</a><a href="ch03.html"><span class="n">3</span>디자인 패턴의 원리</a><a href="ch04.html"><span class="n">4</span>카탈로그의 구조</a><div class="part">2부 패턴 레퍼런스</div><a href="ch05.html"><span class="n">5</span>B 업무 컴포넌트</a><a href="ch06.html"><span class="n">6</span>B′ 제어 흐름 원형</a><a href="ch07.html"><span class="n">7</span>A 공통 서비스</a><a href="ch08.html"><span class="n">8</span>C 운영 컴포넌트</a><a href="ch09.html"><span class="n">9</span>S 보안 패턴</a><a href="ch10.html"><span class="n">10</span>F 상호작용 패턴</a><a href="ch11.html"><span class="n">11</span>D 서비스 블록</a><div class="part">3부 적용</div><a href="ch12.html"><span class="n">12</span>조립: 적용 절차와 서비스 유형별 템플릿</a><a href="ch13.html"><span class="n">13</span>조립 예시와 축 교차표</a><a href="ch14.html"><span class="n">14</span>안티패턴</a><a href="ch15.html"><span class="n">15</span>태깅·검증·참조 구현 레지스트리</a><a href="ch16.html"><span class="n">16</span>PAX 557건으로 본 공공 AX의 현재</a><a href="ch17.html"><span class="n">17</span>PAX 가이드라인과 리소스</a><div class="part">부록</div><a href="appx-a.html"><span class="n">A</span>패턴 한눈에 보기</a><a href="appx-b.html"><span class="n">B</span>판정 규칙 개정 이력 R1~R28</a><a href="appx-c.html"><span class="n">C</span>용어집</a><a href="appx-d.html"><span class="n">D</span>참고문헌</a><a href="appx-e.html"><span class="n">E</span>공공 AX 가이드라인 문서 해설</a><a href="appx-f.html"><span class="n">F</span>사례 케이스북: PAX 사례로 읽는 패턴 활용</a></nav><main class="content" id="preface"><header class="chap-head"><div class="eyebrow">앞붙이</div><h1>서문</h1><p class="lede">공직자와 커뮤니티가 공유한 PAX 공공 AX 사례 557건을 AI·에이전트·보안 패턴 문헌과 겹쳐 읽으며 만든 공공 AX 패턴 카탈로그를 한 권의 책으로 엮었다. 이 책이 나온 배경과 목표, 독자, 다루지 않는 것, 2판에서 바뀐 것을 적는다.</p><div class="goals"><b>이 장에서 얻을 것</b><ul><li>이 책이 어떤 자료에서 나왔는지 안다</li><li>이 책의 목표와 범위를 안다</li><li>2판에서 무엇이 바뀌었는지 안다</li></ul></div></header>
+
+<h2>사례 원장에서 시작한 책</h2>
+<p>이 책은 사례 557건을 끝까지 읽은 기록에서 출발한다. PAX 공공 AX 사례 아카이브는 공직자 개인과 커뮤니티, 기관이 공개한 AI 활용 도구와 서비스를 모은 원장이다. 2026년 10월 13일 갱신 기준으로 557건이 올라 있다. 그중 333건은 공직자 개인이 직접 만든 도구이고, 104건은 커뮤니티가 함께 만든 것이다. 열에 여덟 가까이가 현장에서 자라났다. 기관이 공식으로 내놓은 사례는 54건에 그친다. 패턴 태깅으로 보면 실행할 때 LLM을 부르지 않는 사례가 296건이고, 네트워크 요건상 181건이 인터넷 없이 로컬 PC나 폐쇄망에서 돈다.</p><figure class="fig screen"><img src="img/ad-same-problem.jpg" alt="같은 문제를, 몇 번이나 다시 풀고 있을까요?" loading="lazy"><figcaption><b>화면 P.1</b>같은 문제를 기관마다, 사람마다 다시 푼다는 물음에서 이 책이 출발했다. <span class="src">쇼릴 「공공 AX 디자인 패턴」(2026년 9월 제작)의 한 장면. 화면 속 수치는 제작 당시 기준이다.</span></figcaption></figure>
+<p>사례만으로는 패턴이 되지 않는다. 같은 구조가 여러 사례에 되풀이되는 것을 알아보려면 이름과 형식이 먼저 있어야 한다. 그 이름과 형식은 AI·에이전트 디자인 패턴 문헌과 보안 패턴 문헌에서 빌려 왔다. 문헌은 에이전트의 제어 흐름과 적대자를 전제한 방어 부품을 정리해 두었지만, 망분리와 HWPX와 온나라가 있는 공공의 사정은 모른다. 사례 원장은 그 사정을 알지만 스스로 이름을 붙이지 못한다. 이 책은 두 자료를 겹쳐 읽은 결과다. 현장 공무원이 만든 엑셀 변환기와 MCP 서버에 문헌의 이름을 붙이고, 문헌에 없던 공공의 부품과 환경 조건을 카탈로그에 새로 적었다.</p>
+<p>카탈로그의 첫 판 v0.2는 공통 서비스·업무 컴포넌트·운영 컴포넌트 세 계층으로 시작했다. PAX 사례에 대어 보자 환경 조건이라는 계층이 필요해졌다. AI·에이전트 패턴 문헌에서는 패턴의 형식이, 보안 패턴 문헌에서는 보안 계층이 들어왔다. 그 뒤로는 카탈로그를 사례 전수에 적용하고, 태깅에서 나온 피드백으로 판정 규칙을 차례로 고쳤다. 그렇게 이른 판이 v0.7.1이고, 그 경과는 1장 1.4절에 적었다.</p>
+
+<h2>2판에서 바뀐 것</h2>
+<p>1판을 낸 뒤 PAX 원장은 557건으로 늘었다. 2판은 이 557건을 책 전체의 기준으로 삼았고, 새로 들어온 76건까지 v0.7.1 규칙으로 전수 태깅했다. 책에 실린 사용 사례 수, 주 부품 분포, 필수 부품 결손, 전이 단계 같은 수치를 모두 557건 기준으로 다시 계산했다. 2장 AX 성숙도는 단계별 정의와 관문, 판정 절차, 눈금자와 보조축, 강등 경로까지 넓혀 다시 썼다. 같은 장에는 전종홍의 미발행 원고 『AI 네이티브 핸드북 2026』에서 AX 전환 4단계의 전기 비유·함정·전환 경로와 아홉 가지 설계 원칙을 받아 공공 맥락으로 옮겨 넣었다. 마지막으로 17장 「PAX 가이드라인과 리소스」를 새로 두었다. PAX 사이트의 가이드라인, 성숙도 인포그래픽, 플레이북, MCP 검토, 갭 맵 같은 페이지를 이 책의 장과 패턴에 이어 쓰는 법을 그 장에 모았다.</p>
+
+<h2>이 책이 엮는 것</h2>
+<p>이 책은 새 이론을 내놓지 않는다. 이미 만들어 둔 다섯 가지 자료를 한 권으로 엮어 처음부터 끝까지 읽히게 했다.</p>
+
+<div class="tbl"><table><caption><b>표 P.1</b> 이 책의 바탕 자료</caption>
+<thead><tr><th>자료</th><th>내용</th><th>책에서 쓰이는 곳</th></tr></thead>
+<tbody>
+<tr><td class="k">공공 AX 디자인 패턴 카탈로그 v0.7.1</td><td>검토 결과, 분류 원칙, 정형화, 환경 조건, 컴포넌트 카탈로그, 적용 절차, 축 교차표, 조립 예시, 표본 적용 결과, 안티패턴, 태깅 규칙, 참조 구현 레지스트리</td><td>1부와 3부의 본문</td></tr>
+<tr><td class="k">패턴 디렉터리</td><td>107개 항목의 정형화된 서술(동기·맥락·힘·해법·변형·사용 절차·판정·관계)</td><td>2부 패턴 프로필</td></tr>
+<tr><td class="k">공공AX 패턴 성좌</td><td>PAX 사례의 패턴 태깅과 공동 출현을 3D로 보여 주는 뷰(557건 전수 태깅)와 패턴 디렉터리. <a href="https://claude.ai/artifact/1pBfra9n13S7Un9JESWRVS">https://claude.ai/artifact/1pBfra9n13S7Un9JESWRVS</a></td><td>프로필의 사용 현황과 성좌 링크, 16장의 통계, 17.10절, 부록 F</td></tr>
+<tr><td class="k">PAX 사이트의 가이드라인과 리소스</td><td>AX 성숙도 기준과 인포그래픽, 가이드라인, 플레이북, MCP 검토, 갭 맵, 관측소</td><td>2장, 17장</td></tr>
+<tr><td class="k">인포그래픽 8장</td><td>패턴의 정의, 전체 아키텍처, 계층별 요약, 안티패턴과 서비스 유형</td><td>장별 그림의 출발점</td></tr>
+</tbody></table></div>
+
+<p>책의 형식은 두 권의 참고서에서 빌렸다. Thomas Erl의 SOA 디자인 패턴 책에서는 패턴마다 질문형 요구, 프로필 요약표, 문제 그림과 해법 그림의 짝, 적용·영향·관계, 가상 기관의 사례 연구를 두는 형식을 가져왔다. Antonio Gulli의 『Agentic Design Patterns』에서는 패턴마다 끝에 무엇·왜·경험칙 세 줄을 두는 한눈에 보기와 장 끝의 핵심 정리를 가져왔다. 문장은 옮기지 않고 구조만 빌렸다. 두 형식이 이 책의 어디에 대응하는지는 3장에서 설명한다.</p>
+
+<h2>이 책의 목표</h2>
+<ul>
+<li>공공 AI 과제를 기술명 대신 사람과 AI의 역할 분담과 부품의 조립으로 읽는 공통 언어를 만든다.</li>
+<li>카탈로그의 107개 항목을 같은 형식의 프로필로 정리해, 필요한 패턴 하나만 펼쳐도 문제·해법·적용·영향·판정을 찾을 수 있게 한다.</li>
+<li>과제 하나를 패턴 서명으로 쓰고, 환경 조건에 맞춰 필요한 부품을 끼우는 절차를 단계별로 보여 준다.</li>
+<li>보고서와 사례 설명에서 부품을 식별하고 구현 상태를 판정하는 기준을 과제 검토자와 담당자가 함께 쓸 수 있게 한다.</li>
+<li>PAX 557건에서 드러난 공공 AX의 빈칸, 특히 운영 부품과 보안 부품의 결손을 수치로 보여 준다.</li>
+<li>현장에서 만든 좋은 부품이 개인 PC를 떠나 부서와 기관, 다른 기관으로 옮겨 갈 경로를 제시한다.</li>
+</ul>
+
+<h2>누구를 위한 책인가</h2>
+<p>이 책은 공공 AX를 직접 다루는 네 부류의 독자를 염두에 두었다.</p>
+<ul>
+<li><strong>공공기관 AX 담당자.</strong> 기관 안의 AI 요구를 받아 과제로 만들고 조립하는 사람. 부서마다 들어오는 "챗봇 구축" 요청을 부품으로 다시 읽고 싶은 사람.</li>
+<li><strong>정보화 부서.</strong> 망 구성, 모델 서버, 권한, 로그를 책임지는 사람. 어떤 부품을 기관 공통으로 올려야 하는지 판단하고 싶은 사람.</li>
+<li><strong>과제 검토자·감사 담당자.</strong> 공공 AI 과제를 검토하고 성숙도를 판정하는 사람. 보고서 문장에서 실제로 작동하는 부품과 계획만 있는 부품을 가르고 싶은 사람.</li>
+<li><strong>공직 개인 개발자.</strong> AI 코딩 도구로 업무 도구, MCP 서버, 스킬을 직접 만드는 사람. 자기 도구가 부서 밖으로 퍼지려면 무엇을 갖춰야 하는지 알고 싶은 사람.</li>
+</ul>
+<p>독자 유형별 읽기 경로는 다음 장 「이 책을 읽는 법」에 있다.</p>
+
+<h2>다루지 않는 것</h2>
+<ul>
+<li><strong>개별 모델과 제품의 사용법.</strong> 특정 모델의 성능 비교나 특정 프레임워크의 코드는 다루지 않는다. 패턴은 기술 중립적이어야 하고, 제품은 이 책보다 빨리 바뀐다.</li>
+<li><strong>조달·법령 해설.</strong> 망분리, 개인정보, 클라우드 보안 인증 같은 제도는 환경 조건으로만 다룬다. 제도 자체의 해설은 소관 기관의 지침을 따른다.</li>
+<li><strong>개별 사례의 우열.</strong> 구체 사례가 필요할 때는 제목과 기관이 공개된 PAX 사례만 쓰고, 사례끼리 순위를 매기지 않는다. 설명용 예제는 가상 기관 가람시로 쓴다.</li>
+<li><strong>공공부문 전체의 대표 통계.</strong> PAX는 자발적으로 공유된 사례의 원장이다. 그 비율은 카탈로그를 단련한 자료의 성격을 보여 줄 뿐이고, 공공부문 전체의 AX 수준을 대표하지 않는다.</li>
+<li><strong>v0.7.1 이후의 개정.</strong> 판정 규칙 R18~R28은 문서에만 반영되었고 스키마와 검증기에는 아직 적용되지 않았다. 이 책은 그 상태를 그대로 적는다.</li>
+</ul>
+
+<aside class="note"><span class="lbl">참고</span>
+<p>카탈로그는 판을 거듭하며 바뀌어 왔고 앞으로도 바뀐다. 이 책을 읽다가 자기 과제에 맞지 않는 규칙이나 이름 없는 구조를 만나면, 그것은 다음 판의 재료다. 그 피드백이 어떻게 카탈로그로 돌아오는지는 15장에서 다룬다.</p>
+</aside>
+
+<h2>감사의 말</h2>
+<p>이 책의 대부분은 자기 도구를 공개한 공직자와 커뮤니티의 몫이다. 직접 만든 도구의 소스와 설명을 아카이브에 올려 준 사람들 덕분에, 공공 AX의 실제 저변이 기관 사업 바깥에 넓게 퍼져 있다는 사실이 눈에 들어왔다. 공식 사례를 공개한 기관들에도 감사한다. 그 사례에 적힌 운영 방식과 빈칸이 카탈로그의 규칙을 하나씩 고쳤다. 디자인 패턴이라는 형식을 다듬어 온 저자들에게도 빚을 졌다. 구조를 빌린 Thomas Erl과 Antonio Gulli, 그리고 카탈로그의 출처가 된 AI·에이전트·보안 패턴 문헌의 저자들이 특히 그렇다.</p>
+<nav class="pager"><a class="next" href="reading.html"><small>다음 →</small>이 책을 읽는 법</a></nav></main></div><script>
+(function(){var b=document.querySelector('.navbtn');if(b){b.addEventListener('click',function(){var o=document.body.classList.toggle('toc-open');b.setAttribute('aria-expanded',o)});}
+document.querySelectorAll('.toc a').forEach(function(a){a.addEventListener('click',function(){document.body.classList.remove('toc-open')})});
+var on=document.querySelector('.toc a.on');if(on&&on.scrollIntoView){try{on.scrollIntoView({block:'center'})}catch(e){}}})();
+</script></body></html>

@@ -1,0 +1,438 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>조립 예시와 축 교차표 · 공공 AX 디자인 패턴</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700;800;900&family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap"><link rel="stylesheet" href="book.css"></head><body><div class="bar"><button class="navbtn" type="button" aria-controls="toc" aria-expanded="false">차례</button><a class="bk" href="index.html">공공 AX 디자인 패턴</a><span class="where">조립 예시와 축 교차표</span><span class="pn"><a href="ch12.html">← 이전</a><a href="ch14.html">다음 →</a></span></div><div class="layout"><nav class="toc" id="toc" aria-label="책 차례"><a href="index.html"><b>표지 · 차례</b></a><div class="part">앞붙이</div><a href="preface.html"><span class="n"></span>서문</a><a href="reading.html"><span class="n"></span>이 책을 읽는 법</a><a href="case-background.html"><span class="n"></span>사례 배경: 가람시(가상)</a><div class="part">1부 기초</div><a href="ch01.html"><span class="n">1</span>공공 AX와 패턴 언어</a><a href="ch02.html"><span class="n">2</span>AX 성숙도와 측정 눈금자</a><a href="ch03.html"><span class="n">3</span>디자인 패턴의 원리</a><a href="ch04.html"><span class="n">4</span>카탈로그의 구조</a><div class="part">2부 패턴 레퍼런스</div><a href="ch05.html"><span class="n">5</span>B 업무 컴포넌트</a><a href="ch06.html"><span class="n">6</span>B′ 제어 흐름 원형</a><a href="ch07.html"><span class="n">7</span>A 공통 서비스</a><a href="ch08.html"><span class="n">8</span>C 운영 컴포넌트</a><a href="ch09.html"><span class="n">9</span>S 보안 패턴</a><a href="ch10.html"><span class="n">10</span>F 상호작용 패턴</a><a href="ch11.html"><span class="n">11</span>D 서비스 블록</a><div class="part">3부 적용</div><a href="ch12.html"><span class="n">12</span>조립: 적용 절차와 서비스 유형별 템플릿</a><a href="ch13.html" class="on" aria-current="page"><span class="n">13</span>조립 예시와 축 교차표</a><a href="ch14.html"><span class="n">14</span>안티패턴</a><a href="ch15.html"><span class="n">15</span>태깅·검증·참조 구현 레지스트리</a><a href="ch16.html"><span class="n">16</span>PAX 557건으로 본 공공 AX의 현재</a><a href="ch17.html"><span class="n">17</span>PAX 가이드라인과 리소스</a><div class="part">부록</div><a href="appx-a.html"><span class="n">A</span>패턴 한눈에 보기</a><a href="appx-b.html"><span class="n">B</span>판정 규칙 개정 이력 R1~R28</a><a href="appx-c.html"><span class="n">C</span>용어집</a><a href="appx-d.html"><span class="n">D</span>참고문헌</a><a href="appx-e.html"><span class="n">E</span>공공 AX 가이드라인 문서 해설</a><a href="appx-f.html"><span class="n">F</span>사례 케이스북: PAX 사례로 읽는 패턴 활용</a></nav><main class="content" id="ch13"><header class="chap-head"><div class="num-big">13</div><div class="eyebrow">3부 적용 · 제 13장</div><h1>조립 예시와 축 교차표</h1><p class="lede">부품 이름을 외우는 것으로는 과제를 읽지 못한다. PAX 사례 네 건의 조립도를 펼쳐 놓고, 다른 분류 체계와 부품을 맞대어 보고, PAX 557건에서 자주 함께 나오는 부품 묶음을 센 뒤 가람시의 전 부서를 한 장의 조립도로 그린다.</p><div class="goals"><b>이 장에서 얻을 것</b><ul><li>조립도를 읽는 표기(환경 조건, 주 부품, 배선, 결손 부품)를 익히고 실제 사례에 적용한다</li><li>기관 공식 사례와 개인·커뮤니티 도구의 조립이 왜 서로 다른 자리에서 비어 있는지 설명한다</li><li>마이크로서비스 패턴과 PAX 평가축을 카탈로그 부품으로 옮겨 읽는다</li><li>공동 출현과 향상도로 복합 패턴을 찾고, 그 한계를 안다</li><li>기관 전체를 공유 계층과 부서별 주 부품으로 나눈 종합 조립도를 그린다</li></ul></div></header>
+
+<p>정보통신과 AX팀의 화이트보드에는 12장에서 그린 유형별 템플릿 다섯 장이 붙어 있다. 템플릿은 빈칸이 정해진 서식이다. 실제 과제는 그 서식을 다 채우지 않은 채로 들어온다. 어떤 칸은 비어 있고 어떤 칸에는 서식에 없던 부품이 끼어 있다. 같은 업무 컴포넌트라도 망 환경에 따라 배선이 전혀 달라지기도 한다. 서식을 아는 것과 실물을 읽는 것은 다른 기술이다.</p>
+<p>AX팀이 실물을 읽을 때 쓰는 도구는 넷이다. 같은 표기로 그린 조립도, 다른 분류 체계를 부품 이름으로 옮기는 교차표, PAX 557건에서 함께 나오는 부품 쌍을 센 복합 패턴(compound pattern) 후보, 그리고 기관 전체를 한 장에 올린 종합 조립도다.</p>
+
+<h2>13.1 조립도 읽는 법</h2>
+<p>카탈로그는 과제 하나를 부품의 배선도로 적는다(1장). 이 장의 그림은 모두 같은 표기를 쓴다. 왼쪽 보라색 상자는 환경 조건 E다. 배포망, 모델 의존, 권한 범위가 여기에 들어간다. 이 상자에서는 화살표가 나가지 않는다. 오른쪽의 모든 부품이 지켜야 할 전제이기 때문이다. 가운데 줄은 가치 흐름이다. 데이터나 도구가 주 부품으로 들어가고, 주 부품의 산출물이 운영 부품을 거쳐 서비스 블록 D로 나간다. 아랫줄에는 가치 흐름에 직접 서지 않는 부품이 붙는다. 환류, 폴백, 감사 로그, 보안 부품이 대개 여기 온다.</p><figure class="fig screen"><img src="img/rl-wiring.jpg" alt="사례는 배선도다" loading="lazy"><figcaption><b>화면 13.1</b>사례 하나를 부품과 화살표로 읽는 조립도. 환류(C6)가 검토(C1)에서 지식 접지(B3)로 되돌아가는 고리까지 그린다. <span class="src">쇼릴 「공공 AX 디자인 패턴」(2026년 9월 제작)의 한 장면. 화면 속 수치는 제작 당시 기준이다.</span></figcaption></figure>
+<p>붉은 점선 상자는 결손 부품(missing component)이다. 서비스 유형의 필수 부품인데 태깅되지 않았거나, 다음 AX 단계로 가려면 반드시 있어야 하는데 비어 있는 자리다. 과제를 평가할 때 가장 쓸모 있는 정보는 무엇이 있느냐보다 무엇이 빠져서 다음 단계가 막혔느냐다. 그래서 빈자리도 그린다.</p>
+<aside class="note"><span class="lbl">참고</span><p>이 장의 조립도는 모두 PAX 아카이브의 공개 사례다. 제목과 기관이 아카이브에 실려 있으므로 실명으로 인용한다. 조립도는 <code>output/pattern3d/data.json</code>에 실린 557건 전수 태깅(카탈로그 v0.6 스키마)을 기준으로 그렸다.</p></aside>
+
+<h2>13.2 기관 공식 두 건: 산출물은 있고 통제가 고르지 않다</h2>
+<p>그림 13.1의 위쪽은 한국과학기술연구원(KIST) AIX전략실이 기관 계정으로 공개한 「KIST hwpx 스킬」이다. 상용 AI 도구에 얹어 쓰는 에이전트 스킬이다. 기관 보고서 규범을 묶은 스킬 파일(<a class="pat lc-a" href="ch07.html#p-A9"><span class="pid">A9</span>업무 규범 스킬</a>)이 <a class="pat lc-b" href="ch05.html#p-B1"><span class="pid">B1</span>코파일럿</a>의 초안 작성을 이끌고, HWPX 생성 계층(<a class="pat lc-a" href="ch07.html#p-A10"><span class="pid">A10</span>문서 형식 어댑터</a>)이 결과를 한글 문서로 만든다. 모델은 호스트 도구가 부르는 해외 상용 API(<a class="pat lc-a" href="ch07.html#p-A2_1"><span class="pid">A2.1</span>상용 API 호출</a>)다. 산출물은 보고서 초안(<a class="pat lc-d" href="ch11.html#p-D8_3"><span class="pid">D8.3</span>초안·기안</a>)이고, 부서가 스스로 AI를 쓰게 하려는 기관 정책의 공식 산출물이라 전이 단계는 기관 공식이다.</p>
+<p>이 조립에는 운영 부품이 하나도 태깅되지 않았다. 사람의 확정(<a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span>검토 큐</a>), 출력 제약(<a class="pat lc-c" href="ch08.html#p-C5"><span class="pid">C5</span>가드레일 필터</a>), 고쳐 쓸 수 있는 출력(<a class="pat lc-f" href="ch10.html#p-F2"><span class="pid">F2</span>편집 가능한 출력</a>)을 모두 호스트 도구의 몫으로 남겨 두었기 때문이다. 검증기는 유형 4의 필수 부품 가운데 C1·C5·F2를 결손으로 적고, 해외 상용 API를 쓰는데 폴백(<a class="pat lc-c" href="ch08.html#p-C7"><span class="pid">C7</span>폴백 스위치</a>)이 없다는 경고를 낸다. 기관 공식이라는 지위가 통제 부품을 대신해 주지는 않는다. 이 스킬의 다음 단계는 초안 끝에 작성자 확인 칸을 두고 편집 가능한 출력 형식을 정하는 일이다.</p>
+<p>아래쪽은 광진구가 소속 공무원이 직접 만든 AI 도구 여섯 종을 전 직원 업무에 투입한 사례다. 법령·통계·건축 도구는 기관 자체 AI 서비스와 연동해 원문과 출처를 함께 제시한다. 주 부품은 <a class="pat lc-b" href="ch05.html#p-B3"><span class="pid">B3</span>지식 접지 상담</a>이고, 문서 요약·재작성(B1)과 주소 정리·문서 검색(<a class="pat lc-b" href="ch05.html#p-B0"><span class="pid">B0</span>결정적 도구</a>)이 보조로 붙는다. 모델 호출은 기관 AI 서비스를 거치므로 <a class="pat lc-a" href="ch07.html#p-A2_4"><span class="pid">A2.4</span>내부망 프록시</a>로 태깅했다. 광진구는 개인정보 입력 금지, 원문·출처 확인 의무, 담당자와 팀장의 최종 판단 책임, 전용 문의 창구를 관리 원칙으로 공표했다. 태거는 이 원칙을 근거로 C1을 present, 개인정보 입력 금지를 C5 implemented로 적었다.</p>
+<p>PAX 4축 평가는 이 사례를 AI-First로 판정했다. 다만 판정문에는 공표된 관리 원칙에 기댄 잠정 충족이라는 단서가 붙어 있다. 단계를 올린 근거는 사람의 확정 책임을 명문화한 관리 원칙이다. 빈자리도 남아 있다. 유형 4가 요구하는 업무 규범 스킬(A9), 문서 형식 어댑터(A10), 편집 가능한 출력(F2)이 태깅되지 않았고, 관리 원칙이 실제로 지켜지는지 보여 줄 사용 기록(<a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span>감사 로그·지표</a>)도 서술되지 않았다. First 판정을 확정하려면 C4의 운영 증거가 필요하다.</p>
+
+<figure class="fig" id="fig-13-1"><div class="canvas"><svg viewBox="0 0 900 390" role="img" aria-label="PAX 기관 공식 사례 두 건 조립도. KIST hwpx 스킬은 C1·C5·F2·C7이 비어 있고, 광진구 AI 도구 6종은 C1과 C5를 갖췄으나 A9·A10·F2와 C4가 비어 있다.">
+<defs><marker id="ah-13-1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+<text class="t b" x="20" y="24">① KIST hwpx 스킬 · 한국과학기술연구원 · 기관 공식 · AI-Enabled</text>
+<rect class="n e" x="20" y="40" width="150" height="56" rx="6"/>
+<text class="tm te" x="95" y="58" text-anchor="middle">E 환경 조건</text>
+<text class="t2" x="95" y="74" text-anchor="middle">인터넷망 · P1</text>
+<text class="t3" x="95" y="89" text-anchor="middle">해외 상용 API</text>
+<rect class="n a" x="200" y="40" width="130" height="56" rx="6"/>
+<text class="tm ta" x="265" y="58" text-anchor="middle">A9</text><text class="t" x="265" y="75" text-anchor="middle">업무 규범 스킬</text><text class="t3" x="265" y="89" text-anchor="middle">보고서 규범 묶음</text>
+<rect class="n b" x="360" y="40" width="130" height="56" rx="6"/>
+<text class="tm tb" x="425" y="58" text-anchor="middle">B1</text><text class="t" x="425" y="75" text-anchor="middle">코파일럿</text><text class="t3" x="425" y="89" text-anchor="middle">보고서 초안 작성</text>
+<rect class="n d" x="520" y="40" width="130" height="56" rx="6"/>
+<text class="tm td" x="585" y="58" text-anchor="middle">D8.3</text><text class="t" x="585" y="75" text-anchor="middle">초안·기안</text><text class="t3" x="585" y="89" text-anchor="middle">HWPX 보고서</text>
+<rect class="n missing" x="680" y="40" width="130" height="56" rx="6"/>
+<text class="tm twarn" x="745" y="58" text-anchor="middle">C1 검토 큐</text><text class="t3" x="745" y="75" text-anchor="middle">작성자 확정</text><text class="t3" x="745" y="89" text-anchor="middle">호스트에 맡김</text>
+<path class="ln" d="M330,68 L358,68" marker-end="url(#ah-13-1)"/>
+<path class="ln" d="M490,68 L518,68" marker-end="url(#ah-13-1)"/>
+<rect class="n a" x="200" y="126" width="130" height="48" rx="6"/>
+<text class="tm ta" x="265" y="145" text-anchor="middle">A2.1 상용 API</text><text class="t3" x="265" y="163" text-anchor="middle">호스트 도구가 호출</text>
+<rect class="n a" x="360" y="126" width="130" height="48" rx="6"/>
+<text class="tm ta" x="425" y="145" text-anchor="middle">A10 문서 어댑터</text><text class="t3" x="425" y="163" text-anchor="middle">HWPX 생성 계층</text>
+<rect class="n missing" x="520" y="126" width="130" height="48" rx="6"/>
+<text class="tm twarn" x="585" y="145" text-anchor="middle">C5 · F2</text><text class="t3" x="585" y="163" text-anchor="middle">출력 제약·편집 결손</text>
+<rect class="n missing" x="680" y="126" width="130" height="48" rx="6"/>
+<text class="tm twarn" x="745" y="145" text-anchor="middle">C7 폴백 스위치</text><text class="t3" x="745" y="163" text-anchor="middle">상용 API 장애 대비 없음</text>
+<path class="ln" d="M330,140 L358,90" marker-end="url(#ah-13-1)"/>
+<path class="ln" d="M425,126 L425,98" marker-end="url(#ah-13-1)"/>
+<text class="t b" x="20" y="214">② 광진구 AI 도구 6종 · 기관 공식 · AI-First(잠정)</text>
+<rect class="n e" x="20" y="230" width="150" height="56" rx="6"/>
+<text class="tm te" x="95" y="248" text-anchor="middle">E 환경 조건</text>
+<text class="t2" x="95" y="264" text-anchor="middle">배포망 미확인 · P1</text>
+<text class="t3" x="95" y="279" text-anchor="middle">LLM(모델 미상)</text>
+<rect class="n a" x="200" y="230" width="130" height="56" rx="6"/>
+<text class="tm ta" x="265" y="248" text-anchor="middle">A2.4</text><text class="t" x="265" y="265" text-anchor="middle">내부망 프록시</text><text class="t3" x="265" y="279" text-anchor="middle">기관 AI 서비스 경유</text>
+<rect class="n b" x="360" y="230" width="130" height="56" rx="6"/>
+<text class="tm tb" x="425" y="248" text-anchor="middle">B3 주 부품</text><text class="t" x="425" y="265" text-anchor="middle">지식 접지 상담</text><text class="t3" x="425" y="279" text-anchor="middle">법령·통계·건축 조회</text>
+<rect class="n c" x="520" y="230" width="130" height="56" rx="6"/>
+<text class="tm tc" x="585" y="248" text-anchor="middle">C1 present</text><text class="t" x="585" y="265" text-anchor="middle">검토 큐</text><text class="t3" x="585" y="279" text-anchor="middle">담당자·팀장 최종 판단</text>
+<rect class="n d" x="680" y="230" width="130" height="56" rx="6"/>
+<text class="tm td" x="745" y="248" text-anchor="middle">D8.1 · D8.2</text><text class="t" x="745" y="265" text-anchor="middle">탐색·조회</text><text class="t3" x="745" y="279" text-anchor="middle">요약·추출</text>
+<path class="ln" d="M330,258 L358,258" marker-end="url(#ah-13-1)"/>
+<path class="ln" d="M490,258 L518,258" marker-end="url(#ah-13-1)"/>
+<path class="ln" d="M650,258 L678,258" marker-end="url(#ah-13-1)"/>
+<rect class="n b" x="200" y="316" width="130" height="48" rx="6"/>
+<text class="tm tb" x="265" y="335" text-anchor="middle">B1 · B0 보조</text><text class="t3" x="265" y="353" text-anchor="middle">요약·주소 정리·검색</text>
+<rect class="n c" x="360" y="316" width="130" height="48" rx="6"/>
+<text class="tm tc" x="425" y="335" text-anchor="middle">C5 implemented</text><text class="t3" x="425" y="353" text-anchor="middle">개인정보 입력 금지</text>
+<rect class="n f" x="520" y="316" width="130" height="48" rx="6"/>
+<text class="tm tf" x="585" y="335" text-anchor="middle">F1 출처 표시</text><text class="t3" x="585" y="353" text-anchor="middle">원문·출처 함께 제시</text>
+<rect class="n missing" x="680" y="316" width="130" height="48" rx="6"/>
+<text class="tm twarn" x="745" y="335" text-anchor="middle">A9·A10·F2·C4</text><text class="t3" x="745" y="353" text-anchor="middle">규범·서식·사용 기록</text>
+<path class="ln" d="M425,286 L425,314" marker-end="url(#ah-13-1)"/>
+<path class="ln" d="M585,286 L585,314" marker-end="url(#ah-13-1)"/>
+<text class="t3" x="20" y="384">붉은 점선은 결손 부품. 두 사례 모두 서비스 유형 4(내부 문서·기안 코파일럿)로 태깅됐다.</text>
+</svg></div>
+<figcaption><b>그림 13.1</b> PAX 기관 공식 사례 두 건의 조립도. KIST hwpx 스킬은 규범 스킬과 문서 어댑터로 산출물을 갖췄지만 확정·제약·폴백을 호스트에 맡겨 운영 부품이 비어 있다. 광진구 AI 도구 6종은 공표한 관리 원칙으로 C1을 갖춰 First 잠정 판정을 받았지만 규범·서식 부품과 사용 기록이 비어 있다.</figcaption></figure>
+
+<h2>13.3 PAX 자생 도구 두 건: 기반은 있고 산출물이 비어 있다</h2>
+<p>PAX의 개인·커뮤니티 도구로 넘어가면 빈자리의 모양이 달라진다. 그림 13.2의 위쪽은 공직 현장의 개인 개발자가 만든 「온나라 sAIde」다. 온나라 2.0 문서등록대장이나 접수대기함에서 공문을 고르면 원본 화면 옆에 사이드패널이 열린다. 사이드패널은 각 문서를 로컬 모델로 요약·분석하고 첨부파일을 한 번에 내려받는다. 표준 시스템에 손대지 않고 사용자 쪽 브라우저 층에서 조립했으므로 주 부품은 <a class="pat lc-b" href="ch05.html#p-B8"><span class="pid">B8</span>레거시 오버레이</a>이고, 요약을 맡은 B1이 secondary로 붙는다. 문서가 PC 밖으로 나가면 안 된다는 조건은 <a class="pat lc-a" href="ch07.html#p-A2_2"><span class="pid">A2.2</span>주권형 온프레미스</a> 변형으로 충족했다.</p>
+<p>이 조립에는 운영 부품이 하나도 없다. 요약을 누가 어떻게 검토하는지(C1), 누가 얼마나 쓰는지(C4)가 공개 자료에 적혀 있지 않다. 태거는 <a class="pat lc-x" href="ch14.html#p-X9"><span class="pid">X9</span>담당자와 함께 사라지는 도구</a>도 달았다. 개인 도구가 부서로 번지려면 C1과 C4 서술이 필요하다. 기관 공식으로 가는 길은 따로 있다. 온나라가 정식 MCP 서버(<a class="pat lc-a" href="ch07.html#p-A8"><span class="pid">A8</span>MCP 서버·호스트</a>)를 제공하는 순간 B8은 퇴출 대상이 된다(4.2 등재·퇴출 규칙).</p>
+<p>아래쪽은 오픈소스 커뮤니티가 공유한 「망분리 환경용 로컬 AI 에이전트」와 국가통계포털(KOSIS) 공식 MCP의 연동 시연이다. 노트북에서 모델까지 돌리는 로컬 에이전트(<a class="pat lc-b" href="ch05.html#p-B6"><span class="pid">B6</span>에이전트 오케스트레이터</a>)가 KOSIS MCP를 도구로 불러 통계 조회부터 차트 생성까지 이어 간다. 도구마다 위험도를 평가하고 실행을 승인받으며(<a class="pat lc-c" href="ch08.html#p-C8"><span class="pid">C8</span>권한 경계·킬스위치</a>), 감사 대시보드(C4)를 갖췄다. 태깅 파일에는 S1·S5·S9 보안 부품과 F1·F6·F8 상호작용 부품까지 올라 있다. PAX 표본에서 C8이 이만큼 구체적으로 서술된 사례는 드물다.</p>
+<p>그런데 이 조립에는 실제 업무 산출물이 없다. 시연 단계라 사람이 받아 쓰는 결과물이 확인되지 않았고, 태거는 <a class="pat lc-x" href="ch14.html#p-X8"><span class="pid">X8</span>MCP 서버 개수 세기</a>를 함께 달았다. 모델 장애 대응(C7)도 서술되지 않았다. 통제 부품이 먼저 갖춰지고 업무 산출물이 아직 없는, 13.2의 두 기관 사례와 정반대 순서의 조립이다.</p>
+
+<figure class="fig" id="fig-13-2"><div class="canvas"><svg viewBox="0 0 920 400" role="img" aria-label="PAX 자생 도구 두 건 조립도. 온나라 sAIde는 운영 부품이 비어 있고, 로컬 AI 에이전트는 통제 부품이 있으나 업무 산출물이 비어 있다.">
+<defs><marker id="ah-13-2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+<text class="t b" x="16" y="24">① 온나라 sAIde · 공직 현장(개인 개발) · 개인 사용</text>
+<rect class="n e" x="16" y="40" width="150" height="56" rx="6"/>
+<text class="tm te" x="91" y="58" text-anchor="middle">E 환경 조건</text>
+<text class="t2" x="91" y="74" text-anchor="middle">행정망 · 로컬 완결</text>
+<text class="t3" x="91" y="89" text-anchor="middle">오픈웨이트(로컬) · P1</text>
+<rect class="n b" x="190" y="40" width="120" height="56" rx="6"/>
+<text class="tm tb" x="250" y="58" text-anchor="middle">B8 주 부품</text><text class="t" x="250" y="75" text-anchor="middle">레거시 오버레이</text><text class="t3" x="250" y="89" text-anchor="middle">온나라 위 사이드패널</text>
+<rect class="n b" x="340" y="40" width="120" height="56" rx="6"/>
+<text class="tm tb" x="400" y="58" text-anchor="middle">B1</text><text class="t" x="400" y="75" text-anchor="middle">코파일럿</text><text class="t3" x="400" y="89" text-anchor="middle">공문 요약·분석</text>
+<rect class="n d" x="490" y="40" width="120" height="56" rx="6"/>
+<text class="tm td" x="550" y="58" text-anchor="middle">D8.2</text><text class="t" x="550" y="75" text-anchor="middle">요약·추출</text><text class="t3" x="550" y="89" text-anchor="middle">업무 관련 정보 발췌</text>
+<rect class="n missing" x="640" y="40" width="120" height="56" rx="6"/>
+<text class="tm twarn" x="700" y="58" text-anchor="middle">C1 검토 큐</text><text class="t3" x="700" y="75" text-anchor="middle">요약 검토 절차</text><text class="t3" x="700" y="89" text-anchor="middle">서술 없음</text>
+<rect class="n missing" x="790" y="40" width="120" height="56" rx="6"/>
+<text class="tm twarn" x="850" y="58" text-anchor="middle">A8 MCP 서버</text><text class="t3" x="850" y="75" text-anchor="middle">온나라 정식 MCP</text><text class="t3" x="850" y="89" text-anchor="middle">열리면 B8 퇴출</text>
+<path class="ln" d="M310,68 L338,68" marker-end="url(#ah-13-2)"/>
+<path class="ln" d="M460,68 L488,68" marker-end="url(#ah-13-2)"/>
+<rect class="n a" x="190" y="126" width="120" height="56" rx="6"/>
+<text class="tm ta" x="250" y="144" text-anchor="middle">A2.2</text><text class="t2" x="250" y="160" text-anchor="middle">주권형 온프레미스</text><text class="t3" x="250" y="174" text-anchor="middle">로컬 Ollama 모델</text>
+<rect class="n a" x="340" y="126" width="120" height="56" rx="6"/>
+<text class="tm ta" x="400" y="144" text-anchor="middle">A7</text><text class="t2" x="400" y="160" text-anchor="middle">자체 제작 환경</text><text class="t3" x="400" y="174" text-anchor="middle">개인 개발</text>
+<rect class="n x" x="490" y="126" width="120" height="56" rx="6"/>
+<text class="tm tx" x="550" y="144" text-anchor="middle">X9 안티패턴</text><text class="t3" x="550" y="160" text-anchor="middle">담당자와 함께</text><text class="t3" x="550" y="174" text-anchor="middle">사라지는 도구</text>
+<rect class="n missing" x="640" y="126" width="120" height="56" rx="6"/>
+<text class="tm twarn" x="700" y="144" text-anchor="middle">C4 감사 로그</text><text class="t3" x="700" y="160" text-anchor="middle">사용 기록</text><text class="t3" x="700" y="174" text-anchor="middle">서술 없음</text>
+<path class="ln" d="M250,126 L250,98" marker-end="url(#ah-13-2)"/>
+<text class="t b" x="16" y="224">② 망분리 환경용 로컬 AI 에이전트 + 국가통계포털 MCP · 오픈소스 커뮤니티 · 부서 공유</text>
+<rect class="n e" x="16" y="240" width="150" height="56" rx="6"/>
+<text class="tm te" x="91" y="258" text-anchor="middle">E 환경 조건</text>
+<text class="t2" x="91" y="274" text-anchor="middle">로컬 PC · 로컬 완결</text>
+<text class="t3" x="91" y="289" text-anchor="middle">오픈웨이트(로컬) · P2</text>
+<rect class="n a" x="190" y="240" width="120" height="56" rx="6"/>
+<text class="tm ta" x="250" y="258" text-anchor="middle">A8</text><text class="t" x="250" y="275" text-anchor="middle">MCP 서버·호스트</text><text class="t3" x="250" y="289" text-anchor="middle">KOSIS 공식 MCP</text>
+<rect class="n b" x="340" y="240" width="120" height="56" rx="6"/>
+<text class="tm tb" x="400" y="258" text-anchor="middle">B6 주 부품</text><text class="t" x="400" y="275" text-anchor="middle">오케스트레이터</text><text class="t3" x="400" y="289" text-anchor="middle">통계 조회→차트 생성</text>
+<rect class="n c" x="490" y="240" width="120" height="56" rx="6"/>
+<text class="tm tc" x="550" y="258" text-anchor="middle">C8</text><text class="t2" x="550" y="275" text-anchor="middle">권한 경계·킬스위치</text><text class="t3" x="550" y="289" text-anchor="middle">도구별 위험도·승인</text>
+<rect class="n d" x="640" y="240" width="120" height="56" rx="6"/>
+<text class="tm td" x="700" y="258" text-anchor="middle">D8.1</text><text class="t" x="700" y="275" text-anchor="middle">탐색·조회</text><text class="t3" x="700" y="289" text-anchor="middle">통계 조회 결과</text>
+<rect class="n missing" x="790" y="240" width="120" height="56" rx="6"/>
+<text class="tm twarn" x="850" y="258" text-anchor="middle">B 업무 산출물</text><text class="t3" x="850" y="275" text-anchor="middle">시연 단계</text><text class="t3" x="850" y="289" text-anchor="middle">실업무 미확인</text>
+<path class="ln" d="M310,268 L338,268" marker-end="url(#ah-13-2)"/>
+<path class="ln" d="M460,268 L488,268" marker-end="url(#ah-13-2)"/>
+<path class="ln" d="M610,268 L638,268" marker-end="url(#ah-13-2)"/>
+<rect class="n a" x="190" y="326" width="120" height="56" rx="6"/>
+<text class="tm ta" x="250" y="344" text-anchor="middle">A2.2</text><text class="t2" x="250" y="360" text-anchor="middle">주권형 온프레미스</text><text class="t3" x="250" y="374" text-anchor="middle">로컬 오픈웨이트</text>
+<rect class="n s" x="340" y="326" width="120" height="56" rx="6"/>
+<text class="tm ts" x="400" y="344" text-anchor="middle">S1 · S5 · S9</text><text class="t3" x="400" y="360" text-anchor="middle">단일 진입점·계획 후</text><text class="t3" x="400" y="374" text-anchor="middle">실행·임시 샌드박스</text>
+<rect class="n c" x="490" y="326" width="120" height="56" rx="6"/>
+<text class="tm tc" x="550" y="344" text-anchor="middle">C2 · C4</text><text class="t3" x="550" y="360" text-anchor="middle">위험도 라우터</text><text class="t3" x="550" y="374" text-anchor="middle">감사 대시보드</text>
+<rect class="n f" x="640" y="326" width="120" height="56" rx="6"/>
+<text class="tm tf" x="700" y="344" text-anchor="middle">F1 · F6 · F8</text><text class="t3" x="700" y="360" text-anchor="middle">출처·행동 확인</text><text class="t3" x="700" y="374" text-anchor="middle">대화 이력</text>
+<rect class="n missing" x="790" y="326" width="120" height="56" rx="6"/>
+<text class="tm twarn" x="850" y="344" text-anchor="middle">C7 폴백 스위치</text><text class="t3" x="850" y="360" text-anchor="middle">모델 장애 대응</text><text class="t3" x="850" y="374" text-anchor="middle">서술 없음</text>
+<path class="ln" d="M268,326 L360,298" marker-end="url(#ah-13-2)"/>
+<path class="ln thin" d="M400,296 L400,326"/>
+<path class="ln thin" d="M550,296 L550,326"/>
+<path class="ln thin" d="M700,296 L700,326"/>
+</svg></div>
+<figcaption><b>그림 13.2</b> PAX 자생 도구 두 건의 조립도. 온나라 sAIde는 로컬 모델과 브라우저 오버레이로 기반을 갖췄지만 운영 부품이 없다. 로컬 AI 에이전트는 권한 경계와 보안 부품까지 갖췄지만 사람이 받아 쓰는 업무 산출물이 아직 없다.</figcaption></figure>
+
+<p>표 13.1은 네 조립을 나란히 놓는다. 기관 공식 사례는 산출물이 있는데 통제 부품이 고르지 않다. 한 곳은 확정과 폴백을 호스트 도구에 맡겼고, 다른 곳은 관리 원칙으로 확정 책임을 세웠지만 사용 기록이 없다. 개인·커뮤니티 도구는 기반 부품과 환경 다양성을 갖췄지만 업무 산출물이나 운영 서술이 비었다. 한쪽의 빈칸을 채울 참조 구현이 같은 아카이브의 다른 쪽에 있다. 광진구의 관리 원칙은 개인 도구의 C1 서식이 되고, 로컬 에이전트의 권한 경계는 기관 에이전트 사업이 C8을 설계할 때 견본으로 쓸 만하다.</p>
+
+<div class="tbl"><table><caption><b>표 13.1</b> 조립 예시 네 건 비교</caption>
+<thead><tr><th>사례</th><th>환경 조건</th><th>주 부품</th><th>갖춘 운영 부품</th><th>결손</th><th>다음 단계</th></tr></thead>
+<tbody>
+<tr><td class="k">PAX · KIST hwpx 스킬</td><td>인터넷망 · 해외 상용 API · P1</td><td>B1</td><td>없음</td><td>C1, C5, F2(C7 경고)</td><td>초안에 작성자 확인 칸을 두고 편집 가능한 출력 형식을 정한다</td></tr>
+<tr><td class="k">PAX · 광진구 AI 도구 6종</td><td>배포망 미확인 · 모델 미상 · P1</td><td>B3</td><td>C1(present), C5(implemented)</td><td>A9, A10, F2</td><td>관리 원칙의 이행을 사용 기록(C4)으로 보여 First 판정을 확정한다</td></tr>
+<tr><td class="k">PAX · 온나라 sAIde</td><td>행정망 · 로컬 모델 · P1</td><td>B8</td><td>없음</td><td>C1, C4</td><td>검토·사용 기록 서술 후 부서 공유, 정식 MCP 개방 시 A8로 교체</td></tr>
+<tr><td class="k">PAX · 로컬 AI 에이전트 + KOSIS MCP</td><td>로컬 PC · 로컬 모델 · P2</td><td>B6</td><td>C2, C4, C8</td><td>업무 산출물, C7</td><td>실제 업무에서 호출되는 흐름을 확인</td></tr>
+</tbody></table></div>
+
+<aside class="key"><span class="lbl">핵심 요약</span><ul>
+<li>같은 유형 4 사례라도 운영 부품에 따라 단계가 갈린다. 광진구 사례가 First 잠정 판정을 받은 근거는 공표된 확정 책임(C1)이다.</li>
+<li>기관 공식 사례는 통제 부품이 고르지 않고, 개인·커뮤니티 도구는 업무 산출물과 운영 서술이 비어 있다. 같은 아카이브 안에서 서로의 빈칸을 채울 참조 구현을 찾는다.</li>
+<li>결손 부품을 그림에 그려 두면 다음 단계의 작업 목록이 바로 나온다.</li>
+</ul></aside>
+
+<aside class="case"><span class="lbl">사례 연구 · 가람시(가상)</span><h4>네 부서의 조립도를 한 벽에 붙인 날</h4>
+<p>4장에서 첫 서명을 쓴 뒤, 가람시 정보통신과 AX팀은 부서별로 따로 받은 과제 계획서 네 건을 같은 표기의 조립도로 옮겨 한 벽에 붙였다. 민원여권과의 상담 챗봇, 재난안전과의 하천 수위 관제, 기획예산과의 보고서 코파일럿, 복지정책과의 위기가구 발굴 예측이었다.</p>
+<p>네 장을 나란히 놓자 결손 부품의 모양이 겹쳐 보였다. 민원여권과와 기획예산과는 둘 다 상용 LLM을 각자 계약해 직접 부르려 했다. 두 그림 모두 A2 자리가 붉은 점선이었고, 폴백(C7)도 비어 있었다. 1장에서 발견한 <a class="pat lc-x" href="ch14.html#p-X3"><span class="pid">X3</span>부서마다 챗봇</a>이 조립도에서 다시 드러난 것이다. 반대로 재난안전과의 조립도에는 위험도 라우터와 폴백이 처음부터 들어 있었다. 현장 관제는 오경보가 곧 출동 비용이라 담당자가 그 자리를 먼저 그려 넣었다.</p>
+<p>AX팀장은 결손 목록을 부서별로 나누지 않고 부품별로 다시 묶었다. A2 결손 두 건은 <a class="pat lc-a" href="ch07.html#p-A2_4"><span class="pid">A2.4</span>내부망 프록시</a> 한 대로 함께 메운다. C7은 그 프록시에 붙인다. 이렇게 하면 부서가 할 일은 자기 주 부품과 검토 큐뿐이다. 회의록에는 배선 한 줄이 남았다. <code>A2.4 → B3 / B1 → C1 → D1 / D8.3</code></p>
+</aside>
+
+<h2>13.4 축 교차표: 다른 분류 체계를 부품으로 옮기기</h2>
+<p>정보화 부서는 이미 다른 언어로 시스템을 설명한다. 인프라 담당자는 마이크로서비스 패턴으로 말하고, PAX 사례를 검토하는 사람은 PAX 평가축으로 말한다. 카탈로그 §8의 축 교차표는 두 언어를 부품 이름으로 옮기는 사전이다. 표 13.2는 마이크로서비스 패턴 24종이 카탈로그의 어느 부품에 대응하는지 보여 준다.</p>
+
+<div class="tbl"><table><caption><b>표 13.2</b> 마이크로서비스 패턴 24종과 카탈로그 부품의 대응</caption>
+<thead><tr><th>그룹</th><th>마이크로서비스 패턴</th><th>카탈로그에서 대응하는 자리</th></tr></thead>
+<tbody>
+<tr><td class="k">분해</td><td>Business Capability · Subdomain</td><td>부품으로 옮기지 않고 원칙으로 받는다. 업무 단위 분할은 S축(S1 단일 기능 → S4 종단 서비스)과 D8 업무 10분류로 읽는다.</td></tr>
+<tr><td class="k">통합</td><td>API Gateway</td><td><a class="pat lc-a" href="ch07.html#p-A2"><span class="pid">A2</span>모델 서빙 계층</a> · A8 · <a class="pat lc-c" href="ch08.html#p-C2"><span class="pid">C2</span>위험도 라우터</a></td></tr>
+<tr><td class="k">통합</td><td>Aggregator</td><td>B6 · <a class="pat lc-b" href="ch05.html#p-B3"><span class="pid">B3</span>지식 접지 상담</a>(다중 출처 접지)</td></tr>
+<tr><td class="k">통합</td><td>Client-side UI Composition</td><td>B8 · <a class="pat lc-b" href="ch05.html#p-B0"><span class="pid">B0</span>결정적 도구</a>(대시보드)</td></tr>
+<tr><td class="k">데이터</td><td>DB per Service · Shared DB</td><td>A1 · <a class="pat lc-a" href="ch07.html#p-A4"><span class="pid">A4</span>데이터 연계 서비스</a></td></tr>
+<tr><td class="k">데이터</td><td>Saga</td><td><a class="pat lc-c" href="ch08.html#p-C3"><span class="pid">C3</span>상태 머신·롤백</a></td></tr>
+<tr><td class="k">관측</td><td>Log Aggregation · Metrics · Tracing · Health Check</td><td>C4의 하위 네 항목</td></tr>
+<tr><td class="k">횡단</td><td>External Configuration</td><td><a class="pat lc-a" href="ch07.html#p-A9"><span class="pid">A9</span>업무 규범 스킬</a>(규범·프롬프트를 코드 밖으로)</td></tr>
+<tr><td class="k">횡단</td><td>Service Discovery</td><td>A8(도구 목록·버전·갱신 공지)</td></tr>
+<tr><td class="k">횡단</td><td>Circuit Breaker · Blue-Green</td><td>C7(무중단 모델 교체 포함)</td></tr>
+<tr><td class="k">보안</td><td>Access Token · Federated Identity</td><td>C8 · <a class="pat lc-a" href="ch07.html#p-A3"><span class="pid">A3</span>공공 API 제공자</a>(인가가 최대 병목)</td></tr>
+<tr><td class="k">신뢰성</td><td>Bulkhead · Rate Limiter</td><td>C7 격리 · C8 호출 상한</td></tr>
+<tr><td class="k">배포</td><td>Per Host · Per Container · Serverless · Mesh</td><td>E3 실행 형태(설치형, 서버 구축, 브라우저만, MCP·CLI)</td></tr>
+</tbody></table></div>
+
+<p>대응표에서 눈여겨볼 것은 빈 행이 없다는 점보다 한 패턴이 여러 부품으로 갈라지는 지점이다. API Gateway는 카탈로그에서 세 부품으로 나뉜다. 모델을 부르는 관문(A2), 도구를 부르는 관문(A8), 위험도에 따라 사람에게 넘기는 관문(C2)이다. 일반 시스템에서는 요청을 어디로 보낼지만 정하면 되지만, AI 과제에서는 어느 모델로 보낼지, 어느 도구를 부를지, 사람에게 넘길지를 따로 정해야 하기 때문이다. Circuit Breaker도 마찬가지다. 장애 시 차단에 그치지 않고 다른 모델이나 규칙 경로로 넘기는 다섯 경로가 C7의 변형으로 들어온다.</p>
+<p>표 13.3은 PAX 평가축을 부품으로 읽는 법이다. PAX의 AX 단계, S·C·M·P 네 축, 보조축(인간 통제, 복원력, 피드백, 전이)이 모두 특정 부품의 보유 여부로 번역된다.</p>
+
+<div class="tbl"><table><caption><b>표 13.3</b> PAX 평가축을 카탈로그 부품으로 읽는 법</caption>
+<thead><tr><th>PAX 축</th><th>값</th><th>카탈로그에서 읽는 법</th></tr></thead>
+<tbody>
+<tr><td class="k">AX 단계</td><td>Ready · Enabled · First · Native</td><td>A만 있으면 Ready, B가 산출물을 내면 Enabled, C2·C3·C4가 운영 증거와 함께 있으면 First, C6·C7까지 있으면 Native</td></tr>
+<tr><td class="k">S 업무 범위</td><td>S1~S5</td><td>B 부품이 덮는 폭. B0·B8은 S1~S2, B6은 S3 이상 가능</td></tr>
+<tr><td class="k">C 완결성</td><td>C0~C5</td><td>C 계층 보유 수. C1만이면 C1~C2, C2·C3이면 C3~C4, C6·C7이면 C5</td></tr>
+<tr><td class="k">M 파급력</td><td>M1~M5</td><td>A8의 전이 범위. M2 재사용형은 부서 공유, M4 생태계형은 범정부 탑재</td></tr>
+<tr><td class="k">P 권한</td><td>P0~P4</td><td>E4 조건. P2 이상이면 C8 필수</td></tr>
+<tr><td class="k">H 인간 통제</td><td>H0~H2</td><td>C1 검토 큐(H2) · C2 라우터(H1)</td></tr>
+<tr><td class="k">R 복원력</td><td>재시도 … 수동 전환</td><td>C7 폴백 스위치의 다섯 경로</td></tr>
+<tr><td class="k">피드백</td><td>없음 · 로그 · 평가데이터화 · 지속개선</td><td>C4 → C6의 성숙 순서</td></tr>
+<tr><td class="k">T 전이</td><td>개인 → 부서 → 기관 공식 → 타 기관 → 범정부</td><td>모든 부품의 전이 범위 척도. 차단 요인은 보안검토·예산·담당자 이동·레거시 미연동·법적 근거·조직 저항</td></tr>
+<tr><td class="k">MCP 6축 검증</td><td>권한 표면 · 비밀 · 공급망 · 위생 · 인젝션 · 데이터 흐름</td><td>A8의 품질 관문. 통과해야 전이 범위가 부서 공유를 넘는다</td></tr>
+</tbody></table></div>
+
+<p>첫 행이 가장 자주 쓰인다. 그림 13.3은 AX 단계를 부품 보유로 바꿔 그린 사다리다. 검토자가 "이 과제는 왜 First가 아닌가"라고 물으면 답은 계단 하나 위에 놓인 부품 이름이다. 2장의 관문과 같은 내용을 부품 쪽에서 본 그림이다.</p>
+
+<figure class="fig" id="fig-13-3"><div class="canvas"><svg viewBox="0 0 880 300" role="img" aria-label="AX 4단계를 부품 보유로 읽는 사다리">
+<rect class="n a" x="20" y="200" width="200" height="80" rx="6"/>
+<text class="t b" x="34" y="222">AI-Ready</text>
+<text class="t2" x="34" y="242">A 공통 서비스만 있다</text>
+<rect class="n a" x="34" y="252" width="44" height="20" rx="4"/><text class="tm ta" x="56" y="266" text-anchor="middle">A1</text>
+<rect class="n a" x="84" y="252" width="44" height="20" rx="4"/><text class="tm ta" x="106" y="266" text-anchor="middle">A8</text>
+<rect class="n a" x="134" y="252" width="44" height="20" rx="4"/><text class="tm ta" x="156" y="266" text-anchor="middle">A10</text>
+<rect class="n b" x="235" y="150" width="200" height="130" rx="6"/>
+<text class="t b" x="249" y="172">AI-Enabled</text>
+<text class="t2" x="249" y="192">B가 사람이 확정할</text>
+<text class="t2" x="249" y="208">산출물을 낸다</text>
+<rect class="n b" x="249" y="220" width="44" height="20" rx="4"/><text class="tm tb" x="271" y="234" text-anchor="middle">B1</text>
+<rect class="n b" x="299" y="220" width="44" height="20" rx="4"/><text class="tm tb" x="321" y="234" text-anchor="middle">B3</text>
+<rect class="n c" x="349" y="220" width="44" height="20" rx="4"/><text class="tm tc" x="371" y="234" text-anchor="middle">C1</text>
+<rect class="n c" x="450" y="100" width="200" height="180" rx="6"/>
+<text class="t b" x="464" y="122">AI-First</text>
+<text class="t2" x="464" y="142">C2·C3·C4가 운영 증거와</text>
+<text class="t2" x="464" y="158">함께 있다</text>
+<rect class="n c" x="464" y="170" width="44" height="20" rx="4"/><text class="tm tc" x="486" y="184" text-anchor="middle">C2</text>
+<rect class="n c" x="514" y="170" width="44" height="20" rx="4"/><text class="tm tc" x="536" y="184" text-anchor="middle">C3</text>
+<rect class="n c" x="564" y="170" width="44" height="20" rx="4"/><text class="tm tc" x="586" y="184" text-anchor="middle">C4</text>
+<rect class="n acc" x="665" y="50" width="200" height="230" rx="6"/>
+<text class="t b" x="679" y="72">AI-Native</text>
+<text class="t2" x="679" y="92">C6·C7까지 실운영으로</text>
+<text class="t2" x="679" y="108">돌아간다</text>
+<rect class="n c" x="679" y="120" width="44" height="20" rx="4"/><text class="tm tc" x="701" y="134" text-anchor="middle">C6</text>
+<rect class="n c" x="729" y="120" width="44" height="20" rx="4"/><text class="tm tc" x="751" y="134" text-anchor="middle">C7</text>
+<text class="t3" x="34" y="294">계단마다 아래 칸의 부품을 전제한다. 판정 근거는 present(운영 기간 작동 기록)여야 한다.</text>
+</svg></div>
+<figcaption><b>그림 13.3</b> AX 단계를 부품 보유로 읽는 사다리. 한 단계 오르려면 위 칸에 적힌 부품을 갖춰야 한다. 모델을 바꾸는 것으로는 계단을 오르지 못한다. 판정에는 구현 상태가 present인 부품만 센다.</figcaption></figure>
+
+<aside class="rule"><span class="lbl">판정 규칙</span><p>사다리로 단계를 읽을 때는 구현 상태 3단계(R3·R12)를 함께 적용한다. 설계 문서에만 나오는 C2·C6·C7은 planned이고, 구현됐지만 운영 기간에 한 번도 돌지 않았으면 implemented다. First 이상은 설계 문서로 인정하지 않는다(<a class="pat lc-x" href="ch14.html#p-X2"><span class="pid">X2</span>설계도만 있는 운영</a>).</p></aside>
+
+<h2>13.5 복합 패턴: 자주 함께 나오는 부품 묶음</h2>
+<p>Erl의 패턴 체계에는 복합 패턴이 있다. 여러 패턴이 실무에서 늘 함께 적용되어 하나의 이름을 얻은 묶음이다. 카탈로그 v0.7.1에는 아직 복합 패턴 목록이 없다. 대신 PAX 557건의 전수 태깅이 있으므로 어떤 부품이 실제로 함께 쓰이는지 셀 수 있다.</p>
+<h3>세는 법: 빈도와 향상도</h3>
+<p>사례마다 태깅된 부품(B, B′, A, C, S, F, D 계층, 환경 조건 E 제외)의 모든 쌍을 세었다. C·S·F는 present와 implemented를 합산했다. 가장 많이 함께 나온 쌍은 <a class="pat lc-a" href="ch07.html#p-A7"><span class="pid">A7</span>자체 제작 환경</a>과 B0으로 251건이다. 그런데 이 쌍은 묶음이라 부르기 어렵다. A7은 317건, B0은 413건에 나오므로 서로 무관해도 그만큼은 겹친다.</p>
+<p>그래서 향상도(lift)를 함께 본다. 향상도는 두 부품이 함께 나온 사례 수를, 서로 무관할 때 기대되는 사례 수로 나눈 값이다. 식으로 쓰면 함께 나온 수 × 전체 사례 수 ÷ (A 단독 수 × B 단독 수)다. A7·B0의 향상도는 1.07로 우연 수준이다. 반면 <a class="pat lc-a" href="ch07.html#p-A2_1"><span class="pid">A2.1</span>상용 API 호출</a>과 B1은 59건이 겹치고 향상도가 3.36이다. 상용 모델을 부르는 도구는 대개 코파일럿 형태라는 뜻이다.</p>
+<p>그림 13.4는 PAX에서 사용 사례가 많은 부품 13개의 쌍별 공동 출현을 행렬로 그렸다. 원의 넓이가 함께 나온 사례 수이고, 진한 원은 향상도가 3 이상인 쌍이다.</p>
+
+<figure class="fig" id="fig-13-4"><div class="canvas"><svg viewBox="0 0 782 720" role="img" aria-label="PAX 557건에서 부품 13개의 쌍별 공동 출현 사례 수와 향상도"><text class="tm tb" x="191.0" y="48" text-anchor="middle">B1</text><text class="tm tb" x="10" y="85.0">B1</text><text class="t3" x="52" y="85.0">코파일럿</text><text class="tm ta" x="237.0" y="48" text-anchor="middle">A2.1</text><text class="tm ta" x="10" y="131.0">A2.1</text><text class="t3" x="52" y="131.0">상용 API 호출</text><text class="tm ta" x="283.0" y="48" text-anchor="middle">A9</text><text class="tm ta" x="10" y="177.0">A9</text><text class="t3" x="52" y="177.0">업무 규범 스킬</text><text class="tm ta" x="329.0" y="48" text-anchor="middle">A2.2</text><text class="tm ta" x="10" y="223.0">A2.2</text><text class="t3" x="52" y="223.0">주권형 온프레미스</text><text class="tm ta" x="375.0" y="48" text-anchor="middle">A3</text><text class="tm ta" x="10" y="269.0">A3</text><text class="t3" x="52" y="269.0">공공 API 제공자</text><text class="tm ta" x="421.0" y="48" text-anchor="middle">A8</text><text class="tm ta" x="10" y="315.0">A8</text><text class="t3" x="52" y="315.0">MCP 서버·호스트</text><text class="tm ta" x="467.0" y="48" text-anchor="middle">A10</text><text class="tm ta" x="10" y="361.0">A10</text><text class="t3" x="52" y="361.0">문서 형식 어댑터</text><text class="tm ta" x="513.0" y="48" text-anchor="middle">A1</text><text class="tm ta" x="10" y="407.0">A1</text><text class="t3" x="52" y="407.0">데이터 자산</text><text class="tm tf" x="559.0" y="48" text-anchor="middle">F1</text><text class="tm tf" x="10" y="453.0">F1</text><text class="t3" x="52" y="453.0">출처 표시</text><text class="tm tf" x="605.0" y="48" text-anchor="middle">F7</text><text class="tm tf" x="10" y="499.0">F7</text><text class="t3" x="52" y="499.0">한계·신뢰도 안내</text><text class="tm td" x="651.0" y="48" text-anchor="middle">D8.1</text><text class="tm td" x="10" y="545.0">D8.1</text><text class="t3" x="52" y="545.0">탐색·조회</text><text class="tm td" x="697.0" y="48" text-anchor="middle">D8.3</text><text class="tm td" x="10" y="591.0">D8.3</text><text class="t3" x="52" y="591.0">초안·기안</text><text class="tm td" x="743.0" y="48" text-anchor="middle">D8.9</text><text class="tm td" x="10" y="637.0">D8.9</text><text class="t3" x="52" y="637.0">변환·서식</text><line class="grid" x1="168" y1="58" x2="766" y2="58"/><line class="grid" x1="168" y1="58" x2="168" y2="656"/><line class="grid" x1="168" y1="104" x2="766" y2="104"/><line class="grid" x1="214" y1="58" x2="214" y2="656"/><line class="grid" x1="168" y1="150" x2="766" y2="150"/><line class="grid" x1="260" y1="58" x2="260" y2="656"/><line class="grid" x1="168" y1="196" x2="766" y2="196"/><line class="grid" x1="306" y1="58" x2="306" y2="656"/><line class="grid" x1="168" y1="242" x2="766" y2="242"/><line class="grid" x1="352" y1="58" x2="352" y2="656"/><line class="grid" x1="168" y1="288" x2="766" y2="288"/><line class="grid" x1="398" y1="58" x2="398" y2="656"/><line class="grid" x1="168" y1="334" x2="766" y2="334"/><line class="grid" x1="444" y1="58" x2="444" y2="656"/><line class="grid" x1="168" y1="380" x2="766" y2="380"/><line class="grid" x1="490" y1="58" x2="490" y2="656"/><line class="grid" x1="168" y1="426" x2="766" y2="426"/><line class="grid" x1="536" y1="58" x2="536" y2="656"/><line class="grid" x1="168" y1="472" x2="766" y2="472"/><line class="grid" x1="582" y1="58" x2="582" y2="656"/><line class="grid" x1="168" y1="518" x2="766" y2="518"/><line class="grid" x1="628" y1="58" x2="628" y2="656"/><line class="grid" x1="168" y1="564" x2="766" y2="564"/><line class="grid" x1="674" y1="58" x2="674" y2="656"/><line class="grid" x1="168" y1="610" x2="766" y2="610"/><line class="grid" x1="720" y1="58" x2="720" y2="656"/><line class="grid" x1="168" y1="656" x2="766" y2="656"/><line class="grid" x1="766" y1="58" x2="766" y2="656"/><rect class="n soft" x="171" y="61" width="40" height="40" rx="4"/><text class="t3" x="191.0" y="85.0" text-anchor="middle">111</text><circle class="n acc" cx="237.0" cy="81.0" r="21.2"/><text class="t3" x="237.0" y="85.0" text-anchor="middle">59</text><circle class="n acc" cx="283.0" cy="81.0" r="17.8"/><text class="t3" x="283.0" y="85.0" text-anchor="middle">40</text><circle class="n acc" cx="329.0" cy="81.0" r="17.4"/><text class="t3" x="329.0" y="85.0" text-anchor="middle">38</text><circle class="n" cx="375.0" cy="81.0" r="11.4"/><text class="t3" x="375.0" y="85.0" text-anchor="middle">14</text><circle class="n" cx="421.0" cy="81.0" r="7.6"/><text class="t3" x="421.0" y="85.0" text-anchor="middle">5</text><circle class="n" cx="467.0" cy="81.0" r="16.8"/><text class="t3" x="467.0" y="85.0" text-anchor="middle">35</text><circle class="n" cx="513.0" cy="81.0" r="12.3"/><text class="t3" x="513.0" y="85.0" text-anchor="middle">17</text><circle class="n" cx="559.0" cy="81.0" r="13.5"/><text class="t3" x="559.0" y="85.0" text-anchor="middle">21</text><circle class="n" cx="605.0" cy="81.0" r="9.1"/><text class="t3" x="605.0" y="85.0" text-anchor="middle">8</text><circle class="n" cx="651.0" cy="81.0" r="13.2"/><text class="t3" x="651.0" y="85.0" text-anchor="middle">20</text><circle class="n acc" cx="697.0" cy="81.0" r="19.9"/><text class="t3" x="697.0" y="85.0" text-anchor="middle">51</text><circle class="n" cx="743.0" cy="81.0" r="10.7"/><text class="t3" x="743.0" y="85.0" text-anchor="middle">12</text><rect class="n soft" x="217" y="107" width="40" height="40" rx="4"/><text class="t3" x="237.0" y="131.0" text-anchor="middle">88</text><circle class="n acc" cx="283.0" cy="127.0" r="16.4"/><text class="t3" x="283.0" y="131.0" text-anchor="middle">33</text><circle class="n" cx="329.0" cy="127.0" r="9.5"/><text class="t3" x="329.0" y="131.0" text-anchor="middle">9</text><circle class="n" cx="375.0" cy="127.0" r="11.0"/><text class="t3" x="375.0" y="131.0" text-anchor="middle">13</text><circle class="n" cx="421.0" cy="127.0" r="8.6"/><text class="t3" x="421.0" y="131.0" text-anchor="middle">7</text><circle class="n" cx="467.0" cy="127.0" r="15.0"/><text class="t3" x="467.0" y="131.0" text-anchor="middle">27</text><circle class="n" cx="513.0" cy="127.0" r="12.0"/><text class="t3" x="513.0" y="131.0" text-anchor="middle">16</text><circle class="n" cx="559.0" cy="127.0" r="14.2"/><text class="t3" x="559.0" y="131.0" text-anchor="middle">24</text><circle class="n" cx="605.0" cy="127.0" r="9.1"/><text class="t3" x="605.0" y="131.0" text-anchor="middle">8</text><circle class="n" cx="651.0" cy="127.0" r="11.0"/><text class="t3" x="651.0" y="131.0" text-anchor="middle">13</text><circle class="n acc" cx="697.0" cy="127.0" r="16.4"/><text class="t3" x="697.0" y="131.0" text-anchor="middle">33</text><circle class="n" cx="743.0" cy="127.0" r="10.3"/><text class="t3" x="743.0" y="131.0" text-anchor="middle">11</text><rect class="n soft" x="263" y="153" width="40" height="40" rx="4"/><text class="t3" x="283.0" y="177.0" text-anchor="middle">54</text><circle class="n" cx="329.0" cy="173.0" r="5.5"/><text class="t3" x="329.0" y="177.0" text-anchor="middle">2</text><circle class="n" cx="375.0" cy="173.0" r="7.0"/><text class="t3" x="375.0" y="177.0" text-anchor="middle">4</text><circle class="n" cx="421.0" cy="173.0" r="6.3"/><text class="t3" x="421.0" y="177.0" text-anchor="middle">3</text><circle class="n" cx="467.0" cy="173.0" r="12.6"/><text class="t3" x="467.0" y="177.0" text-anchor="middle">18</text><circle class="n" cx="513.0" cy="173.0" r="5.5"/><text class="t3" x="513.0" y="177.0" text-anchor="middle">2</text><circle class="n" cx="559.0" cy="173.0" r="8.6"/><text class="t3" x="559.0" y="177.0" text-anchor="middle">7</text><circle class="n" cx="605.0" cy="173.0" r="7.0"/><text class="t3" x="605.0" y="177.0" text-anchor="middle">4</text><circle class="n" cx="651.0" cy="173.0" r="8.1"/><text class="t3" x="651.0" y="177.0" text-anchor="middle">6</text><circle class="n acc" cx="697.0" cy="173.0" r="14.5"/><text class="t3" x="697.0" y="177.0" text-anchor="middle">25</text><circle class="n" cx="743.0" cy="173.0" r="9.1"/><text class="t3" x="743.0" y="177.0" text-anchor="middle">8</text><rect class="n soft" x="309" y="199" width="40" height="40" rx="4"/><text class="t3" x="329.0" y="223.0" text-anchor="middle">54</text><circle class="n" cx="375.0" cy="219.0" r="8.6"/><text class="t3" x="375.0" y="223.0" text-anchor="middle">7</text><circle class="n" cx="421.0" cy="219.0" r="8.1"/><text class="t3" x="421.0" y="223.0" text-anchor="middle">6</text><circle class="n" cx="467.0" cy="219.0" r="13.2"/><text class="t3" x="467.0" y="223.0" text-anchor="middle">20</text><circle class="n" cx="513.0" cy="219.0" r="9.1"/><text class="t3" x="513.0" y="223.0" text-anchor="middle">8</text><circle class="n" cx="559.0" cy="219.0" r="10.7"/><text class="t3" x="559.0" y="223.0" text-anchor="middle">12</text><circle class="n" cx="605.0" cy="219.0" r="7.0"/><text class="t3" x="605.0" y="223.0" text-anchor="middle">4</text><circle class="n" cx="651.0" cy="219.0" r="12.3"/><text class="t3" x="651.0" y="223.0" text-anchor="middle">17</text><circle class="n" cx="697.0" cy="219.0" r="12.0"/><text class="t3" x="697.0" y="223.0" text-anchor="middle">16</text><circle class="n" cx="743.0" cy="219.0" r="7.6"/><text class="t3" x="743.0" y="223.0" text-anchor="middle">5</text><rect class="n soft" x="355" y="245" width="40" height="40" rx="4"/><text class="t3" x="375.0" y="269.0" text-anchor="middle">154</text><circle class="n" cx="421.0" cy="265.0" r="21.7"/><text class="t3" x="421.0" y="269.0" text-anchor="middle">62</text><circle class="n" cx="467.0" cy="265.0" r="10.3"/><text class="t3" x="467.0" y="269.0" text-anchor="middle">11</text><circle class="n" cx="513.0" cy="265.0" r="14.7"/><text class="t3" x="513.0" y="269.0" text-anchor="middle">26</text><circle class="n" cx="559.0" cy="265.0" r="16.4"/><text class="t3" x="559.0" y="269.0" text-anchor="middle">33</text><circle class="n" cx="605.0" cy="265.0" r="15.0"/><text class="t3" x="605.0" y="269.0" text-anchor="middle">27</text><circle class="n" cx="651.0" cy="265.0" r="23.9"/><text class="t3" x="651.0" y="269.0" text-anchor="middle">77</text><circle class="n" cx="697.0" cy="265.0" r="9.9"/><text class="t3" x="697.0" y="269.0" text-anchor="middle">10</text><circle class="n" cx="743.0" cy="265.0" r="7.0"/><text class="t3" x="743.0" y="269.0" text-anchor="middle">4</text><rect class="n soft" x="401" y="291" width="40" height="40" rx="4"/><text class="t3" x="421.0" y="315.0" text-anchor="middle">94</text><circle class="n" cx="467.0" cy="311.0" r="11.0"/><text class="t3" x="467.0" y="315.0" text-anchor="middle">13</text><circle class="n" cx="513.0" cy="311.0" r="10.7"/><text class="t3" x="513.0" y="315.0" text-anchor="middle">12</text><circle class="n" cx="559.0" cy="311.0" r="12.0"/><text class="t3" x="559.0" y="315.0" text-anchor="middle">16</text><circle class="n" cx="605.0" cy="311.0" r="9.1"/><text class="t3" x="605.0" y="315.0" text-anchor="middle">8</text><circle class="n" cx="651.0" cy="311.0" r="21.8"/><text class="t3" x="651.0" y="315.0" text-anchor="middle">63</text><circle class="n" cx="697.0" cy="311.0" r="7.0"/><text class="t3" x="697.0" y="315.0" text-anchor="middle">4</text><circle class="n" cx="743.0" cy="311.0" r="8.6"/><text class="t3" x="743.0" y="315.0" text-anchor="middle">7</text><rect class="n soft" x="447" y="337" width="40" height="40" rx="4"/><text class="t3" x="467.0" y="361.0" text-anchor="middle">136</text><circle class="n" cx="513.0" cy="357.0" r="13.5"/><text class="t3" x="513.0" y="361.0" text-anchor="middle">21</text><circle class="n" cx="559.0" cy="357.0" r="11.4"/><text class="t3" x="559.0" y="361.0" text-anchor="middle">14</text><circle class="n" cx="605.0" cy="357.0" r="9.9"/><text class="t3" x="605.0" y="361.0" text-anchor="middle">10</text><circle class="n" cx="651.0" cy="357.0" r="14.0"/><text class="t3" x="651.0" y="361.0" text-anchor="middle">23</text><circle class="n" cx="697.0" cy="357.0" r="14.2"/><text class="t3" x="697.0" y="361.0" text-anchor="middle">24</text><circle class="n acc" cx="743.0" cy="357.0" r="22.2"/><text class="t3" x="743.0" y="361.0" text-anchor="middle">65</text><rect class="n soft" x="493" y="383" width="40" height="40" rx="4"/><text class="t3" x="513.0" y="407.0" text-anchor="middle">110</text><circle class="n" cx="559.0" cy="403.0" r="18.4"/><text class="t3" x="559.0" y="407.0" text-anchor="middle">43</text><circle class="n" cx="605.0" cy="403.0" r="17.0"/><text class="t3" x="605.0" y="407.0" text-anchor="middle">36</text><circle class="n" cx="651.0" cy="403.0" r="20.9"/><text class="t3" x="651.0" y="407.0" text-anchor="middle">57</text><circle class="n" cx="697.0" cy="403.0" r="10.3"/><text class="t3" x="697.0" y="407.0" text-anchor="middle">11</text><circle class="n" cx="743.0" cy="403.0" r="9.1"/><text class="t3" x="743.0" y="407.0" text-anchor="middle">8</text><rect class="n soft" x="539" y="429" width="40" height="40" rx="4"/><text class="t3" x="559.0" y="453.0" text-anchor="middle">87</text><circle class="n acc" cx="605.0" cy="449.0" r="15.9"/><text class="t3" x="605.0" y="453.0" text-anchor="middle">31</text><circle class="n" cx="651.0" cy="449.0" r="17.0"/><text class="t3" x="651.0" y="453.0" text-anchor="middle">36</text><circle class="n" cx="697.0" cy="449.0" r="11.0"/><text class="t3" x="697.0" y="453.0" text-anchor="middle">13</text><circle class="n" cx="743.0" cy="449.0" r="4.5"/><text class="t3" x="743.0" y="453.0" text-anchor="middle">1</text><rect class="n soft" x="585" y="475" width="40" height="40" rx="4"/><text class="t3" x="605.0" y="499.0" text-anchor="middle">63</text><circle class="n" cx="651.0" cy="495.0" r="14.5"/><text class="t3" x="651.0" y="499.0" text-anchor="middle">25</text><circle class="n" cx="697.0" cy="495.0" r="7.0"/><text class="t3" x="697.0" y="499.0" text-anchor="middle">4</text><circle class="n" cx="743.0" cy="495.0" r="5.5"/><text class="t3" x="743.0" y="499.0" text-anchor="middle">2</text><rect class="n soft" x="631" y="521" width="40" height="40" rx="4"/><text class="t3" x="651.0" y="545.0" text-anchor="middle">176</text><circle class="n" cx="697.0" cy="541.0" r="9.5"/><text class="t3" x="697.0" y="545.0" text-anchor="middle">9</text><circle class="n" cx="743.0" cy="541.0" r="7.6"/><text class="t3" x="743.0" y="545.0" text-anchor="middle">5</text><rect class="n soft" x="677" y="567" width="40" height="40" rx="4"/><text class="t3" x="697.0" y="591.0" text-anchor="middle">64</text><circle class="n" cx="743.0" cy="587.0" r="10.7"/><text class="t3" x="743.0" y="591.0" text-anchor="middle">12</text><rect class="n soft" x="723" y="613" width="40" height="40" rx="4"/><text class="t3" x="743.0" y="637.0" text-anchor="middle">80</text><circle class="n acc" cx="176" cy="678" r="8"/><text class="t2" x="190" y="682">향상도 3 이상</text><circle class="n" cx="306" cy="678" r="8"/><text class="t2" x="320" y="682">향상도 3 미만</text><rect class="n soft" x="430" y="670" width="16" height="16" rx="3"/><text class="t2" x="452" y="682">대각선: 부품 단독 사용 사례 수</text><text class="t3" x="168" y="704">원 넓이는 두 부품이 함께 태깅된 사례 수에 비례한다. 원 안 숫자가 사례 수다.</text></svg></div>
+<figcaption><b>그림 13.4</b> PAX 557건에서 부품 13개의 쌍별 공동 출현. 원 넓이는 함께 태깅된 사례 수, 진한 원은 향상도 3 이상이다. B1은 A2.1·A9·A2.2·D8.3과, A10은 D8.9와, F1은 F7과 강하게 묶이고, A3·A8은 향상도는 2.39지만 사례 수가 62건으로 크다.</figcaption></figure>
+
+<p>표 13.4는 행렬 바깥까지 포함해 의미 있는 쌍을 추렸다. 위쪽은 사례 수가 많은 쌍이고, 아래쪽은 사례 수는 적지만 향상도가 매우 높은 쌍이다.</p>
+
+<div class="tbl"><table><caption><b>표 13.4</b> PAX 557건의 주요 부품 쌍(공동 출현 수와 향상도)</caption>
+<thead><tr><th>부품 쌍</th><th class="c">함께 나온 사례</th><th class="c">각 부품 단독</th><th class="c">향상도</th><th>읽는 법</th></tr></thead>
+<tbody>
+<tr><td class="k">A10 · D8.9</td><td class="c">65</td><td class="c">136 · 80</td><td class="c">3.33</td><td>문서 형식 어댑터가 변환·서식 블록을 만든다</td></tr>
+<tr><td class="k">A3 · A8</td><td class="c">62</td><td class="c">154 · 94</td><td class="c">2.39</td><td>공공 API를 MCP 도구로 감싼다</td></tr>
+<tr><td class="k">A2.1 · B1</td><td class="c">59</td><td class="c">88 · 111</td><td class="c">3.36</td><td>상용 모델을 부르는 도구는 대개 코파일럿</td></tr>
+<tr><td class="k">B1 · D8.3</td><td class="c">51</td><td class="c">111 · 64</td><td class="c">4.00</td><td>코파일럿의 산출물은 초안·기안</td></tr>
+<tr><td class="k">A1 · F1</td><td class="c">43</td><td class="c">110 · 87</td><td class="c">2.50</td><td>데이터 화면은 출처를 붙인다</td></tr>
+<tr><td class="k">A9 · B1</td><td class="c">40</td><td class="c">54 · 111</td><td class="c">3.72</td><td>규범 스킬은 코파일럿에 꽂혀 쓰인다</td></tr>
+<tr><td class="k">A2.2 · B1</td><td class="c">38</td><td class="c">54 · 111</td><td class="c">3.53</td><td>로컬 모델도 코파일럿 형태로 쓰인다</td></tr>
+<tr><td class="k">F1 · F7</td><td class="c">31</td><td class="c">87 · 63</td><td class="c">3.15</td><td>출처 표시와 한계 안내는 짝으로 나온다</td></tr>
+<tr><td class="k">A2.1 · B′9</td><td class="c">13</td><td class="c">88 · 17</td><td class="c">4.84</td><td>상용 모델을 쓰면 판정은 규칙에 맡긴다</td></tr>
+<tr><td class="k">B7 · D8.10</td><td class="c">9</td><td class="c">12 · 22</td><td class="c">18.99</td><td>콘텐츠 생성기는 발간·홍보로 나간다</td></tr>
+<tr><td class="k">B6 · B′7</td><td class="c">7</td><td class="c">15 · 16</td><td class="c">16.25</td><td>오케스트레이터 안에는 ReAct 도구 루프가 있다</td></tr>
+<tr><td class="k">C8 · F6</td><td class="c">6</td><td class="c">22 · 11</td><td class="c">13.81</td><td>권한 경계는 이용자 쪽 행동 확인 화면과 함께 온다</td></tr>
+<tr><td class="k">A2.5 · S13</td><td class="c">5</td><td class="c">15 · 5</td><td class="c">37.13</td><td>로컬 비식별 게이트 다섯 건 모두가 자체 학습 모델</td></tr>
+</tbody></table></div>
+
+<h3>여섯 묶음</h3>
+<p>쌍을 세 개 이상으로 넓히면 이름을 붙일 만한 묶음이 나온다. 그림 13.5는 이 책이 붙인 이름으로 여섯 묶음을 정리했다. 이 이름들은 카탈로그에 등재된 부품명이 아니다. 독자가 조립할 때 참고하도록 붙인 편의상 명칭이다. 사례 수는 묶음의 부품이 모두 함께 태깅된 PAX 사례 수다.</p>
+
+<figure class="fig" id="fig-13-5"><div class="canvas"><svg viewBox="0 0 900 380" role="img" aria-label="PAX 공동 출현에서 찾은 복합 패턴 후보 여섯 묶음">
+<rect class="n" x="20" y="20" width="280" height="160" rx="6"/>
+<text class="t b" x="34" y="44">① 스킬 코파일럿 묶음</text>
+<text class="t3" x="34" y="62">셋 모두 32건 · D8.3까지 18건</text>
+<rect class="n a" x="34" y="76" width="56" height="34" rx="5"/><text class="tm ta" x="62" y="97" text-anchor="middle">A2.1</text>
+<rect class="n a" x="98" y="76" width="56" height="34" rx="5"/><text class="tm ta" x="126" y="97" text-anchor="middle">A9</text>
+<rect class="n b" x="162" y="76" width="56" height="34" rx="5"/><text class="tm tb" x="190" y="97" text-anchor="middle">B1</text>
+<rect class="n d" x="226" y="76" width="56" height="34" rx="5"/><text class="tm td" x="254" y="97" text-anchor="middle">D8.3</text>
+<text class="t2" x="34" y="136">상용 모델과 업무 규범 스킬로</text>
+<text class="t2" x="34" y="152">보고서·기안 초안을 쓴다</text>
+<rect class="n" x="310" y="20" width="280" height="160" rx="6"/>
+<text class="t b" x="324" y="44">② 공공데이터 MCP 묶음</text>
+<text class="t3" x="324" y="62">A3·A8·B0 60건 · D8.1까지 45건</text>
+<rect class="n a" x="324" y="76" width="56" height="34" rx="5"/><text class="tm ta" x="352" y="97" text-anchor="middle">A3</text>
+<rect class="n a" x="388" y="76" width="56" height="34" rx="5"/><text class="tm ta" x="416" y="97" text-anchor="middle">A8</text>
+<rect class="n b" x="452" y="76" width="56" height="34" rx="5"/><text class="tm tb" x="480" y="97" text-anchor="middle">B0</text>
+<rect class="n d" x="516" y="76" width="56" height="34" rx="5"/><text class="tm td" x="544" y="97" text-anchor="middle">D8.1</text>
+<text class="t2" x="324" y="136">공공 API를 MCP 도구로 감싸</text>
+<text class="t2" x="324" y="152">AI 호스트가 조회하게 한다</text>
+<rect class="n" x="600" y="20" width="280" height="160" rx="6"/>
+<text class="t b" x="614" y="44">③ 문서 변환 묶음</text>
+<text class="t3" x="614" y="62">A10·B0·D8.9 57건</text>
+<rect class="n a" x="614" y="76" width="56" height="34" rx="5"/><text class="tm ta" x="642" y="97" text-anchor="middle">A10</text>
+<rect class="n b" x="678" y="76" width="56" height="34" rx="5"/><text class="tm tb" x="706" y="97" text-anchor="middle">B0</text>
+<rect class="n d" x="742" y="76" width="56" height="34" rx="5"/><text class="tm td" x="770" y="97" text-anchor="middle">D8.9</text>
+<text class="t2" x="614" y="136">HWP·HWPX·엑셀을 런타임 AI</text>
+<text class="t2" x="614" y="152">없이 결정적으로 변환한다</text>
+<rect class="n" x="20" y="200" width="280" height="160" rx="6"/>
+<text class="t b" x="34" y="224">④ 근거·한계 고지 묶음</text>
+<text class="t3" x="34" y="242">셋 모두 20건</text>
+<rect class="n a" x="34" y="256" width="56" height="34" rx="5"/><text class="tm ta" x="62" y="277" text-anchor="middle">A1</text>
+<rect class="n f" x="98" y="256" width="56" height="34" rx="5"/><text class="tm tf" x="126" y="277" text-anchor="middle">F1</text>
+<rect class="n f" x="162" y="256" width="56" height="34" rx="5"/><text class="tm tf" x="190" y="277" text-anchor="middle">F7</text>
+<text class="t2" x="34" y="316">데이터 화면에 출처와 한계를</text>
+<text class="t2" x="34" y="332">함께 붙인다</text>
+<rect class="n" x="310" y="200" width="280" height="160" rx="6"/>
+<text class="t b" x="324" y="224">⑤ 판정 게이트 묶음</text>
+<text class="t3" x="324" y="242">셋 모두 7건 · B′9 17건 중 7건</text>
+<rect class="n a" x="324" y="256" width="56" height="34" rx="5"/><text class="tm ta" x="352" y="277" text-anchor="middle">A2.1</text>
+<rect class="n bp" x="388" y="256" width="56" height="34" rx="5"/><text class="tm tbp" x="416" y="277" text-anchor="middle">B′9</text>
+<rect class="n c" x="452" y="256" width="56" height="34" rx="5"/><text class="tm tc" x="480" y="277" text-anchor="middle">C5</text>
+<text class="t2" x="324" y="316">모델은 추출·서술만 하고</text>
+<text class="t2" x="324" y="332">규칙이 판정, 필터가 거른다</text>
+<rect class="n" x="600" y="200" width="280" height="160" rx="6"/>
+<text class="t b" x="614" y="224">⑥ 에이전트 통제 묶음</text>
+<text class="t3" x="614" y="242">넷 모두 2건 · 후보 단계</text>
+<rect class="n b" x="614" y="256" width="56" height="34" rx="5"/><text class="tm tb" x="642" y="277" text-anchor="middle">B6</text>
+<rect class="n bp" x="678" y="256" width="56" height="34" rx="5"/><text class="tm tbp" x="706" y="277" text-anchor="middle">B′7</text>
+<rect class="n c" x="742" y="256" width="56" height="34" rx="5"/><text class="tm tc" x="770" y="277" text-anchor="middle">C8</text>
+<rect class="n f" x="806" y="256" width="56" height="34" rx="5"/><text class="tm tf" x="834" y="277" text-anchor="middle">F6</text>
+<text class="t2" x="614" y="316">도구 루프에 실행 승인과</text>
+<text class="t2" x="614" y="332">행동 확인 화면을 건다</text>
+</svg></div>
+<figcaption><b>그림 13.5</b> PAX 557건의 공동 출현에서 찾은 복합 패턴 후보 여섯 묶음. ①~③은 수십 건 규모로 확립된 조립이고, ⑤·⑥은 사례가 적지만 향상도가 높아 다음 판에서 지켜볼 묶음이다.</figcaption></figure>
+
+<p>여섯 묶음은 성격이 둘로 갈린다. 앞의 세 묶음은 PAX 자생 도구의 저변 그 자체다. 스킬 코파일럿 묶음은 개인 개발자가 상용 모델에 업무 규범 스킬을 얹어 보고서를 쓰는 조립이다. 공공데이터 MCP 묶음과 문서 변환 묶음은 런타임 AI 없이 도는 결정적 도구다. 셋 다 묶음 안에 운영 부품이 없다. ① 묶음 32건 가운데 검토 큐(C1)가 함께 태깅된 사례는 7건이다. 운영 부품이 하나라도 있는 사례는 ② 묶음 60건 가운데 8건, ③ 묶음 57건 가운데 12건이다. 묶음을 그대로 가져다 쓰면 결손까지 함께 복제된다.</p>
+<p>뒤의 세 묶음은 통제를 담는다. ④ 근거·한계 고지 묶음은 이용자 면의 통제다. <a class="pat lc-a" href="ch07.html#p-A1"><span class="pid">A1</span>데이터 자산 서비스</a>, <a class="pat lc-f" href="ch10.html#p-F1"><span class="pid">F1</span>출처 표시</a>, <a class="pat lc-f" href="ch10.html#p-F7"><span class="pid">F7</span>한계·신뢰도 안내</a> 셋이 함께 태깅된 사례가 20건으로, 데이터를 보여 주는 화면에 출처와 한계를 함께 붙이는 조립이다. 판정 게이트 묶음을 보면, B′9가 쓰인 17건 가운데 7건에서 상용 모델과 <a class="pat lc-c" href="ch08.html#p-C5"><span class="pid">C5</span>가드레일 필터</a>가 함께 나왔다. 모델에게 판정을 맡기지 않으려는 개발자의 선택이 같은 모양으로 반복된 것이다. 에이전트 통제 묶음은 네 부품이 모두 갖춰진 사례가 2건뿐이라 Rule of Three를 채우지 못한다. 그래도 C8과 F6의 향상도는 13을 넘는다. 권한 경계를 서술하는 개발자는 이용자 쪽 확인 화면(<a class="pat lc-f" href="ch10.html#p-F6"><span class="pid">F6</span>에이전트 행동 검토·확인</a>)도 함께 만든다.</p>
+
+<aside class="warn"><span class="lbl">주의</span><p>공동 출현은 인과가 아니다. PAX는 자기선택 표본이고 태깅은 공개 요약에 근거하므로, 서술이 짧은 사례는 부품이 적게 태깅된다. 향상도가 높은 쌍 가운데 사례 수가 10건 미만인 것은 표본이 커지면 쉽게 흔들린다. 복합 패턴으로 등재하려면 Rule of Three를 묶음 단위로 다시 적용해야 한다.</p></aside>
+
+<aside class="case"><span class="lbl">사례 연구 · 가람시(가상)</span><h4>스킬 코파일럿 묶음을 그대로 들여오지 않은 이유</h4>
+<p>기획예산과의 한 주무관이 바이브 코딩으로 만든 보고서 작성 도구를 AX팀에 가져왔다. 상용 LLM을 직접 부르고, 기관 보고서 서식을 스킬 파일로 묶어 초안을 쓰는 구조였다. AX팀이 조립도로 옮겨 보니 그림 13.5의 ① 묶음과 정확히 같았다. 동료 열두 명이 이미 쓰고 있었다.</p>
+<p>AX팀은 두 가지를 바꿨다. 첫째, 가람시 환경에서 상용 API는 내부망 프록시를 거쳐야 하므로 A2.1을 A2.4로 바꿨다. 둘째, 묶음에 없는 검토 큐를 끼웠다. 초안이 결재 문서로 넘어가기 전에 작성자가 숫자와 출처를 확인했다는 표시를 남기게 했다. 그 밖에 스킬 파일을 공용 저장소로 옮겨 담당자가 바뀌어도 남게 했다. 조립은 <code>A2.4 → A9 → B1 → C1 → D8.3</code>이 되었다.</p>
+<p>주무관은 처음에 번거롭다고 했다. 석 달 뒤 감사 부서가 보고서 수치의 근거를 물었을 때, 검토 표시가 남은 초안이 답이 되었다.</p>
+</aside>
+
+<h2>13.6 가람시 종합 조립도</h2>
+<p>과제별 조립도를 다 그렸다면 기관 전체를 한 장으로 올릴 차례다. 과제 조립도를 그대로 겹치면 같은 부품이 다섯 번 그려진다. 그래서 종합 조립도는 여러 부서가 같은 부품을 쓰는 자리를 찾아 공유 계층으로 내리고, 부서에는 주 부품과 서비스 블록만 남긴다.</p>
+<p>그림 13.6은 가람시의 다섯 줄기를 한 장에 모았다. 위쪽 두 줄이 부서별 부분이다. 민원여권과는 지식 접지 상담(B3)과 라우터 원형(<a class="pat lc-bp" href="ch06.html#p-Bp2"><span class="pid">B′2</span>라우터·디스패처</a>)으로 대민 안내(<a class="pat lc-d" href="ch11.html#p-D1"><span class="pid">D1</span>안내·탐색</a>)를 낸다. 재난안전과는 하천 수위 센서와 CCTV를 보는 B5로 통지 블록(<a class="pat lc-d" href="ch11.html#p-D5"><span class="pid">D5</span>통지·추적</a>)을 낸다. 기획예산과는 B1로 <a class="pat lc-d" href="ch11.html#p-D8_3"><span class="pid">D8.3</span>초안·기안</a>을, 복지정책과는 <a class="pat lc-b" href="ch05.html#p-B2"><span class="pid">B2</span>예측·추천기</a>와 <a class="pat lc-bp" href="ch06.html#p-Bp9"><span class="pid">B′9</span>결정론 판정 게이트</a>로 <a class="pat lc-d" href="ch11.html#p-D8_4"><span class="pid">D8.4</span>대조·점검</a>을 낸다. 개인 개발 공무원들의 도구는 B0과 A8로 <a class="pat lc-d" href="ch11.html#p-D8_9"><span class="pid">D8.9</span>변환·서식</a>을 맡는다.</p>
+<p>아래 네 줄은 기관 공유 계층이다. 운영 부품 여덟 개, 보안 부품 네 개, 공통 서비스 아홉 개가 부서 경계 없이 한 번씩만 놓인다. 맨 아래 환경 조건 띠가 이 모든 부품의 전제다. 행정망과 인터넷망이 분리되어 있고, 상용 API는 내부망 프록시를 거쳐야만 부를 수 있으며, 데이터는 대부분 S(민감) 등급이다.</p>
+
+<figure class="fig" id="fig-13-6"><div class="canvas"><svg viewBox="0 0 920 480" role="img" aria-label="가람시(가상) 전 부서 종합 조립도. 부서별 주 부품과 서비스 블록 아래에 운영·보안·공통 서비스가 기관 공유 계층으로 놓인다.">
+<defs><marker id="ah-13-6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+<text class="t3" x="12" y="28">부서</text>
+<text class="t b" x="163" y="28" text-anchor="middle">민원여권과</text>
+<text class="t b" x="329" y="28" text-anchor="middle">재난안전과</text>
+<text class="t b" x="495" y="28" text-anchor="middle">기획예산과</text>
+<text class="t b" x="661" y="28" text-anchor="middle">복지정책과</text>
+<text class="t b" x="827" y="28" text-anchor="middle">개인 개발</text>
+<text class="t3" x="12" y="66">D · F</text>
+<rect class="n d" x="82" y="40" width="96" height="44" rx="6"/><text class="tm td" x="130" y="58" text-anchor="middle">D1</text><text class="t3" x="130" y="74" text-anchor="middle">안내·탐색</text>
+<rect class="n f" x="184" y="40" width="62" height="44" rx="6"/><text class="tm tf" x="215" y="66" text-anchor="middle">F1·F7</text>
+<rect class="n d" x="248" y="40" width="96" height="44" rx="6"/><text class="tm td" x="296" y="58" text-anchor="middle">D5</text><text class="t3" x="296" y="74" text-anchor="middle">통지·추적</text>
+<rect class="n f" x="350" y="40" width="62" height="44" rx="6"/><text class="tm tf" x="381" y="66" text-anchor="middle">F9</text>
+<rect class="n d" x="414" y="40" width="96" height="44" rx="6"/><text class="tm td" x="462" y="58" text-anchor="middle">D8.3</text><text class="t3" x="462" y="74" text-anchor="middle">초안·기안</text>
+<rect class="n f" x="516" y="40" width="62" height="44" rx="6"/><text class="tm tf" x="547" y="66" text-anchor="middle">F2</text>
+<rect class="n d" x="580" y="40" width="96" height="44" rx="6"/><text class="tm td" x="628" y="58" text-anchor="middle">D8.4</text><text class="t3" x="628" y="74" text-anchor="middle">대조·점검</text>
+<rect class="n f" x="682" y="40" width="62" height="44" rx="6"/><text class="tm tf" x="713" y="66" text-anchor="middle">F9·F7</text>
+<rect class="n d" x="746" y="40" width="96" height="44" rx="6"/><text class="tm td" x="794" y="58" text-anchor="middle">D8.9</text><text class="t3" x="794" y="74" text-anchor="middle">변환·서식</text>
+<rect class="n f" x="848" y="40" width="62" height="44" rx="6"/><text class="tm tf" x="879" y="66" text-anchor="middle">F2</text>
+<text class="t3" x="12" y="146">B 주 부품</text>
+<rect class="n b" x="82" y="120" width="162" height="52" rx="6"/><text class="tm tb" x="163" y="138" text-anchor="middle">B3 + B′2</text><text class="t3" x="163" y="155" text-anchor="middle">지식 접지 상담</text><text class="t3" x="163" y="167" text-anchor="middle">유형 1 대민 상담·안내</text>
+<rect class="n b" x="248" y="120" width="162" height="52" rx="6"/><text class="tm tb" x="329" y="138" text-anchor="middle">B5</text><text class="t3" x="329" y="155" text-anchor="middle">현장 감지·경보</text><text class="t3" x="329" y="167" text-anchor="middle">유형 3 현장 감시·경보</text>
+<rect class="n b" x="414" y="120" width="162" height="52" rx="6"/><text class="tm tb" x="495" y="138" text-anchor="middle">B1 + B′1</text><text class="t3" x="495" y="155" text-anchor="middle">코파일럿</text><text class="t3" x="495" y="167" text-anchor="middle">유형 4 문서·기안</text>
+<rect class="n b" x="580" y="120" width="162" height="52" rx="6"/><text class="tm tb" x="661" y="138" text-anchor="middle">B2 + B′9</text><text class="t3" x="661" y="155" text-anchor="middle">예측·추천기</text><text class="t3" x="661" y="167" text-anchor="middle">유형 10 위험 예측</text>
+<rect class="n b" x="746" y="120" width="162" height="52" rx="6"/><text class="tm tb" x="827" y="138" text-anchor="middle">B0 + A8</text><text class="t3" x="827" y="155" text-anchor="middle">결정적 도구·MCP</text><text class="t3" x="827" y="167" text-anchor="middle">유형 8 취합·변환</text>
+<path class="ln" d="M130,120 L130,86" marker-end="url(#ah-13-6)"/>
+<path class="ln" d="M296,120 L296,86" marker-end="url(#ah-13-6)"/>
+<path class="ln" d="M462,120 L462,86" marker-end="url(#ah-13-6)"/>
+<path class="ln" d="M628,120 L628,86" marker-end="url(#ah-13-6)"/>
+<path class="ln" d="M794,120 L794,86" marker-end="url(#ah-13-6)"/>
+<path class="ln thin" d="M163,172 L163,198"/><path class="ln thin" d="M329,172 L329,198"/><path class="ln thin" d="M495,172 L495,198"/><path class="ln thin" d="M661,172 L661,198"/><path class="ln thin" d="M827,172 L827,198"/>
+<rect class="n zone" x="76" y="198" width="838" height="226" rx="8"/>
+<text class="t3" x="908" y="214" text-anchor="end">기관 공유 계층 · 부서마다 다시 만들지 않는다</text>
+<text class="t3" x="12" y="246">C 운영</text>
+<rect class="n c" x="82" y="222" width="96" height="40" rx="6"/><text class="tm tc" x="130" y="238" text-anchor="middle">C5</text><text class="t3" x="130" y="254" text-anchor="middle">가드레일</text>
+<rect class="n c" x="186" y="222" width="96" height="40" rx="6"/><text class="tm tc" x="234" y="238" text-anchor="middle">C1</text><text class="t3" x="234" y="254" text-anchor="middle">검토 큐</text>
+<rect class="n c" x="290" y="222" width="96" height="40" rx="6"/><text class="tm tc" x="338" y="238" text-anchor="middle">C2</text><text class="t3" x="338" y="254" text-anchor="middle">위험도 라우터</text>
+<rect class="n c" x="394" y="222" width="96" height="40" rx="6"/><text class="tm tc" x="442" y="238" text-anchor="middle">C9</text><text class="t3" x="442" y="254" text-anchor="middle">평가 세트</text>
+<rect class="n c" x="498" y="222" width="96" height="40" rx="6"/><text class="tm tc" x="546" y="238" text-anchor="middle">C7</text><text class="t3" x="546" y="254" text-anchor="middle">폴백 스위치</text>
+<rect class="n c" x="602" y="222" width="96" height="40" rx="6"/><text class="tm tc" x="650" y="238" text-anchor="middle">C4</text><text class="t3" x="650" y="254" text-anchor="middle">감사 로그·지표</text>
+<rect class="n c" x="706" y="222" width="96" height="40" rx="6"/><text class="tm tc" x="754" y="238" text-anchor="middle">C8</text><text class="t3" x="754" y="254" text-anchor="middle">권한 경계</text>
+<rect class="n c" x="810" y="222" width="96" height="40" rx="6"/><text class="tm tc" x="858" y="238" text-anchor="middle">C6</text><text class="t3" x="858" y="254" text-anchor="middle">환류 파이프라인</text>
+<text class="t3" x="12" y="300">S 보안</text>
+<rect class="n s" x="82" y="276" width="200" height="40" rx="6"/><text class="tm ts" x="182" y="292" text-anchor="middle">S1</text><text class="t3" x="182" y="308" text-anchor="middle">AI 게이트웨이·단일 진입점</text>
+<rect class="n s" x="290" y="276" width="200" height="40" rx="6"/><text class="tm ts" x="390" y="292" text-anchor="middle">S2</text><text class="t3" x="390" y="308" text-anchor="middle">권한 인식 검색</text>
+<rect class="n s" x="498" y="276" width="200" height="40" rx="6"/><text class="tm ts" x="598" y="292" text-anchor="middle">S13</text><text class="t3" x="598" y="308" text-anchor="middle">로컬 비식별 게이트</text>
+<rect class="n s" x="706" y="276" width="200" height="40" rx="6"/><text class="tm ts" x="806" y="292" text-anchor="middle">S10</text><text class="t3" x="806" y="308" text-anchor="middle">결정적 재생</text>
+<text class="t3" x="12" y="354">A 공통</text>
+<rect class="n a" x="82" y="330" width="86" height="40" rx="6"/><text class="tm ta" x="125" y="346" text-anchor="middle">A2.4</text><text class="t3" x="125" y="362" text-anchor="middle">내부망 프록시</text>
+<rect class="n a" x="174" y="330" width="86" height="40" rx="6"/><text class="tm ta" x="217" y="346" text-anchor="middle">A2.2</text><text class="t3" x="217" y="362" text-anchor="middle">로컬 모델 서버</text>
+<rect class="n a" x="266" y="330" width="86" height="40" rx="6"/><text class="tm ta" x="309" y="346" text-anchor="middle">A2.5</text><text class="t3" x="309" y="362" text-anchor="middle">학습 모델</text>
+<rect class="n a" x="358" y="330" width="86" height="40" rx="6"/><text class="tm ta" x="401" y="346" text-anchor="middle">A1</text><text class="t3" x="401" y="362" text-anchor="middle">데이터 자산</text>
+<rect class="n a" x="450" y="330" width="86" height="40" rx="6"/><text class="tm ta" x="493" y="346" text-anchor="middle">A9</text><text class="t3" x="493" y="362" text-anchor="middle">규범 스킬</text>
+<rect class="n a" x="542" y="330" width="86" height="40" rx="6"/><text class="tm ta" x="585" y="346" text-anchor="middle">A10</text><text class="t3" x="585" y="362" text-anchor="middle">문서 어댑터</text>
+<rect class="n a" x="634" y="330" width="86" height="40" rx="6"/><text class="tm ta" x="677" y="346" text-anchor="middle">A8</text><text class="t3" x="677" y="362" text-anchor="middle">MCP 호스트</text>
+<rect class="n a" x="726" y="330" width="86" height="40" rx="6"/><text class="tm ta" x="769" y="346" text-anchor="middle">A5</text><text class="t3" x="769" y="362" text-anchor="middle">엣지 추론</text>
+<rect class="n a" x="818" y="330" width="86" height="40" rx="6"/><text class="tm ta" x="861" y="346" text-anchor="middle">A11</text><text class="t3" x="861" y="362" text-anchor="middle">통지 어댑터</text>
+<text class="t3" x="12" y="406">공유 원칙</text>
+<text class="t2" x="90" y="392">모델 호출은 모두 A2.4 또는 A2.2를 거친다. 폴백(C7)과 호출 기록(C4)은 그 관문에 한 번만 붙인다.</text>
+<text class="t2" x="90" y="410">P2 이상 권한을 가진 B5·A8 경로에만 C8을 의무로 건다.</text>
+<rect class="n e" x="76" y="436" width="838" height="34" rx="6"/>
+<text class="tm te" x="90" y="457">E</text>
+<text class="t2" x="110" y="457">행정망(폐쇄) + 일부 인터넷망 PC · 상용 API는 A2.4 경유만 허용 · 로컬 모델 서버 1대 · 데이터 대부분 S(민감)</text>
+<text class="t3" x="12" y="457">환경</text>
+</svg></div>
+<figcaption><b>그림 13.6</b> 가람시(가상)의 종합 조립도. 다섯 부서에는 주 부품과 서비스 블록만 남고, 운영·보안·공통 서비스는 기관 공유 계층에 한 번씩 놓인다. 부서마다 모델과 폴백을 따로 두던 X3 문제를 이 배치가 막는다.</figcaption></figure>
+
+<p>이 그림에서 가장 비싼 결정은 모델 호출 관문을 둘로 고정한 것이다. 상용 모델은 A2.4 프록시로, 민감 데이터는 로컬 모델 서버(A2.2)로만 간다. 관문이 둘뿐이니 C7과 C4도 두 곳에만 붙이면 된다. 다섯 부서가 각자 붙였다면 열 곳이었다. 반대로 공유 계층으로 내리지 않은 부품도 있다. 민원여권과의 라우터 원형과 복지정책과의 판정 게이트는 업무 규칙을 담고 있어 부서 안에 둔다. 공유할지 말지의 기준은 그 부품이 업무 지식을 담는지, 기관 공통의 통제를 담는지다.</p>
+
+<aside class="case"><span class="lbl">사례 연구 · 가람시(가상)</span><h4>종합 조립도가 예산 회의에서 한 일</h4>
+<p>가람시 기획예산과는 그동안 다음 해 AX 예산을 부서별 과제 단위로 짜 왔다. 올해 AX팀은 그림 13.6을 들고 예산 회의에 들어갔다. 다섯 과제의 요구 예산을 그대로 더한 안에는 모델 계약 세 건, 폴백 구성 다섯 건, 로그 저장소 다섯 건이 들어 있었다.</p>
+<p>공유 계층 기준으로 다시 묶자 모델 계약은 프록시 한 건으로, 폴백과 로그는 관문 두 곳으로 줄었다. 아낀 몫은 <a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span>평가 세트·회귀시험</a> 구축에 돌렸다. 민원 상담 챗봇은 평가 세트 없이 배포하면 <a class="pat lc-x" href="ch14.html#p-X10"><span class="pid">X10</span>평가 없는 RAG, RAG 없는 튜닝</a>에 빠진다는 점을 AX팀이 조립도로 보여 줬기 때문이다.</p>
+<p>회의 끝에 재난안전과장이 물었다. 공유 계층의 C2는 누구 소관인가. 답은 정해져 있지 않았다. 종합 조립도는 부품의 소관을 정하는 회의를 하나 더 낳았다. AX팀은 그 회의가 이 그림이 낸 가장 큰 성과라고 생각했다.</p>
+</aside>
+
+<aside class="glance"><span class="lbl">한눈에 보기 · 조립 예시와 복합 패턴</span><dl>
+<dt>무엇</dt><dd>템플릿과 실제 과제 사이의 거리를 재는 일이다. 실제 과제는 필수 부품 일부가 비어 있고, 다른 분류 체계의 언어로 설명되며, 부품이 늘 같은 묶음으로 반복된다.</dd>
+<dt>왜</dt><dd>조립도에 결손 부품을 그리면 다음 단계의 작업 목록이 나온다. 축 교차표는 마이크로서비스 패턴과 PAX 평가축을 같은 부품 이름으로 옮긴다. 공동 출현은 기관이 공유 계층으로 내릴 후보를 알려 준다.</dd>
+<dt>경험칙</dt><dd>여러 과제에서 같은 부품이 결손이면 공유 계층으로 한 번에 메운다. 업무 규칙을 담은 부품은 부서에 두고, 통제를 담은 부품은 기관에 둔다. 사례 10건 미만의 묶음은 복합 패턴으로 부르지 않는다.</dd>
+</dl></aside>
+
+<div class="summary"><h2>핵심 정리</h2><ul>
+<li>조립도는 환경 조건, 가치 흐름(주 부품 → 운영 부품 → 서비스 블록), 결손 부품을 한 그림에 담는다. 결손 부품이 곧 다음 단계의 작업 목록이다.</li>
+<li>PAX의 기관 공식 사례도 통제 부품이 고르지 않다. KIST hwpx 스킬은 확정·제약·폴백을 호스트 도구에 맡겼고, 광진구 AI 도구 6종은 공표한 관리 원칙으로 C1을 갖춰 First 잠정 판정을 받았다.</li>
+<li>개인·커뮤니티 도구는 기반 부품과 환경 다양성을 갖췄지만 운영 서술이나 업무 산출물이 비어 있다. 같은 아카이브 안에 서로의 빈칸을 채울 참조 구현이 있다.</li>
+<li>마이크로서비스 패턴은 AI 과제에서 여러 부품으로 갈라진다. API Gateway는 A2·A8·C2로, Circuit Breaker는 C7의 다섯 경로로 옮겨 읽는다.</li>
+<li>PAX 평가축은 부품 보유로 번역된다. AX 단계는 A → B → C2·C3·C4 → C6·C7의 사다리이며, 판정에는 present만 센다.</li>
+<li>공동 출현은 빈도와 향상도를 함께 봐야 한다. PAX 557건에서 스킬 코파일럿(A2.1·A9·B1), 공공데이터 MCP(A3·A8·B0), 문서 변환(A10·B0·D8.9) 묶음이 확립 수준으로 반복된다.</li>
+<li>종합 조립도는 공유 부품을 기관 계층으로 내려 그린다. 모델 호출 관문을 고정하면 폴백과 감사 로그를 붙일 자리가 줄어든다.</li>
+</ul></div>
+<nav class="pager"><a class="prev" href="ch12.html"><small>← 이전</small>조립: 적용 절차와 서비스 유형별 템플릿</a><a class="next" href="ch14.html"><small>다음 →</small>안티패턴</a></nav></main></div><script>
+(function(){var b=document.querySelector('.navbtn');if(b){b.addEventListener('click',function(){var o=document.body.classList.toggle('toc-open');b.setAttribute('aria-expanded',o)});}
+document.querySelectorAll('.toc a').forEach(function(a){a.addEventListener('click',function(){document.body.classList.remove('toc-open')})});
+var on=document.querySelector('.toc a.on');if(on&&on.scrollIntoView){try{on.scrollIntoView({block:'center'})}catch(e){}}})();
+</script></body></html>

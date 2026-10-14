@@ -1,0 +1,850 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>조립: 적용 절차와 서비스 유형별 템플릿 · 공공 AX 디자인 패턴</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700;800;900&family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap"><link rel="stylesheet" href="book.css"></head><body><div class="bar"><button class="navbtn" type="button" aria-controls="toc" aria-expanded="false">차례</button><a class="bk" href="index.html">공공 AX 디자인 패턴</a><span class="where">조립: 적용 절차와 서비스 유형별 템플릿</span><span class="pn"><a href="ch11.html">← 이전</a><a href="ch13.html">다음 →</a></span></div><div class="layout"><nav class="toc" id="toc" aria-label="책 차례"><a href="index.html"><b>표지 · 차례</b></a><div class="part">앞붙이</div><a href="preface.html"><span class="n"></span>서문</a><a href="reading.html"><span class="n"></span>이 책을 읽는 법</a><a href="case-background.html"><span class="n"></span>사례 배경: 가람시(가상)</a><div class="part">1부 기초</div><a href="ch01.html"><span class="n">1</span>공공 AX와 패턴 언어</a><a href="ch02.html"><span class="n">2</span>AX 성숙도와 측정 눈금자</a><a href="ch03.html"><span class="n">3</span>디자인 패턴의 원리</a><a href="ch04.html"><span class="n">4</span>카탈로그의 구조</a><div class="part">2부 패턴 레퍼런스</div><a href="ch05.html"><span class="n">5</span>B 업무 컴포넌트</a><a href="ch06.html"><span class="n">6</span>B′ 제어 흐름 원형</a><a href="ch07.html"><span class="n">7</span>A 공통 서비스</a><a href="ch08.html"><span class="n">8</span>C 운영 컴포넌트</a><a href="ch09.html"><span class="n">9</span>S 보안 패턴</a><a href="ch10.html"><span class="n">10</span>F 상호작용 패턴</a><a href="ch11.html"><span class="n">11</span>D 서비스 블록</a><div class="part">3부 적용</div><a href="ch12.html" class="on" aria-current="page"><span class="n">12</span>조립: 적용 절차와 서비스 유형별 템플릿</a><a href="ch13.html"><span class="n">13</span>조립 예시와 축 교차표</a><a href="ch14.html"><span class="n">14</span>안티패턴</a><a href="ch15.html"><span class="n">15</span>태깅·검증·참조 구현 레지스트리</a><a href="ch16.html"><span class="n">16</span>PAX 557건으로 본 공공 AX의 현재</a><a href="ch17.html"><span class="n">17</span>PAX 가이드라인과 리소스</a><div class="part">부록</div><a href="appx-a.html"><span class="n">A</span>패턴 한눈에 보기</a><a href="appx-b.html"><span class="n">B</span>판정 규칙 개정 이력 R1~R28</a><a href="appx-c.html"><span class="n">C</span>용어집</a><a href="appx-d.html"><span class="n">D</span>참고문헌</a><a href="appx-e.html"><span class="n">E</span>공공 AX 가이드라인 문서 해설</a><a href="appx-f.html"><span class="n">F</span>사례 케이스북: PAX 사례로 읽는 패턴 활용</a></nav><main class="content" id="ch12"><header class="chap-head"><div class="num-big">12</div><div class="eyebrow">3부 적용 · 제 12장</div><h1>조립: 적용 절차와 서비스 유형별 템플릿</h1><p class="lede">부품 목록을 외워도 서비스는 만들어지지 않는다. 무엇부터 정하고 무엇을 함께 끼우며 실패가 나면 어디에 무엇을 더할지를 적용 절차, 진행 경로, 유형별 조립 템플릿, 위협 모델, 실패 대응표가 정한다.</p><div class="goals"><b>이 장에서 얻을 것</b><ul><li>적용 절차 여섯 단계를 순서대로 밟아 조립도를 만든다</li><li>진행 경로 열한 단계에서 지금 위치와 다음 부품을 고른다</li><li>서비스 유형별 조립 템플릿을 읽고 흔히 빠지는 필수 부품을 짚는다</li><li>신뢰 불가 입력의 출처에서 필수 보안 부품을 고른다</li><li>운영 중 관측된 실패 양상에서 끼울 부품과 확인 질문을 찾는다</li></ul></div></header>
+
+<p>민원 상담 챗봇을 만들겠다는 기안이 정보화 부서에 올라오면, 담당자가 붙잡는 질문은 대개 같다. 무엇부터 정하고 어떤 부품을 함께 끼워야 하는가, 그리고 무엇이 빠지면 심사에서 걸리는가. 4장의 패턴 서명은 이미 만든 과제를 읽는 데 썼다. 같은 서명을 빈칸부터 채워 나가면 조립도가 된다. 카탈로그 §7은 그 순서를 적용 절차 여섯 단계와 진행 경로로, 기본 조합을 서비스 유형별 조립 템플릿으로 정해 두었다. 이 장은 여기에 유형별 위협 모델과, 실패 양상에서 부품을 고르는 표를 덧붙였다.</p>
+<p>12.3절의 조립도는 모두 같은 문법의 가로 배선도다. 왼쪽에서 입력이 들어와 주 부품 B를 지나고, 이용자 면 F를 거쳐 접점 D에 닿는다. 위 띠에는 흐름 전체에 거는 통제 C와 보안 S가, 아래 띠에는 주 부품이 기대는 기반 A가 놓인다. 점선 상자는 그 유형의 필수 부품 가운데 PAX 557건 태깅에서 자주 빠진 것이다. 템플릿을 가져다 쓰는 사람은 점선 상자부터 확인한다.</p>
+
+<h2>12.1 적용 절차 여섯 단계</h2>
+<p>새 과제를 기획할 때도, 이미 만든 과제를 심사할 때도 같은 여섯 단계를 밟는다(그림 12.1). 순서에는 이유가 있다. 앞 단계의 결정이 뒤 단계의 필수 부품을 정한다.</p>
+
+<figure class="fig" id="fig-12-1"><div class="canvas"><svg viewBox="0 0 920 252" role="img" aria-label="적용 절차 여섯 단계. 접점과 환경 조건, 기반 부품, 업무 컴포넌트와 제어 흐름, 평가 세트, 통제 부품, 이용자 면과 환류 순서">
+<defs><marker id="ah-12-1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker><marker id="ah-12-1a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah acc"/></marker></defs>
+<text class="t3" x="16" y="22">새 과제를 기획할 때와 기존 과제를 심사할 때 모두 이 순서를 밟는다</text>
+<rect class="n" x="16" y="36" width="136" height="160" rx="6"/>
+<text class="t b tacc" x="84" y="60" text-anchor="middle">1</text>
+<rect class="n d" x="34" y="70" width="44" height="22" rx="6"/><text class="tm td" x="56" y="85" text-anchor="middle">D</text>
+<rect class="n e" x="90" y="70" width="44" height="22" rx="6"/><text class="tm te" x="112" y="85" text-anchor="middle">E</text>
+<text class="t b" x="84" y="118" text-anchor="middle">접점과 환경 조건</text>
+<text class="t b" x="84" y="136" text-anchor="middle">먼저 못 박기</text>
+<path class="ln thin" d="M28 150 L140 150"/>
+<text class="t3" x="84" y="168" text-anchor="middle">블록·E 5축 기록</text>
+<text class="t3" x="84" y="184" text-anchor="middle">건너뛰면 X6 데모웨어</text>
+<path class="ln" d="M152 116 L164 116" marker-end="url(#ah-12-1)"/>
+<rect class="n" x="166" y="36" width="136" height="160" rx="6"/>
+<text class="t b tacc" x="234" y="60" text-anchor="middle">2</text>
+<rect class="n a" x="212" y="70" width="44" height="22" rx="6"/><text class="tm ta" x="234" y="85" text-anchor="middle">A</text>
+<text class="t b" x="234" y="118" text-anchor="middle">기반 부품을</text>
+<text class="t b" x="234" y="136" text-anchor="middle">가져오거나 만들기</text>
+<path class="ln thin" d="M178 150 L290 150"/>
+<text class="t3" x="234" y="168" text-anchor="middle">공통기반·깃랩 먼저</text>
+<text class="t3" x="234" y="184" text-anchor="middle">만들면 레지스트리로</text>
+<path class="ln" d="M302 116 L314 116" marker-end="url(#ah-12-1)"/>
+<rect class="n" x="316" y="36" width="136" height="160" rx="6"/>
+<text class="t b tacc" x="384" y="60" text-anchor="middle">3</text>
+<rect class="n b" x="334" y="70" width="44" height="22" rx="6"/><text class="tm tb" x="356" y="85" text-anchor="middle">B</text>
+<rect class="n bp" x="390" y="70" width="44" height="22" rx="6"/><text class="tm tbp" x="412" y="85" text-anchor="middle">B′</text>
+<text class="t b" x="384" y="118" text-anchor="middle">업무 컴포넌트와</text>
+<text class="t b" x="384" y="136" text-anchor="middle">제어 흐름 고르기</text>
+<path class="ln thin" d="M328 150 L440 150"/>
+<text class="t3" x="384" y="168" text-anchor="middle">조립도의 중심선</text>
+<text class="t3" x="384" y="184" text-anchor="middle">단일·순차에서 시작</text>
+<path class="ln" d="M452 116 L464 116" marker-end="url(#ah-12-1)"/>
+<rect class="n" x="466" y="36" width="136" height="160" rx="6"/>
+<text class="t b tacc" x="534" y="60" text-anchor="middle">4</text>
+<rect class="n c" x="512" y="70" width="44" height="22" rx="6"/><text class="tm tc" x="534" y="85" text-anchor="middle">C9</text>
+<text class="t b" x="534" y="118" text-anchor="middle">평가 세트를</text>
+<text class="t b" x="534" y="136" text-anchor="middle">먼저 만들기</text>
+<path class="ln thin" d="M478 150 L590 150"/>
+<text class="t3" x="534" y="168" text-anchor="middle">업무 질문·정답·채점</text>
+<text class="t3" x="534" y="184" text-anchor="middle">모든 변경을 이걸로</text>
+<path class="ln" d="M602 116 L614 116" marker-end="url(#ah-12-1)"/>
+<rect class="n" x="616" y="36" width="136" height="160" rx="6"/>
+<text class="t b tacc" x="684" y="60" text-anchor="middle">5</text>
+<rect class="n c" x="652" y="70" width="64" height="22" rx="6"/><text class="tm tc" x="684" y="85" text-anchor="middle">C1~C8</text>
+<text class="t b" x="684" y="118" text-anchor="middle">권한에 맞춰</text>
+<text class="t b" x="684" y="136" text-anchor="middle">통제 부품 장착</text>
+<path class="ln thin" d="M628 150 L740 150"/>
+<text class="t3" x="684" y="168" text-anchor="middle">P2 이상: C2·C3·C4·C8</text>
+<text class="t3" x="684" y="184" text-anchor="middle">상시·상용 API: C7</text>
+<path class="ln" d="M752 116 L764 116" marker-end="url(#ah-12-1)"/>
+<rect class="n" x="766" y="36" width="136" height="160" rx="6"/>
+<text class="t b tacc" x="834" y="60" text-anchor="middle">6</text>
+<rect class="n f" x="784" y="70" width="44" height="22" rx="6"/><text class="tm tf" x="806" y="85" text-anchor="middle">F</text>
+<rect class="n c" x="840" y="70" width="44" height="22" rx="6"/><text class="tm tc" x="862" y="85" text-anchor="middle">C6</text>
+<text class="t b" x="834" y="118" text-anchor="middle">이용자 면 붙이고</text>
+<text class="t b" x="834" y="136" text-anchor="middle">환류 닫기</text>
+<path class="ln thin" d="M778 150 L890 150"/>
+<text class="t3" x="834" y="168" text-anchor="middle">출처·편집·한계 안내</text>
+<text class="t3" x="834" y="184" text-anchor="middle">운영 증거 → Native</text>
+<path class="ln acc dash" d="M84 198 L84 222 L684 222 L684 200" marker-end="url(#ah-12-1a)"/>
+<text class="t3" x="384" y="242" text-anchor="middle">E4 권한과 E5 등급이 5단계의 필수 통제 부품을 정한다 (표 4.2)</text>
+</svg></div>
+<figcaption><b>그림 12.1</b> 적용 절차 여섯 단계. 1단계에서 적은 권한 범위와 데이터 등급이 5단계의 필수 통제 부품을 미리 정한다. 4단계 평가 세트가 3단계 바로 뒤에 오는 것은, 모델과 검색을 고르기 전에 무엇으로 잴지를 먼저 정하기 위해서다.</figcaption></figure>
+
+<h3>1단계 · 접점과 환경 조건을 먼저 못 박는다 (D, E)</h3>
+<p>어떤 서비스 블록인지, 배포망·모델 의존·실행 형태·권한 범위·데이터 등급이 무엇인지부터 적는다. 다섯 축 중 E4 권한과 E5 등급이 이후 모든 필수 부품을 결정한다(표 4.2). 이 단계를 건너뛴 과제는 실데이터 없이 시연 화면만 남는 <a class="pat lc-x" href="ch14.html#p-X6"><span class="pid">X6</span>데모웨어</a>가 된다. 시연 환경과 운영 환경의 망·등급이 다르면 시연에서 쓴 부품 대부분을 운영에서 쓸 수 없기 때문이다.</p>
+<h3>2단계 · 기반 부품을 확보하거나 Provider에서 가져온다 (A)</h3>
+<p>데이터 자산·모델 서빙 계층·문서 어댑터는 새로 만들기 전에 범정부 AI 공통기반, 공공 깃랩, 공공데이터 MCP에서 먼저 찾는다. 없을 때만 만들고, 만들면 레지스트리에 올린다. 근거는 A 계층의 정의에 있다. A 계층은 Provider 방식으로 상위에 한 번 두고 여러 과제가 나눠 쓰는 부품이다.</p>
+<h3>3단계 · 업무 컴포넌트 하나와 제어 흐름 원형을 고른다 (B, B′)</h3>
+<p>사람과 AI가 일을 나누는 모양을 정한다. 단일 에이전트와 순차 배선에서 시작하고, 분리 가능한 하위 작업이 확인될 때만 계층·병렬로 승급한다. 이 단계의 산출물이 조립도의 중심선이다. 주 부품은 4장의 가치 흐름 규칙(R1)대로 사람이 받는 산출물에서 거꾸로 고른다.</p>
+<h3>4단계 · 평가 세트를 먼저 만든다 (C9)</h3>
+<p>RAG를 붙이기 전, 모델을 고르기 전에 업무 질문·정답·채점 기준 세트(<a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span>평가 세트·회귀시험</a>)를 만든다. 이후 모든 변경은 이 세트로 잰다. PAX 557건 가운데 이 세트를 갖춘 사례는 15건뿐이다. 세트가 없으면 다음 해에 모델을 바꿀 때 무엇이 나빠졌는지 알 수 없다.</p>
+<h3>5단계 · 권한 범위에 맞춰 통제 부품을 장착한다 (C1~C8)</h3>
+<p>P0~P1이면 <a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span>검토 큐</a>와 <a class="pat lc-c" href="ch08.html#p-C5"><span class="pid">C5</span>가드레일 필터</a>로 충분하다. P2 이상이면 <a class="pat lc-c" href="ch08.html#p-C2"><span class="pid">C2</span>위험도 라우터</a>·<a class="pat lc-c" href="ch08.html#p-C3"><span class="pid">C3</span>상태 머신·롤백</a>·<a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span>감사 로그·지표</a>·<a class="pat lc-c" href="ch08.html#p-C8"><span class="pid">C8</span>권한 경계·킬스위치</a>가 필수다. 상시 서비스이거나 상용 API에 의존하면 <a class="pat lc-c" href="ch08.html#p-C7"><span class="pid">C7</span>폴백 스위치</a>도 필수다. 되돌리는 데 사람 시간이 많이 드는 조치에는 반드시 체크포인트를 둔다.</p>
+<h3>6단계 · 이용자 면을 붙이고 환류를 닫는다 (F, C6)</h3>
+<p>출처 표시·편집 가능 출력·한계 안내로 통제를 이용자에게 보이게 한다. 그리고 수정·이의·오탐 기록이 정해진 주기로 재학습과 기준 개정에 돌아오게 한다(<a class="pat lc-c" href="ch08.html#p-C6"><span class="pid">C6</span>환류 파이프라인</a>). 여기까지 운영 증거가 쌓이면 AI-Native 후보다.</p>
+
+<aside class="case"><span class="lbl">사례 연구 · 가람시(가상)</span>
+<h4>민원여권과 챗봇, 여섯 단계를 다시 밟다</h4>
+<p>4장에서 가람시 AX팀은 민원여권과 상담 챗봇의 첫 서명을 적었고, C9·C7·F7이 비어 있으며 C5가 planned라는 것을 확인했다. 팀은 서명을 고치는 대신 여섯 단계를 처음부터 다시 밟았다.</p>
+<p>1단계에서 E4를 다시 확인했다. 챗봇이 답변만 하면 P1이지만, 민원여권과는 "예약 접수까지 챗봇이 해 주면 좋겠다"고 했다. 예약 시스템에 쓰는 순간 P2가 되고, 민원인 입력이라는 신뢰 불가 입력과 겹쳐 보안 부품까지 필수가 된다. AX팀은 첫 배포를 P1로 묶고 예약 기능은 다음 단계로 미뤘다. 2단계에서는 내부망 프록시와 민원 편람 코퍼스를 그대로 쓰기로 했다. 3단계의 주 부품은 그대로 B3이었다.</p>
+<p>4단계에서 팀은 민원여권과 주무관 두 명과 함께 실제 문의 기록에서 질문을 골라 정답과 채점 기준을 붙였다. 5단계에서 C5 비식별 필터를 설계서에서 꺼내 실제로 구현했고, 상용 모델이 응답하지 않으면 자주 묻는 질문 목록과 담당 전화번호를 보여 주는 규칙 기반 축소 경로를 C7로 붙였다. 6단계에서 답변 아래에 "이 안내는 법적 판단이 아니다"라는 문구와 근거 조항을 함께 두었다. 서명의 <code>missing_required</code>가 처음으로 비었다.</p>
+</aside>
+
+<aside class="key"><span class="lbl">핵심 요약</span><ul>
+<li>절차는 D·E → A → B·B′ → C9 → C1~C8 → F·C6 순서다. 앞 단계가 뒤 단계의 필수 부품을 정한다.</li>
+<li>권한을 한 단계 올리는 기능은 통제 부품을 한 묶음 끌고 온다. 첫 배포의 권한을 낮게 묶는 것도 설계 결정이다. 평가 세트는 모델과 검색을 고르기 전에 만든다.</li>
+</ul></aside>
+
+<h2>12.2 진행 경로: 부품을 늘리는 순서</h2>
+<p>여섯 단계가 한 과제의 설계 순서라면, 진행 경로는 한 서비스가 해를 넘기며 부품을 늘려 가는 순서다. 카탈로그는 Fowler·Subramaniam의 GenAI 진행 경로(직접 프롬프트 → 평가 → RAG → 검색 품질 → 가드레일 → 튜닝)와 "단일 에이전트에서 시작해 승급한다"는 원칙을 공공 서비스 부품으로 옮겨 열한 단계로 정리했다(그림 12.2).</p>
+
+<figure class="fig" id="fig-12-2"><div class="canvas"><svg viewBox="0 0 920 384" role="img" aria-label="진행 경로 열한 단계. 직접 프롬프트 코파일럿에서 시작해 튜닝형 모델로 끝나며, 6단계와 8단계에 보안 부품이 붙는다">
+<defs><marker id="ah-12-2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+<text class="t3" x="16" y="24">앞 단계가 다음 단계를 잴 기반이 된다</text>
+<rect class="n s" x="774" y="10" width="120" height="24" rx="6"/>
+<text x="834" y="27" text-anchor="middle"><tspan class="t2">+ </tspan><tspan class="tm ts">S8</tspan><tspan class="t2"> · </tspan><tspan class="tm ts">S3</tspan></text>
+<path class="ln thin" d="M834 34 L834 44"/>
+<rect class="n" x="16" y="44" width="136" height="96" rx="6"/>
+<text class="t b tacc" x="84" y="66" text-anchor="middle">1</text>
+<text class="tm tb" x="84" y="88" text-anchor="middle">B1</text>
+<text class="t2" x="84" y="108" text-anchor="middle">직접 프롬프트</text>
+<text class="t2" x="84" y="124" text-anchor="middle">코파일럿</text>
+<path class="ln" d="M152 92 L164 92" marker-end="url(#ah-12-2)"/>
+<rect class="n" x="166" y="44" width="136" height="96" rx="6"/>
+<text class="t b tacc" x="234" y="66" text-anchor="middle">2</text>
+<text class="tm tc" x="234" y="88" text-anchor="middle">C9</text>
+<text class="t2" x="234" y="108" text-anchor="middle">평가 세트</text>
+<path class="ln" d="M302 92 L314 92" marker-end="url(#ah-12-2)"/>
+<rect class="n" x="316" y="44" width="136" height="96" rx="6"/>
+<text class="t b tacc" x="384" y="66" text-anchor="middle">3</text>
+<text x="384" y="88" text-anchor="middle"><tspan class="tm ta">A9</tspan><tspan class="t2"> · </tspan><tspan class="tm tf">F4</tspan></text>
+<text class="t2" x="384" y="108" text-anchor="middle">규범 스킬</text>
+<text class="t2" x="384" y="124" text-anchor="middle">구조화 입력</text>
+<path class="ln" d="M452 92 L464 92" marker-end="url(#ah-12-2)"/>
+<rect class="n" x="466" y="44" width="136" height="96" rx="6"/>
+<text class="t b tacc" x="534" y="66" text-anchor="middle">4</text>
+<text x="534" y="88" text-anchor="middle"><tspan class="tm tb">B3</tspan><tspan class="t2"> · </tspan><tspan class="tm ta">A1</tspan></text>
+<text class="t2" x="534" y="108" text-anchor="middle">지식 접지</text>
+<text class="t2" x="534" y="124" text-anchor="middle">데이터 자산</text>
+<path class="ln" d="M602 92 L614 92" marker-end="url(#ah-12-2)"/>
+<rect class="n" x="616" y="44" width="136" height="96" rx="6"/>
+<text class="t b tacc" x="684" y="66" text-anchor="middle">5</text>
+<text class="tm tb" x="684" y="88" text-anchor="middle">B3</text>
+<text class="t2" x="684" y="108" text-anchor="middle">검색 품질</text>
+<text class="t2" x="684" y="124" text-anchor="middle">하이브리드·재순위</text>
+<path class="ln" d="M752 92 L764 92" marker-end="url(#ah-12-2)"/>
+<rect class="n" x="766" y="44" width="136" height="96" rx="6"/>
+<text class="t b tacc" x="834" y="66" text-anchor="middle">6</text>
+<text x="834" y="88" text-anchor="middle"><tspan class="tm tc">C5</tspan><tspan class="t2"> · </tspan><tspan class="tm tf">F1</tspan></text>
+<text class="t2" x="834" y="108" text-anchor="middle">가드레일</text>
+<text class="t2" x="834" y="124" text-anchor="middle">출처 표시</text>
+<path class="ln" d="M834 140 L834 170 L84 170 L84 202" marker-end="url(#ah-12-2)"/>
+<rect class="n" x="16" y="204" width="136" height="96" rx="6"/>
+<text class="t b tacc" x="84" y="226" text-anchor="middle">7</text>
+<text x="84" y="248" text-anchor="middle"><tspan class="tm tbp">B′7</tspan><tspan class="t2"> · </tspan><tspan class="tm ta">A8</tspan></text>
+<text class="t2" x="84" y="268" text-anchor="middle">ReAct 도구 루프</text>
+<text class="t2" x="84" y="284" text-anchor="middle">MCP</text>
+<path class="ln" d="M152 252 L164 252" marker-end="url(#ah-12-2)"/>
+<rect class="n" x="166" y="204" width="136" height="96" rx="6"/>
+<text class="t b tacc" x="234" y="226" text-anchor="middle">8</text>
+<text x="234" y="248" text-anchor="middle"><tspan class="tm tc">C2</tspan><tspan class="t2"> · </tspan><tspan class="tm tc">C8</tspan><tspan class="t2"> · </tspan><tspan class="tm tc">C3</tspan></text>
+<text class="t2" x="234" y="268" text-anchor="middle">라우터·권한 경계</text>
+<text class="t2" x="234" y="284" text-anchor="middle">롤백</text>
+<path class="ln" d="M302 252 L314 252" marker-end="url(#ah-12-2)"/>
+<rect class="n" x="316" y="204" width="136" height="96" rx="6"/>
+<text class="t b tacc" x="384" y="226" text-anchor="middle">9</text>
+<text x="384" y="248" text-anchor="middle"><tspan class="tm tb">B6</tspan><tspan class="t2"> · </tspan><tspan class="tm tbp">B′4</tspan></text>
+<text class="t2" x="384" y="268" text-anchor="middle">오케스트레이터</text>
+<text class="t2" x="384" y="284" text-anchor="middle">계층 분해</text>
+<path class="ln" d="M452 252 L464 252" marker-end="url(#ah-12-2)"/>
+<rect class="n" x="466" y="204" width="136" height="96" rx="6"/>
+<text class="t b tacc" x="534" y="226" text-anchor="middle">10</text>
+<text x="534" y="248" text-anchor="middle"><tspan class="tm tc">C7</tspan><tspan class="t2"> · </tspan><tspan class="tm tc">C6</tspan></text>
+<text class="t2" x="534" y="268" text-anchor="middle">폴백</text>
+<text class="t2" x="534" y="284" text-anchor="middle">환류</text>
+<path class="ln" d="M602 252 L614 252" marker-end="url(#ah-12-2)"/>
+<rect class="n" x="616" y="204" width="136" height="96" rx="6"/>
+<text class="t b tacc" x="684" y="226" text-anchor="middle">11</text>
+<text class="tm ta" x="684" y="248" text-anchor="middle">A2.3</text>
+<text class="t2" x="684" y="268" text-anchor="middle">튜닝형 모델</text>
+<text class="t2" x="684" y="284" text-anchor="middle">(마지막)</text>
+<path class="ln thin" d="M234 300 L234 308"/>
+<rect class="n s" x="144" y="308" width="180" height="24" rx="6"/>
+<text x="234" y="325" text-anchor="middle"><tspan class="t2">+ </tspan><tspan class="tm ts">S4|S5|S6</tspan><tspan class="t2"> · </tspan><tspan class="tm ts">S1</tspan><tspan class="t2"> · </tspan><tspan class="tm ts">S10</tspan></text>
+<text class="t3 twarn" x="16" y="356">흔한 건너뛰기: 2 없이 4(평가 없는 RAG) · 4 없이 11(RAG 없는 튜닝) — X10</text>
+<text class="t3 twarn" x="16" y="372">7을 거치지 않고 9(단일 에이전트 이전의 멀티에이전트) — X11</text>
+</svg></div>
+<figcaption><b>그림 12.2</b> 진행 경로 열한 단계. 보안 부품은 6단계(S8·S3)와 8단계(S4·S5·S6 중 하나와 S1·S10)에 붙는다. 그 전에는 P0~P1 범위에 묶어 두는 것이 곧 보안이다. 튜닝은 맨 마지막이다.</figcaption></figure>
+
+<p>순서를 건너뛰는 것이 가장 흔한 실패다. 평가 없이 RAG를 붙이거나 RAG 없이 튜닝하면 <a class="pat lc-x" href="ch14.html#p-X10"><span class="pid">X10</span>평가 없는 RAG, RAG 없는 튜닝</a>에 빠진다. 단일 에이전트도 갖추기 전에 여러 에이전트를 엮으면 <a class="pat lc-x" href="ch14.html#p-X11"><span class="pid">X11</span>처음부터 멀티에이전트</a>가 된다. 각 단계는 다음 단계를 잴 기준을 깔아 둔다. 한 단계를 건너뛰면 나중에 무엇이 좋아졌는지 말할 길이 없다.</p>
+<p>진행 경로는 보안 부품이 들어갈 자리도 정한다. 6단계에서 가드레일을 붙일 때 <a class="pat lc-s" href="ch09.html#p-S8"><span class="pid">S8</span>독립 검증기·이중 심판</a>과 <a class="pat lc-s" href="ch09.html#p-S3"><span class="pid">S3</span>컨텍스트 방화벽</a>을 함께 붙인다. 8단계에서 시스템 쓰기 권한을 열 때는 <a class="pat lc-s" href="ch09.html#p-S4"><span class="pid">S4</span>행동 선택기</a>·<a class="pat lc-s" href="ch09.html#p-S5"><span class="pid">S5</span>계획 후 실행</a>·<a class="pat lc-s" href="ch09.html#p-S6"><span class="pid">S6</span>격리 LLM</a> 중 하나와 <a class="pat lc-s" href="ch09.html#p-S1"><span class="pid">S1</span>AI 게이트웨이</a>·<a class="pat lc-s" href="ch09.html#p-S10"><span class="pid">S10</span>결정적 재생</a>을 붙인다. 7단계에서 도구 호출이 생기기 전까지는 공격자가 끌어낼 행동이 없으므로, 권한을 P0~P1로 묶어 두는 것이 가장 싼 보안이다.</p>
+
+<aside class="warn"><span class="lbl">주의</span>
+<p>진행 경로의 끝이 모든 서비스의 목표는 아니다. 공직자 개인이 만든 <a class="pat lc-b" href="ch05.html#p-B0"><span class="pid">B0</span>결정적 도구</a>에는 1단계조차 필요 없다. 경로는 지금 단계에서 다음에 붙일 부품을 고르는 지도이고, 멈출 자리는 1단계에서 적은 권한과 등급이 정한다.</p></aside>
+
+<aside class="case"><span class="lbl">사례 연구 · 가람시(가상)</span>
+<h4>기획예산과가 멀티에이전트를 원했을 때</h4>
+<p>기획예산과의 보고서 코파일럿(4장)이 반년 동안 쓰이자 과장이 다음 단계를 주문했다. 예산 취합, 집행률 분석, 보고서 초안을 각각 맡는 에이전트 셋이 서로 일을 넘기게 하자는 것이었다. 업체 제안서도 이미 받아 둔 상태였다.</p>
+<p>AX팀은 그림 12.2에서 지금 위치부터 찾았다. 도구는 1단계에 있었고, 2단계 평가 세트가 없었다. 3단계 규범 스킬은 부분적으로 있었다. 가람시 보고서 서식과 문체가 프롬프트 안에 흩어져 있었을 뿐 <a class="pat lc-a" href="ch07.html#p-A9"><span class="pid">A9</span>업무 규범 스킬</a>로 분리되어 있지 않았다. 이 상태에서 9단계 <a class="pat lc-b" href="ch05.html#p-B6"><span class="pid">B6</span>에이전트 오케스트레이터</a>로 뛰면, 에이전트 셋 중 누가 틀렸는지 잴 방법이 없다.</p>
+<p>AX팀은 제안을 기각하는 대신 순서를 바꿨다. 먼저 지난 분기 보고서 스무 건으로 평가 세트를 만들고, 서식·문체·검증 절차를 스킬로 분리했다. 예산 취합은 원래 사람이 엑셀로 하던 결정적 작업이어서 LLM이 필요 없었다. <a class="pat lc-a" href="ch07.html#p-A10"><span class="pid">A10</span>문서 형식 어댑터</a>를 붙인 결정적 도구로 바꾸자, 처음 계획한 세 에이전트 중 둘이 필요 없어졌다.</p>
+</aside>
+
+<aside class="key"><span class="lbl">핵심 요약</span><ul>
+<li>진행 경로는 B1 → C9 → A9·F4 → B3·A1 → 검색 품질 → C5·F1 → B′7·A8 → C2·C8·C3 → B6·B′4 → C7·C6 → A2.3 순서다.</li>
+<li>보안 부품은 6단계와 8단계에 붙는다. 도구 호출 전에는 권한 제한이 곧 보안이다.</li>
+<li>건너뛴 단계는 X10·X11 안티패턴이 된다. 다음 단계로 가기 전에 빠진 앞 단계를 먼저 채운다.</li>
+<li>모든 서비스가 11단계까지 가지는 않는다. 멈출 자리는 1단계의 권한과 등급이 정한다.</li>
+</ul></aside>
+
+<h2>12.3 서비스 유형별 조립 템플릿</h2>
+<p>카탈로그 §7.3은 서비스 유형마다 기본 조립을 정해 두었다(표 12.1). 각 행의 필수 부품은 그 유형의 권한 범위와 접점에 비추어, 빠지면 AI-Enabled 이상으로 인정하지 않는 부품이다. 참조 구현은 PAX 사례 가운데 그 유형의 조립을 잘 보여 주는 것을 골랐다. 유형 2·3·10·11은 PAX 557건 안에 사례가 1~3건뿐이다. 사례로 확인할 조립이 거의 없으므로 이 네 유형의 템플릿은 카탈로그 규칙으로 읽는다.</p>
+
+<div class="tbl"><table><caption><b>표 12.1</b> 서비스 유형별 조립 템플릿 요약 (카탈로그 §7.3, 참조 구현은 PAX 사례)</caption>
+<thead><tr><th>유형</th><th>접점·권한</th><th>업무 컴포넌트 + 원형</th><th>필수 기반(A)</th><th>필수 통제(C)</th><th>필수 상호작용(F)</th><th>참조 구현(PAX)</th></tr></thead>
+<tbody>
+<tr><td class="k">1 대민 상담·안내</td><td>D1·D7 · P0~P1</td><td>B3 (B′7 + B′2 예외 이관)</td><td>A2, A1, A6(선택)</td><td>C5, C9, C7(상시)</td><td>F1, F7, F4</td><td>세상에 그런법이 어딨어요?(경기도의회), 소방기술민원 답변생성기</td></tr>
+<tr><td class="k">2 접수·심사 자동화</td><td>D2·D3 · P1~P2</td><td>B4 (B′1 + B′5)</td><td>A10, A2(OCR·STT), A1</td><td>C1, C2, C3, C4, C8(P2)</td><td>F2, F6, F8</td><td>온나라 AI 문서 분배기</td></tr>
+<tr><td class="k">3 현장 감시·경보</td><td>D6·D5 · P1~P2a</td><td>B5 (B′1 → B′9 → 경보)</td><td>A5 또는 A2.2·A2.5, A11, A1</td><td>C1, C7, C4, C2, C6</td><td>F9, F7</td><td>레스큐79(CCTV 팔 동작 구조요청 감지)</td></tr>
+<tr><td class="k">4 내부 문서·기안</td><td>D8.3·D8.2 · P1</td><td>B1 (B′5)</td><td>A9, A10, A2(행정망이면 A2.4)</td><td>C1, C5, C9</td><td>F2, F5, F3</td><td>gov-report-skill</td></tr>
+<tr><td class="k">5a 분석 대시보드</td><td>D8.1 · P0~P1</td><td>B2 또는 B0 + B1 서술</td><td>A1, A2.5, A3·A4</td><td>C9, C6, C5</td><td>F9, F7</td><td>안심학교 MAP</td></tr>
+<tr><td class="k">5b 데이터 에이전트</td><td>D8.1 · P0</td><td>B6 로컬 호스트 (B′7 + B′3)</td><td>A8, A2 로컬 모델</td><td>C8, C4, C5</td><td>F1, F6</td><td>망분리 환경용 로컬 AI 에이전트, Korean Stats MCP</td></tr>
+<tr><td class="k">6 정책·홍보 콘텐츠</td><td>D8.10 · P1</td><td>B7 (B′8 + B′6)</td><td>A9, A10, A2</td><td>C5, C1</td><td>F3, F2</td><td>릴리즈픽(ReleasePick), Public Cardnews</td></tr>
+<tr><td class="k">7 대조·점검 도우미</td><td>D8.4 · P0~P1</td><td>B0 또는 B3 (B′5)</td><td>A3, A10</td><td>C1, C5, C9</td><td>F7, F1</td><td>paper-verify, Attendance Checker, Legal Reviewer</td></tr>
+<tr><td class="k">8 취합·변환 자동화</td><td>D8.5·D8.9 · P1</td><td>B0 (B′1)</td><td>A10, A7</td><td>C4(전이 시), C3</td><td>F8</td><td>GatherFlow, Kordoc, 출장 여비 서류 자동화</td></tr>
+<tr><td class="k">9 인수인계·지식 보존</td><td>D8.7 · P0</td><td>B0 → B3 승급</td><td>A1, A6(승급 시)</td><td>C5, C8</td><td>F8, F1</td><td>내편이음, 눈치코치</td></tr>
+<tr><td class="k">10 위험 예측·표적 선별</td><td>D6·D3·D8.4 · P1~P3</td><td>B2 (B′9)</td><td>A1, A2.5, A4</td><td>C1, C2, C6, C9, C4</td><td>F9, F7</td><td>아산 하천 수위 예측 모니터링(PAX 유일 사례, 필수 부품 6개 결손. 참조 구현이 아니라 출발점)</td></tr>
+<tr><td class="k">11 추천·매칭</td><td>D7·D4 · P1</td><td>B2 또는 B0 + B1 서술</td><td>A1, A4</td><td>C1, C5, C6</td><td>F9, F3</td><td>인사·노무 뉴스 추천 자동발송 프로그램</td></tr>
+<tr><td class="k">12 개발 코파일럿</td><td>D8.3 · P1</td><td>B1 스킬 코파일럿 (B′5)</td><td>A9, A2.2(또는 A2.1)</td><td>C1, C9, S9</td><td>F2</td><td>바이브코드 하네스, CODERX</td></tr>
+</tbody></table></div>
+
+<p>아래 조립도는 표의 각 행을 배선도로 옮기고, 12.4절의 필수 보안 부품을 위 띠에 함께 얹었다. 점선 상자는 PAX 557건 태깅에서 그 유형 사례의 30% 이상에 <code>missing_required</code>로 오른 필수 부품이다. 사례가 5건 미만인 유형에는 점선을 긋지 않았다. 서비스를 설계하는 쪽은 점선 상자부터 확보하고, 심사하는 쪽은 점선 상자부터 묻는다.</p>
+
+<h3>유형 1 · 대민 상담·안내</h3>
+<p>민원인의 질문에 기관 문서로 접지한 답을 준다. 주 부품은 <a class="pat lc-b" href="ch05.html#p-B3"><span class="pid">B3</span>지식 접지 상담</a>이고, 답할 수 없는 질문을 담당 부서로 넘기는 <a class="pat lc-bp" href="ch06.html#p-Bp2"><span class="pid">B′2</span>라우터·디스패처</a>가 예외 경로다(그림 12.3). PAX에서 유형 1로 태깅된 32건은 필수 부품 여섯 개가 모두 자주 빠졌다. 31건에 C9가, 30건에 C5가, 27건에 A2가, 21건에 F1이, 14건에 C7이, 11건에 F7이 없었다. 평가 세트와 가드레일은 거의 모든 사례에 없고, 폴백은 절반 가까이 빠졌다. 대민 서비스는 상시 운영이므로 상용 모델이 멈추는 날을 설계에 넣어야 한다. 다만 32건 중 20건은 주 부품이 B0인 비LLM 안내 도구다. 비LLM 도구는 C7·F7이 면제되고 A2 대신 A1이 인정되므로(R7·R21), A2·C7·F7 결손의 일부는 v0.7 규칙으로 걸러진다.</p>
+<figure class="fig" id="fig-12-3"><div class="canvas"><svg viewBox="0 0 920 286" role="img" aria-label="유형 1 대민 상담·안내 조립도">
+<defs><marker id="ah-12-3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+<text class="t b" x="16" y="20">유형 1 · 대민 상담·안내</text>
+<text class="t3" x="904" y="20" text-anchor="end">접점 D1·D7 · 권한 P0~P1</text>
+<text class="t3" x="16" y="52">통제 C</text>
+<text class="t3" x="16" y="68">보안 S</text>
+<rect class="n missing" x="146" y="34" width="140" height="40" rx="6"/><text class="tm twarn" x="216" y="50" text-anchor="middle">C5</text><text class="t2" x="216" y="66" text-anchor="middle">출처 검증·비식별</text>
+<rect class="n missing" x="296" y="34" width="140" height="40" rx="6"/><text class="tm twarn" x="366" y="50" text-anchor="middle">C9</text><text class="t2" x="366" y="66" text-anchor="middle">평가 세트</text>
+<rect class="n missing" x="446" y="34" width="140" height="40" rx="6"/><text class="tm twarn" x="516" y="50" text-anchor="middle">C7</text><text class="t2" x="516" y="66" text-anchor="middle">폴백 (상시)</text>
+<rect class="n s" x="596" y="34" width="140" height="40" rx="6"/><text class="tm ts" x="666" y="50" text-anchor="middle">S4</text><text class="t2" x="666" y="66" text-anchor="middle">행동 선택기</text>
+<rect class="n s" x="746" y="34" width="140" height="40" rx="6"/><text class="tm ts" x="816" y="50" text-anchor="middle">S7</text><text class="t2" x="816" y="66" text-anchor="middle">컨텍스트 최소화</text>
+<rect class="n person" x="16" y="112" width="112" height="56" rx="6"/>
+<text class="t2" x="72" y="144" text-anchor="middle">민원인 질문</text>
+<rect class="n b" x="146" y="104" width="220" height="72" rx="6"/>
+<text class="tm tb" x="256" y="124" text-anchor="middle">B3</text>
+<text class="t b" x="256" y="143" text-anchor="middle">지식 접지 상담</text>
+<text class="t2 tbp" x="256" y="162" text-anchor="middle">B′7 ReAct + B′2 라우터(예외 이관)</text>
+<path class="ln" d="M128 140 L144 140" marker-end="url(#ah-12-3)"/>
+<rect class="n zone" x="390" y="110" width="368" height="60" rx="6"/>
+<rect class="n missing" x="398" y="120" width="112" height="40" rx="6"/><text class="tm twarn" x="454" y="136" text-anchor="middle">F1</text><text class="t2" x="454" y="152" text-anchor="middle">출처 표시</text>
+<rect class="n missing" x="518" y="120" width="112" height="40" rx="6"/><text class="tm twarn" x="574" y="136" text-anchor="middle">F7</text><text class="t2" x="574" y="152" text-anchor="middle">한계 안내</text>
+<rect class="n f" x="638" y="120" width="112" height="40" rx="6"/><text class="tm tf" x="694" y="136" text-anchor="middle">F4</text><text class="t2" x="694" y="152" text-anchor="middle">구조화 입력</text>
+<path class="ln" d="M366 140 L388 140" marker-end="url(#ah-12-3)"/>
+<path class="ln" d="M758 140 L772 140" marker-end="url(#ah-12-3)"/>
+<rect class="n d" x="774" y="108" width="130" height="64" rx="6"/>
+<text x="839" y="134" text-anchor="middle"><tspan class="tm td">D1</tspan><tspan class="t2"> 안내·탐색</tspan></text>
+<text x="839" y="156" text-anchor="middle"><tspan class="tm td">D7</tspan><tspan class="t2"> 상담·처방</tspan></text>
+<path class="ln dash" d="M378 76 L378 136" marker-end="url(#ah-12-3)"/>
+<text class="t3" x="384" y="94">흐름 전체에 건다</text>
+<text class="t3" x="16" y="234">기반 A</text>
+<rect class="n missing" x="146" y="210" width="140" height="40" rx="6"/><text class="tm twarn" x="216" y="226" text-anchor="middle">A2</text><text class="t2" x="216" y="242" text-anchor="middle">모델 서빙</text>
+<rect class="n a" x="296" y="210" width="140" height="40" rx="6"/><text class="tm ta" x="366" y="226" text-anchor="middle">A1</text><text class="t2" x="366" y="242" text-anchor="middle">코퍼스</text>
+<rect class="n soft" x="446" y="210" width="140" height="40" rx="6"/><text class="tm ta" x="516" y="226" text-anchor="middle">A6</text><text class="t2" x="516" y="242" text-anchor="middle">지식그래프</text>
+<path class="ln" d="M256 208 L256 178" marker-end="url(#ah-12-3)"/>
+<text class="t3" x="262" y="198">기댄다</text>
+<text class="t3" x="16" y="274">점선 상자 = PAX 557건 태깅에서 이 유형 사례의 30% 이상에 빠진 필수 부품(missing_required) · 회색 상자 = 선택</text>
+</svg></div>
+<figcaption><b>그림 12.3</b> 유형 1 대민 상담·안내 조립도. 지식 접지 상담이 중심이고, 출처 표시와 한계 안내가 이용자 면이다. PAX 32건에서는 필수 부품 여섯 개가 모두 30% 이상 빠졌고, 평가 세트와 가드레일은 거의 모든 사례에 없었다.</figcaption></figure>
+
+<h3>유형 2 · 접수·심사 자동화</h3>
+<p>제출 서류를 인식해 구조화하고, 심사 판단의 재료를 만든다. 주 부품은 <a class="pat lc-b" href="ch05.html#p-B4"><span class="pid">B4</span>인식 파이프라인</a>이다(그림 12.4). 판정 목적(승인·반려)이 있으면 유형 2이고, 형식과 경로만 바꿔 전달하면 유형 8이다(R23). 업무 시스템에 쓰는 순간 P2이므로 라우터·롤백·로그·권한 경계가 한꺼번에 필수가 된다. PAX 557건에서 이 유형은 온나라 AI 문서 분배기를 포함해 3건뿐이고, 3건 모두에 C2·C3·C4·F2가 없었다. 위험도에 따라 자동 처리와 검토를 가르는 분기와 잘못 처리된 건을 되돌리는 경로는 개인이 만든 도구에 좀처럼 붙지 않는다. 사례가 적어 그림 12.4에는 점선을 긋지 않았다. 시민이 제출 전에 서류를 스스로 정리하는 도구는 2b로 따로 다룬다(R20).</p>
+<figure class="fig" id="fig-12-4"><div class="canvas"><svg viewBox="0 0 920 336" role="img" aria-label="유형 2 접수·심사 자동화 조립도">
+<defs><marker id="ah-12-4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+<text class="t b" x="16" y="20">유형 2a · 기관 접수·심사 자동화</text>
+<text class="t3" x="904" y="20" text-anchor="end">접점 D2·D3 · 권한 P1~P2</text>
+<text class="t3" x="16" y="52">통제 C</text>
+<text class="t3" x="16" y="68">보안 S</text>
+<rect class="n c" x="146" y="34" width="140" height="40" rx="6"/><text class="tm tc" x="216" y="50" text-anchor="middle">C1</text><text class="t2" x="216" y="66" text-anchor="middle">검토 큐</text>
+<rect class="n c" x="296" y="34" width="140" height="40" rx="6"/><text class="tm tc" x="366" y="50" text-anchor="middle">C2</text><text class="t2" x="366" y="66" text-anchor="middle">위험도 라우터</text>
+<rect class="n c" x="446" y="34" width="140" height="40" rx="6"/><text class="tm tc" x="516" y="50" text-anchor="middle">C3</text><text class="t2" x="516" y="66" text-anchor="middle">상태 머신·롤백</text>
+<rect class="n c" x="596" y="34" width="140" height="40" rx="6"/><text class="tm tc" x="666" y="50" text-anchor="middle">C4</text><text class="t2" x="666" y="66" text-anchor="middle">감사 로그·지표</text>
+<rect class="n c" x="746" y="34" width="140" height="40" rx="6"/><text class="tm tc" x="816" y="50" text-anchor="middle">C8</text><text class="t2" x="816" y="66" text-anchor="middle">권한 경계 (P2)</text>
+<rect class="n s" x="146" y="84" width="140" height="40" rx="6"/><text class="tm ts" x="216" y="100" text-anchor="middle">S6</text><text class="t2" x="216" y="116" text-anchor="middle">문서별 격리 LLM</text>
+<rect class="n person" x="16" y="162" width="112" height="56" rx="6"/>
+<text class="t2" x="72" y="186" text-anchor="middle">제출 서류</text>
+<text class="t2" x="72" y="202" text-anchor="middle">PDF·HWPX·이미지</text>
+<rect class="n b" x="146" y="154" width="220" height="72" rx="6"/>
+<text class="tm tb" x="256" y="174" text-anchor="middle">B4</text>
+<text class="t b" x="256" y="193" text-anchor="middle">인식 파이프라인</text>
+<text class="t2 tbp" x="256" y="212" text-anchor="middle">B′1 순차 + B′5 비평가</text>
+<path class="ln" d="M128 190 L144 190" marker-end="url(#ah-12-4)"/>
+<rect class="n zone" x="390" y="160" width="368" height="60" rx="6"/>
+<rect class="n f" x="398" y="170" width="112" height="40" rx="6"/><text class="tm tf" x="454" y="186" text-anchor="middle">F2</text><text class="t2" x="454" y="202" text-anchor="middle">편집 가능 출력</text>
+<rect class="n f" x="518" y="170" width="112" height="40" rx="6"/><text class="tm tf" x="574" y="186" text-anchor="middle">F6</text><text class="t2" x="574" y="202" text-anchor="middle">행동 확인</text>
+<rect class="n f" x="638" y="170" width="112" height="40" rx="6"/><text class="tm tf" x="694" y="186" text-anchor="middle">F8</text><text class="t2" x="694" y="202" text-anchor="middle">되돌리기</text>
+<path class="ln" d="M366 190 L388 190" marker-end="url(#ah-12-4)"/>
+<path class="ln" d="M758 190 L772 190" marker-end="url(#ah-12-4)"/>
+<rect class="n d" x="774" y="158" width="130" height="64" rx="6"/>
+<text x="839" y="184" text-anchor="middle"><tspan class="tm td">D2</tspan><tspan class="t2"> 접수·제출</tspan></text>
+<text x="839" y="206" text-anchor="middle"><tspan class="tm td">D3</tspan><tspan class="t2"> 자격·심사</tspan></text>
+<path class="ln dash" d="M378 126 L378 186" marker-end="url(#ah-12-4)"/>
+<text class="t3" x="384" y="144">흐름 전체에 건다</text>
+<text class="t3" x="16" y="284">기반 A</text>
+<rect class="n a" x="146" y="260" width="140" height="40" rx="6"/><text class="tm ta" x="216" y="276" text-anchor="middle">A10</text><text class="t2" x="216" y="292" text-anchor="middle">문서 형식 어댑터</text>
+<rect class="n a" x="296" y="260" width="140" height="40" rx="6"/><text class="tm ta" x="366" y="276" text-anchor="middle">A2</text><text class="t2" x="366" y="292" text-anchor="middle">OCR·STT 엔진</text>
+<rect class="n a" x="446" y="260" width="140" height="40" rx="6"/><text class="tm ta" x="516" y="276" text-anchor="middle">A1</text><text class="t2" x="516" y="292" text-anchor="middle">데이터 자산</text>
+<path class="ln" d="M256 258 L256 228" marker-end="url(#ah-12-4)"/>
+<text class="t3" x="262" y="248">기댄다</text>
+<text class="t3" x="16" y="324">PAX 사례가 3건뿐이라 결손 경향(점선)을 표시하지 않았다 · 회색 상자 = 선택</text>
+</svg></div>
+<figcaption><b>그림 12.4</b> 유형 2a 기관 접수·심사 자동화 조립도. 통제 부품이 다섯 개로 가장 많다. 제출 서류는 신뢰 불가 입력이므로 문서별 격리 LLM(S6)이 위 띠에 함께 놓인다.</figcaption></figure>
+
+<h3>유형 3 · 현장 감시·경보</h3>
+<p>센서·영상 스트림을 상시 또는 주기로 관측해 이상을 찾고 경보를 낸다. 주 부품은 <a class="pat lc-b" href="ch05.html#p-B5"><span class="pid">B5</span>현장 감지·경보</a>이고, 탐지 결과를 규칙으로 판정하는 <a class="pat lc-bp" href="ch06.html#p-Bp9"><span class="pid">B′9</span>결정론 판정 게이트</a>를 거쳐 경보로 나간다(그림 12.5). 경보가 스피커·경광등·전광판 같은 물리 설비를 움직이면 <a class="pat lc-a" href="ch07.html#p-A11"><span class="pid">A11</span>액추에이션·현장 통지 어댑터</a>가 필수이고 권한은 P2a다. 모델이 멈추면 감시도 함께 멈추므로, 이 유형에서 가장 먼저 갖출 통제는 Fail-safe 경로다. PAX 557건에서 이 유형은 레스큐79(CCTV 팔 동작 구조요청 감지) 1건뿐이고, 그 사례에는 C7·C2·C4와 A11이 없었다. A11은 물리 설비를 움직일 때만 필수다(R10). 사례 하나로는 결손 경향을 말할 수 없으므로 그림 12.5에는 점선을 긋지 않고 카탈로그의 조립 템플릿만 옮겼다.</p>
+<figure class="fig" id="fig-12-5"><div class="canvas"><svg viewBox="0 0 920 336" role="img" aria-label="유형 3 현장 감시·경보 조립도">
+<defs><marker id="ah-12-5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+<text class="t b" x="16" y="20">유형 3 · 현장 감시·경보</text>
+<text class="t3" x="904" y="20" text-anchor="end">접점 D6·D5 · 권한 P1~P2a</text>
+<text class="t3" x="16" y="52">통제 C</text>
+<text class="t3" x="16" y="68">보안 S</text>
+<rect class="n c" x="146" y="34" width="140" height="40" rx="6"/><text class="tm tc" x="216" y="50" text-anchor="middle">C1</text><text class="t2" x="216" y="66" text-anchor="middle">검토 큐</text>
+<rect class="n c" x="296" y="34" width="140" height="40" rx="6"/><text class="tm tc" x="366" y="50" text-anchor="middle">C7</text><text class="t2" x="366" y="66" text-anchor="middle">Fail-safe 폴백</text>
+<rect class="n c" x="446" y="34" width="140" height="40" rx="6"/><text class="tm tc" x="516" y="50" text-anchor="middle">C4</text><text class="t2" x="516" y="66" text-anchor="middle">감사 로그·지표</text>
+<rect class="n c" x="596" y="34" width="140" height="40" rx="6"/><text class="tm tc" x="666" y="50" text-anchor="middle">C2</text><text class="t2" x="666" y="66" text-anchor="middle">등급 분기</text>
+<rect class="n c" x="746" y="34" width="140" height="40" rx="6"/><text class="tm tc" x="816" y="50" text-anchor="middle">C6</text><text class="t2" x="816" y="66" text-anchor="middle">환류</text>
+<rect class="n s" x="146" y="84" width="140" height="40" rx="6"/><text class="tm ts" x="216" y="100" text-anchor="middle">S1</text><text class="t2" x="216" y="116" text-anchor="middle">경보 발송 상한</text>
+<rect class="n s" x="296" y="84" width="140" height="40" rx="6"/><text class="tm ts" x="366" y="100" text-anchor="middle">S10</text><text class="t2" x="366" y="116" text-anchor="middle">결정적 재생</text>
+<rect class="n person" x="16" y="162" width="112" height="56" rx="6"/>
+<text class="t2" x="72" y="186" text-anchor="middle">센서·영상</text>
+<text class="t2" x="72" y="202" text-anchor="middle">스트림</text>
+<rect class="n b" x="146" y="154" width="220" height="72" rx="6"/>
+<text class="tm tb" x="256" y="174" text-anchor="middle">B5</text>
+<text class="t b" x="256" y="193" text-anchor="middle">현장 감지·경보</text>
+<text class="t2 tbp" x="256" y="212" text-anchor="middle">B′1 순차 → B′9 판정 → 경보</text>
+<path class="ln" d="M128 190 L144 190" marker-end="url(#ah-12-5)"/>
+<rect class="n zone" x="390" y="160" width="248" height="60" rx="6"/>
+<rect class="n f" x="398" y="170" width="112" height="40" rx="6"/><text class="tm tf" x="454" y="186" text-anchor="middle">F9</text><text class="t2" x="454" y="202" text-anchor="middle">판정 근거</text>
+<rect class="n f" x="518" y="170" width="112" height="40" rx="6"/><text class="tm tf" x="574" y="186" text-anchor="middle">F7</text><text class="t2" x="574" y="202" text-anchor="middle">등급 안내</text>
+<path class="ln" d="M366 190 L388 190" marker-end="url(#ah-12-5)"/>
+<path class="ln" d="M638 190 L772 190" marker-end="url(#ah-12-5)"/>
+<rect class="n d" x="774" y="158" width="130" height="64" rx="6"/>
+<text x="839" y="184" text-anchor="middle"><tspan class="tm td">D6</tspan><tspan class="t2"> 점검·감시</tspan></text>
+<text x="839" y="206" text-anchor="middle"><tspan class="tm td">D5</tspan><tspan class="t2"> 통지·추적</tspan></text>
+<path class="ln dash" d="M378 126 L378 186" marker-end="url(#ah-12-5)"/>
+<text class="t3" x="384" y="144">흐름 전체에 건다</text>
+<text class="t3" x="16" y="284">기반 A</text>
+<rect class="n a" x="146" y="260" width="140" height="40" rx="6"/><text class="tm ta" x="216" y="276" text-anchor="middle">A5</text><text class="t2" x="216" y="292" text-anchor="middle">엣지·현장 서버</text>
+<rect class="n a" x="296" y="260" width="140" height="40" rx="6"/><text class="tm ta" x="366" y="276" text-anchor="middle">A11</text><text class="t2" x="366" y="292" text-anchor="middle">액추에이션</text>
+<rect class="n a" x="446" y="260" width="140" height="40" rx="6"/><text class="tm ta" x="516" y="276" text-anchor="middle">A1</text><text class="t2" x="516" y="292" text-anchor="middle">데이터 자산</text>
+<path class="ln" d="M256 258 L256 228" marker-end="url(#ah-12-5)"/>
+<text class="t3" x="262" y="248">기댄다</text>
+<text class="t3" x="16" y="324">PAX 사례가 1건뿐이라 결손 경향(점선)을 표시하지 않았다 · 회색 상자 = 선택</text>
+</svg></div>
+<figcaption><b>그림 12.5</b> 유형 3 현장 감시·경보 조립도. 엣지 또는 현장 폐쇄망 서버의 추론 위에 판정 게이트와 경보가 있다. 위협 모델은 비LLM이어서, 보안 부품은 경보 발송 상한(S1)과 재생 기록(S10)이다.</figcaption></figure>
+
+<h3>유형 4 · 내부 문서·기안 코파일럿</h3>
+<p>담당자의 보고서·기안 작성 옆에 초안을 놓고 사람이 확정한다. 주 부품은 <a class="pat lc-b" href="ch05.html#p-B1"><span class="pid">B1</span>코파일럿</a>이고, 초안과 검토를 분리하는 <a class="pat lc-bp" href="ch06.html#p-Bp5"><span class="pid">B′5</span>생성자-비평가</a>가 기본 배선이다(그림 12.6). 이 유형은 PAX에서 60건으로, 기타를 빼면 네 번째로 많다. 필수 부품 다섯 개가 모두 자주 빠진다. 50건에 C5가, 44건에 C1이, 42건에 F2가, 36건에 A9가, 35건에 A10이 없었다. 개인이 만든 초안 도구는 한글 서식으로 출력하지 못하고 사람이 고치는 절차도 없이 PDF나 텍스트만 내놓는 일이 많다. 행정망에서 쓰면 상용 모델은 <a class="pat lc-a" href="ch07.html#p-A2_4"><span class="pid">A2.4</span>내부망 프록시</a>를 거친다.</p>
+<figure class="fig" id="fig-12-6"><div class="canvas"><svg viewBox="0 0 920 286" role="img" aria-label="유형 4 내부 문서·기안 코파일럿 조립도">
+<defs><marker id="ah-12-6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+<text class="t b" x="16" y="20">유형 4 · 내부 문서·기안 코파일럿</text>
+<text class="t3" x="904" y="20" text-anchor="end">접점 D8.3·D8.2 · 권한 P1</text>
+<text class="t3" x="16" y="52">통제 C</text>
+<text class="t3" x="16" y="68">보안 S</text>
+<rect class="n missing" x="146" y="34" width="140" height="40" rx="6"/><text class="tm twarn" x="216" y="50" text-anchor="middle">C1</text><text class="t2" x="216" y="66" text-anchor="middle">검토 큐</text>
+<rect class="n missing" x="296" y="34" width="140" height="40" rx="6"/><text class="tm twarn" x="366" y="50" text-anchor="middle">C5</text><text class="t2" x="366" y="66" text-anchor="middle">비식별</text>
+<rect class="n c" x="446" y="34" width="140" height="40" rx="6"/><text class="tm tc" x="516" y="50" text-anchor="middle">C9</text><text class="t2" x="516" y="66" text-anchor="middle">평가 세트</text>
+<rect class="n s" x="596" y="34" width="140" height="40" rx="6"/><text class="tm ts" x="666" y="50" text-anchor="middle">S3</text><text class="t2" x="666" y="66" text-anchor="middle">컨텍스트 방화벽</text>
+<rect class="n s" x="746" y="34" width="140" height="40" rx="6"/><text class="tm ts" x="816" y="50" text-anchor="middle">S8</text><text class="t2" x="816" y="66" text-anchor="middle">독립 검증기</text>
+<rect class="n person" x="16" y="112" width="112" height="56" rx="6"/>
+<text class="t2" x="72" y="136" text-anchor="middle">담당자 지시</text>
+<text class="t2" x="72" y="152" text-anchor="middle">외부 공문·첨부</text>
+<rect class="n b" x="146" y="104" width="220" height="72" rx="6"/>
+<text class="tm tb" x="256" y="124" text-anchor="middle">B1</text>
+<text class="t b" x="256" y="143" text-anchor="middle">코파일럿</text>
+<text class="t2 tbp" x="256" y="162" text-anchor="middle">B′5 생성자-비평가</text>
+<path class="ln" d="M128 140 L144 140" marker-end="url(#ah-12-6)"/>
+<rect class="n zone" x="390" y="110" width="368" height="60" rx="6"/>
+<rect class="n missing" x="398" y="120" width="112" height="40" rx="6"/><text class="tm twarn" x="454" y="136" text-anchor="middle">F2</text><text class="t2" x="454" y="152" text-anchor="middle">편집 가능 출력</text>
+<rect class="n f" x="518" y="120" width="112" height="40" rx="6"/><text class="tm tf" x="574" y="136" text-anchor="middle">F5</text><text class="t2" x="574" y="152" text-anchor="middle">참고자료 첨부</text>
+<rect class="n f" x="638" y="120" width="112" height="40" rx="6"/><text class="tm tf" x="694" y="136" text-anchor="middle">F3</text><text class="t2" x="694" y="152" text-anchor="middle">결과 대안</text>
+<path class="ln" d="M366 140 L388 140" marker-end="url(#ah-12-6)"/>
+<path class="ln" d="M758 140 L772 140" marker-end="url(#ah-12-6)"/>
+<rect class="n d" x="774" y="108" width="130" height="64" rx="6"/>
+<text x="839" y="134" text-anchor="middle"><tspan class="tm td">D8.3</tspan><tspan class="t2"> 초안·기안</tspan></text>
+<text x="839" y="156" text-anchor="middle"><tspan class="tm td">D8.2</tspan><tspan class="t2"> 요약·추출</tspan></text>
+<path class="ln dash" d="M378 76 L378 136" marker-end="url(#ah-12-6)"/>
+<text class="t3" x="384" y="94">흐름 전체에 건다</text>
+<text class="t3" x="16" y="234">기반 A</text>
+<rect class="n missing" x="146" y="210" width="140" height="40" rx="6"/><text class="tm twarn" x="216" y="226" text-anchor="middle">A9</text><text class="t2" x="216" y="242" text-anchor="middle">업무 규범 스킬</text>
+<rect class="n missing" x="296" y="210" width="140" height="40" rx="6"/><text class="tm twarn" x="366" y="226" text-anchor="middle">A10</text><text class="t2" x="366" y="242" text-anchor="middle">HWPX 어댑터</text>
+<rect class="n a" x="446" y="210" width="140" height="40" rx="6"/><text class="tm ta" x="516" y="226" text-anchor="middle">A2.4</text><text class="t2" x="516" y="242" text-anchor="middle">내부망 프록시</text>
+<path class="ln" d="M256 208 L256 178" marker-end="url(#ah-12-6)"/>
+<text class="t3" x="262" y="198">기댄다</text>
+<text class="t3" x="16" y="274">점선 상자 = PAX 557건 태깅에서 이 유형 사례의 30% 이상에 빠진 필수 부품(missing_required) · 회색 상자 = 선택</text>
+</svg></div>
+<figcaption><b>그림 12.6</b> 유형 4 내부 문서·기안 코파일럿 조립도. 점선 상자가 다섯 개다. 규범 스킬·문서 어댑터·검토 큐·비식별·편집 가능 출력이 모두 PAX 사례에서 자주 빠졌다. 외부 공문과 첨부는 간접 인젝션의 통로이므로 S3·S8이 위 띠에 놓인다.</figcaption></figure>
+
+<h3>유형 5a · 분석 대시보드·브리핑</h3>
+<p>공공데이터와 업무 통계를 집계·예측해 판단 자료를 보여 준다. 에이전트는 없다. 주 부품은 학습 모델이면 <a class="pat lc-b" href="ch05.html#p-B2"><span class="pid">B2</span>예측·추천기</a>, 규칙 집계면 B0이고, LLM이 서술을 덧붙이면 B1이 secondary다(그림 12.7). PAX에서 이 유형으로 태깅된 62건은 모두 필수 부품이 하나 이상 빠졌다. 62건 전부에 C6이, 60건에 A2.5가, 58건에 C9가, 57건에 F9가, 44건에 F7이, 32건에 A1이 없었다. 그런데 이 숫자의 상당 부분은 규칙이 현실과 맞지 않아 생겼다. PAX의 대시보드 62건 가운데 59건은 주 부품이 B0이다. 학습 모델 없이 새로고침만 하는 현황판에 학습 모델을 전제한 필수 목록을 대니, 맞지 않는 경고가 늘 나왔다. v0.7.1의 R19가 5a-brief(LLM 브리핑형)와 5a-agg(비LLM 집계형)를 가른 이유다. 집계형의 필수 부품은 A1, F2, C4다.</p>
+<figure class="fig" id="fig-12-7"><div class="canvas"><svg viewBox="0 0 920 286" role="img" aria-label="유형 5a 분석 대시보드·브리핑 조립도">
+<defs><marker id="ah-12-7" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+<text class="t b" x="16" y="20">유형 5a · 분석 대시보드·브리핑(비에이전트)</text>
+<text class="t3" x="904" y="20" text-anchor="end">접점 D8.1 · 권한 P0~P1</text>
+<text class="t3" x="16" y="52">통제 C</text>
+<text class="t3" x="16" y="68">보안 S</text>
+<rect class="n missing" x="146" y="34" width="140" height="40" rx="6"/><text class="tm twarn" x="216" y="50" text-anchor="middle">C9</text><text class="t2" x="216" y="66" text-anchor="middle">평가 세트</text>
+<rect class="n missing" x="296" y="34" width="140" height="40" rx="6"/><text class="tm twarn" x="366" y="50" text-anchor="middle">C6</text><text class="t2" x="366" y="66" text-anchor="middle">환류 (재학습)</text>
+<rect class="n c" x="446" y="34" width="140" height="40" rx="6"/><text class="tm tc" x="516" y="50" text-anchor="middle">C5</text><text class="t2" x="516" y="66" text-anchor="middle">가드레일</text>
+<rect class="n person" x="16" y="112" width="112" height="56" rx="6"/>
+<text class="t2" x="72" y="136" text-anchor="middle">공공데이터</text>
+<text class="t2" x="72" y="152" text-anchor="middle">업무 통계</text>
+<rect class="n b" x="146" y="104" width="220" height="72" rx="6"/>
+<text class="tm tb" x="256" y="124" text-anchor="middle">B2 · B0</text>
+<text class="t b" x="256" y="143" text-anchor="middle">예측기 또는 집계 도구</text>
+<text class="t2 tbp" x="256" y="162" text-anchor="middle">+ B1 서술 · 에이전트 없음</text>
+<path class="ln" d="M128 140 L144 140" marker-end="url(#ah-12-7)"/>
+<rect class="n zone" x="390" y="110" width="248" height="60" rx="6"/>
+<rect class="n missing" x="398" y="120" width="112" height="40" rx="6"/><text class="tm twarn" x="454" y="136" text-anchor="middle">F9</text><text class="t2" x="454" y="152" text-anchor="middle">판정 근거</text>
+<rect class="n missing" x="518" y="120" width="112" height="40" rx="6"/><text class="tm twarn" x="574" y="136" text-anchor="middle">F7</text><text class="t2" x="574" y="152" text-anchor="middle">한계 안내</text>
+<path class="ln" d="M366 140 L388 140" marker-end="url(#ah-12-7)"/>
+<path class="ln" d="M638 140 L772 140" marker-end="url(#ah-12-7)"/>
+<rect class="n d" x="774" y="119" width="130" height="42" rx="6"/>
+<text x="839" y="145" text-anchor="middle"><tspan class="tm td">D8.1</tspan><tspan class="t2"> 탐색·조회</tspan></text>
+<path class="ln dash" d="M378 76 L378 136" marker-end="url(#ah-12-7)"/>
+<text class="t3" x="384" y="94">흐름 전체에 건다</text>
+<text class="t3" x="16" y="234">기반 A</text>
+<rect class="n missing" x="146" y="210" width="140" height="40" rx="6"/><text class="tm twarn" x="216" y="226" text-anchor="middle">A1</text><text class="t2" x="216" y="242" text-anchor="middle">데이터 자산</text>
+<rect class="n missing" x="296" y="210" width="140" height="40" rx="6"/><text class="tm twarn" x="366" y="226" text-anchor="middle">A2.5</text><text class="t2" x="366" y="242" text-anchor="middle">비LLM 학습 모델</text>
+<rect class="n a" x="446" y="210" width="140" height="40" rx="6"/><text class="tm ta" x="516" y="226" text-anchor="middle">A3</text><text class="t2" x="516" y="242" text-anchor="middle">공공 API</text>
+<rect class="n a" x="596" y="210" width="140" height="40" rx="6"/><text class="tm ta" x="666" y="226" text-anchor="middle">A4</text><text class="t2" x="666" y="242" text-anchor="middle">데이터 연계</text>
+<path class="ln" d="M256 208 L256 178" marker-end="url(#ah-12-7)"/>
+<text class="t3" x="262" y="198">기댄다</text>
+<text class="t3" x="16" y="274">점선 상자 = PAX 557건 태깅에서 이 유형 사례의 30% 이상에 빠진 필수 부품(missing_required) · 회색 상자 = 선택</text>
+</svg></div>
+<figcaption><b>그림 12.7</b> 유형 5a 분석 대시보드·브리핑 조립도(브리핑형 기준). PAX 62건에서는 필수 부품 여섯 개가 모두 30% 이상 빠졌는데, 그 상당 부분은 집계형 현황판에 브리핑형 목록을 들이댄 결과다. 집계형 현황판은 R19에 따라 A1·F2·C4로 따로 점검한다.</figcaption></figure>
+
+<h3>유형 5b · 데이터 에이전트</h3>
+<p>담당자의 자연어 질의를 받아 에이전트가 공공데이터 MCP 같은 도구를 불러 답을 조합한다. 주 부품은 로컬 호스트 변형의 <a class="pat lc-b" href="ch05.html#p-B6"><span class="pid">B6</span>에이전트 오케스트레이터</a>이고, <a class="pat lc-bp" href="ch06.html#p-Bp7"><span class="pid">B′7</span>ReAct 도구 루프</a>와 <a class="pat lc-bp" href="ch06.html#p-Bp3"><span class="pid">B′3</span>병렬 팬아웃·수집</a>이 배선이다(그림 12.8). 도구 출력은 신뢰 불가 입력이므로 <a class="pat lc-s" href="ch09.html#p-S5"><span class="pid">S5</span>계획 후 실행</a>이나 격리 LLM이 필수다. PAX에서 이 유형 77건 중 76건에 S5·S6이, 73건에 C4가, 69건에 C8이, 62건에 F1이 없었다. 이 결손도 일부는 관점의 문제다. 서버를 만든 사람과 호스트를 만든 사람이 다르므로, v0.7.1은 5b-server(A8, S11, 문서화된 스키마)와 5b-host(C4, F1, S5 또는 S6)를 나눴다(R18). 이 분리로 서버 저장소에 호스트 쪽 통제를 요구하던 경고가 걸러진다.</p>
+<figure class="fig" id="fig-12-8"><div class="canvas"><svg viewBox="0 0 920 286" role="img" aria-label="유형 5b 데이터 에이전트 조립도">
+<defs><marker id="ah-12-8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+<text class="t b" x="16" y="20">유형 5b · 데이터 에이전트(도구 호출)</text>
+<text class="t3" x="904" y="20" text-anchor="end">접점 D8.1 · 권한 P0</text>
+<text class="t3" x="16" y="52">통제 C</text>
+<text class="t3" x="16" y="68">보안 S</text>
+<rect class="n missing" x="146" y="34" width="140" height="40" rx="6"/><text class="tm twarn" x="216" y="50" text-anchor="middle">C8</text><text class="t2" x="216" y="66" text-anchor="middle">읽기 전용</text>
+<rect class="n missing" x="296" y="34" width="140" height="40" rx="6"/><text class="tm twarn" x="366" y="50" text-anchor="middle">C4</text><text class="t2" x="366" y="66" text-anchor="middle">호출 추적</text>
+<rect class="n c" x="446" y="34" width="140" height="40" rx="6"/><text class="tm tc" x="516" y="50" text-anchor="middle">C5</text><text class="t2" x="516" y="66" text-anchor="middle">출처 검증</text>
+<rect class="n missing" x="596" y="34" width="140" height="40" rx="6"/><text class="tm twarn" x="666" y="50" text-anchor="middle">S5</text><text class="t2" x="666" y="66" text-anchor="middle">계획 후 실행</text>
+<rect class="n s" x="746" y="34" width="140" height="40" rx="6"/><text class="tm ts" x="816" y="50" text-anchor="middle">S1</text><text class="t2" x="816" y="66" text-anchor="middle">게이트웨이</text>
+<rect class="n person" x="16" y="112" width="112" height="56" rx="6"/>
+<text class="t2" x="72" y="144" text-anchor="middle">담당자 질의</text>
+<rect class="n b" x="146" y="104" width="220" height="72" rx="6"/>
+<text class="tm tb" x="256" y="124" text-anchor="middle">B6</text>
+<text class="t b" x="256" y="143" text-anchor="middle">오케스트레이터</text>
+<text class="t2 tbp" x="256" y="162" text-anchor="middle">로컬 호스트 · B′7 ReAct + B′3 병렬</text>
+<path class="ln" d="M128 140 L144 140" marker-end="url(#ah-12-8)"/>
+<rect class="n zone" x="390" y="110" width="248" height="60" rx="6"/>
+<rect class="n missing" x="398" y="120" width="112" height="40" rx="6"/><text class="tm twarn" x="454" y="136" text-anchor="middle">F1</text><text class="t2" x="454" y="152" text-anchor="middle">출처(통계표 ID)</text>
+<rect class="n f" x="518" y="120" width="112" height="40" rx="6"/><text class="tm tf" x="574" y="136" text-anchor="middle">F6</text><text class="t2" x="574" y="152" text-anchor="middle">도구 호출 확인</text>
+<path class="ln" d="M366 140 L388 140" marker-end="url(#ah-12-8)"/>
+<path class="ln" d="M638 140 L772 140" marker-end="url(#ah-12-8)"/>
+<rect class="n d" x="774" y="119" width="130" height="42" rx="6"/>
+<text x="839" y="145" text-anchor="middle"><tspan class="tm td">D8.1</tspan><tspan class="t2"> 탐색·조회</tspan></text>
+<path class="ln dash" d="M378 76 L378 136" marker-end="url(#ah-12-8)"/>
+<text class="t3" x="384" y="94">흐름 전체에 건다</text>
+<text class="t3" x="16" y="234">기반 A</text>
+<rect class="n a" x="146" y="210" width="140" height="40" rx="6"/><text class="tm ta" x="216" y="226" text-anchor="middle">A8</text><text class="t2" x="216" y="242" text-anchor="middle">공공데이터 MCP</text>
+<rect class="n a" x="296" y="210" width="140" height="40" rx="6"/><text class="tm ta" x="366" y="226" text-anchor="middle">A2.2</text><text class="t2" x="366" y="242" text-anchor="middle">로컬 모델(폐쇄망)</text>
+<path class="ln" d="M256 208 L256 178" marker-end="url(#ah-12-8)"/>
+<text class="t3" x="262" y="198">기댄다</text>
+<text class="t3" x="16" y="274">점선 상자 = PAX 557건 태깅에서 이 유형 사례의 30% 이상에 빠진 필수 부품(missing_required) · 회색 상자 = 선택</text>
+</svg></div>
+<figcaption><b>그림 12.8</b> 유형 5b 데이터 에이전트 조립도. 폐쇄망이면 MCP 호스트와 로컬 모델(A2.2)을 함께 둔다. 읽기 전용 권한 경계·호출 추적·계획 후 실행·출처 표시가 PAX 사례에서 거의 모두 빠져 있었다.</figcaption></figure>
+
+<h3>유형 6 · 정책·홍보 콘텐츠 제작</h3>
+<p>보도자료와 참고 자료를 받아 카드뉴스·인포그래픽·영상 같은 콘텐츠를 만든다. 주 부품은 <a class="pat lc-b" href="ch05.html#p-B7"><span class="pid">B7</span>콘텐츠 생성기</a>이고, 구성 계획을 먼저 세우는 <a class="pat lc-bp" href="ch06.html#p-Bp8"><span class="pid">B′8</span>계획-실행</a>과 <a class="pat lc-bp" href="ch06.html#p-Bp6"><span class="pid">B′6</span>반복 개선</a>이 배선이다(그림 12.9). PAX 14건 중 12건에 C1 검수가, 12건에 F3 대안·부분 재생성이, 11건에 C5 사실 검증이, 5건에 A9 스타일 스킬이 없었다. 공공 홍보물은 한 번 나가면 회수하기 어렵다. 발간 전 사람 검수와, 마음에 들지 않는 부분만 다시 만드는 면이 이 유형의 최소 통제다.</p>
+<figure class="fig" id="fig-12-9"><div class="canvas"><svg viewBox="0 0 920 286" role="img" aria-label="유형 6 정책·홍보 콘텐츠 제작 조립도">
+<defs><marker id="ah-12-9" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+<text class="t b" x="16" y="20">유형 6 · 정책·홍보 콘텐츠 제작</text>
+<text class="t3" x="904" y="20" text-anchor="end">접점 D8.10 · 권한 P1</text>
+<text class="t3" x="16" y="52">통제 C</text>
+<text class="t3" x="16" y="68">보안 S</text>
+<rect class="n missing" x="146" y="34" width="140" height="40" rx="6"/><text class="tm twarn" x="216" y="50" text-anchor="middle">C5</text><text class="t2" x="216" y="66" text-anchor="middle">저작권·사실검증</text>
+<rect class="n missing" x="296" y="34" width="140" height="40" rx="6"/><text class="tm twarn" x="366" y="50" text-anchor="middle">C1</text><text class="t2" x="366" y="66" text-anchor="middle">검수</text>
+<rect class="n s" x="446" y="34" width="140" height="40" rx="6"/><text class="tm ts" x="516" y="50" text-anchor="middle">S8</text><text class="t2" x="516" y="66" text-anchor="middle">독립 검증기</text>
+<rect class="n person" x="16" y="112" width="112" height="56" rx="6"/>
+<text class="t2" x="72" y="136" text-anchor="middle">보도자료</text>
+<text class="t2" x="72" y="152" text-anchor="middle">참고 링크</text>
+<rect class="n b" x="146" y="104" width="220" height="72" rx="6"/>
+<text class="tm tb" x="256" y="124" text-anchor="middle">B7</text>
+<text class="t b" x="256" y="143" text-anchor="middle">콘텐츠 생성기</text>
+<text class="t2 tbp" x="256" y="162" text-anchor="middle">B′8 계획-실행 + B′6 반복 개선</text>
+<path class="ln" d="M128 140 L144 140" marker-end="url(#ah-12-9)"/>
+<rect class="n zone" x="390" y="110" width="248" height="60" rx="6"/>
+<rect class="n missing" x="398" y="120" width="112" height="40" rx="6"/><text class="tm twarn" x="454" y="136" text-anchor="middle">F3</text><text class="t2" x="454" y="152" text-anchor="middle">대안·부분 재생성</text>
+<rect class="n f" x="518" y="120" width="112" height="40" rx="6"/><text class="tm tf" x="574" y="136" text-anchor="middle">F2</text><text class="t2" x="574" y="152" text-anchor="middle">편집 가능 출력</text>
+<path class="ln" d="M366 140 L388 140" marker-end="url(#ah-12-9)"/>
+<path class="ln" d="M638 140 L772 140" marker-end="url(#ah-12-9)"/>
+<rect class="n d" x="774" y="119" width="130" height="42" rx="6"/>
+<text x="839" y="145" text-anchor="middle"><tspan class="tm td">D8.10</tspan><tspan class="t2"> 발간·홍보</tspan></text>
+<path class="ln dash" d="M378 76 L378 136" marker-end="url(#ah-12-9)"/>
+<text class="t3" x="384" y="94">흐름 전체에 건다</text>
+<text class="t3" x="16" y="234">기반 A</text>
+<rect class="n missing" x="146" y="210" width="140" height="40" rx="6"/><text class="tm twarn" x="216" y="226" text-anchor="middle">A9</text><text class="t2" x="216" y="242" text-anchor="middle">스타일 스킬</text>
+<rect class="n a" x="296" y="210" width="140" height="40" rx="6"/><text class="tm ta" x="366" y="226" text-anchor="middle">A10</text><text class="t2" x="366" y="242" text-anchor="middle">보도자료 입력</text>
+<rect class="n a" x="446" y="210" width="140" height="40" rx="6"/><text class="tm ta" x="516" y="226" text-anchor="middle">A2</text><text class="t2" x="516" y="242" text-anchor="middle">모델 서빙</text>
+<path class="ln" d="M256 208 L256 178" marker-end="url(#ah-12-9)"/>
+<text class="t3" x="262" y="198">기댄다</text>
+<text class="t3" x="16" y="274">점선 상자 = PAX 557건 태깅에서 이 유형 사례의 30% 이상에 빠진 필수 부품(missing_required) · 회색 상자 = 선택</text>
+</svg></div>
+<figcaption><b>그림 12.9</b> 유형 6 정책·홍보 콘텐츠 제작 조립도. 스타일 스킬(A9)이 기관 서식과 어조를 고정하고, 독립 검증기(S8)가 참고 링크로 들어오는 유출 링크와 사실 오류를 걸러 낸다.</figcaption></figure>
+
+<h3>유형 7 · 대조·점검 도우미</h3>
+<p>점검 대상 문서·코드·기록을 기준과 대조해 확인할 지점을 짚는다. 주 부품은 규칙으로 점검하면 <a class="pat lc-b" href="ch05.html#p-B0"><span class="pid">B0</span>결정적 도구</a>, 법령에 접지해 해석하면 B3이다(그림 12.10). 기준의 출처인 <a class="pat lc-a" href="ch07.html#p-A3"><span class="pid">A3</span>공공 API 제공자</a>가 자주 빠졌다(PAX 53건 중 38건). 기준을 손으로 옮겨 담으면 법령이 개정될 때 점검기가 낡는다. 같은 53건 중 46건에 C5 출처 검증이, 41건에 C1 "최종 판단은 사람"이 없었다. 점검 대상이 점검기를 속이려 드는 일도 이 유형에서 생긴다. 대상별 격리(S6)나 고정 규칙 실행(S4)으로 막는다.</p>
+<figure class="fig" id="fig-12-10"><div class="canvas"><svg viewBox="0 0 920 286" role="img" aria-label="유형 7 대조·점검 도우미 조립도">
+<defs><marker id="ah-12-10" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+<text class="t b" x="16" y="20">유형 7 · 대조·점검 도우미</text>
+<text class="t3" x="904" y="20" text-anchor="end">접점 D8.4 · 권한 P0~P1</text>
+<text class="t3" x="16" y="52">통제 C</text>
+<text class="t3" x="16" y="68">보안 S</text>
+<rect class="n missing" x="146" y="34" width="140" height="40" rx="6"/><text class="tm twarn" x="216" y="50" text-anchor="middle">C1</text><text class="t2" x="216" y="66" text-anchor="middle">최종 판단은 사람</text>
+<rect class="n missing" x="296" y="34" width="140" height="40" rx="6"/><text class="tm twarn" x="366" y="50" text-anchor="middle">C5</text><text class="t2" x="366" y="66" text-anchor="middle">출처 검증</text>
+<rect class="n c" x="446" y="34" width="140" height="40" rx="6"/><text class="tm tc" x="516" y="50" text-anchor="middle">C9</text><text class="t2" x="516" y="66" text-anchor="middle">평가 세트</text>
+<rect class="n s" x="596" y="34" width="140" height="40" rx="6"/><text class="tm ts" x="666" y="50" text-anchor="middle">S6</text><text class="t2" x="666" y="66" text-anchor="middle">대상별 격리</text>
+<rect class="n person" x="16" y="112" width="112" height="56" rx="6"/>
+<text class="t2" x="72" y="136" text-anchor="middle">점검 대상</text>
+<text class="t2" x="72" y="152" text-anchor="middle">문서·코드</text>
+<rect class="n b" x="146" y="104" width="220" height="72" rx="6"/>
+<text class="tm tb" x="256" y="124" text-anchor="middle">B0 · B3</text>
+<text class="t b" x="256" y="143" text-anchor="middle">규칙 점검기 또는 법령 접지</text>
+<text class="t2 tbp" x="256" y="162" text-anchor="middle">B′5 비평가</text>
+<path class="ln" d="M128 140 L144 140" marker-end="url(#ah-12-10)"/>
+<rect class="n zone" x="390" y="110" width="248" height="60" rx="6"/>
+<rect class="n f" x="398" y="120" width="112" height="40" rx="6"/><text class="tm tf" x="454" y="136" text-anchor="middle">F7</text><text class="t2" x="454" y="152" text-anchor="middle">한계 안내</text>
+<rect class="n f" x="518" y="120" width="112" height="40" rx="6"/><text class="tm tf" x="574" y="136" text-anchor="middle">F1</text><text class="t2" x="574" y="152" text-anchor="middle">출처 표시</text>
+<path class="ln" d="M366 140 L388 140" marker-end="url(#ah-12-10)"/>
+<path class="ln" d="M638 140 L772 140" marker-end="url(#ah-12-10)"/>
+<rect class="n d" x="774" y="119" width="130" height="42" rx="6"/>
+<text x="839" y="145" text-anchor="middle"><tspan class="tm td">D8.4</tspan><tspan class="t2"> 대조·점검</tspan></text>
+<path class="ln dash" d="M378 76 L378 136" marker-end="url(#ah-12-10)"/>
+<text class="t3" x="384" y="94">흐름 전체에 건다</text>
+<text class="t3" x="16" y="234">기반 A</text>
+<rect class="n missing" x="146" y="210" width="140" height="40" rx="6"/><text class="tm twarn" x="216" y="226" text-anchor="middle">A3</text><text class="t2" x="216" y="242" text-anchor="middle">법령·기준 출처</text>
+<rect class="n a" x="296" y="210" width="140" height="40" rx="6"/><text class="tm ta" x="366" y="226" text-anchor="middle">A10</text><text class="t2" x="366" y="242" text-anchor="middle">문서 형식 어댑터</text>
+<path class="ln" d="M256 208 L256 178" marker-end="url(#ah-12-10)"/>
+<text class="t3" x="262" y="198">기댄다</text>
+<text class="t3" x="16" y="274">점선 상자 = PAX 557건 태깅에서 이 유형 사례의 30% 이상에 빠진 필수 부품(missing_required) · 회색 상자 = 선택</text>
+</svg></div>
+<figcaption><b>그림 12.10</b> 유형 7 대조·점검 도우미 조립도. 기준 출처(A3), 출처 검증(C5), 사람의 최종 판단(C1)이 함께 빠지는 경우가 많다. 셋이 모두 없으면 점검 결과가 곧 판정이 된다.</figcaption></figure>
+
+<h3>유형 8 · 취합·변환 자동화</h3>
+<p>부서별 제출 파일을 모으고 서식을 바꾸는 사무 자동화다. PAX 557건에서 가장 큰 유형(109건)이다. 주 부품은 대개 <a class="pat lc-b" href="ch05.html#p-B0"><span class="pid">B0</span>결정적 도구</a>이고 런타임에 AI를 부르지 않는다(그림 12.11). 필수 부품은 <a class="pat lc-a" href="ch07.html#p-A10"><span class="pid">A10</span>문서 형식 어댑터</a>와 <a class="pat lc-a" href="ch07.html#p-A7"><span class="pid">A7</span>자체 제작 환경</a> 둘뿐이지만, 109건 중 34건에 A10이, 16건에 A7이 없었다. 둘 다 갖춘 사례는 64건이다. 한글 문서와 엑셀을 제대로 읽고 쓰지 못하면 취합 도구는 결국 사람이 다시 옮겨 적게 만든다. 처리 로그(C4)는 개인 도구일 때는 없어도 되지만 기관 공식 도구로 전이하는 순간 붙여야 한다. 부서에서 올라온 파일에 매크로나 숨은 지시가 들어 있을 수 있으므로 파일 검사(S11)와 샌드박스(S9)가 위 띠에 놓인다.</p>
+<figure class="fig" id="fig-12-11"><div class="canvas"><svg viewBox="0 0 920 286" role="img" aria-label="유형 8 취합·변환 자동화 조립도">
+<defs><marker id="ah-12-11" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+<text class="t b" x="16" y="20">유형 8 · 취합·변환 자동화</text>
+<text class="t3" x="904" y="20" text-anchor="end">접점 D8.5·D8.9 · 권한 P1</text>
+<text class="t3" x="16" y="52">통제 C</text>
+<text class="t3" x="16" y="68">보안 S</text>
+<rect class="n c" x="146" y="34" width="140" height="40" rx="6"/><text class="tm tc" x="216" y="50" text-anchor="middle">C4</text><text class="t2" x="216" y="66" text-anchor="middle">처리 로그(전이 시)</text>
+<rect class="n c" x="296" y="34" width="140" height="40" rx="6"/><text class="tm tc" x="366" y="50" text-anchor="middle">C3</text><text class="t2" x="366" y="66" text-anchor="middle">원복</text>
+<rect class="n s" x="446" y="34" width="140" height="40" rx="6"/><text class="tm ts" x="516" y="50" text-anchor="middle">S11</text><text class="t2" x="516" y="66" text-anchor="middle">파일 검사</text>
+<rect class="n s" x="596" y="34" width="140" height="40" rx="6"/><text class="tm ts" x="666" y="50" text-anchor="middle">S9</text><text class="t2" x="666" y="66" text-anchor="middle">샌드박스</text>
+<rect class="n person" x="16" y="112" width="112" height="56" rx="6"/>
+<text class="t2" x="72" y="136" text-anchor="middle">부서별</text>
+<text class="t2" x="72" y="152" text-anchor="middle">제출 파일</text>
+<rect class="n b" x="146" y="104" width="220" height="72" rx="6"/>
+<text class="tm tb" x="256" y="124" text-anchor="middle">B0</text>
+<text class="t b" x="256" y="143" text-anchor="middle">결정적 도구</text>
+<text class="t2 tbp" x="256" y="162" text-anchor="middle">문서·엑셀 자동화 · B′1 순차</text>
+<path class="ln" d="M128 140 L144 140" marker-end="url(#ah-12-11)"/>
+<rect class="n zone" x="390" y="110" width="128" height="60" rx="6"/>
+<rect class="n f" x="398" y="120" width="112" height="40" rx="6"/><text class="tm tf" x="454" y="136" text-anchor="middle">F8</text><text class="t2" x="454" y="152" text-anchor="middle">되돌리기</text>
+<path class="ln" d="M366 140 L388 140" marker-end="url(#ah-12-11)"/>
+<path class="ln" d="M518 140 L772 140" marker-end="url(#ah-12-11)"/>
+<rect class="n d" x="774" y="108" width="130" height="64" rx="6"/>
+<text x="839" y="134" text-anchor="middle"><tspan class="tm td">D8.5</tspan><tspan class="t2"> 취합·정산</tspan></text>
+<text x="839" y="156" text-anchor="middle"><tspan class="tm td">D8.9</tspan><tspan class="t2"> 변환·서식</tspan></text>
+<path class="ln dash" d="M378 76 L378 136" marker-end="url(#ah-12-11)"/>
+<text class="t3" x="384" y="94">흐름 전체에 건다</text>
+<text class="t3" x="16" y="234">기반 A</text>
+<rect class="n missing" x="146" y="210" width="140" height="40" rx="6"/><text class="tm twarn" x="216" y="226" text-anchor="middle">A10</text><text class="t2" x="216" y="242" text-anchor="middle">문서 형식 어댑터</text>
+<rect class="n a" x="296" y="210" width="140" height="40" rx="6"/><text class="tm ta" x="366" y="226" text-anchor="middle">A7</text><text class="t2" x="366" y="242" text-anchor="middle">자체 제작 환경</text>
+<path class="ln" d="M256 208 L256 178" marker-end="url(#ah-12-11)"/>
+<text class="t3" x="262" y="198">기댄다</text>
+<text class="t3" x="16" y="274">점선 상자 = PAX 557건 태깅에서 이 유형 사례의 30% 이상에 빠진 필수 부품(missing_required) · 회색 상자 = 선택</text>
+</svg></div>
+<figcaption><b>그림 12.11</b> 유형 8 취합·변환 자동화 조립도. 가장 단순한 조립이지만 문서 형식 어댑터가 빠지면 성립하지 않는다. 되돌리기(F8)와 원복(C3)이 잘못 합친 파일을 되살린다.</figcaption></figure>
+
+<h3>유형 9 · 인수인계·지식 보존</h3>
+<p>전임자의 파일 더미에서 업무·일정·전례를 찾아 후임자에게 넘긴다. 문서를 정리하는 결정적 도구(B0)에서 시작해 지식 접지 상담(B3)으로 승급하는 경로가 기본이다(그림 12.12). PAX 38건 중 37건에 C5 비식별과 C8 접근 범위가, 25건에 A1 문서 자산화가 없었다. 인수인계 자료에는 개인정보와 등급 문서가 섞여 있다. 비식별 없이 코퍼스로 만들면 다음 담당자뿐 아니라 검색 권한을 가진 모든 사람에게 그 문서가 열린다. <a class="pat lc-s" href="ch09.html#p-S2"><span class="pid">S2</span>권한 인식 검색</a>이 이 유형의 필수 보안 부품인 이유다.</p>
+<figure class="fig" id="fig-12-12"><div class="canvas"><svg viewBox="0 0 920 286" role="img" aria-label="유형 9 인수인계·지식 보존 조립도">
+<defs><marker id="ah-12-12" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+<text class="t b" x="16" y="20">유형 9 · 인수인계·지식 보존</text>
+<text class="t3" x="904" y="20" text-anchor="end">접점 D8.7 · 권한 P0</text>
+<text class="t3" x="16" y="52">통제 C</text>
+<text class="t3" x="16" y="68">보안 S</text>
+<rect class="n missing" x="146" y="34" width="140" height="40" rx="6"/><text class="tm twarn" x="216" y="50" text-anchor="middle">C5</text><text class="t2" x="216" y="66" text-anchor="middle">비식별(공유 전)</text>
+<rect class="n missing" x="296" y="34" width="140" height="40" rx="6"/><text class="tm twarn" x="366" y="50" text-anchor="middle">C8</text><text class="t2" x="366" y="66" text-anchor="middle">접근 범위</text>
+<rect class="n s" x="446" y="34" width="140" height="40" rx="6"/><text class="tm ts" x="516" y="50" text-anchor="middle">S2</text><text class="t2" x="516" y="66" text-anchor="middle">권한 인식 검색</text>
+<rect class="n soft" x="596" y="34" width="140" height="40" rx="6"/><text class="tm ts" x="666" y="50" text-anchor="middle">S3</text><text class="t2" x="666" y="66" text-anchor="middle">기억 구역 분리</text>
+<rect class="n person" x="16" y="112" width="112" height="56" rx="6"/>
+<text class="t2" x="72" y="136" text-anchor="middle">전임자</text>
+<text class="t2" x="72" y="152" text-anchor="middle">파일 더미</text>
+<rect class="n b" x="146" y="104" width="220" height="72" rx="6"/>
+<text class="tm tb" x="256" y="124" text-anchor="middle">B0 → B3</text>
+<text class="t b" x="256" y="143" text-anchor="middle">문서 정리 → 지식 접지</text>
+<text class="t2 tbp" x="256" y="162" text-anchor="middle">승급 경로</text>
+<path class="ln" d="M128 140 L144 140" marker-end="url(#ah-12-12)"/>
+<rect class="n zone" x="390" y="110" width="248" height="60" rx="6"/>
+<rect class="n f" x="398" y="120" width="112" height="40" rx="6"/><text class="tm tf" x="454" y="136" text-anchor="middle">F8</text><text class="t2" x="454" y="152" text-anchor="middle">이력</text>
+<rect class="n f" x="518" y="120" width="112" height="40" rx="6"/><text class="tm tf" x="574" y="136" text-anchor="middle">F1</text><text class="t2" x="574" y="152" text-anchor="middle">출처(원문 위치)</text>
+<path class="ln" d="M366 140 L388 140" marker-end="url(#ah-12-12)"/>
+<path class="ln" d="M638 140 L772 140" marker-end="url(#ah-12-12)"/>
+<rect class="n d" x="774" y="119" width="130" height="42" rx="6"/>
+<text x="839" y="145" text-anchor="middle"><tspan class="tm td">D8.7</tspan><tspan class="t2"> 인수인계</tspan></text>
+<path class="ln dash" d="M378 76 L378 136" marker-end="url(#ah-12-12)"/>
+<text class="t3" x="384" y="94">흐름 전체에 건다</text>
+<text class="t3" x="16" y="234">기반 A</text>
+<rect class="n missing" x="146" y="210" width="140" height="40" rx="6"/><text class="tm twarn" x="216" y="226" text-anchor="middle">A1</text><text class="t2" x="216" y="242" text-anchor="middle">문서 자산화</text>
+<rect class="n soft" x="296" y="210" width="140" height="40" rx="6"/><text class="tm ta" x="366" y="226" text-anchor="middle">A6</text><text class="t2" x="366" y="242" text-anchor="middle">온톨로지(승급 시)</text>
+<path class="ln" d="M256 208 L256 178" marker-end="url(#ah-12-12)"/>
+<text class="t3" x="262" y="198">기댄다</text>
+<text class="t3" x="16" y="274">점선 상자 = PAX 557건 태깅에서 이 유형 사례의 30% 이상에 빠진 필수 부품(missing_required) · 회색 상자 = 선택</text>
+</svg></div>
+<figcaption><b>그림 12.12</b> 유형 9 인수인계·지식 보존 조립도. 승급 시 온톨로지(A6)와 기억 구역 분리(S3)를 더한다. 비식별과 접근 범위가 빠지면 인수인계 도구가 그대로 유출 경로가 된다.</figcaption></figure>
+
+<h3>유형 10 · 위험 예측·표적 선별</h3>
+<p>행정 데이터와 연계 데이터로 위험 점수나 등급을 매겨 점검·지원 대상을 고른다. 주 부품은 <a class="pat lc-b" href="ch05.html#p-B2"><span class="pid">B2</span>예측·추천기</a>이고, 점수를 규칙으로 등급화하는 <a class="pat lc-bp" href="ch06.html#p-Bp9"><span class="pid">B′9</span>결정론 판정 게이트</a>가 배선이다(그림 12.13). 처분에 가까운 판단을 보조하므로 권한이 P3까지 올라간다. PAX 557건에서 이 유형은 아산 하천 수위 예측 모니터링 1건뿐이고, 그 사례에는 C1·C2·C6·C9·F9·F7이 모두 없었다. 사례 하나로는 결손 경향을 말할 수 없으므로 그림 12.13에는 점선을 긋지 않았다. 등급을 자동으로 매기는데 그 등급에 따라 검토 강도를 다르게 하지 않으면 높은 점수가 곧 처분 대상 명단이 된다. 연속값 예측이나 참고용 순위만 내는 경우에는 C2가 면제된다(R10). 판정 근거(F9)는 담당자에게는 필요하지만, 위조 탐지처럼 상대가 기준을 역이용할 수 있는 접점에서 대상자에게까지 보여 주면 <a class="pat lc-x" href="ch14.html#p-X16"><span class="pid">X16</span>기준을 노출하는 위조 탐지</a>에 빠진다.</p>
+<figure class="fig" id="fig-12-13"><div class="canvas"><svg viewBox="0 0 920 286" role="img" aria-label="유형 10 위험 예측·표적 선별 조립도">
+<defs><marker id="ah-12-13" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+<text class="t b" x="16" y="20">유형 10 · 위험 예측·표적 선별</text>
+<text class="t3" x="904" y="20" text-anchor="end">접점 D6·D3·D8.4 · 권한 P1~P3</text>
+<text class="t3" x="16" y="52">통제 C</text>
+<text class="t3" x="16" y="68">보안 S</text>
+<rect class="n c" x="146" y="34" width="140" height="40" rx="6"/><text class="tm tc" x="216" y="50" text-anchor="middle">C1</text><text class="t2" x="216" y="66" text-anchor="middle">검토 큐</text>
+<rect class="n c" x="296" y="34" width="140" height="40" rx="6"/><text class="tm tc" x="366" y="50" text-anchor="middle">C2</text><text class="t2" x="366" y="66" text-anchor="middle">등급 분기</text>
+<rect class="n c" x="446" y="34" width="140" height="40" rx="6"/><text class="tm tc" x="516" y="50" text-anchor="middle">C6</text><text class="t2" x="516" y="66" text-anchor="middle">환류</text>
+<rect class="n c" x="596" y="34" width="140" height="40" rx="6"/><text class="tm tc" x="666" y="50" text-anchor="middle">C9</text><text class="t2" x="666" y="66" text-anchor="middle">평가 세트</text>
+<rect class="n c" x="746" y="34" width="140" height="40" rx="6"/><text class="tm tc" x="816" y="50" text-anchor="middle">C4</text><text class="t2" x="816" y="66" text-anchor="middle">감사 로그·지표</text>
+<rect class="n person" x="16" y="112" width="112" height="56" rx="6"/>
+<text class="t2" x="72" y="136" text-anchor="middle">행정 데이터</text>
+<text class="t2" x="72" y="152" text-anchor="middle">연계 데이터</text>
+<rect class="n b" x="146" y="104" width="220" height="72" rx="6"/>
+<text class="tm tb" x="256" y="124" text-anchor="middle">B2</text>
+<text class="t b" x="256" y="143" text-anchor="middle">예측·추천기</text>
+<text class="t2 tbp" x="256" y="162" text-anchor="middle">B′9 결정론 판정 게이트</text>
+<path class="ln" d="M128 140 L144 140" marker-end="url(#ah-12-13)"/>
+<rect class="n zone" x="390" y="110" width="248" height="60" rx="6"/>
+<rect class="n f" x="398" y="120" width="112" height="40" rx="6"/><text class="tm tf" x="454" y="136" text-anchor="middle">F9</text><text class="t2" x="454" y="152" text-anchor="middle">판정 근거</text>
+<rect class="n f" x="518" y="120" width="112" height="40" rx="6"/><text class="tm tf" x="574" y="136" text-anchor="middle">F7</text><text class="t2" x="574" y="152" text-anchor="middle">한계 안내</text>
+<path class="ln" d="M366 140 L388 140" marker-end="url(#ah-12-13)"/>
+<path class="ln" d="M638 140 L772 140" marker-end="url(#ah-12-13)"/>
+<rect class="n d" x="774" y="108" width="130" height="64" rx="6"/>
+<text x="839" y="134" text-anchor="middle"><tspan class="tm td">D3</tspan><tspan class="t2"> 자격·심사</tspan></text>
+<text x="839" y="156" text-anchor="middle"><tspan class="tm td">D8.4</tspan><tspan class="t2"> 대조·점검</tspan></text>
+<path class="ln dash" d="M378 76 L378 136" marker-end="url(#ah-12-13)"/>
+<text class="t3" x="384" y="94">흐름 전체에 건다</text>
+<text class="t3" x="16" y="234">기반 A</text>
+<rect class="n a" x="146" y="210" width="140" height="40" rx="6"/><text class="tm ta" x="216" y="226" text-anchor="middle">A1</text><text class="t2" x="216" y="242" text-anchor="middle">데이터 자산</text>
+<rect class="n a" x="296" y="210" width="140" height="40" rx="6"/><text class="tm ta" x="366" y="226" text-anchor="middle">A2.5</text><text class="t2" x="366" y="242" text-anchor="middle">비LLM 학습 모델</text>
+<rect class="n a" x="446" y="210" width="140" height="40" rx="6"/><text class="tm ta" x="516" y="226" text-anchor="middle">A4</text><text class="t2" x="516" y="242" text-anchor="middle">데이터 연계</text>
+<path class="ln" d="M256 208 L256 178" marker-end="url(#ah-12-13)"/>
+<text class="t3" x="262" y="198">기댄다</text>
+<text class="t3" x="16" y="274">PAX 사례가 1건뿐이라 결손 경향(점선)을 표시하지 않았다 · 회색 상자 = 선택</text>
+</svg></div>
+<figcaption><b>그림 12.13</b> 유형 10 위험 예측·표적 선별 조립도. 판정 게이트가 점수를 등급으로 바꾸고, 등급 분기(C2)가 검토 강도를 정한다.</figcaption></figure>
+
+<h3>유형 11·12 · 추천·매칭과 개발 코파일럿</h3>
+<p>유형 11 추천·매칭은 유형 10과 같은 B2 계열 조립에 추천 사유(F9)와 대안 제시(F3)를 붙인다. PAX 557건에서 이 유형은 3건뿐이어서 템플릿은 표 12.1로 갈음한다. 3건 모두에 C1·C5·C6·F3이 없었다. 추천이 하나만 나오면 이용자는 그것을 정답으로 읽는다.</p>
+<p>유형 12 개발 코파일럿은 공직자 개인 개발의 저변을 반영한 유형이다. 주 부품은 스킬 형태의 B1이고 생성 코드를 격리 실행하는 <a class="pat lc-s" href="ch09.html#p-S9"><span class="pid">S9</span>임시 샌드박스</a>가 필수다. 원래 필수 모델 서빙은 A2.2 주권형 온프레미스였지만, 바이브 코딩 도구 대부분이 상용 API나 BYO 구독을 쓴다는 피드백에 따라 R22가 A2.1 또는 A2.2로 완화했다. PAX 10건 모두에 C9와 S9가 없었다. 개발 도구는 다른 도구를 만드는 도구이므로, 여기서 빠진 평가와 격리는 그 도구로 만든 모든 산출물로 번진다.</p>
+
+<aside class="key"><span class="lbl">핵심 요약</span><ul>
+<li>템플릿은 유형마다 주 부품·원형·필수 A·C·F·S를 정한다. 빠지면 AI-Enabled 이상으로 인정하지 않는다.</li>
+<li>PAX 557건에서 가장 자주 빠진 필수 부품은 가드레일(C5)·검토 큐(C1)·권한 경계(C8)·평가 세트(C9)였다. 현장 감시(3)와 위험 예측(10)은 사례가 1건씩뿐이어서 템플릿을 카탈로그 규칙으로 읽는다.</li>
+<li>결손의 일부는 규칙이 맞지 않아 생긴 것이다. 5a·5b의 하위유형 분리(R18·R19)가 그 보정이다.</li>
+</ul></aside>
+
+<h2>12.4 유형별 위협 모델과 필수 보안 부품</h2>
+<p>조립 템플릿에 적대자의 관점을 덧씌우면 위협 모델이 된다. 첫 질문은 신뢰 불가 입력이 어디서 들어오느냐이고, 그 답이 <a class="pat lc-s" href="ch09.html#p-S4"><span class="pid">S4</span>행동 선택기</a>·<a class="pat lc-s" href="ch09.html#p-S5"><span class="pid">S5</span>계획 후 실행</a>·<a class="pat lc-s" href="ch09.html#p-S6"><span class="pid">S6</span>격리 LLM·맵리듀스</a> 가운데 무엇을 고를지를 정한다(그림 12.14). 카탈로그는 Beurer-Kellner 외의 프롬프트 인젝션 방어 연구에 실린 사례 연구 10건 가운데 공공 서비스와 구조가 같은 것을 유형마다 붙였다. 고객 상담 챗봇의 할인 조작 시도는 대민 상담의 감면·자격 조작 시도와 같고, 이력서 심사 보조는 자격 심사와 같다.</p>
+
+<figure class="fig" id="fig-12-14"><div class="canvas"><svg viewBox="0 0 900 400" role="img" aria-label="서비스 유형별 신뢰 불가 입력의 출처, 주 위협, 필수 보안 부품을 한 줄씩 잇는 매트릭스">
+<defs><marker id="ah-12-14" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+<text class="t3" x="16" y="20">유형</text><text class="t3" x="48" y="20">신뢰 불가 입력이 들어오는 곳</text><text class="t3" x="282" y="20">주 위협</text><text class="t3" x="606" y="20">필수 보안 부품</text>
+<text class="t b" x="22" y="52">①</text>
+<rect class="n" x="44" y="32" width="222" height="30" rx="6"/>
+<text class="t2" x="155" y="51" text-anchor="middle">민원인 입력·공개 웹 문서</text>
+<path class="ln thin" d="M266 47 L278 47"/>
+<text class="t2" x="282" y="51">직접 인젝션(감면·자격 조작), 타인 정보 유출</text>
+<path class="ln" d="M584 47 L602 47" marker-end="url(#ah-12-14)"/>
+<rect class="n s" x="606" y="34" width="100" height="26" rx="6"/>
+<text x="656" y="51" text-anchor="middle"><tspan class="tm ts">S4</tspan><tspan class="t2"> 행동 선택기</tspan></text>
+<text class="t2" x="716" y="51">+</text>
+<rect class="n s" x="728" y="34" width="124" height="26" rx="6"/>
+<text x="790" y="51" text-anchor="middle"><tspan class="tm ts">S7</tspan><tspan class="t2"> 컨텍스트 최소화</tspan></text>
+<text class="t b" x="22" y="90">②</text>
+<rect class="n" x="44" y="70" width="222" height="30" rx="6"/>
+<text class="t2" x="155" y="89" text-anchor="middle">제출 서류(PDF·HWPX·이미지)</text>
+<path class="ln thin" d="M266 85 L278 85"/>
+<text class="t2" x="282" y="89">서류 속 숨은 지시로 판정 조작</text>
+<path class="ln" d="M584 85 L602 85" marker-end="url(#ah-12-14)"/>
+<rect class="n s" x="606" y="72" width="125" height="26" rx="6"/>
+<text x="668.5" y="89" text-anchor="middle"><tspan class="tm ts">S6</tspan><tspan class="t2"> 문서별 격리 LLM</tspan></text>
+<text class="t2" x="741" y="89">+</text>
+<rect class="n" x="753" y="72" width="74" height="26" rx="6"/>
+<text x="790" y="89" text-anchor="middle"><tspan class="t2">규칙 집계</tspan></text>
+<text class="t b" x="22" y="128">③</text>
+<rect class="n" x="44" y="108" width="222" height="30" rx="6"/>
+<text class="t2" x="155" y="127" text-anchor="middle">센서·영상 스트림</text>
+<path class="ln thin" d="M266 123 L278 123"/>
+<text class="t2" x="282" y="127">스푸핑·오탐 유도, 경보 채널 남용</text>
+<path class="ln" d="M584 123 L602 123" marker-end="url(#ah-12-14)"/>
+<rect class="n s" x="606" y="110" width="116" height="26" rx="6"/>
+<text x="664" y="127" text-anchor="middle"><tspan class="tm ts">S1</tspan><tspan class="t2"> 경보 발송 상한</tspan></text>
+<text class="t2" x="732" y="127">+</text>
+<rect class="n s" x="744" y="110" width="107" height="26" rx="6"/>
+<text x="797.5" y="127" text-anchor="middle"><tspan class="tm ts">S10</tspan><tspan class="t2"> 결정적 재생</tspan></text>
+<text class="t b" x="22" y="166">④</text>
+<rect class="n" x="44" y="146" width="222" height="30" rx="6"/>
+<text class="t2" x="155" y="165" text-anchor="middle">외부 공문·첨부·메일</text>
+<path class="ln thin" d="M266 161 L278 161"/>
+<text class="t2" x="282" y="165">간접 인젝션, 등급 문서 요약 유출</text>
+<path class="ln" d="M584 161 L602 161" marker-end="url(#ah-12-14)"/>
+<rect class="n s" x="606" y="148" width="124" height="26" rx="6"/>
+<text x="668" y="165" text-anchor="middle"><tspan class="tm ts">S3</tspan><tspan class="t2"> 컨텍스트 방화벽</tspan></text>
+<text class="t2" x="740" y="165">+</text>
+<rect class="n s" x="752" y="148" width="100" height="26" rx="6"/>
+<text x="802" y="165" text-anchor="middle"><tspan class="tm ts">S8</tspan><tspan class="t2"> 독립 검증기</tspan></text>
+<text class="t b" x="22" y="204">⑤</text>
+<rect class="n" x="44" y="184" width="222" height="30" rx="6"/>
+<text class="t2" x="155" y="203" text-anchor="middle">공공데이터 API·MCP 응답</text>
+<path class="ln thin" d="M266 199 L278 199"/>
+<text class="t2" x="282" y="203">도구 출력 인젝션, 질의 조작, 비용 소진</text>
+<path class="ln" d="M584 199 L602 199" marker-end="url(#ah-12-14)"/>
+<rect class="n s" x="606" y="186" width="104" height="26" rx="6"/>
+<text x="658" y="203" text-anchor="middle"><tspan class="tm ts">S5</tspan><tspan class="t2"> 계획 후 실행</tspan></text>
+<text class="t2" x="720" y="203">+</text>
+<rect class="n s" x="732" y="186" width="96" height="26" rx="6"/>
+<text x="780" y="203" text-anchor="middle"><tspan class="tm ts">S1</tspan><tspan class="t2"> 게이트웨이</tspan></text>
+<text class="t b" x="22" y="242">⑥</text>
+<rect class="n" x="44" y="222" width="222" height="30" rx="6"/>
+<text class="t2" x="155" y="241" text-anchor="middle">보도자료·참고 링크</text>
+<path class="ln thin" d="M266 237 L278 237"/>
+<text class="t2" x="282" y="241">유출 링크 삽입, 저작권·사실 오류</text>
+<path class="ln" d="M584 237 L602 237" marker-end="url(#ah-12-14)"/>
+<rect class="n s" x="606" y="224" width="100" height="26" rx="6"/>
+<text x="656" y="241" text-anchor="middle"><tspan class="tm ts">S8</tspan><tspan class="t2"> 독립 검증기</tspan></text>
+<text class="t b" x="22" y="280">⑦</text>
+<rect class="n" x="44" y="260" width="222" height="30" rx="6"/>
+<text class="t2" x="155" y="279" text-anchor="middle">점검 대상 문서·코드</text>
+<path class="ln thin" d="M266 275 L278 275"/>
+<text class="t2" x="282" y="279">점검 대상이 점검기를 속임</text>
+<path class="ln" d="M584 275 L602 275" marker-end="url(#ah-12-14)"/>
+<rect class="n s" x="606" y="262" width="100" height="26" rx="6"/>
+<text x="656" y="279" text-anchor="middle"><tspan class="tm ts">S6</tspan><tspan class="t2"> 대상별 격리</tspan></text>
+<text class="t2" x="716" y="279">또는</text>
+<rect class="n s" x="746" y="262" width="88" height="26" rx="6"/>
+<text x="790" y="279" text-anchor="middle"><tspan class="tm ts">S4</tspan><tspan class="t2"> 고정 규칙</tspan></text>
+<text class="t b" x="22" y="318">⑧</text>
+<rect class="n" x="44" y="298" width="222" height="30" rx="6"/>
+<text class="t2" x="155" y="317" text-anchor="middle">부서별 제출 파일</text>
+<path class="ln thin" d="M266 313 L278 313"/>
+<text class="t2" x="282" y="317">파일 속 매크로·지시, 오염 파일</text>
+<path class="ln" d="M584 313 L602 313" marker-end="url(#ah-12-14)"/>
+<rect class="n s" x="606" y="300" width="95" height="26" rx="6"/>
+<text x="653.5" y="317" text-anchor="middle"><tspan class="tm ts">S11</tspan><tspan class="t2"> 파일 검사</tspan></text>
+<text class="t2" x="711" y="317">+</text>
+<rect class="n s" x="723" y="300" width="84" height="26" rx="6"/>
+<text x="765" y="317" text-anchor="middle"><tspan class="tm ts">S9</tspan><tspan class="t2"> 샌드박스</tspan></text>
+<text class="t b" x="22" y="356">⑨</text>
+<rect class="n" x="44" y="336" width="222" height="30" rx="6"/>
+<text class="t2" x="155" y="355" text-anchor="middle">전임자 파일 더미</text>
+<path class="ln thin" d="M266 351 L278 351"/>
+<text class="t2" x="282" y="355">등급 문서 무단 코퍼스화, PII 축적</text>
+<path class="ln" d="M584 351 L602 351" marker-end="url(#ah-12-14)"/>
+<rect class="n s" x="606" y="338" width="116" height="26" rx="6"/>
+<text x="664" y="355" text-anchor="middle"><tspan class="tm ts">S2</tspan><tspan class="t2"> 권한 인식 검색</tspan></text>
+<text class="t2" x="732" y="355">+</text>
+<rect class="n c" x="744" y="338" width="72" height="26" rx="6"/>
+<text x="780" y="355" text-anchor="middle"><tspan class="tm tc">C5</tspan><tspan class="t2"> 비식별</tspan></text>
+<text class="t3" x="16" y="388">권한이 P0~P1(읽기·산출물 생성)에 묶여 있는 동안은 그 범위 제한이 곧 보안이다. 진행 경로 8단계에서 S4·S5·S6 중 하나와 S1·S10을 붙인다.</text>
+</svg></div>
+<figcaption><b>그림 12.14</b> 서비스 유형별 위협 모델. 왼쪽이 신뢰 불가 입력이 들어오는 곳, 가운데가 주 위협, 오른쪽이 필수 보안 부품이다. 입력의 출처가 같으면 유형이 달라도 같은 보안 부품을 쓴다.</figcaption></figure>
+
+<p>민원인이 쓰는 입력은 모델에게 직접 말을 거는 통로다. 그래서 모델이 미리 정한 행동 가운데 고르기만 하게 하고(S4), 행동이 정해진 뒤에는 그 입력을 컨텍스트에서 지운다(<a class="pat lc-s" href="ch09.html#p-S7"><span class="pid">S7</span>컨텍스트 최소화</a>). 제출 서류는 서류마다 숨은 지시가 있을 수 있으므로 문서별로 격리한 LLM이 읽고 규칙이 집계한다(S6). 에이전트가 도구를 부를 때는 외부 데이터를 읽기 전에 호출 계획부터 고정한다(S5). 도구 응답이 다음 행동을 바꾸지 못하게 하려는 것이다. 센서 스트림처럼 LLM이 없는 위협 모델에서는 경보 발송에 상한을 두고(S1) 판정 과정을 나중에 그대로 재생하도록 기록한다(S10).</p>
+
+<aside class="note"><span class="lbl">참고</span>
+<p>보안 부품이 들어갈 자리는 진행 경로 6단계와 8단계다(12.2절). 그 전에는 P0~P1 범위에 묶어 두는 것이 곧 보안이다. 4장의 신뢰 불가 입력 규칙(P2 이상 + 신뢰 불가 입력이면 S4·S5·S6 중 하나 present)은 이 그림의 최소선이다. 승인 게이트(C8)는 S4·S5·S6의 대체 통제로 인정하지 않지만 완화 장치로 근거란에 기록한다(R6). 다만 유형 5b의 필수 부품 점검에서는 v0.7의 R10이 C8 승인 게이트를 S5·S6의 대체로 인정한다.</p></aside>
+
+<h2>12.5 실패 양상에서 부품으로</h2>
+<p>설계가 끝나도 운영 중에 실패는 난다. 카탈로그는 Towards AI가 패턴마다 "막는 실패 양상"을 짝지은 방식을 공공 서비스 부품으로 옮겨, 증상에서 출발해 끼울 부품을 고르는 표를 만들었다(표 12.2). 셋째 열의 확인 질문은 심사 질문으로도 쓴다. 질문에 즉시 답할 수 없다면 그 칸의 부품이 없는 것이다.</p><figure class="fig screen"><img src="img/pr-receipt-wiring.jpg" alt="태깅에 없는 부품이 다음 개선 목록이 된다" loading="lazy"><figcaption><b>화면 12.1</b>같은 세차내역 사례의 조립도에 빠진 부품(C7·C9·C4 등)을 덧붙인 장면. 결손 부품이 곧 다음 개선 목록이다. <span class="src">쇼릴 「공공 AX 디자인 패턴」(2026년 9월 제작)의 한 장면. 화면 속 수치는 제작 당시 기준이다.</span></figcaption></figure>
+
+<div class="tbl"><table><caption><b>표 12.2</b> 관측되는 실패 → 끼울 부품 → 확인 질문 (카탈로그 §7.5)</caption>
+<thead><tr><th>관측되는 실패</th><th>끼울 부품</th><th>확인 질문</th></tr></thead>
+<tbody>
+<tr><td class="k">출력 품질이 들쭉날쭉</td><td><a class="pat lc-bp" href="ch06.html#p-Bp5"><span class="pid">B′5</span>생성자-비평가</a> <a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span>평가 세트</a> <a class="pat lc-a" href="ch07.html#p-A9"><span class="pid">A9</span>규범 스킬</a></td><td>같은 질문 10개를 다시 넣으면 점수가 얼마나 흔들리는가</td></tr>
+<tr><td class="k">왜 그렇게 답했는지 모름</td><td><a class="pat lc-bp" href="ch06.html#p-Bp7"><span class="pid">B′7</span>ReAct 추론 흔적</a> <a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span>추적</a> <a class="pat lc-f" href="ch10.html#p-F1"><span class="pid">F1</span>출처 표시</a></td><td>이 답의 근거 문서와 도구 호출 순서를 지금 볼 수 있는가</td></tr>
+<tr><td class="k">단계가 빠지거나 순서가 꼬임</td><td><a class="pat lc-bp" href="ch06.html#p-Bp8"><span class="pid">B′8</span>계획-실행</a> <a class="pat lc-c" href="ch08.html#p-C3"><span class="pid">C3</span>상태 머신</a></td><td>이 건이 어느 단계에서 멈췄는지 시스템이 아는가</td></tr>
+<tr><td class="k">비용·지연 폭주</td><td><a class="pat lc-a" href="ch07.html#p-A2"><span class="pid">A2</span>모델 라우팅·캐싱</a> <a class="pat lc-bp" href="ch06.html#p-Bpm"><span class="pid">B′+</span>기억 관리</a> <a class="pat lc-bp" href="ch06.html#p-Bp5"><span class="pid">B′5</span>반복 상한</a></td><td>지난달 호출당 비용과 P95 지연은 얼마인가</td></tr>
+<tr><td class="k">에이전트끼리 충돌·중복</td><td><a class="pat lc-bp" href="ch06.html#p-Bp4"><span class="pid">B′4</span>감독자 계층</a> <a class="pat lc-bp" href="ch06.html#p-Bp2"><span class="pid">B′2</span>라우터</a>, 단일 에이전트로 후퇴</td><td>하위 작업이 정말로 분리되는가, 하나로 합쳐도 되는가</td></tr>
+<tr><td class="k">되돌릴 수 없는 조치가 나감</td><td><a class="pat lc-c" href="ch08.html#p-C8"><span class="pid">C8</span>권한 경계·킬스위치</a> <a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span>체크포인트</a> <a class="pat lc-f" href="ch10.html#p-F6"><span class="pid">F6</span>행동 확인</a> <a class="pat lc-c" href="ch08.html#p-C3"><span class="pid">C3</span>롤백</a></td><td>사람이 고치는 데 오래 걸리는 조치 목록이 문서에 있는가</td></tr>
+<tr><td class="k">모델 업데이트 후 갑자기 나빠짐</td><td><a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span>회귀시험</a> <a class="pat lc-a" href="ch07.html#p-A2"><span class="pid">A2</span>버전 고정</a> <a class="pat lc-c" href="ch08.html#p-C7"><span class="pid">C7</span>Blue-Green 교체</a></td><td>모델·프롬프트·설정 조합이 릴리스처럼 버전 관리되는가</td></tr>
+<tr><td class="k">민감정보가 외부로 나감</td><td><a class="pat lc-c" href="ch08.html#p-C5"><span class="pid">C5</span>비식별 전처리기</a> <a class="pat lc-a" href="ch07.html#p-A2_4"><span class="pid">A2.4</span>내부망 프록시</a>, E5 등급 기록</td><td>프롬프트가 기관 밖으로 나가기 전 무엇이 걸러지는가</td></tr>
+<tr><td class="k">이용자가 답을 못 믿음</td><td><a class="pat lc-f" href="ch10.html#p-F1"><span class="pid">F1</span>출처</a> <a class="pat lc-f" href="ch10.html#p-F7"><span class="pid">F7</span>한계 안내</a> <a class="pat lc-f" href="ch10.html#p-F2"><span class="pid">F2</span>편집 가능</a> <a class="pat lc-c" href="ch08.html#p-C5"><span class="pid">C5</span>출처 검증</a></td><td>이용자가 "공식 판단이 아님"을 어디서 읽는가</td></tr>
+<tr><td class="k">문서 속 지시대로 에이전트가 움직임</td><td><a class="pat lc-s" href="ch09.html#p-S6"><span class="pid">S6</span>격리 LLM</a> <a class="pat lc-s" href="ch09.html#p-S5"><span class="pid">S5</span>계획 고정</a> <a class="pat lc-s" href="ch09.html#p-S3"><span class="pid">S3</span>방화벽</a></td><td>이 에이전트가 읽는 텍스트 중 기관 밖에서 쓴 것은 무엇이고, 그것이 어떤 도구를 부를 수 있는가</td></tr>
+<tr><td class="k">민원인이 챗봇을 설득해 규정 밖 답을 받음</td><td><a class="pat lc-s" href="ch09.html#p-S4"><span class="pid">S4</span>행동 선택기</a> <a class="pat lc-s" href="ch09.html#p-S7"><span class="pid">S7</span>컨텍스트 최소화</a> <a class="pat lc-f" href="ch10.html#p-F7"><span class="pid">F7</span>한계 안내</a></td><td>답이 데이터에서 나오는가, 모델의 판단에서 나오는가</td></tr>
+<tr><td class="k">배포 후 개선이 멈춤</td><td><a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span>지표</a> <a class="pat lc-c" href="ch08.html#p-C6"><span class="pid">C6</span>환류</a> <a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span>재검증</a></td><td>지난 분기 지표 때문에 바뀐 규칙이 하나라도 있는가 (AIM06)</td></tr>
+</tbody></table></div>
+
+<p>한 증상에 부품이 여럿 적혀 있으면, 증상이 어느 층에서 생겼는지 보고 고른다. 출력 품질이 흔들리는데 평가 세트가 없다면 먼저 C9를 만들어 흔들림을 재고, 그다음에 비평가를 넣을지 규범 스킬을 넣을지를 정한다. 마지막 행의 질문은 AX 성숙도의 설계 원칙 AIM06(결과가 기준을 고치게)에 해당한다. 지표가 쌓이는데 규칙이 하나도 바뀌지 않았다면, 운영은 되고 있어도 학습은 멈춘 것이다.</p>
+
+<aside class="case"><span class="lbl">사례 연구 · 가람시(가상)</span>
+<h4>재난안전과가 표 12.2를 심사표로 쓰다</h4>
+<p>재난안전과의 하천 수위 경보(4장)가 우기를 한 번 넘겼다. 사후 점검 회의에서 현장 담당자들이 같은 불만을 반복했다. 새벽에 울린 경보 중 여럿이 오탐이었고, 왜 울렸는지 아무도 설명하지 못했다. AX팀은 표 12.2의 확인 질문을 그대로 읽어 내려갔다.</p>
+<p>"이 답의 근거와 처리 순서를 지금 볼 수 있는가"에 아무도 답하지 못했다. 경보 기록에는 시각과 지점만 있었고, 어떤 센서 값과 어떤 판정 규칙이 경보를 만들었는지는 남지 않았다. 팀은 <a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span>감사 로그·지표</a>에 판정 입력과 규칙 버전을 함께 남기고, 담당자 화면에 <a class="pat lc-f" href="ch10.html#p-F9"><span class="pid">F9</span>판정 근거·기여도 표시</a>를 붙였다. "지난 분기 지표 때문에 바뀐 규칙이 하나라도 있는가"에도 답이 없었다. 오탐으로 표시된 경보를 판정 임계값 조정 회의로 돌려보내는 주기도 정했다. <a class="pat lc-c" href="ch08.html#p-C6"><span class="pid">C6</span>환류 파이프라인</a>의 첫 사이클은 이렇게 시작되었다. 다음 우기에 이 사이클이 한 번 끝까지 돌면, C6은 4장의 기준대로 present가 된다.</p>
+</aside>
+
+<h2>12.6 한 서비스로 엮기</h2>
+<p>Gulli는 『Agentic Design Patterns』의 결론에서 계획, 도구 사용, 멀티에이전트, 성찰, 기억 다섯 패턴을 연구 보조 에이전트 하나로 엮어 보인다. 패턴을 하나씩 배운 독자가 마지막에 묻는 것은 그것들이 한 시스템 안에서 어떤 순서로 맞물리느냐이기 때문이다. 가람시 민원여권과 챗봇으로 같은 일을 해 본다. 4장의 첫 서명에서 출발한 챗봇은 여섯 단계를 다시 밟고(12.1절) 진행 경로 6단계까지 올라왔다. 민원인 한 사람의 질문이 이 조립을 지나는 길을 따라가면, 부품마다 맡은 일이 순서대로 드러난다.</p>
+
+<aside class="case"><span class="lbl">사례 연구 · 가람시(가상)</span>
+<h4>질문 하나가 지나가는 길</h4>
+<p>금요일 오후, 한 민원인이 챗봇 창에 여권 재발급을 묻는다. 질문 끝에는 자기 주민등록번호까지 적어 넣었다. 이 질문은 다음 순서로 부품을 지난다.</p>
+<ol>
+<li>민원인은 먼저 민원 종류(여권·가족관계·인감)를 고른다. 이 선택 화면이 <a class="pat lc-f" href="ch10.html#p-F4"><span class="pid">F4</span>구조화 입력</a>이다. 질문의 범위가 첫 화면에서 좁혀진다.</li>
+<li><a class="pat lc-c" href="ch08.html#p-C5"><span class="pid">C5</span>가드레일 필터</a>가 주민등록번호를 가린다. 가려진 질문만 <a class="pat lc-a" href="ch07.html#p-A2_4"><span class="pid">A2.4</span>내부망 프록시</a>를 거쳐 상용 LLM으로 간다. E5가 S이고 E2가 해외 상용 API인 조건에서 표 4.2가 요구한 조합이다.</li>
+<li><a class="pat lc-bp" href="ch06.html#p-Bp2"><span class="pid">B′2</span>라우터·디스패처</a>가 의도를 분류한다. 챗봇이 고를 행동은 편람 답변, 담당 부서 이관, 담당 전화번호 안내 셋으로 미리 정해져 있고, 모델은 그중 하나를 고르기만 한다. 이 제약이 <a class="pat lc-s" href="ch09.html#p-S4"><span class="pid">S4</span>행동 선택기</a>다. 행동이 정해지면 민원인의 원문은 다음 단계 컨텍스트에서 빠진다(<a class="pat lc-s" href="ch09.html#p-S7"><span class="pid">S7</span>컨텍스트 최소화</a>).</li>
+<li>편람 답변으로 분류된 질문은 <a class="pat lc-b" href="ch05.html#p-B3"><span class="pid">B3</span>지식 접지 상담</a>으로 간다. 민원 편람 코퍼스(<a class="pat lc-a" href="ch07.html#p-A1"><span class="pid">A1</span>데이터 자산 서비스</a>)에서 재발급 조항을 찾아 답을 만든다.</li>
+<li>답변 아래에 근거 조항(<a class="pat lc-f" href="ch10.html#p-F1"><span class="pid">F1</span>출처 표시</a>)과 "이 안내는 법적 판단이 아니다"라는 문구(<a class="pat lc-f" href="ch10.html#p-F7"><span class="pid">F7</span>한계·신뢰도 안내</a>)가 붙는다.</li>
+<li>그날 오후 상용 모델이 30분 동안 응답하지 않았다. 그 사이 들어온 질문에는 규칙 기반 자주 묻는 질문 목록과 담당 전화번호가 나갔다. <a class="pat lc-c" href="ch08.html#p-C7"><span class="pid">C7</span>폴백 스위치</a>가 처음으로 끝까지 돈 날이다.</li>
+<li>모든 질문과 행동 선택, 폴백 전환이 <a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span>감사 로그·지표</a>에 남는다. 주무관 두 명이 매주 월요일 <a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span>평가 세트·회귀시험</a>을 다시 돌리고, 민원인이 틀렸다고 신고한 답변은 한 달에 한 번 편람 수정 회의로 올라간다. 이 회의가 <a class="pat lc-c" href="ch08.html#p-C6"><span class="pid">C6</span>환류 파이프라인</a>의 첫 사이클이다.</li>
+</ol>
+<p>최종 배선은 두 줄로 적힌다. <code>F4 → C5 → A2.4 → B′2(S4·S7) → B3(A1) → F1·F7 → D7</code>, 그리고 운영 고리 <code>C4 → C9 → C6 → A1</code>. 예약 접수는 여전히 빠져 있다. 그 기능을 여는 날 권한은 P2가 되고, C2·C3·C8과 신뢰 불가 입력 규칙이 한꺼번에 따라온다.</p>
+</aside>
+
+<p>일곱 단계 가운데 새로운 기술은 하나도 없다. 상용 LLM, 문서 검색, 개인정보 필터, 로그는 첫 서명 때도 가람시가 가진 것이거나 쉽게 구하는 것이었다. 그사이 달라진 것은 부품의 순서와 연결이다. 필터가 프록시 앞에 서고, 라우터가 모델의 선택지를 셋으로 묶고, 로그가 평가 세트와 편람 회의로 이어졌다. Gulli의 결론도 같다. 패턴 하나는 문제 하나를 막고, 조합의 품질은 배선에서 갈린다.</p>
+
+<aside class="glance"><span class="lbl">한눈에 보기</span><dl>
+<dt>무엇</dt><dd>부품 목록을 알아도 어떤 순서로 무엇을 함께 끼워야 하는지 모르면 데모웨어가 되거나, 필수 통제가 빠진 채 권한만 올라간다.</dd>
+<dt>왜</dt><dd>적용 절차 여섯 단계와 진행 경로가 순서를, 유형별 조립 템플릿이 기본 조합을, 위협 모델이 보안 부품을, 실패→부품 표가 운영 중 보강을 정한다. 넷이 같은 부품 어휘를 쓰므로 설계·심사·운영이 한 지도 위에서 이어진다.</dd>
+<dt>경험칙</dt><dd>첫 배포는 권한을 낮게 묶고 평가 세트부터 만든다. 템플릿을 베낄 때는 점선 상자(자주 빠지는 필수 부품)부터 확보하고, 실패가 나면 표 12.2의 확인 질문에 지금 답이 나오는지부터 본다.</dd>
+</dl></aside>
+
+<div class="summary"><h2>핵심 정리</h2><ul>
+<li>적용 절차는 접점·환경 조건 → 기반 → 업무 컴포넌트·제어 흐름 → 평가 세트 → 통제 → 이용자 면·환류의 여섯 단계다. E4 권한과 E5 등급이 통제 부품을 미리 정한다.</li>
+<li>진행 경로는 직접 프롬프트 코파일럿에서 튜닝형 모델까지 열한 단계다. 평가 없는 RAG, RAG 없는 튜닝, 처음부터 멀티에이전트가 대표적인 건너뛰기다.</li>
+<li>보안 부품은 진행 경로 6단계와 8단계에 붙는다. 그 전에는 P0~P1 권한 제한이 곧 보안이다.</li>
+<li>서비스 유형별 조립 템플릿은 주 부품·원형·필수 A·C·F·S를 정한다. 필수 부품이 빠지면 AI-Enabled 이상으로 인정하지 않는다.</li>
+<li>PAX 557건에서는 가드레일·검토 큐·권한 경계·평가 세트가 가장 자주 빠졌다. 일부 결손은 하위유형 분리(R18·R19)로 보정된다.</li>
+<li>위협 모델은 신뢰 불가 입력의 출처에서 시작한다. 출처가 같으면 유형이 달라도 같은 보안 부품을 쓴다.</li>
+<li>실패→부품 표의 확인 질문에 즉시 답할 수 없다면 그 칸의 부품이 없는 것이다. 같은 표를 운영 중 보강에도, 심사에도 쓴다.</li>
+<li>조립의 품질은 배선에서 갈린다. 가람시 챗봇은 새 기술 없이 부품의 순서와 연결을 바꿔 유형 1의 필수 부품을 채웠다.</li>
+</ul></div>
+<nav class="pager"><a class="prev" href="ch11.html"><small>← 이전</small>D 서비스 블록</a><a class="next" href="ch13.html"><small>다음 →</small>조립 예시와 축 교차표</a></nav></main></div><script>
+(function(){var b=document.querySelector('.navbtn');if(b){b.addEventListener('click',function(){var o=document.body.classList.toggle('toc-open');b.setAttribute('aria-expanded',o)});}
+document.querySelectorAll('.toc a').forEach(function(a){a.addEventListener('click',function(){document.body.classList.remove('toc-open')})});
+var on=document.querySelector('.toc a.on');if(on&&on.scrollIntoView){try{on.scrollIntoView({block:'center'})}catch(e){}}})();
+</script></body></html>

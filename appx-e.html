@@ -1,0 +1,803 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>공공 AX 가이드라인 문서 해설 · 공공 AX 디자인 패턴</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700;800;900&family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap"><link rel="stylesheet" href="book.css"></head><body><div class="bar"><button class="navbtn" type="button" aria-controls="toc" aria-expanded="false">차례</button><a class="bk" href="index.html">공공 AX 디자인 패턴</a><span class="where">공공 AX 가이드라인 문서 해설</span><span class="pn"><a href="appx-d.html">← 이전</a><a href="appx-f.html">다음 →</a></span></div><div class="layout"><nav class="toc" id="toc" aria-label="책 차례"><a href="index.html"><b>표지 · 차례</b></a><div class="part">앞붙이</div><a href="preface.html"><span class="n"></span>서문</a><a href="reading.html"><span class="n"></span>이 책을 읽는 법</a><a href="case-background.html"><span class="n"></span>사례 배경: 가람시(가상)</a><div class="part">1부 기초</div><a href="ch01.html"><span class="n">1</span>공공 AX와 패턴 언어</a><a href="ch02.html"><span class="n">2</span>AX 성숙도와 측정 눈금자</a><a href="ch03.html"><span class="n">3</span>디자인 패턴의 원리</a><a href="ch04.html"><span class="n">4</span>카탈로그의 구조</a><div class="part">2부 패턴 레퍼런스</div><a href="ch05.html"><span class="n">5</span>B 업무 컴포넌트</a><a href="ch06.html"><span class="n">6</span>B′ 제어 흐름 원형</a><a href="ch07.html"><span class="n">7</span>A 공통 서비스</a><a href="ch08.html"><span class="n">8</span>C 운영 컴포넌트</a><a href="ch09.html"><span class="n">9</span>S 보안 패턴</a><a href="ch10.html"><span class="n">10</span>F 상호작용 패턴</a><a href="ch11.html"><span class="n">11</span>D 서비스 블록</a><div class="part">3부 적용</div><a href="ch12.html"><span class="n">12</span>조립: 적용 절차와 서비스 유형별 템플릿</a><a href="ch13.html"><span class="n">13</span>조립 예시와 축 교차표</a><a href="ch14.html"><span class="n">14</span>안티패턴</a><a href="ch15.html"><span class="n">15</span>태깅·검증·참조 구현 레지스트리</a><a href="ch16.html"><span class="n">16</span>PAX 557건으로 본 공공 AX의 현재</a><a href="ch17.html"><span class="n">17</span>PAX 가이드라인과 리소스</a><div class="part">부록</div><a href="appx-a.html"><span class="n">A</span>패턴 한눈에 보기</a><a href="appx-b.html"><span class="n">B</span>판정 규칙 개정 이력 R1~R28</a><a href="appx-c.html"><span class="n">C</span>용어집</a><a href="appx-d.html"><span class="n">D</span>참고문헌</a><a href="appx-e.html" class="on" aria-current="page"><span class="n">E</span>공공 AX 가이드라인 문서 해설</a><a href="appx-f.html"><span class="n">F</span>사례 케이스북: PAX 사례로 읽는 패턴 활용</a></nav><main class="content" id="appx-e"><header class="chap-head"><div class="num-big">E</div><div class="eyebrow">부록 · 부록 E</div><h1>공공 AX 가이드라인 문서 해설</h1><p class="lede">발주서를 쓰다 보면 안내서 이름은 아는데 무엇을 어디에 옮겨 적어야 할지 막힌다. 이 부록은 PAX 안내서 목록의 문서 58종과 산업통상부·국가기술표준원 문서, AI 분야 KS 국가표준을 한 건씩 펼쳐, 담긴 내용과 쓰는 자리를 적었다.</p><div class="goals"><b>이 장에서 얻을 것</b><ul><li>사업 단계와 작업에 맞는 문서를 빠르게 고른다</li><li>문서마다 어떤 산출물을 만들 때 펼치는지, 현행본과 구판을 어떻게 가리는지 안다</li><li>문서의 요구를 이 책의 패턴과 장으로 옮겨 설계와 검수에 반영한다</li></ul></div></header>
+
+<p>공공 AX 사업을 맡은 담당자가 과업지시서를 쓰다 가장 오래 멈추는 곳은 보안 요구사항 칸이다. 그 칸에 무엇을 적을지는 안내서 수십 종에 흩어져 있다. 행정안전부, 국가정보원, KISA, 개인정보보호위원회, 과학기술정보통신부, 금융위원회, 문화체육관광부가 저마다 문서를 냈고, 국가기술표준원은 AI 국제표준을 KS로 들여왔으며, 같은 기관 안에서도 판이 바뀌었다. PAX의 안내서·가이드라인 페이지(<a href="https://hollobit.github.io/PAX/guidelines.html">hollobit.github.io/PAX/guidelines.html</a>, 2026년 8월 7일 기준)는 이 문서들을 한 장에 모았다. 이 부록은 그 목록에 오른 58종을 하나씩 풀어 쓰고, 목록에 없는 산업통상부·국가기술표준원 문서 4종과 AI 분야 KS 국가표준 7종을 따로 한 절로 보탰다.</p>
+
+<p>문서마다 다섯 가지를 적었다. 발행 기관과 시기, 담은 내용, 쓰는 작업, 주의할 점, 이어지는 패턴이다. 발행 기관·시기·문서명은 PAX 목록의 표기를 따랐다. 공식 배포처의 게시물에서 확인한 사실(게시일, 장 구성, 원칙 이름 등)은 그 출처 주소와 함께 보탰고, 2026년 10월에 열람했다. 게시물에서 확인하지 못한 장 구성이나 항목 수는 쓰지 않았다. 게시물 설명이 비어 있는 문서는 PAX 목록이 적은 용도까지만 썼다.</p>
+
+<h2>문서를 고르는 순서</h2>
+
+<p>문서 고르기의 첫 원칙은 현행본을 먼저 여는 것이다. 공공 AX 문서는 2025년 말부터 2026년 여름 사이에 대부분 새로 나왔다. 행정안전부는 2024년과 2025년의 초거대 AI 가이드라인 다음에 2026년 6월 공공부문 AI 도입·활용 가이드를 냈다. 금융위원회는 2021년, 2022년, 2023년 문서 세 건을 2026년 금융분야 인공지능 가이드라인으로 통합했다. 개인정보보호위원회는 2021년 AI 개인정보보호 자율점검표를 과거 안내서로 돌렸다. 신규 사업의 근거 문서는 이 새 판이어야 한다. 구판은 원칙을 이해하거나 이전 사업과 비교할 때 참고로만 편다.</p>
+
+<p>둘째 원칙은 받은 파일이 몇 번째 판인지 확인하는 것이다. KISA 인공지능(AI) 보안 안내서는 2025년 12월에 처음 게시되었고, 2026년 3월에 정오 수정본과 정오표가 다시 올라왔다. 공공데이터의 인공지능 친화적 관리 가이드라인은 NIA가 2026년 8월에 v1.1 개정을 공지했다. 개인정보 영향평가 수행안내서는 2025년 10월 개정판이 12월에 한 번 더 고쳐졌다. 내려받아 둔 파일이 초판이면 발주서의 조항 번호와 문구가 현행본과 어긋난다.</p>
+
+<p>셋째 원칙은 문서의 법적 지위를 구분하는 것이다. PAX 목록의 마지막 문단이 이 점을 짚는다. 행정안전부·NIA 문서는 사업 수행 지침이고, 국가정보원 문서는 국가·공공기관 보안 기준이다. 개인정보보호위원회와 과학기술정보통신부 문서는 법령의 해석과 이행 안내이며, 금융위원회 문서는 업권 자율규제에 가깝다. 산업통상부 문서는 정책 전략이고, KS는 강제 기준이 아닌 임의 표준이지만 과업지시서에 인용하면 계약상 요구사항이 된다. 보안 문서끼리도 적용 순서가 있다. 국가·공공기관 AI보안 가이드북을 먼저 보고, N²SF, 기관 보안규정과 보안성 검토, KISA 기술 가이드 순으로 내려간다.</p>
+
+<p>발주서에 문서 이름을 늘어놓는 것으로는 아무것도 지켜지지 않는다. 문서의 요구를 의무사항, 기관 내부규정, 계약 요구사항, 검증 증적의 네 칸으로 옮겨 적어야 검수가 된다(17장 17.8의 가람시 사례). 이 부록의 각 항목에 있는 "쓰는 작업"과 "이어지는 패턴"은 그 옮겨 적기를 돕는 자리다. 문서가 요구하는 통제가 어느 부품으로 구현되는지 알면, 계약 요구사항은 부품의 동작으로, 검증 증적은 그 부품이 남기는 기록으로 바뀐다.</p>
+
+<p>읽는 법은 두 갈래다. 사업 단계에서 출발하는 독자는 표 E.1과 그림 E.1로 문서 묶음을 고른 다음 기관별 절에서 해당 항목을 찾는다. 당장 할 일이 정해진 독자는 끝의 표 E.2(작업별 빠른 찾기)에서 시작한다. 이미 설계한 부품 목록이 있으면 표 E.3(패턴과 문서 대응)으로 거꾸로 찾는다.</p>
+
+<h2>사업 단계별 적용 조합</h2>
+
+<p>표 E.1은 PAX 목록 9절의 사업 단계별 최소 적용 문서에 이 부록의 항목과 이 책의 부품을 붙인 것이다. 최소 조합이므로 기관의 사업 성격에 따라 문서가 늘어난다. 국민에게 직접 서비스를 내면 AI기본법 가이드라인이, 외부 문서로 지식베이스를 만들면 저작권 안내서가, 모바일 앱으로 내면 KISA 모바일 대민서비스 점검 가이드가 더해진다.</p>
+
+<div class="tbl"><table><caption><b>표 E.1</b> 사업 단계별 최소 적용 문서와 이 책의 부품(PAX 안내서 목록 9절 기준)</caption>
+<thead><tr><th>단계</th><th>최소 적용 문서</th><th>이 단계에서 만드는 산출물</th><th>이어지는 장·부품</th></tr></thead>
+<tbody>
+<tr><td class="k">기획·예산</td><td>공공부문 AI 도입·활용 가이드(행안부, 2026.6), 고영향 인공지능 판단 가이드라인, 인권·윤리 자율점검표</td><td>사업계획서, 고영향 여부 판단 기록, 예산 산출 근거</td><td>2장 단계 판정, 12장 적용 절차, <a class="pat lc-d" href="ch11.html#p-D3"><span class="pid">D3</span>자격·심사</a></td></tr>
+<tr><td class="k">데이터 수집·RAG</td><td>공공데이터의 인공지능 친화적 관리 가이드라인, 개보위 생성형 AI·가명정보·공개된 개인정보 안내서, AI-저작권 안내서 4종</td><td>지식베이스 수록 목록, 이용허락·공공누리 확인표, 가명처리 계획</td><td><a class="pat lc-a" href="ch07.html#p-A1"><span class="pid">A1</span></a>, <a class="pat lc-b" href="ch05.html#p-B3"><span class="pid">B3</span></a>, <a class="pat lc-s" href="ch09.html#p-S11"><span class="pid">S11</span></a>, <a class="pat lc-s" href="ch09.html#p-S13"><span class="pid">S13</span></a></td></tr>
+<tr><td class="k">아키텍처·망 설계</td><td>국가·공공기관 AI보안 가이드북, N²SF 보안가이드라인 1.0, CSAP, KISA 제로트러스트·SW 공급망 가이드</td><td>망 구성도, 데이터 등급 분류표, 보안성 검토 신청서</td><td>9장, <a class="pat lc-a" href="ch07.html#p-A2_4"><span class="pid">A2.4</span></a>, <a class="pat lc-s" href="ch09.html#p-S1"><span class="pid">S1</span></a>, <a class="pat lc-s" href="ch09.html#p-S2"><span class="pid">S2</span></a>, <a class="pat lc-s" href="ch09.html#p-S12"><span class="pid">S12</span></a></td></tr>
+<tr><td class="k">개발</td><td>KISA 인공지능(AI) 보안 안내서, 소프트웨어 개발보안 가이드, 보안약점 진단가이드, 신뢰할 수 있는 인공지능 개발 안내서</td><td>보안 요구사항 추적표, 시큐어코딩 점검 결과</td><td>9장 S 계층, <a class="pat lc-c" href="ch08.html#p-C5"><span class="pid">C5</span></a>, <a class="pat lc-s" href="ch09.html#p-S3"><span class="pid">S3</span></a></td></tr>
+<tr><td class="k">검증·인수</td><td>AI 보안 레드티밍 가이드, AI 보안 위협 대응 매뉴얼, 개인정보 영향평가 수행안내서, 인공지능 영향평가 가이드라인</td><td>레드티밍 결과보고서, 영향평가서, 인수 시험 결과</td><td><a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span></a>, <a class="pat lc-s" href="ch09.html#p-S8"><span class="pid">S8</span></a></td></tr>
+<tr><td class="k">운영</td><td>개인정보의 안전성 확보조치 기준 안내서, AI 보안 위협 대응 매뉴얼, 자동화된 결정에 대한 정보주체 권리 안내서</td><td>접근권한·로그 기록, 변경관리 대장, 이의제기 처리 기록</td><td><a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span></a>, <a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span></a>, <a class="pat lc-s" href="ch09.html#p-S10"><span class="pid">S10</span></a>, <a class="pat lc-f" href="ch10.html#p-F10"><span class="pid">F10</span></a></td></tr>
+<tr><td class="k">금융 분야</td><td>금융분야 인공지능 가이드라인 + 금융분야 AI 위험관리프레임워크 + 금융분야 인공지능 보안 안내서</td><td>업권 문서를 위 단계에 겹쳐 적용</td><td><a class="pat lc-c" href="ch08.html#p-C2"><span class="pid">C2</span></a>, <a class="pat lc-f" href="ch10.html#p-F9"><span class="pid">F9</span></a></td></tr>
+</tbody></table></div>
+
+<p>그림 E.1은 같은 조합을 기관별로 펼친 지도다. 가로는 문서를 낸 기관 묶음, 세로는 사업 단계다. 오른쪽 점선 안의 산업부, 국표원, KS 국가표준 세 칸은 PAX 목록 밖에서 이 책이 보탠 것이다. 칸에 적힌 것이 그 단계에서 그 기관 문서 가운데 먼저 펴는 것이고, 강조색 칸은 PAX 목록이 실무자가 먼저 봐야 할 현행 문서로 꼽은 열한 건이 걸린 자리다. 빈칸은 그 단계에서 다른 기관 문서를 먼저 편다는 표시일 뿐, 그 기관이 해당 단계를 다루지 않는다는 뜻은 아니다.</p>
+
+<figure class="fig" id="fig-E-1"><div class="canvas"><svg viewBox="0 0 1250 470" role="img" aria-label="사업 단계 여섯 줄과 문서 발행 기관 열 칸으로 그린 공공 AX 가이드라인 지도. 오른쪽 세 칸은 산업부, 국표원, KS 국가표준이다.">
+<text class="t3" x="58" y="30" text-anchor="middle">단계 \ 기관</text>
+<text class="t b" x="175" y="30" text-anchor="middle">행안부·NIA</text>
+<text class="t b" x="285" y="30" text-anchor="middle">국정원</text>
+<text class="t b" x="395" y="30" text-anchor="middle">KISA</text>
+<text class="t b" x="505" y="30" text-anchor="middle">개보위</text>
+<text class="t b" x="615" y="30" text-anchor="middle">과기정통부 등</text>
+<text class="t b" x="725" y="30" text-anchor="middle">문체부·저작권위</text>
+<text class="t b" x="845" y="30" text-anchor="middle">금융 3기관</text>
+<text class="t b" x="965" y="30" text-anchor="middle">산업부</text>
+<text class="t b" x="1075" y="30" text-anchor="middle">국표원</text>
+<text class="t b" x="1185" y="30" text-anchor="middle">KS 국가표준</text>
+<rect class="n zone" x="910" y="10" width="332" height="434" rx="8"/>
+<path class="ln thin" d="M8,44 L1242,44"/>
+<text class="t b" x="58" y="82" text-anchor="middle">기획·예산</text>
+<rect class="n acc" x="122" y="56" width="106" height="52" rx="5"/><text class="t2" x="175" y="78" text-anchor="middle">AI 도입·활용</text><text class="t2" x="175" y="94" text-anchor="middle">가이드 2026</text>
+<rect class="n" x="562" y="56" width="106" height="52" rx="5"/><text class="t2" x="615" y="78" text-anchor="middle">고영향 판단</text><text class="t2" x="615" y="94" text-anchor="middle">윤리 점검표</text>
+<rect class="n acc" x="452" y="56" width="106" height="52" rx="5"/><text class="t2" x="505" y="78" text-anchor="middle">공공 AX 프라</text><text class="t2" x="505" y="94" text-anchor="middle">이버시 사전기획</text>
+<rect class="n acc" x="792" y="56" width="106" height="52" rx="5"/><text class="t2" x="845" y="78" text-anchor="middle">금융 AI</text><text class="t2" x="845" y="94" text-anchor="middle">가이드라인</text>
+<rect class="n soft" x="912" y="56" width="106" height="52" rx="5"/><text class="t2" x="965" y="78" text-anchor="middle">제조AI 2030</text><text class="t2" x="965" y="94" text-anchor="middle">전략(2026.6)</text>
+<rect class="n soft" x="1022" y="56" width="106" height="52" rx="5"/><text class="t2" x="1075" y="78" text-anchor="middle">AI 표준화 로드맵</text><text class="t2" x="1075" y="94" text-anchor="middle">국가표준기본계획</text>
+<rect class="n soft" x="1132" y="56" width="106" height="52" rx="5"/><text class="t2" x="1185" y="78" text-anchor="middle">22989 용어</text><text class="t2" x="1185" y="94" text-anchor="middle">8001 윤리</text>
+<text class="t b" x="58" y="148" text-anchor="middle">데이터·RAG</text>
+<rect class="n acc" x="122" y="122" width="106" height="52" rx="5"/><text class="t2" x="175" y="144" text-anchor="middle">AI 친화적</text><text class="t2" x="175" y="160" text-anchor="middle">공공데이터</text>
+<rect class="n" x="232" y="122" width="106" height="52" rx="5"/><text class="t2" x="285" y="144" text-anchor="middle">AI·ML</text><text class="t2" x="285" y="160" text-anchor="middle">공급망 위험</text>
+<rect class="n" x="452" y="122" width="106" height="52" rx="5"/><text class="t2" x="505" y="144" text-anchor="middle">생성형 AI·가명</text><text class="t2" x="505" y="160" text-anchor="middle">공개정보 안내서</text>
+<rect class="n" x="672" y="122" width="106" height="52" rx="5"/><text class="t2" x="725" y="144" text-anchor="middle">공정이용</text><text class="t2" x="725" y="160" text-anchor="middle">저작권 안내서</text>
+<rect class="n soft" x="912" y="122" width="106" height="52" rx="5"/><text class="t2" x="965" y="144" text-anchor="middle">제조AI 2030</text><text class="t2" x="965" y="160" text-anchor="middle">데이터 체계</text>
+<text class="t b" x="58" y="214" text-anchor="middle">아키텍처·망</text>
+<rect class="n acc" x="232" y="188" width="106" height="52" rx="5"/><text class="t2" x="285" y="210" text-anchor="middle">AI보안 가이드북</text><text class="t2" x="285" y="226" text-anchor="middle">N²SF 1.0</text>
+<rect class="n" x="342" y="188" width="106" height="52" rx="5"/><text class="t2" x="395" y="210" text-anchor="middle">제로트러스트</text><text class="t2" x="395" y="226" text-anchor="middle">CSAP·공급망</text>
+<rect class="n" x="792" y="188" width="106" height="52" rx="5"/><text class="t2" x="845" y="210" text-anchor="middle">SaaS 망분리</text><text class="t2" x="845" y="226" text-anchor="middle">예외 해설서</text>
+<rect class="n soft" x="1132" y="188" width="106" height="52" rx="5"/><text class="t2" x="1185" y="210" text-anchor="middle">23053 ML</text><text class="t2" x="1185" y="226" text-anchor="middle">프레임워크</text>
+<text class="t b" x="58" y="280" text-anchor="middle">개발</text>
+<rect class="n acc" x="342" y="254" width="106" height="52" rx="5"/><text class="t2" x="395" y="276" text-anchor="middle">AI 보안 안내서</text><text class="t2" x="395" y="292" text-anchor="middle">개발보안 가이드</text>
+<rect class="n" x="452" y="254" width="106" height="52" rx="5"/><text class="t2" x="505" y="276" text-anchor="middle">생성형 AI</text><text class="t2" x="505" y="292" text-anchor="middle">처리 안내서</text>
+<rect class="n acc" x="562" y="254" width="106" height="52" rx="5"/><text class="t2" x="615" y="276" text-anchor="middle">신뢰성 개발</text><text class="t2" x="615" y="292" text-anchor="middle">안내서·투명성</text>
+<rect class="n acc" x="792" y="254" width="106" height="52" rx="5"/><text class="t2" x="845" y="276" text-anchor="middle">금융 AI</text><text class="t2" x="845" y="292" text-anchor="middle">보안 안내서</text>
+<text class="t b" x="58" y="346" text-anchor="middle">검증·인수</text>
+<rect class="n acc" x="342" y="320" width="106" height="52" rx="5"/><text class="t2" x="395" y="342" text-anchor="middle">레드티밍 가이드</text><text class="t2" x="395" y="358" text-anchor="middle">취약점 평가</text>
+<rect class="n" x="452" y="320" width="106" height="52" rx="5"/><text class="t2" x="505" y="342" text-anchor="middle">개인정보</text><text class="t2" x="505" y="358" text-anchor="middle">영향평가</text>
+<rect class="n acc" x="562" y="320" width="106" height="52" rx="5"/><text class="t2" x="615" y="342" text-anchor="middle">AI 영향평가</text><text class="t2" x="615" y="358" text-anchor="middle">가이드라인</text>
+<rect class="n" x="792" y="320" width="106" height="52" rx="5"/><text class="t2" x="845" y="342" text-anchor="middle">위험관리 FW</text><text class="t2" x="845" y="358" text-anchor="middle">신용평가 검증</text>
+<rect class="n soft" x="1132" y="320" width="106" height="52" rx="5"/><text class="t2" x="1185" y="342" text-anchor="middle">TS 4213</text><text class="t2" x="1185" y="358" text-anchor="middle">분류 성능</text>
+<text class="t b" x="58" y="412" text-anchor="middle">운영</text>
+<rect class="n" x="232" y="386" width="106" height="52" rx="5"/><text class="t2" x="285" y="408" text-anchor="middle">AI 위험</text><text class="t2" x="285" y="424" text-anchor="middle">사례집</text>
+<rect class="n acc" x="342" y="386" width="106" height="52" rx="5"/><text class="t2" x="395" y="408" text-anchor="middle">위협 대응</text><text class="t2" x="395" y="424" text-anchor="middle">매뉴얼</text>
+<rect class="n" x="452" y="386" width="106" height="52" rx="5"/><text class="t2" x="505" y="408" text-anchor="middle">안전성 확보조치</text><text class="t2" x="505" y="424" text-anchor="middle">자동화된 결정</text>
+<rect class="n" x="672" y="386" width="106" height="52" rx="5"/><text class="t2" x="725" y="408" text-anchor="middle">분쟁 예방</text><text class="t2" x="725" y="424" text-anchor="middle">안내서</text>
+<rect class="n" x="792" y="386" width="106" height="52" rx="5"/><text class="t2" x="845" y="408" text-anchor="middle">프런티어 AI</text><text class="t2" x="845" y="424" text-anchor="middle">대응 요령</text>
+<rect class="n soft" x="1132" y="386" width="106" height="52" rx="5"/><text class="t2" x="1185" y="408" text-anchor="middle">42001 경영</text><text class="t2" x="1185" y="424" text-anchor="middle">23894 리스크</text>
+<rect class="n acc" x="122" y="452" width="16" height="12" rx="2"/><text class="t3" x="146" y="462">PAX 목록 1절의 현행 우선 문서가 걸린 칸</text>
+<rect class="n" x="430" y="452" width="16" height="12" rx="2"/><text class="t3" x="454" y="462">함께 펴는 문서</text>
+<rect class="n soft" x="640" y="452" width="16" height="12" rx="2"/><text class="t3" x="664" y="462">PAX 목록 밖에서 이 책이 보탠 문서(점선 안: 산업부·국표원·KS)</text>
+</svg></div>
+<figcaption><b>그림 E.1</b> 사업 단계 × 발행 기관 지도. 칸마다 그 단계에서 그 기관 문서 가운데 먼저 펴는 것을 줄여 적었다. 과기정통부 등은 과학기술정보통신부·TTA·KISDI·국가인권위원회를, 금융 3기관은 금융위원회·금융감독원·금융보안원을 묶은 것이다. 점선 안의 세 칸은 PAX 목록에 없는 문서로, 산업부는 산업통상부(구 산업통상자원부), 국표원은 국가기술표준원이고, KS 칸의 번호는 모두 KS X ISO/IEC(8001만 KS X)다.</figcaption></figure>
+
+<h2>행정안전부·NIA·디지털플랫폼정부위원회</h2>
+
+<p>이 묶음은 사업을 어떻게 기획하고 사고 운영하는지를 정한다. 보안이나 개인정보 문서가 무엇을 막으라고 한다면, 이 문서들은 무엇을 어떤 순서로 하라고 한다. 신규 사업의 기본 문서는 2026년 6월 가이드 하나이고, 나머지는 데이터 준비, 사례 조사, 직원 이용 지침을 보탠다.</p>
+
+<h3 id="e-mois-2026">공공부문 AI 도입·활용 가이드</h3>
+<p>행정안전부·NIA, 2026.6. 현행 핵심. 배포처: <a href="https://www.mois.go.kr/frt/bbs/type010/commonSelectBoardArticle.do?bbsId=BBSMSTR_000000000008&amp;nttId=126757">행정안전부 보도자료(2026.6.10)</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>공공 AI 사업을 기획, 예산, 계약, 구축, 운영의 다섯 단계로 나누고 단계마다 할 과업과 점검사항을 적었다. 보도자료는 내부 지식을 검색해 답을 만드는 RAG 방식을 먼저 검토하라는 방향과, 범정부 AI 공통기반을 우선 이용하라는 조항(2026년 8월 28일 시행)을 밝혔다. 공동 발행 기관 표기는 PAX 목록을 따랐으며, 보도자료에서는 NIA 공동 발행을 따로 확인하지 못했다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>사업 담당자가 사업계획서와 예산 요구서를 쓸 때 처음 펴는 문서다. 기획 단계에서는 사업 범위와 성과 지표를, 계약 단계에서는 과업지시서 구조를, 운영 단계에서는 유지관리 항목을 이 문서의 단계 구분에 맞춘다. 자체 모델을 들일지 공통기반을 쓸지 결정할 때도 이 문서가 기준이다.</dd>
+<dt><b>주의</b></dt><dd>2024년 1.0과 2025년 2.0 초거대 AI 가이드라인을 잇는 문서다. 신규 사업은 이 판을 근거로 쓰고, 구판의 체크리스트는 이 판에 없는 항목을 확인할 때만 꺼낸다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd>12장의 적용 절차가 이 다섯 단계와 겹친다. RAG 우선 방향은 <a class="pat lc-b" href="ch05.html#p-B3"><span class="pid">B3</span>지식 접지 상담</a>과 <a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span>평가 세트·회귀시험</a>을 함께 요구한다. 평가 없이 RAG를 붙이면 <a class="pat lc-x" href="ch14.html#p-X10"><span class="pid">X10</span>평가 없는 RAG, RAG 없는 튜닝</a>이 된다. 공통기반 우선 조항은 <a class="pat lc-a" href="ch07.html#p-A2"><span class="pid">A2</span>모델 서빙 계층</a>을 공용으로 두고 부서마다 따로 챗봇을 세우는 <a class="pat lc-x" href="ch14.html#p-X3"><span class="pid">X3</span>부서마다 챗봇</a>을 피하라는 뜻으로 읽힌다.</dd>
+</dl>
+
+<h3 id="e-mois-2-0">공공부문 초거대 AI 도입·활용 가이드라인 2.0</h3>
+<p>2025.4. 배포처 미확인.</p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>PAX 목록에 따르면 도입 절차, 성과관리, 체크리스트를 담았고, 110개 실증사례집과 해외 사례 인벤토리를 함께 실었다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>2025년에 착수해 이 판을 근거로 계약한 사업의 운영과 감리에서 기준 문서로 다시 편다. 새 사업을 기획하는 담당자에게는 사례집 부분이 쓸모 있다. 비슷한 업무에 누가 무엇을 해 보았는지 찾는 출발점이다.</dd>
+<dt><b>주의</b></dt><dd>2026년 6월 가이드가 이 판의 다음 판이다. 공식 게시물을 이번 집필에서 확인하지 못했으므로, 인용할 때는 기관이 보유한 파일의 판 표기를 확인한다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd>성과관리 항목은 <a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span>감사 로그·지표</a>로 구현된다. 사례집의 숫자를 자기 사업의 기대 효과로 옮겨 적으면 <a class="pat lc-x" href="ch14.html#p-X15"><span class="pid">X15</span>빌린 성과표</a>다.</dd>
+</dl>
+
+<h3 id="e-mois-1-0">공공부문 초거대 AI 도입·활용 가이드라인 1.0</h3>
+<p>2024.4. 최초판. 배포처 미확인.</p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>PAX 목록은 데이터 보안등급, 클라우드 구성, 학습 방식, 서비스 획득, SLO와 유지관리를 다룬다고 적었다. 디지털플랫폼정부위원회의 같은 달 계획 보고에서는 도입부터 활용까지의 검토사항과 서비스 유형별 활용 사례가 확인되나, 가이드라인 원문 게시물은 찾지 못했다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>신규 사업에는 2026년 판을 쓴다. 이 판은 SLO와 유지관리 조항의 초기 문구를 찾거나, 2024년 사업의 계약 근거를 거슬러 확인할 때 편다.</dd>
+<dt><b>주의</b></dt><dd>PAX 목록이 "신규 사업에는 2026판 우선"이라고 못 박은 문서다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd>학습 방식 선택은 <a class="pat lc-a" href="ch07.html#p-A2_3"><span class="pid">A2.3</span>모델 서빙 · 튜닝형</a>과 <a class="pat lc-a" href="ch07.html#p-A2_2"><span class="pid">A2.2</span>주권형 온프레미스</a>의 선택이다. 데이터 보안등급은 아래 N²SF의 등급 분류로 이어진다.</dd>
+</dl>
+
+<h3 id="e-nia-cases">공공부문 AI 도입·활용 사례집</h3>
+<p>NIA, 2025.12(게시 2025.12.29). 배포처: <a href="https://nia.or.kr/site/nia_kor/ex/bbs/View.do?bcIdx=28925&amp;cbIdx=27974&amp;parentSeq=28925">NIA 게시물</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>실제 구축 사례 모음이다. PAX 목록은 저비용 PoC, 행정 인수인계, 설문 자동분석을 예로 들었다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>기획 단계에서 사업 담당자가 선례를 찾을 때 편다. 품의서의 "유사 사례" 칸, 예산 규모의 비교 근거, PoC 범위를 정하는 데 쓴다. PAX 사례 페이지(17장)와 함께 보면 같은 업무를 다른 기관이 어떤 부품으로 조립했는지 비교된다.</dd>
+<dt><b>주의</b></dt><dd>사례집의 성과 수치는 그 기관의 조건에서 나온 숫자다. 우리 기관의 기대 효과로 그대로 쓰지 않는다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd>행정 인수인계는 <a class="pat lc-d" href="ch11.html#p-D8_7"><span class="pid">D8.7</span>인수인계·지식 보존</a>, 설문 자동분석은 <a class="pat lc-d" href="ch11.html#p-D8_2"><span class="pid">D8.2</span>요약·추출</a>에 해당한다.</dd>
+</dl>
+
+<h3 id="e-nia-analytics">공공부문 데이터 분석 업무 운영 가이드</h3>
+<p>NIA, 2025.12(게시 2025.12.29). 배포처: <a href="https://nia.or.kr/site/nia_kor/ex/bbs/View.do?bcIdx=28925&amp;cbIdx=27974&amp;parentSeq=28925">NIA 게시물</a>(사례집과 같은 게시물)</p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>PAX 목록에 따르면 기획, 수집·정제, 분석, 해석, 정책 활용으로 이어지는 데이터 분석 업무의 표준 절차와 체크리스트다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>AI가 예측이나 추천을 내는 사업, 또는 분석 결과가 정책 결정으로 들어가는 사업에서 분석 담당자는 이 절차를 작업 절차서의 뼈대로 삼는다. 분석 결과를 정책 보고서로 옮기는 해석 단계의 점검은 AI 산출물 검토에도 그대로 들어맞는다.</dd>
+<dt><b>주의</b></dt><dd>AI 전용 문서가 아니다. 모델 보안이나 개인정보 처리는 아래 KISA·개보위 문서로 따로 채운다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-b" href="ch05.html#p-B2"><span class="pid">B2</span>예측·추천기</a>, <a class="pat lc-a" href="ch07.html#p-A1"><span class="pid">A1</span>데이터 자산 서비스</a>, 분석 결과의 설명에는 <a class="pat lc-f" href="ch10.html#p-F9"><span class="pid">F9</span>판정 근거·기여도 표시</a>.</dd>
+</dl>
+
+<h3 id="e-mois-govcases">AI 정부 서비스 사례집</h3>
+<p>행정안전부(NIA 공동), 2026.3(게시 2026.3.24). 배포처: <a href="https://www.mois.go.kr/frt/bbs/type010/commonSelectBoardArticle.do?bbsId=BBSMSTR_000000000008&amp;nttId=124639">행정안전부 게시물</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>6개 분야 16개 정부 AI 서비스 사례를 실었다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>대국민 서비스를 기획하는 부서가 같은 분야의 정부 서비스를 찾을 때 편다. 국민이 직접 쓰는 서비스는 내부 업무 지원 도구와 요구사항이 다르므로, 내부 도구 사례만 보고 기획하지 않도록 이 사례집으로 균형을 잡는다.</dd>
+<dt><b>주의</b></dt><dd>사례의 운영 상태는 발간 시점 기준이다. 지금도 운영 중인지는 PAX 사례 페이지나 기관 누리집에서 다시 확인한다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd>대국민 서비스는 11장의 <a class="pat lc-d" href="ch11.html#p-D1"><span class="pid">D1</span>안내·탐색</a>, <a class="pat lc-d" href="ch11.html#p-D2"><span class="pid">D2</span>접수·제출</a>, <a class="pat lc-d" href="ch11.html#p-D7"><span class="pid">D7</span>상담·처방</a> 블록에서 출발한다. 부록 F의 사례 읽기와 같이 본다.</dd>
+</dl>
+
+<h3 id="e-nia-aidata">공공데이터의 인공지능 친화적 관리 가이드라인</h3>
+<p>행정안전부·NIA, 2026. v1.1 개정 공지(2026.8.4). 배포처: <a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=27974&amp;bcIdx=29785&amp;parentSeq=29785">NIA 게시물</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>AI가 읽기 쉬운 데이터의 구조, 메타데이터, 문서화, 품질, 접근성, 책임성을 다룬다. v1.1 게시물에는 PDF와 함께 마크다운(MD) 파일이 첨부되어 있다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>데이터 담당 부서가 공공데이터나 내부 문서를 RAG 지식베이스와 API로 내놓기 전에 편다. 데이터 개방 계획서의 메타데이터 항목, 지식베이스에 넣을 문서의 형식 변환 기준, 데이터 품질 점검표를 이 문서로 쓴다. 공공 API를 MCP 서버로 감싸려는 담당자에게도 기본 문서다.</dd>
+<dt><b>주의</b></dt><dd>NIA가 v1.1 개정을 공지했으므로 내려받은 파일의 판을 확인한다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-a" href="ch07.html#p-A1"><span class="pid">A1</span>데이터 자산 서비스</a>, <a class="pat lc-a" href="ch07.html#p-A3"><span class="pid">A3</span>공공 API 제공자</a>, <a class="pat lc-a" href="ch07.html#p-A10"><span class="pid">A10</span>문서 형식 어댑터</a>, <a class="pat lc-a" href="ch07.html#p-A8"><span class="pid">A8</span>MCP 서버·호스트</a>. 데이터가 정리되지 않은 채 붙인 RAG의 품질 문제는 <a class="pat lc-b" href="ch05.html#p-B3"><span class="pid">B3</span></a>의 평가에서 드러난다.</dd>
+</dl>
+
+<h3 id="e-nia-trust2019">공공기관 신뢰가능 AI 구현 실용가이드</h3>
+<p>NIA, 2019(게시 2019.12.30). 배포처: <a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?bcIdx=21672&amp;cbIdx=90549&amp;parentSeq=21672">NIA 게시물</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>세 부로 되어 있다. OECD AI 원칙, 생애주기와 책임 주체별 구현 지침, 그리고 관리체계·위험관리·인간개입·데이터관리·고객소통을 다루는 거버넌스 영역이다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>기관 AI 윤리 지침이나 내부 거버넌스 규정을 처음 만드는 기획 부서가 원칙의 뼈대를 잡을 때 참고한다. 인간개입과 고객소통 항목은 검토 절차와 이용자 안내 문구를 설계하는 데 아직 쓸 만하다.</dd>
+<dt><b>주의</b></dt><dd>생성형 AI 이전 문서다. PAX 목록은 원칙 참고용이며 구축 절차는 최신 문서를 우선하라고 적었다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd>인간개입은 <a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span>검토 큐</a>, 고객소통은 <a class="pat lc-f" href="ch10.html#p-F7"><span class="pid">F7</span>한계·신뢰도 안내</a>, 위험관리는 <a class="pat lc-c" href="ch08.html#p-C2"><span class="pid">C2</span>위험도 라우터</a>로 구현된다.</dd>
+</dl>
+
+<h3 id="e-mois-chatgpt">챗GPT 활용방법 및 주의사항 안내</h3>
+<p>행정안전부, 2023.5. 공식 게시물 미확인(당시 보도로만 확인).</p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>당시 보도에 따르면 약 300개 기관에 배포되었고, 3개 분야 7가지 활용법과 주의사항을 담았다. 직원이 외부 생성형 AI를 쓰기 위한 초기 지침이다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>지금은 단독으로 쓰지 않는다. 직원용 생성형 AI 이용 지침을 개정하는 부서가 2023년 이후 무엇이 바뀌었는지 비교할 때 편다.</dd>
+<dt><b>주의</b></dt><dd>PAX 목록은 국정원 보안 가이드라인, KISA 문서, 2026년 행안부 가이드와 함께 적용하라고 적었다. 직원 이용 지침의 현행 근거는 개보위의 생성형 AI 서비스 이용자 가이드(2026.5)다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-b" href="ch05.html#p-B1"><span class="pid">B1</span>코파일럿</a>, 입력 전 개인정보를 걷어 내는 <a class="pat lc-s" href="ch09.html#p-S13"><span class="pid">S13</span>로컬 비식별 게이트</a>.</dd>
+</dl>
+
+<h2>국가정보원·국가사이버안보센터</h2>
+
+<p>국가·공공기관의 AI 보안은 이 묶음에서 시작한다. PAX 목록이 적은 적용 순서도 국정원의 AI보안 가이드북이 맨 앞이고 N²SF가 그다음이다. 보안성 검토를 받아야 하는 사업이라면 이 두 문서의 용어로 설계서를 쓰는 편이 검토 과정에서 오가는 질의를 줄인다.</p>
+
+<h3 id="e-nis-guidebook">국가·공공기관 AI보안 가이드북</h3>
+<p>국가정보원, 2025.12(게시 2025.12.10). 현행 핵심. 배포처: <a href="https://www.nis.go.kr/AF/1_7_7_1.do">국가정보원 자료실</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>1장 개요와 AI 위협, 2장 시스템 보안대책, 3장 에이전틱 AI와 피지컬 AI 보안대책, 4장 결론과 부록으로 되어 있다. 에이전트가 도구를 호출하는 시스템과 현장 장비를 움직이는 시스템까지 다룬다는 점이 다른 보안 문서와 구별된다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>아키텍처 설계 단계에서 보안 담당자와 사업 담당자가 보안성 검토 신청서와 보안 요구사항을 쓸 때 기준으로 삼는다. 에이전트나 MCP 서버를 들이는 사업이면 3장이 바로 설계 검토 목록이 된다.</dd>
+<dt><b>주의</b></dt><dd>기관 보안규정과 보안성 검토 절차가 이 문서 위에 겹쳐진다. 이 문서만 근거로 쓰지 말고 기관 보안 부서의 적용 기준을 함께 확인한다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd>9장 S 계층 전체. 에이전틱 AI 대책은 <a class="pat lc-s" href="ch09.html#p-S4"><span class="pid">S4</span>행동 선택기</a>, <a class="pat lc-s" href="ch09.html#p-S5"><span class="pid">S5</span>계획 후 실행·코드 후 실행</a>, <a class="pat lc-c" href="ch08.html#p-C8"><span class="pid">C8</span>권한 경계·킬스위치</a>, <a class="pat lc-b" href="ch05.html#p-B6"><span class="pid">B6</span>에이전트 오케스트레이터</a>와 이어진다. 피지컬 AI는 <a class="pat lc-a" href="ch07.html#p-A11"><span class="pid">A11</span>액추에이션·현장 통지 어댑터</a>와 <a class="pat lc-b" href="ch05.html#p-B5"><span class="pid">B5</span>현장 감지·경보</a>.</dd>
+</dl>
+
+<h3 id="e-n2sf">국가 망 보안체계(N²SF) 보안가이드라인 1.0</h3>
+<p>국가정보원/국가사이버안보센터, 2025.9. 배포처: <a href="https://www.ncsc.go.kr/ko/main/PageLink.html?token=MDEyMzQ1Njc4OWFiY2RlZrBvBnCd4cC_Aqu-HrYk1bjY5ceD7POZ8O6txZr6KvMeZJhRV8iq7IvhLELla-3OsaeZO0U4nY7KNbNLiZb4Go99PWkJThRG1Pjlzd9qSBKX">국가사이버안보센터</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>업무와 데이터의 중요도에 따라 통제 수준을 달리하는 위험 기반 망 보안 기준이다. 보도에 따르면 본서와 부록 2종 등 모두 세 권이고, 준비, 등급 분류, 위협 식별, 보안대책 수립, 적절성 평가의 다섯 단계 절차를 둔다. 민간 클라우드와 AI를 쓰는 망 설계의 기준이 된다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>인터넷의 상용 모델 API를 업무망에서 쓰려는 사업, 내부망에 모델을 두려는 사업 모두 망 구성도를 그리기 전에 편다. 다루는 데이터를 등급별로 나눈 분류표를 먼저 만들고, 등급마다 어느 모델과 어느 경로를 쓸지 정한다.</dd>
+<dt><b>주의</b></dt><dd>KISA 게시물은 이름을 "N2SF"로 적는다. 같은 문서 체계다. 공공 업무환경 적용 예는 KISA의 N²SF 실증 사례집에 있다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-a" href="ch07.html#p-A2_4"><span class="pid">A2.4</span>모델 서빙 · 내부망 프록시</a>, <a class="pat lc-a" href="ch07.html#p-A2_1"><span class="pid">A2.1</span>상용 API 호출</a>, <a class="pat lc-s" href="ch09.html#p-S1"><span class="pid">S1</span>AI 게이트웨이·단일 진입점</a>, 민감 데이터가 외부 모델에 닿지 않게 하는 <a class="pat lc-s" href="ch09.html#p-S12"><span class="pid">S12</span>데이터 비도달 설계</a>.</dd>
+</dl>
+
+<h3 id="e-nis-riskcases">인공지능 위험 사례집</h3>
+<p>국가정보원, 2025.11(게시 2025.11.20). 배포처: <a href="https://www.nis.go.kr/AF/1_7_7_1.do">국가정보원 자료실</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>국가안보, 재난·재해·인프라, 경제·산업·의료, 사회·민생·인권의 네 분야를 한 장씩 맡아 AI 위험 시나리오를 실었고, 부록이 붙어 있다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>위험 평가표와 레드티밍 시나리오를 만들 때 출발점으로 쓴다. 기획 단계의 위험 식별 회의에서 "우리 서비스에 이런 일이 일어나면"을 묻는 재료다. 운영 단계에서는 사고 대응 훈련 시나리오의 소재가 된다.</dd>
+<dt><b>주의</b></dt><dd>시나리오 모음이지 통제 기준이 아니다. 대책은 가이드북과 KISA 문서에서 찾는다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span>평가 세트·회귀시험</a>의 공격 시험 항목, 14장의 안티패턴 가운데 <a class="pat lc-x" href="ch14.html#p-X13"><span class="pid">X13</span>도구 출력이 지시가 되는 에이전트</a>와 <a class="pat lc-x" href="ch14.html#p-X14"><span class="pid">X14</span>재생할 수 없는 사고</a>.</dd>
+</dl>
+
+<h3 id="e-nis-supply">인공지능과 머신러닝 공급망 위험 및 완화방안</h3>
+<p>국가정보원, 2026.3(게시 2026.3.5). 배포처: <a href="https://www.nis.go.kr/AF/1_7_7_1.do">국가정보원 자료실</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>데이터, 모델, 소프트웨어, 인프라·하드웨어, 제3자 AI 서비스의 다섯 공급망 영역별 위험과 완화 방안이다. 국문 번역본과 원문이 함께 게시되었다. 원문의 발행 주체는 게시물에서 확인하지 못했다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>오픈소스 모델을 내려받아 쓰거나, 외부 AI 서비스를 계약하거나, 외부 MCP 서버를 연결하는 사업에서 공급망 점검표의 영역 구분을 이 문서에서 가져온다. 계약 요구사항에 모델 출처, 라이선스, 학습 데이터 출처 확인 의무를 넣는 근거다.</dd>
+<dt><b>주의</b></dt><dd>KISA의 SW 공급망 보안 가이드라인이 소프트웨어 일반을, 이 문서가 AI 고유의 공급망을 다룬다. 둘을 함께 쓴다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-s" href="ch09.html#p-S11"><span class="pid">S11</span>인제스천·공급망 검증</a>, <a class="pat lc-a" href="ch07.html#p-A2_6"><span class="pid">A2.6</span>벤더 블랙박스</a>, 한 공급자에 묶이는 <a class="pat lc-x" href="ch14.html#p-X4"><span class="pid">X4</span>단일 모델 인질</a>.</dd>
+</dl>
+
+<h3 id="e-nis-genai2023">챗GPT 등 생성형 AI 활용 보안 가이드라인</h3>
+<p>국가정보원, 2023.6. 공식 게시물 미확인.</p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>PAX 목록에 따르면 외부 생성형 AI를 쓸 때의 계정, 입력 정보, 결과물, 플러그인, API 키, 프롬프트 인젝션 주의사항을 담았다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>직원의 SaaS형 생성형 AI 이용 지침을 쓸 때 보안 항목의 참고로 쓴다. API 키 관리와 플러그인 주의는 지금의 MCP 연결에도 그대로 해당한다.</dd>
+<dt><b>주의</b></dt><dd>확인된 정식 명칭은 「챗GPT 등 생성형 AI 기술 활용 보안 가이드라인」이다. PAX 목록의 링크는 다른 게시물로 이어지므로 인용할 때는 문서명으로 찾는다. 에이전트와 도구 호출 대책은 2025년 가이드북이 대신한다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-s" href="ch09.html#p-S3"><span class="pid">S3</span>컨텍스트 방화벽</a>, <a class="pat lc-s" href="ch09.html#p-S7"><span class="pid">S7</span>컨텍스트 최소화</a>, <a class="pat lc-a" href="ch07.html#p-A8"><span class="pid">A8</span>MCP 서버·호스트</a>.</dd>
+</dl>
+
+<h2>KISA</h2>
+
+<p>KISA 문서는 둘로 나뉜다. 하나는 AI 자체를 다루는 세 문서(AI 보안 안내서, 레드티밍 가이드, 위협 대응 매뉴얼)이고, 다른 하나는 AI 서비스가 올라가는 서버, 웹, API, 클라우드, 모바일 앱을 다루는 기존 문서다. PAX 목록의 메모가 이 구분을 분명히 한다. 모델, 프롬프트, RAG, 에이전트의 취약점은 AI 3종으로, 일반 웹·API·서버·클라우드 취약점은 기존 취약점·개발보안 문서로 나눠 점검한다. 한쪽만 하면 반쪽 점검이다.</p>
+
+<h3>AI 자체를 다루는 문서</h3>
+
+<h4 id="e-kisa-aisec">인공지능(AI) 보안 안내서</h4>
+<p>KISA, 2025.12(게시 2025.12.10), 정오 수정본 재배포 2026.3.13. 배포처: <a href="https://www.kisa.or.kr/2060204/form?page=1&amp;postSeq=19">KISA 자료실</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>AI 모델과 서비스를 외부 사이버 위협에서 지키기 위한 안내서다. PAX 목록은 데이터, 모델, 애플리케이션, 운영환경으로 이어지는 생명주기의 공격과 보호조치를 다룬다고 적었다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>개발 단계의 보안 요구사항 추적표를 만드는 기준 문서다. 개발사는 RAG 수집 경로, 프롬프트 조립, 모델 호출, 출력 처리마다 보호조치를 대응시키고, 발주 기관은 그 대응표를 인수 조건으로 받는다.</dd>
+<dt><b>주의</b></dt><dd>반드시 2026년 3월의 정오 수정본을 쓴다. 게시물에 정오표가 따로 첨부되어 있으므로, 초판으로 작성한 요구사항은 정오표와 대조해 고친다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-s" href="ch09.html#p-S3"><span class="pid">S3</span>컨텍스트 방화벽</a>, <a class="pat lc-s" href="ch09.html#p-S11"><span class="pid">S11</span>인제스천·공급망 검증</a>, <a class="pat lc-c" href="ch08.html#p-C5"><span class="pid">C5</span>가드레일 필터</a>, <a class="pat lc-s" href="ch09.html#p-S8"><span class="pid">S8</span>독립 검증기·이중 심판</a>.</dd>
+</dl>
+
+<h4 id="e-kisa-redteam">AI 보안 레드티밍 가이드</h4>
+<p>KISA, 2026.7(게시 2026.7.7). 배포처: <a href="https://www.kisa.or.kr/401/form?postSeq=3713">KISA 게시물</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>여섯 장이다. 개요, AI 보안 레드티밍의 이해, 레드팀 구성, 레드티밍 준비, 레드티밍 이행, 결과보고. PAX 목록은 범위와 시나리오 설계, 수행, 증적을 다룬다고 덧붙였다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>배포 전 공격 시험의 계획서와 결과보고서가 이 문서에서 나온다. 발주 기관은 레드티밍을 인수 조건으로 넣을 때 이 문서의 장 구성대로 범위, 수행 주체, 결과보고 양식을 과업지시서에 적는다. 개발사는 시나리오를 평가 세트로 남겨 이후 회귀시험에 다시 돌린다.</dd>
+<dt><b>주의</b></dt><dd>레드티밍은 한 번으로 끝나지 않는다. 모델이나 프롬프트가 바뀌면 같은 시나리오를 다시 돌려야 하므로, 시나리오와 결과를 재생 가능한 형태로 남긴다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span>평가 세트·회귀시험</a>, <a class="pat lc-s" href="ch09.html#p-S8"><span class="pid">S8</span>독립 검증기·이중 심판</a>, <a class="pat lc-c" href="ch08.html#p-C5"><span class="pid">C5</span>가드레일 필터</a>. 공격 대상으로 자주 드러나는 것은 <a class="pat lc-x" href="ch14.html#p-X13"><span class="pid">X13</span>도구 출력이 지시가 되는 에이전트</a>와 <a class="pat lc-x" href="ch14.html#p-X7"><span class="pid">X7</span>도구 설명 ≠ 실제 권한</a>이다.</dd>
+</dl>
+
+<h4 id="e-kisa-threat">AI 보안 위협 대응 매뉴얼</h4>
+<p>KISA, 2026.7(게시 2026.7.7). 배포처: <a href="https://www.kisa.or.kr/401/form?postSeq=3712">KISA 게시물</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>네 장이다. 개요, AI 보안 위협 분류 및 진단, 산업별 위협 시나리오, AI 보안 위협별 대응 방안.</dd>
+<dt><b>쓰는 작업</b></dt><dd>운영 부서는 이 매뉴얼을 바탕으로 사고 대응 절차서를 쓴다. 위협 분류는 모니터링 지표와 경보 기준을, 위협별 대응 방안은 차단과 복구 절차를 정하는 근거다. 검증 단계에서는 진단 항목을 인수 시험에 넣는다.</dd>
+<dt><b>주의</b></dt><dd>대응하려면 무슨 일이 있었는지 다시 볼 수 있어야 한다. 로그와 재생 수단이 없으면 이 매뉴얼의 대응 방안은 실행되지 않는다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-c" href="ch08.html#p-C8"><span class="pid">C8</span>권한 경계·킬스위치</a>, <a class="pat lc-c" href="ch08.html#p-C7"><span class="pid">C7</span>폴백 스위치</a>, <a class="pat lc-s" href="ch09.html#p-S10"><span class="pid">S10</span>결정적 재생</a>, <a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span>감사 로그·지표</a>. 빠지면 <a class="pat lc-x" href="ch14.html#p-X14"><span class="pid">X14</span>재생할 수 없는 사고</a>.</dd>
+</dl>
+
+<h4 id="e-kisa-n2sf">국가 망 보안체계(N2SF) 실증 사례집</h4>
+<p>KISA, 2026.4(게시 2026.4.13). 배포처: <a href="https://www.kisa.or.kr/20604/form?lang_type=KO&amp;page&amp;postSeq=23171">KISA 게시물</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>정부·공공기관 업무환경에 N²SF 보안가이드라인을 적용해 본 실증 사례와, 정보서비스 모델별 실증 결과다. PAX 목록에는 "N²SF 실증 사례집"으로 올라 있다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>N²SF로 망을 다시 설계하는 기관이 비슷한 업무환경의 적용 예를 찾을 때 편다. 설계서의 참고 구성도로 쓰기 좋다.</dd>
+<dt><b>주의</b></dt><dd>게시물 스스로 국가정보원 N²SF 가이드라인과 함께 기관 실정에 맞게 적용하라고 적었다. PAX 목록도 기관별 재설계가 필요하다고 했다. 사례 구성을 그대로 복사하지 않는다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-a" href="ch07.html#p-A2_4"><span class="pid">A2.4</span>내부망 프록시</a>, <a class="pat lc-s" href="ch09.html#p-S1"><span class="pid">S1</span>AI 게이트웨이·단일 진입점</a>.</dd>
+</dl>
+
+<h3>AI 플랫폼·인프라에 함께 적용하는 문서</h3>
+
+<h4 id="e-kisa-cii-tech">주요정보통신기반시설 기술적 취약점 분석·평가 방법 상세가이드</h4>
+<p>KISA, 2025.12(게시 2025.12.24). 배포처: <a href="https://www.kisa.or.kr/2060204/form?page=1&amp;postSeq=22">KISA 자료실</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>PAX 목록에 따르면 서버, DB, 네트워크, 웹, 보안장비 등 AI 서비스가 올라가는 인프라의 기술적 취약점 평가 방법이다. 게시물에는 별도 설명이 없다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>모델 서버, 벡터 DB, API 서버를 새로 구축하는 사업의 인수 단계에서 취약점 점검 항목으로 쓴다. 주요정보통신기반시설로 지정된 기관이라면 정기 점검의 기준이다.</dd>
+<dt><b>주의</b></dt><dd>모델과 프롬프트의 취약점은 다루지 않는다. AI 3종과 짝을 맞춰 쓴다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-a" href="ch07.html#p-A2_2"><span class="pid">A2.2</span>주권형 온프레미스</a>처럼 기관이 직접 인프라를 운영하는 서빙 형태에서 비중이 커진다.</dd>
+</dl>
+
+<h4 id="e-kisa-cii-mgmt">주요정보통신기반시설 관리·물리적 취약점 분석·평가 방법 안내서</h4>
+<p>KISA, 2025.12(게시 2025.12.24). 배포처: <a href="https://www.kisa.or.kr/2060204/form?page=1&amp;postSeq=23">KISA 자료실</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>PAX 목록에 따르면 인력, 운영, 출입, 물리환경의 취약점 평가 방법이다. 게시물에는 별도 설명이 없다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>GPU 서버를 기관 전산실에 들이거나, 현장 장비에 AI를 붙이는 사업에서 운영 인력과 물리 보안 점검 항목을 정할 때 쓴다.</dd>
+<dt><b>주의</b></dt><dd>기술적 취약점 상세가이드와 한 쌍이다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-a" href="ch07.html#p-A5"><span class="pid">A5</span>엣지 추론 런타임</a>, <a class="pat lc-b" href="ch05.html#p-B5"><span class="pid">B5</span>현장 감지·경보</a>.</dd>
+</dl>
+
+<h4 id="e-kisa-weak">소프트웨어 보안약점 진단가이드</h4>
+<p>KISA, 2021(게시 2021.11.30). 배포처: <a href="https://www.kisa.or.kr/2060204/form?page=1&amp;postSeq=9">KISA 자료실</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>소스코드의 보안약점을 진단하는 기준이다. PAX 목록은 RAG, 에이전트, API, 관리도구의 소스코드 보안약점 진단에 적용하라고 적었다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>개발이 끝나면 감리나 진단 기관이 이 기준으로 소스코드를 점검한다. 에이전트가 호출하는 도구 함수, MCP 서버의 입력 처리, 관리자 화면의 코드가 진단 대상에서 빠지지 않게 범위를 정한다.</dd>
+<dt><b>주의</b></dt><dd>2021년 문서라 프롬프트 인젝션 같은 AI 고유 약점은 없다. 그 부분은 AI 보안 안내서로 채운다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-a" href="ch07.html#p-A8"><span class="pid">A8</span>MCP 서버·호스트</a>, <a class="pat lc-s" href="ch09.html#p-S9"><span class="pid">S9</span>임시 샌드박스</a>. 도구가 선언보다 많은 일을 하는 코드는 <a class="pat lc-x" href="ch14.html#p-X7"><span class="pid">X7</span>도구 설명 ≠ 실제 권한</a>으로 이어진다.</dd>
+</dl>
+
+<h4 id="e-kisa-secdev">소프트웨어 개발보안 가이드</h4>
+<p>KISA, 2021(게시 2021.11.29). 배포처: <a href="https://www.kisa.or.kr/2060204/form?page=1&amp;postSeq=5">KISA 자료실</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>소프트웨어 개발 생명주기 전체의 보안 활동(시큐어 SDLC) 안내다. 게시물 제목은 "소프트웨어 개발 보안 가이드"로 띄어 썼다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>AI 응용시스템을 개발하는 사업에서 개발사가 개발 방법론과 보안 활동 계획을 짜는 기준이다. 과업지시서의 시큐어코딩 의무 조항이 이 문서를 근거로 한다.</dd>
+<dt><b>주의</b></dt><dd>보안약점 진단가이드와 짝이다. 만들 때는 이 문서를, 점검할 때는 진단가이드를 쓴다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-s" href="ch09.html#p-S5"><span class="pid">S5</span>계획 후 실행·코드 후 실행</a>, <a class="pat lc-s" href="ch09.html#p-S9"><span class="pid">S9</span>임시 샌드박스</a>.</dd>
+</dl>
+
+<h4 id="e-kisa-sscm">SW 공급망 보안 가이드라인 1.0</h4>
+<p>과학기술정보통신부(KISA)·국가정보원·디지털플랫폼정부위원회, 2024.5(게시 2024.5.13). 배포처: <a href="https://www.kisa.or.kr/2060204/form?page=1&amp;postSeq=15">KISA 자료실</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>소프트웨어 공급망 위협과 해외의 SBOM 의무화 흐름에 맞춰, 정부·공공기관과 기업이 공급망 보안을 스스로 관리하도록 돕는 안내서다. 요약본과 전체본이 있고, 전체본은 2024년 5월 25일자 최종 수정본이다. 영문·스페인어 요약본도 따로 올라와 있다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>오픈소스 모델, 파이썬 라이브러리, 컨테이너 이미지, 플러그인을 쓰는 사업이라면 발주 기관이 이 문서를 근거로 SBOM 제출과 구성요소 검증을 계약 요구사항에 넣는다. 개발사는 납품물과 함께 구성요소 명세를 낸다.</dd>
+<dt><b>주의</b></dt><dd>PAX 목록의 링크는 자료실 첫 화면이다. 위 주소가 게시물이다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-s" href="ch09.html#p-S11"><span class="pid">S11</span>인제스천·공급망 검증</a>, <a class="pat lc-a" href="ch07.html#p-A8"><span class="pid">A8</span>MCP 서버·호스트</a>.</dd>
+</dl>
+
+<h4 id="e-kisa-ssc-roadmap">SW 공급망 보안 강화 로드맵</h4>
+<p>과학기술정보통신부(KISA)·국가정보원, 2026.6(게시 2026.6.24). 배포처: <a href="https://www.kisa.or.kr/2060204/form?lang_type=KO&amp;page=1&amp;postSeq=24">KISA 자료실</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>정식 명칭은 「AI 일상화 시대를 준비하는 소프트웨어(SW) 공급망 보안 강화 로드맵」이다. 사이버 복원력 확보를 비전으로, 공급망 위협 예방 역량 강화, 신속한 탐지 대응 체계 마련, 정책 제도적 기반 조성의 세 전략을 내세웠다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>정책 문서다. 기관의 중장기 정보화 계획이나 보안 계획에 공급망 과제를 넣을 때 방향의 근거로 인용한다.</dd>
+<dt><b>주의</b></dt><dd>구체 통제 항목은 1.0 가이드라인에 있다. 로드맵만 보고 점검표를 만들 수는 없다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-s" href="ch09.html#p-S11"><span class="pid">S11</span></a>.</dd>
+</dl>
+
+<h4 id="e-kisa-zt2">제로트러스트 가이드라인 2.0</h4>
+<p>KISA, 2024.12(게시 2024.12.3). 배포처: <a href="https://www.kisa.or.kr/2060204/form?postSeq=18">KISA 자료실</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>산·학·연 전문가가 국내외 동향과 사례를 분석하고 수요·공급 기관의 의견을 들어 만든 제로트러스트 도입 안내서다. 1.0은 2023년 7월에 나왔다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>AI API, 관리자 접속, 에이전트의 도구 호출, 데이터 접근에 매번 검증을 거는 구조를 설계할 때 쓴다. 에이전트에 서비스 계정을 주는 사업이면 그 계정의 권한 범위와 재검증 주기를 이 문서로 정한다.</dd>
+<dt><b>주의</b></dt><dd>기관의 현재 수준을 재는 일은 아래 성숙도 모델 해설서가 맡는다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-s" href="ch09.html#p-S2"><span class="pid">S2</span>권한 인식 검색</a>, <a class="pat lc-c" href="ch08.html#p-C8"><span class="pid">C8</span>권한 경계·킬스위치</a>, <a class="pat lc-s" href="ch09.html#p-S1"><span class="pid">S1</span>AI 게이트웨이·단일 진입점</a>.</dd>
+</dl>
+
+<h4 id="e-kisa-ztmm">제로트러스트 성숙도 모델 해설서</h4>
+<p>KISA, 2025.12(게시 2025.12.18). 배포처: <a href="https://www.kisa.or.kr/2060204/form?page=1&amp;postSeq=21">KISA 자료실</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>제로트러스트 가이드라인 2.0의 성숙도 단계 점검표를 실무자가 쓸 수 있도록 풀어 쓴 해설서다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>보안 부서는 이 해설서로 기관의 제로트러스트 수준을 단계별로 평가하고 다음 해 목표를 정한다. AI 사업이 요구하는 접근통제 수준과 기관의 현재 수준 사이의 차이를 보여 주는 근거가 된다.</dd>
+<dt><b>주의</b></dt><dd>PAX 목록의 링크는 자료실 첫 화면이다. 위 주소가 게시물이다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-c" href="ch08.html#p-C8"><span class="pid">C8</span></a>, <a class="pat lc-s" href="ch09.html#p-S2"><span class="pid">S2</span></a>.</dd>
+</dl>
+
+<h4 id="e-kisa-ztot">OT 환경의 제로트러스트 적용 안내서</h4>
+<p>KISA, 2025.12(게시 2025.12.22). 배포처: <a href="https://www.kisa.or.kr/2060204/form?page=2&amp;postSeq=20">KISA 자료실</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>산업제어·운영기술(OT) 환경에 제로트러스트를 적용하는 안내서로, 동향과 위협 사례 분석을 바탕으로 했다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>PAX 목록은 피지컬 AI, 시설, 교통, 에너지, 스마트시티를 적용 대상으로 꼽았다. 현장 센서와 제어 장비에 AI 판단을 연결하는 사업에서 장비 접근과 명령 경로를 설계할 때 쓴다.</dd>
+<dt><b>주의</b></dt><dd>AI가 현장 장비를 직접 움직이면 국정원 가이드북의 피지컬 AI 대책과 함께 본다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-a" href="ch07.html#p-A11"><span class="pid">A11</span>액추에이션·현장 통지 어댑터</a>, <a class="pat lc-a" href="ch07.html#p-A5"><span class="pid">A5</span>엣지 추론 런타임</a>, <a class="pat lc-b" href="ch05.html#p-B5"><span class="pid">B5</span>현장 감지·경보</a>, <a class="pat lc-c" href="ch08.html#p-C8"><span class="pid">C8</span></a>.</dd>
+</dl>
+
+<h4 id="e-kisa-csap">CSAP 제도 안내</h4>
+<p>KISA 클라우드서비스 보안인증(CSAP) 안내 페이지(2026.3.12 갱신). 배포처: <a href="https://www.kisa.or.kr/1050603">KISA 페이지</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>문서가 아니라 제도 안내 페이지다. 클라우드컴퓨팅법 제23조의2에 근거한 인증으로, KISA가 인증하고 지정 평가기관이 평가한다. 신청 대상은 IaaS·PaaS·SaaS 사업자와 정부·공공기관 업무용 클라우드 서비스 제공자다. 절차는 신청서 접수, 예비점검, 계약 체결, 본점검(현장평가·취약점 점검), 보완조치, 이행점검, 인증위원회, 인증서 발급 순이다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>공공 AX 사업이 민간 클라우드나 SaaS형 AI 서비스를 쓸 때, 계약 전에 그 서비스의 인증 여부와 범위를 확인하는 데 쓴다. 제안요청서의 자격 요건 칸에 들어간다.</dd>
+<dt><b>주의</b></dt><dd>인증 등급 구분은 이 페이지에서 확인하지 못했다. 등급과 대상 데이터의 대응은 N²SF의 등급 분류와 기관 보안 부서 기준으로 확인한다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-a" href="ch07.html#p-A2_1"><span class="pid">A2.1</span>상용 API 호출</a>, <a class="pat lc-a" href="ch07.html#p-A2_6"><span class="pid">A2.6</span>벤더 블랙박스</a>.</dd>
+</dl>
+
+<h4 id="e-kisa-mobile">모바일 대민서비스 보안취약점 점검 가이드</h4>
+<p>KISA, 게시 2015.12.28, 첨부 파일은 2021.12판. 배포처: <a href="https://www.kisa.or.kr/2060204/form?lang_type=KO&amp;page&amp;postSeq=4">KISA 자료실</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>공공기관이 국민에게 제공하는 모바일 앱의 보안취약점 점검 기준이다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>AI 민원 상담이나 안내 서비스를 모바일 앱으로 내는 사업의 인수 점검에 쓴다. 앱 안에 챗봇 화면을 넣는 경우에도 앱 자체의 점검은 이 문서로 한다.</dd>
+<dt><b>주의</b></dt><dd>앱 안의 챗봇이 받는 프롬프트 공격은 이 문서 범위 밖이다. AI 3종으로 따로 점검한다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-d" href="ch11.html#p-D1"><span class="pid">D1</span>안내·탐색</a>, <a class="pat lc-a" href="ch07.html#p-A12"><span class="pid">A12</span>접근성·모달리티 어댑터</a>, <a class="pat lc-f" href="ch10.html#p-F11"><span class="pid">F11</span>진행 상태·핸드오프 안내</a>.</dd>
+</dl>
+
+<h2>금융위원회·금융감독원·금융보안원</h2>
+
+<p>금융 분야는 문서 세 건이 한 묶음으로 움직인다. 금융위원회의 가이드라인이 원칙을 정하고, 금융감독원의 위험관리프레임워크가 거버넌스 원칙을, 금융보안원의 보안 안내서가 보안성 원칙을 구체화한다. 공공기관 가운데 정책금융기관이나 금융 관련 공공기관은 이 묶음을 일반 공공 문서 위에 겹쳐 적용한다. PAX 목록의 사업 단계 표도 금융 분야를 따로 한 줄로 두고 세 문서를 함께 적었다.</p>
+
+<h3 id="e-fsc-guide">금융분야 인공지능 가이드라인</h3>
+<p>금융위원회, 2026.6.22 시행(보도 2026.6.18). 배포처: <a href="https://www.fsc.go.kr/no010101/87142">금융위원회 보도자료</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>금융회사가 따르는 자율규제 기준이다. 금융거래에 영향을 주는 AI를 쓰는 비금융 핀테크도 대상에 들어간다. 7대 원칙은 거버넌스, 합법성, 보조수단성, 신뢰성, 금융안정성, 신의성실, 보안성이다. 보조수단성 원칙은 현 단계에서 AI가 업무의 보조수단이며 최종 의사결정과 책임은 임직원에게 있다고 적는다. 거버넌스 원칙은 경영진의 역할 분담, 의사결정기구와 전담조직 구성, 내규 마련을 요구한다. 개별 금융회사는 인적·물적 자원과 서비스 위험수준을 따져 적용 수준을 스스로 정한다. 고영향 AI에 관한 의무는 AI기본법이 따로 정한다고 밝혔다. 요약본과 가이드라인 본문이 별첨으로 붙어 있다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>금융 업무에 AI를 쓰는 기관의 내부 AI 규정과 위원회 구성을 정할 때 기본 문서다. 여신, 심사, 상담 업무의 AI 도입 계획서에 원칙별 이행 방안을 적는 근거가 된다.</dd>
+<dt><b>주의</b></dt><dd>2021년 금융분야 인공지능(AI) 가이드라인(PAX 목록 표기는 AI 운영 가이드라인), 2022년 AI 개발·활용 안내서, 2023년 AI 보안 가이드라인을 통합·개정한 문서다. 구판 세 건은 신규 사업의 근거로 쓰지 않는다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd>보조수단성 원칙은 <a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span>검토 큐</a>를 사실상 필수로 만든다. 심사 업무는 <a class="pat lc-d" href="ch11.html#p-D3"><span class="pid">D3</span>자격·심사</a>, 설명은 <a class="pat lc-f" href="ch10.html#p-F9"><span class="pid">F9</span>판정 근거·기여도 표시</a>.</dd>
+</dl>
+
+<h3 id="e-fss-rmf">금융분야 AI 위험관리프레임워크</h3>
+<p>금융감독원, 2026.6. 배포처: <a href="https://www.fsc.go.kr/no010101/87142">금융위원회 보도자료</a>(가이드라인 시행일에 배포)</p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>보도자료는 가이드라인의 거버넌스 원칙을 구체화한 문서라고만 밝혔다. PAX 목록은 위험등급, 독립적 검증, 인적 개입, 모니터링을 다룬다고 적었다. 문서 구성은 이번 집필에서 확인하지 못했다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>금융회사의 리스크관리 부서가 업무별 AI에 위험등급을 매기고, 등급마다 독립 검증을 누가 언제 하는지와 사람이 어느 단계에서 결과를 확인하는지를 내규 초안에 적을 때 편다. 등급이 높을수록 사람이 개입하는 지점이 앞당겨진다.</dd>
+<dt><b>주의</b></dt><dd>문서 원문은 금융감독원 배포본으로 확인한다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-c" href="ch08.html#p-C2"><span class="pid">C2</span>위험도 라우터</a>, <a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span>검토 큐</a>, <a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span>평가 세트·회귀시험</a>, <a class="pat lc-s" href="ch09.html#p-S8"><span class="pid">S8</span>독립 검증기·이중 심판</a>.</dd>
+</dl>
+
+<h3 id="e-fsec-aisec">금융분야 인공지능 보안 안내서</h3>
+<p>금융보안원, 2026.6(게시 2026.6.19). 배포처: <a href="https://www.fsec.or.kr/bbs/detail?bbsNo=11977&amp;menuNo=222">금융보안원 게시물</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>PAX 목록에 따르면 금융위 가이드라인의 보안성 원칙을 구체화한 실무 보안 기준이다. 내부 구성은 게시물에서 확인하지 못했다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>금융 업무 AI를 개발할 때 보안 요구사항 목록과 인수 점검표의 기준이 된다. 일반 공공기관의 KISA AI 보안 안내서에 해당하는 자리다.</dd>
+<dt><b>주의</b></dt><dd>2023년 금융분야 AI 보안 가이드라인은 참고 가치가 있지만, 신규 사업에는 이 문서를 우선 적용한다(PAX 목록).</dd>
+<dt><b>이어지는 패턴</b></dt><dd>9장 S 계층, <a class="pat lc-c" href="ch08.html#p-C5"><span class="pid">C5</span>가드레일 필터</a>.</dd>
+</dl>
+
+<h3 id="e-fsec-frontier">프런티어 AI 보안 위협 금융분야 대응 요령</h3>
+<p>금융보안원, 2026.7(게시 2026.7.1). 배포처: <a href="https://www.fsec.or.kr/bbs/detail?bbsNo=11989&amp;menuNo=222">금융보안원 게시물</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>PAX 목록에 따르면 고성능 프런티어 모델의 탈취, 오용, 공급망·시스템 위험에 대한 금융 분야 대응 요령이다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>금융회사 정보보호 부서가 최신 상용 모델을 쓰는 업무의 위협 대응 계획을 고칠 때 편다. PAX 목록이 꼽은 모델 탈취, 오용, 공급망·시스템 위험을 사고 대응 시나리오에 한 줄씩 넣고, 상용 모델 공급 계약에 공급자가 알려야 할 보안 사고의 범위를 적는 근거로 삼는다.</dd>
+<dt><b>주의</b></dt><dd>내용 세부는 게시물에서 확인하지 못했다. 원문을 열어 기관 대응 절차와 대조한다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-s" href="ch09.html#p-S11"><span class="pid">S11</span></a>, <a class="pat lc-c" href="ch08.html#p-C8"><span class="pid">C8</span></a>, <a class="pat lc-c" href="ch08.html#p-C7"><span class="pid">C7</span>폴백 스위치</a>.</dd>
+</dl>
+
+<h3 id="e-fsec-saas">내부업무망 SaaS 망분리 예외 적용 보안 해설서</h3>
+<p>금융보안원, 2026.4(게시 2026.4.20). 배포처: <a href="https://www.fsec.or.kr/bbs/detail?bbsNo=11929&amp;menuNo=222">금융보안원 게시물</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>정식 명칭은 「내부업무망 SaaS 망분리 예외 적용에 따른 보안 해설서」다. 금융회사가 내부업무망에서 SaaS를 안전하게 쓰도록 예상되는 보안 위협을 식별하고 대응 방안을 안내한다. 제도화 관련 FAQ가 함께 첨부되어 있고, 2026년 4월 29일 FAQ 변경으로 보안대책 준수 보고가 금융감독원 반기 보고에서 정보보호위원회 보고로 바뀌었다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>금융회사 직원이 업무망에서 생성형 AI SaaS를 쓰도록 허용할 때, 허용 범위와 보안 관리 방안을 정하는 근거다.</dd>
+<dt><b>주의</b></dt><dd>FAQ가 바뀌었으므로 해설서와 변경된 FAQ를 함께 본다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-a" href="ch07.html#p-A2_1"><span class="pid">A2.1</span>상용 API 호출</a>, <a class="pat lc-s" href="ch09.html#p-S1"><span class="pid">S1</span></a>, <a class="pat lc-s" href="ch09.html#p-S13"><span class="pid">S13</span>로컬 비식별 게이트</a>.</dd>
+</dl>
+
+<h3 id="e-fsec-efi">2026년 전자금융기반시설 보안 취약점 평가기준 안내서</h3>
+<p>금융보안원, 2026.2. 배포처: <a href="https://www.fsec.or.kr/bbs/222">금융보안원 가이드 게시판</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>PAX 목록에 따르면 AI 서비스가 탑재된 전자금융기반시설의 일반 취약점 평가 기준이다. 게시판에서 배포용 파일이 확인되며, 개별 게시일은 확인하지 못했다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>금융 분야 AI 서비스가 올라간 시스템의 연례 취약점 평가 항목을 정할 때 쓴다. 공공 분야의 주요정보통신기반시설 상세가이드에 해당한다.</dd>
+<dt><b>주의</b></dt><dd>연도판이다. 해마다 새 판을 확인한다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd>직접 잇는 부품은 없다. 모델과 프롬프트 쪽 점검은 위 금융분야 인공지능 보안 안내서와 9장 S 계층으로 채운다.</dd>
+</dl>
+
+<h3 id="e-fsc-credit">AI 기반 신용평가모형 검증체계</h3>
+<p>금융위원회, 2023(보도 2023.4.17). 배포처: <a href="https://www.fsc.go.kr/no010101/79825">금융위원회 보도자료</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>AI 신용평가모형을 데이터 관리, 알고리즘·변수 선정의 합리성, 통계적 유의성, 금융소비자 대상 설명가능성의 네 영역으로 검증한다. 보도자료는 개인신용평가체계 검증위원회가 개인사업자신용평가회사부터 적용한다고 밝혔다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>점수나 등급을 매기는 예측 모델을 검증할 때, 금융이 아닌 공공 분야에서도 검증 항목의 틀로 빌려 쓸 만하다. 인수 시험 계획서의 검증 영역을 이 네 칸으로 나누면 빠지는 항목이 줄어든다.</dd>
+<dt><b>주의</b></dt><dd>같은 날 발표된 2023년 금융분야 AI 보안 가이드라인은 2026년 문서로 대체되었으나, 이 검증체계는 PAX 목록에 현행으로 남아 있다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-b" href="ch05.html#p-B2"><span class="pid">B2</span>예측·추천기</a>, <a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span></a>, <a class="pat lc-f" href="ch10.html#p-F9"><span class="pid">F9</span>판정 근거·기여도 표시</a>.</dd>
+</dl>
+
+<h2>개인정보보호위원회</h2>
+
+<p>개인정보 문서는 열 건으로 가장 많다. 처음 펴는 문서는 사업 성격으로 정한다. 공공기관이 AI를 들이는 사업이면 공공 AX 프라이버시 보호 안내서를, 생성형 AI를 개발하거나 붙이는 사업이면 생성형 AI 개인정보 처리 안내서를 먼저 연다. 나머지는 특정 작업(가명처리, 합성데이터, 공개정보 수집, 자동화된 결정, 영향평가, 안전조치)에 맞춰 꺼낸다.</p>
+
+<h3 id="e-pipc-pubax">공공 AX 프라이버시 보호 안내서</h3>
+<p>개인정보보호위원회, 2026.7(2026.7.23 제11회 과학기술관계장관회의에서 공개). 배포처: <a href="https://www.pipc.go.kr/np/cop/bbs/selectBoardArticle.do?bbsId=BS074&amp;mCode=C020010000&amp;nttId=12307">개인정보보호위원회 보도자료</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>공공 AX 추진 과정을 사전 설계, 개발·구축, 시스템 적용·관리의 세 단계로 나누고 실무자가 확인할 10대 핵심 점검사항을 제시했다. 사전 설계 단계는 목적 제한과 최소 수집, 항목별 적법 근거 확인을 요구한다. 개발·구축 단계는 학습데이터 활용, 지시어 입력, 검색 증강 생성(RAG) 연계, 결과 출력처럼 개인정보가 처리되는 지점마다 안전조치를 두게 하고, 가명·익명처리, 차분 프라이버시, 입출력 필터링, 접근권한 관리를 예로 든다. 활용 유형은 기초업무 보조, 정보 연계·분석·추천, 선별·판단의 셋이며 유형에 따라 조치의 강도가 다르다. 선별·판단 유형에는 데이터의 정확성·대표성 점검과 거부권, 설명·검토 요구권을 보장하는 대응체계가 붙는다. 기관장, 개인정보 보호책임자(CPO), 최고인공지능책임자(CAIO)를 중심으로 부서 간 협력체계를 갖추라고 권했고, 개보위는 공공 AX 프라이버시 헬프데스크를 운영한다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>공공 AX 사업 기획 단계에서 개인정보 담당자와 사업 담당자가 함께 편다. 먼저 사업이 세 활용 유형 가운데 어디에 드는지 정한다. 문서 요약이나 챗봇 상담 같은 기초업무 보조라면 허용·금지 활용 사례를 정해 사용자 교육 자료에 넣고 입출력 데이터의 관리체계를 세운다. 여러 DB를 이어 분석·추천하는 사업이면 연계하는 DB마다 처리 근거와 접근권한을 적은 표를 만든다. 그다음 RAG 연계와 결과 출력 지점의 안전조치를 과업지시서의 보안 요구사항으로 옮긴다. 선별·판단 유형이면 아래 자동화된 결정 안내서와 AI기본법 고영향 판단 가이드라인이 함께 걸린다.</dd>
+<dt><b>주의</b></dt><dd>10대 점검사항의 개별 항목은 보도자료 본문에서 확인하지 못했다. 안내서 원문을 기준으로 옮긴다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-s" href="ch09.html#p-S12"><span class="pid">S12</span>데이터 비도달 설계</a>, <a class="pat lc-s" href="ch09.html#p-S13"><span class="pid">S13</span>로컬 비식별 게이트</a>, 연계 DB의 접근통제는 <a class="pat lc-s" href="ch09.html#p-S2"><span class="pid">S2</span>권한 인식 검색</a>, 입출력 필터링은 <a class="pat lc-c" href="ch08.html#p-C5"><span class="pid">C5</span>가드레일 필터</a>. 선별·판단 유형은 <a class="pat lc-d" href="ch11.html#p-D3"><span class="pid">D3</span>자격·심사</a>.</dd>
+</dl>
+
+<h3 id="e-pipc-genai">생성형 AI 개발·활용을 위한 개인정보 처리 안내서</h3>
+<p>개인정보보호위원회, 2025.8(게시 2025.8.6). 배포처: <a href="https://www.pipc.go.kr/np/cop/bbs/selectBoardArticle.do?bbsId=BS074&amp;mCode=C020010000&amp;nttId=11410">개인정보보호위원회 보도자료</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>생성형 AI의 생애주기를 목적 설정, 전략 수립, 학습 및 개발, 적용 및 관리의 네 단계로 나누고 단계별 적법 근거와 안전조치를 정리했다. 활용 유형은 서비스형 LLM 활용, 기성 LLM 활용, 자체 개발의 셋이고, CPO 중심의 거버넌스를 둔다. 민관 정책협의회 검토를 거쳐 개보위 전체회의에서 확정되었다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>개인정보 담당자와 개발사는 개발 단계에서 이 문서를 펴 놓고, 학습 데이터와 프롬프트에 개인정보가 들어가는지, 들어간다면 어떤 근거로 처리하는지를 정리한다. 상용 API를 쓸지, 공개 모델을 내부에 둘지, 직접 튜닝할지에 따라 검토 항목이 달라진다.</dd>
+<dt><b>주의</b></dt><dd>공공기관 사업은 공공 AX 프라이버시 보호 안내서(2026.7)를 먼저 보고, 이 문서로 생성형 AI 고유 항목을 채운다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd>서비스형 LLM 활용은 <a class="pat lc-a" href="ch07.html#p-A2_1"><span class="pid">A2.1</span>상용 API 호출</a>에 가깝다. 기성 LLM을 들여와 기관 안에서 돌리면 <a class="pat lc-a" href="ch07.html#p-A2_2"><span class="pid">A2.2</span>주권형 온프레미스</a>, 추가 학습까지 하면 <a class="pat lc-a" href="ch07.html#p-A2_3"><span class="pid">A2.3</span>튜닝형</a> 쪽이다. 프롬프트에 들어가는 개인정보는 <a class="pat lc-s" href="ch09.html#p-S13"><span class="pid">S13</span></a>이 입력 전에 걸러 낸다.</dd>
+</dl>
+
+<h3 id="e-pipc-public">공개된 개인정보 처리 안내서</h3>
+<p>개인정보보호위원회, 2024.7(게시 2024.7.19). 배포처: <a href="https://www.pipc.go.kr/np/cop/bbs/selectBoardArticle.do?bbsId=BS217&amp;mCode=G010030000&amp;nttId=10375">개인정보보호위원회 자료실</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>정식 명칭은 「인공지능(AI) 개발·서비스를 위한 공개된 개인정보 처리 안내서」다. PAX 목록은 인터넷 공개정보와 공개 게시물을 AI 학습에 쓰는 경우를 다룬다고 적었다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>누리집 게시물, 민원 공개 답변, 웹 크롤링 자료를 학습이나 지식베이스에 넣으려 할 때 쓴다. 수집 계획서의 적법 근거 칸을 이 문서로 채운다.</dd>
+<dt><b>주의</b></dt><dd>같은 자료라도 저작권 문제는 별개다. 저작권 안내서와 함께 본다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-a" href="ch07.html#p-A1"><span class="pid">A1</span></a>, <a class="pat lc-s" href="ch09.html#p-S11"><span class="pid">S11</span>인제스천·공급망 검증</a>.</dd>
+</dl>
+
+<h3 id="e-pipc-risk">AI 프라이버시 리스크 관리 모델</h3>
+<p>개인정보보호위원회, 2024.12(자료실 게시 2025.2.21). 배포처: <a href="https://www.pipc.go.kr/np/cop/bbs/selectBoardArticle.do?bbsId=BS217&amp;mCode=D010030000&amp;nttId=11014">개인정보보호위원회 자료실</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>정식 명칭은 「안전한 인공지능(AI) 데이터 활용을 위한 AI 프라이버시 리스크 관리 모델」이다. 민관 정책협의회 논의를 바탕으로 AI 프라이버시 위험 관리의 방향과 원칙을 제시한다. PAX 목록은 위험 식별, 평가, 완화를 다룬다고 적었다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>개인정보 담당자가 AI 사업의 프라이버시 위험 평가표를 짜는 틀이다. 영향평가 대상이 아닌 사업에서도 위험을 스스로 관리하는 틀로 쓸 만하다.</dd>
+<dt><b>주의</b></dt><dd>2021년 AI 개인정보보호 자율점검표(6대 원칙, 점검분야 16개, 세부항목 54개로 보도됨)는 개보위가 과거 안내서로 분류했다. PAX 목록은 이 모델과 공공 AX 안내서를 대신 쓰라고 적었다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd>위험 평가 결과를 건별 처리 경로로 바꾸는 <a class="pat lc-c" href="ch08.html#p-C2"><span class="pid">C2</span>위험도 라우터</a>, 개인정보가 서버에 닿지 않게 하는 <a class="pat lc-s" href="ch09.html#p-S12"><span class="pid">S12</span></a>와 <a class="pat lc-s" href="ch09.html#p-S13"><span class="pid">S13</span></a>.</dd>
+</dl>
+
+<h3 id="e-pipc-adm">자동화된 결정에 대한 정보주체 권리 안내서</h3>
+<p>개인정보보호위원회, 2024.9. 공식 게시물 미확인(2024.9 보도로 확인).</p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>개인정보 보호법 제37조의2가 정한 자동화된 결정에 대한 정보주체의 권리를 다룬다. 보도에 따르면 조치 기준 시행에 맞춰 공개되었고, 자가진단표, 설명·검토 요구권, 거부권, 기준과 절차의 사전 공개를 담았다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>자격 심사, 선정, 평가, 위험등급 부여처럼 국민의 권리·의무에 영향을 주는 결정에 AI를 쓰는 사업에서 쓴다. 기획 단계에서 자가진단표로 해당 여부를 판단하고, 해당하면 설명 요구와 검토 요구를 처리하는 절차를 설계에 넣는다.</dd>
+<dt><b>주의</b></dt><dd>AI기본법의 고영향 AI 판단과는 근거 법이 다르다. 두 판단을 각각 기록한다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-d" href="ch11.html#p-D3"><span class="pid">D3</span>자격·심사</a>, <a class="pat lc-f" href="ch10.html#p-F9"><span class="pid">F9</span>판정 근거·기여도 표시</a>, <a class="pat lc-f" href="ch10.html#p-F10"><span class="pid">F10</span>이용자 자기확인·피드백</a>, <a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span>검토 큐</a>, <a class="pat lc-c" href="ch08.html#p-C1_2"><span class="pid">C1.2</span>심의 게이트</a>.</dd>
+</dl>
+
+<h3 id="e-pipc-user">생성형 AI 서비스 이용자를 위한 개인정보 보호 가이드</h3>
+<p>개인정보보호위원회, 2026.5(게시 2026.5.19). 배포처: <a href="https://www.pipc.go.kr/np/cop/bbs/selectBoardArticle.do?bbsId=BS074&amp;mCode=C020010000&amp;nttId=12084">개인정보보호위원회 보도자료</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>민원과 상담 사례에서 고른 8개 핵심 이슈를 8가지 질의와 답으로 풀었다. 입력 내용이 AI 학습에 쓰이는지, 업무 자료를 입력할 때 무엇을 주의할지, 외부 서비스를 연동해도 안전한지를 다루고, 학습 활용 거부(옵트아웃)와 대화 기록 저장·삭제 설정을 이용자가 직접 확인하는 방법을 안내한다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>공무원과 직원이 외부 생성형 AI를 쓸 때 무엇을 입력하지 말아야 하는지 정하는 직원 이용 지침과 교육 자료의 기본 문서다. 정보화 부서는 기관이 허용한 서비스마다 학습 거부와 기록 삭제 설정을 확인해 지침 부록으로 붙인다. 2023년 행안부·국정원 지침을 갱신할 때 이 문서를 중심에 둔다.</dd>
+<dt><b>주의</b></dt><dd>이용자 관점의 문서다. 기관이 서비스를 만드는 경우의 의무는 위 안내서들에 있다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-b" href="ch05.html#p-B1"><span class="pid">B1</span>코파일럿</a>, <a class="pat lc-s" href="ch09.html#p-S13"><span class="pid">S13</span>로컬 비식별 게이트</a>.</dd>
+</dl>
+
+<h3 id="e-pipc-synth">합성데이터 생성·활용 안내서</h3>
+<p>개인정보보호위원회, 2024.12(자료실 게시 2025.1.3). 배포처: <a href="https://www.pipc.go.kr/np/cop/bbs/selectBoardArticle.do?bbsId=BS217&amp;mCode=G010030000&amp;nttId=10915">개인정보보호위원회 자료실</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>PAX 목록에 따르면 학습·시험용 합성데이터의 생성과 안전성 검증을 다룬다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>실제 민원 데이터를 개발사에 넘기기 어려우면 합성데이터로 개발·시험 환경을 꾸린다. 그 생성 계획과 안전성 검증 절차를 이 문서로 세운다. 평가 세트를 합성데이터로 만들면 재식별 위험 검증을 함께 한다.</dd>
+<dt><b>주의</b></dt><dd>합성데이터로 만든 평가 세트가 실제 데이터 분포를 대표하는지는 따로 확인한다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span>평가 세트·회귀시험</a>, <a class="pat lc-a" href="ch07.html#p-A1"><span class="pid">A1</span></a>.</dd>
+</dl>
+
+<h3 id="e-pipc-pseudo">가명정보 처리 가이드라인</h3>
+<p>개인정보보호위원회, 2026.3 개정(게시 2026.3.31). 배포처: <a href="https://www.pipc.go.kr/np/cop/bbs/selectBoardArticle.do?bbsId=BS217&amp;mCode=G010030000&amp;nttId=11931">개인정보보호위원회 자료실</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>가명처리 절차와 위험도 기반 적정성 검토 기준이다. 단계별 서식 모음 10종이 함께 첨부되어 있다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>AI 학습이나 분석에 가명정보를 쓰는 사업이면 가명처리 계획서와 적정성 검토 결과서를 이 문서대로 작성한다. 첨부 서식을 그대로 산출물 양식으로 쓴다.</dd>
+<dt><b>주의</b></dt><dd>2026년 3월 개정판이다. 이전 판 서식으로 쓴 문서는 새 서식과 대조한다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-s" href="ch09.html#p-S13"><span class="pid">S13</span>로컬 비식별 게이트</a>, <a class="pat lc-a" href="ch07.html#p-A1"><span class="pid">A1</span></a>, <a class="pat lc-d" href="ch11.html#p-D8_8"><span class="pid">D8.8</span>보호·정제</a>.</dd>
+</dl>
+
+<h3 id="e-pipc-pia">개인정보 영향평가 수행안내서</h3>
+<p>개인정보보호위원회, 2025.10 개정, 2025.12 수정(게시 2025.12.12). 배포처: <a href="https://www.pipc.go.kr/np/cop/bbs/selectBoardArticle.do?bbsId=BS217&amp;mCode=D010030020&amp;nttId=11680">개인정보보호위원회 자료실</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>개인정보 영향평가의 수행 방법이다. 2025년 10월 개정판에는 공공기관이 AI를 도입·활용할 때 적용할 평가 기준과 방법이 들어갔다. 초안은 국가정보자원관리원 화재로 KISA 누리집에 먼저 게시되었고, 11월에 개보위 누리집으로 옮겨졌으며, 12월에 의견 일부를 반영해 고쳐졌다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>영향평가 대상 시스템이면 검증·인수 단계의 필수 산출물인 영향평가서를 이 문서로 쓴다. 평가 기관과 계약할 때 AI 분야 평가항목을 범위에 넣었는지 확인한다.</dd>
+<dt><b>주의</b></dt><dd>10월 초안과 12월 수정본이 있으므로 12월 판을 쓴다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span>감사 로그·지표</a>, <a class="pat lc-s" href="ch09.html#p-S2"><span class="pid">S2</span></a>, <a class="pat lc-s" href="ch09.html#p-S12"><span class="pid">S12</span></a>.</dd>
+</dl>
+
+<h3 id="e-pipc-safety">개인정보의 안전성 확보조치 기준 안내서</h3>
+<p>개인정보보호위원회, 2025.11(게시 2025.11.28). 배포처: <a href="https://www.pipc.go.kr/np/cop/bbs/selectBoardArticle.do?bbsId=BS217&amp;mCode=D010030000&amp;nttId=11641">개인정보보호위원회 자료실</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>일부 개정 사항을 반영한 안전성 확보조치 기준 해설이다. PAX 목록은 접근통제, 권한, 로그, 암호화, 접속기록을 꼽았다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>운영 단계의 접근권한 관리 대장, 접속기록 보관과 점검 절차를 정할 때 쓴다. AI 서비스의 관리자 화면, 벡터 DB, 대화 로그 저장소가 모두 대상이다.</dd>
+<dt><b>주의</b></dt><dd>대화 로그는 개인정보를 담기 쉽다. 품질 개선용으로 쌓는 로그에도 이 기준을 적용한다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span>감사 로그·지표</a>, <a class="pat lc-s" href="ch09.html#p-S2"><span class="pid">S2</span>권한 인식 검색</a>, <a class="pat lc-c" href="ch08.html#p-C8"><span class="pid">C8</span></a>.</dd>
+</dl>
+
+<h2>과학기술정보통신부·TTA·KISDI·국가인권위원회</h2>
+
+<p>AI기본법(인공지능 발전과 신뢰 기반 조성 등에 관한 기본법)은 시행령과 함께 2026년 1월 22일 시행되었고, 같은 날 과학기술정보통신부가 주요 가이드라인 5종을 묶어 게시했다(<a href="https://www.sw.or.kr/site/sw/ex/board/List.do?cbIdx=390">AI기본법 지원 데스크 게시판</a>). 투명성, 안전성, 고영향 판단, 사업자 책무, 영향평가의 다섯 건이다. PAX 목록의 메모는 공공기관이 국민에게 AI 서비스를 직접 제공하거나 심사·추천·선정에 AI를 쓴다면 고영향 AI 여부, 사전 고지, 생성물 표시, 영향평가, 인간 감독을 따로 검토하라고 적었다. 1~4번 가이드라인은 게시물 단위로만 확인했고, 개별 문서의 구성은 확인하지 못했다.</p>
+
+<h3 id="e-msit-transp">인공지능 투명성 확보 가이드라인</h3>
+<p>과학기술정보통신부, 2026.1.</p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>AI기본법의 투명성 의무 이행 안내다. PAX 목록의 메모는 사전 고지와 생성물 표시를 검토 항목으로 꼽았다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>국민이 쓰는 챗봇이나 AI가 만든 안내문·이미지를 내보내는 서비스에서, 화면 문구와 생성물 표시 방식을 정할 때 쓴다. 화면 설계서의 고지 문구 칸이 이 문서에서 나온다.</dd>
+<dt><b>주의</b></dt><dd>문서 원문의 구체 의무 범위는 게시물 첨부로 확인한다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-f" href="ch10.html#p-F7"><span class="pid">F7</span>한계·신뢰도 안내</a>, <a class="pat lc-f" href="ch10.html#p-F1"><span class="pid">F1</span>출처 표시</a>, <a class="pat lc-b" href="ch05.html#p-B7"><span class="pid">B7</span>콘텐츠 생성기</a>.</dd>
+</dl>
+
+<h3 id="e-msit-safety">최첨단 인공지능 안전성 확보 가이드라인</h3>
+<p>과학기술정보통신부, 2026.1.</p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>AI기본법의 안전성 확보 의무에 관한 안내다. 언론 보도에서는 "인공지능 안전성 확보 가이드라인"으로도 불렸다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>공공기관 대부분은 모델을 개발하는 쪽이 아니라 쓰는 쪽이다. 이 경우에는 모델 공급자에게 요구할 안전성 확인 자료의 목록을 정할 때 참고한다.</dd>
+<dt><b>주의</b></dt><dd>정식 명칭과 적용 대상 기준은 첨부 원문으로 확인한다. 이번 집필에서 공식 출처의 정식 명칭을 확인하지 못했다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-a" href="ch07.html#p-A2"><span class="pid">A2</span>모델 서빙 계층</a>, <a class="pat lc-s" href="ch09.html#p-S11"><span class="pid">S11</span></a>.</dd>
+</dl>
+
+<h3 id="e-msit-hi-judge">고영향 인공지능 판단 가이드라인</h3>
+<p>과학기술정보통신부, 2026.1.</p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>어떤 AI가 고영향 AI에 해당하는지 판단하는 기준 안내다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>기획 단계의 첫 판단에 쓴다. 사업 담당자는 이 문서로 고영향 여부를 판단하고 그 근거를 기록으로 남긴다. 가람시 민원 챗봇 사례(17장)처럼, 처분에 관여하지 않는다는 판단 자체가 과업 범위를 정한다.</dd>
+<dt><b>주의</b></dt><dd>고영향이 아니라고 판단했으면 그 판단이 유지되도록 기능 범위를 묶어 둔다. 운영 중에 처분 기능을 붙이면 판단을 다시 한다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-d" href="ch11.html#p-D3"><span class="pid">D3</span>자격·심사</a>, <a class="pat lc-b" href="ch05.html#p-B2"><span class="pid">B2</span>예측·추천기</a>, <a class="pat lc-c" href="ch08.html#p-C2"><span class="pid">C2</span>위험도 라우터</a>.</dd>
+</dl>
+
+<h3 id="e-msit-hi-duty">고영향 인공지능 사업자 책무 가이드라인</h3>
+<p>과학기술정보통신부, 2026.1.</p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>고영향 AI를 제공하는 사업자의 책무 이행 안내다. PAX 목록의 메모는 인간 감독을 검토 항목으로 꼽았다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>고영향으로 판단된 사업은 설계 단계에서 책무 이행 계획을 세우며, 그 항목을 이 문서에서 가져온다. 사람의 감독 지점, 설명 제공 방식, 기록 보존을 설계서에 반영한다.</dd>
+<dt><b>주의</b></dt><dd>구체 책무 항목은 첨부 원문으로 확인한다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span>검토 큐</a>, <a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span></a>, <a class="pat lc-f" href="ch10.html#p-F9"><span class="pid">F9</span></a>, <a class="pat lc-c" href="ch08.html#p-C8"><span class="pid">C8</span>권한 경계·킬스위치</a>.</dd>
+</dl>
+
+<h3 id="e-msit-aiia">인공지능 영향평가 가이드라인</h3>
+<p>과학기술정보통신부, 2026.1. 배포처: <a href="https://ai.kisdi.re.kr/aieth/bbs/B0000085/view.do?menuNo=400014&amp;nttId=1329">KISDI AI 윤리 소통채널</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>제1장 총론(개요, 추진 근거와 용어 정의, 다른 영향평가와의 관계), 제2장 수행 단계별 주요 고려사항(사전 준비, 본 평가 수행, 사후)으로 되어 있다. 부록에 영향평가서 양식과 작성 예시, 기능별 침해 발생 가능 작동원리 예시, 영향평가 지원 안내, FAQ가 있다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>검증·인수 단계의 AI 영향평가서는 이 문서를 따라 작성한다. 부록의 양식이 산출물 양식이고, 작성 예시가 첫 초안의 길잡이다. 개인정보 영향평가와의 관계를 다루는 장은 두 평가를 한 번에 준비하는 계획을 세울 때 읽는다.</dd>
+<dt><b>주의</b></dt><dd>개인정보 영향평가와는 별개 평가다. 범위가 겹치는 항목은 근거 자료를 함께 쓰되 평가서는 각각 만든다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span>평가 세트·회귀시험</a>, <a class="pat lc-d" href="ch11.html#p-D3"><span class="pid">D3</span></a>, <a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span></a>.</dd>
+</dl>
+
+<h3 id="e-tta-trust">신뢰할 수 있는 인공지능 개발 안내서</h3>
+<p>과학기술정보통신부·TTA, 일반 2023·2024년판, 분야별 2023~2024. 배포처: <a href="https://ai.kisdi.re.kr/aieth/main/contents.do?menuNo=400041">KISDI AI 윤리 소통채널</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>일반 안내서는 15개 개발 요구사항과 67개 검증항목으로 되어 있다. 분야별 안내서는 의료, 자율주행, 공공·사회(이상 2023), 생성 AI 기반 서비스, 스마트 치안, 채용(이상 2024)이 있다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>개발사가 신뢰성 요구사항을 개발 산출물에 대응시킬 때, 발주 기관이 검증항목 일부를 인수 조건으로 고를 때 쓴다. 공공 서비스는 공공·사회 분야판을, 챗봇과 문서 생성은 생성 AI 분야판을 먼저 본다.</dd>
+<dt><b>주의</b></dt><dd>배포 페이지에는 TTA 표기가 따로 보이지 않는다. 발행 기관은 PAX 목록의 표기를 따랐다. 67개 항목 전부를 인수 조건으로 넣으면 검수가 불가능해지므로, 사업 성격에 맞는 항목을 골라 넣는다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span></a>, <a class="pat lc-f" href="ch10.html#p-F7"><span class="pid">F7</span></a>, <a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span></a>.</dd>
+</dl>
+
+<h3 id="e-kisdi-check">2026 인공지능 윤리기준 실천 자율점검표</h3>
+<p>과학기술정보통신부·KISDI, 2026.2. 배포처: <a href="https://ai.kisdi.re.kr/aieth/bbs/B0000085/view.do?menuNo=400014&amp;nttId=1132">KISDI AI 윤리 소통채널</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>게시물의 정식 명칭은 「2026 인공지능 윤리기준 실천을 위한 자율점검표(안)」이다. 인권 보장, 프라이버시 보호, 다양성 존중, 침해 금지, 공공성, 연대성, 데이터 관리, 책임성, 안전성, 투명성의 10대 핵심 요건별 점검 문항이 있고, 챗봇, 작문, 영상 관제, 채용, 영상 합성, 헬스케어의 분야별 점검표 6종이 있다. 부록은 AI 윤리기준, 국내외 주요 AI 윤리원칙, 실천 수단, 역기능 사례별 윤리적 고려사항이다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>사업 담당자는 기획 단계의 윤리 검토 기록을 이 점검표로 남긴다. 민원 챗봇이면 챗봇 분야 점검표를, CCTV 분석이면 영상 관제 점검표를 고른다.</dd>
+<dt><b>주의</b></dt><dd>"(안)"이 붙은 문서이고 자율점검표다. 법적 의무를 이행했다는 증빙으로 쓰지 않는다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd>챗봇은 <a class="pat lc-b" href="ch05.html#p-B3"><span class="pid">B3</span></a>, 영상 관제는 <a class="pat lc-b" href="ch05.html#p-B4"><span class="pid">B4</span>인식 파이프라인</a>과 <a class="pat lc-b" href="ch05.html#p-B5"><span class="pid">B5</span></a>, 작문과 영상 합성은 <a class="pat lc-b" href="ch05.html#p-B7"><span class="pid">B7</span>콘텐츠 생성기</a>.</dd>
+</dl>
+
+<h3 id="e-nhrck">인공지능 개발과 활용에 관한 인권 가이드라인</h3>
+<p>국가인권위원회, 2022(2022.4.11 전원위원회 의결). 공식 게시물 미확인(<a href="https://www.khan.co.kr/article/202204171356001">2022.4.17 보도</a>로 확인).</p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>보도에 따르면 인간의 존엄성, 알 권리, 자기결정권, 평등권을 원칙으로 고위험 AI에 중점을 두었고, 국무총리와 관계 부처·위원회에 권고하는 형식이었다. PAX 목록은 차별, 인권영향평가, 설명, 구제, 인간 감독을 다룬다고 적었다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>심사·선정·단속처럼 국민에게 불이익이 갈 수 있는 AI 사업에서 차별 검증과 구제 절차를 설계할 때 원칙의 근거로 쓴다.</dd>
+<dt><b>주의</b></dt><dd>보도에는 문서명이 "인공지능 개발과 활용을 위한 인권 가이드라인"으로도 나온다. 인용 전에 인권위 원문으로 명칭을 확인한다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-d" href="ch11.html#p-D3"><span class="pid">D3</span></a>, <a class="pat lc-f" href="ch10.html#p-F10"><span class="pid">F10</span>이용자 자기확인·피드백</a>, <a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span></a>, <a class="pat lc-f" href="ch10.html#p-F9"><span class="pid">F9</span></a>.</dd>
+</dl>
+
+<h2>문화체육관광부·한국저작권위원회</h2>
+
+<p>한국저작권위원회는 2026년 4월 30일 「AI-저작권 안내서(4종) 모음」을 게시했다(<a href="https://www.copyright.or.kr/notify/notice/view.do?brdctsno=55402">한국저작권위원회 공지</a>). 첨부 파일 네 개의 이름이 아래 네 문서명과 같다. PAX 목록은 공공기관이 외부 문서로 RAG를 만들거나 AI 결과물을 보고서·홍보물로 배포한다면 이 네 건을 적용하라고 적었다. 특히 지식베이스 문서의 이용허락과 공공누리 조건, 학습과 검색·인용의 구분, 결과물 유사성, AI 이용 사실 기록을 계약과 운영 기준에 넣으라고 했다. 공정이용 안내서 외의 세 건은 개별 발간 시기와 구성을 확인하지 못했다.</p>
+
+<h3 id="e-cr-genai">생성형 AI 저작권 안내서</h3>
+<p>문화체육관광부·한국저작권위원회. 4종 모음 게시물에 수록.</p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>생성형 AI와 저작권 전반에 관한 안내서다. 개별 구성은 확인하지 못했다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>AI로 보고서, 홍보물, 이미지를 만드는 부서가 내부 이용 지침의 저작권 항목을 쓸 때 출발점으로 쓴다.</dd>
+<dt><b>주의</b></dt><dd>세부 쟁점은 아래 세 문서가 나눠 다룬다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-b" href="ch05.html#p-B7"><span class="pid">B7</span>콘텐츠 생성기</a>, <a class="pat lc-d" href="ch11.html#p-D8_10"><span class="pid">D8.10</span>발간·홍보</a>.</dd>
+</dl>
+
+<h3 id="e-cr-reg">생성형 인공지능 활용 저작물의 저작권 등록 안내서</h3>
+<p>문화체육관광부·한국저작권위원회. 4종 모음 게시물에 수록.</p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>생성형 AI를 활용해 만든 저작물의 저작권 등록에 관한 안내서다. 개별 구성은 확인하지 못했다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>기관이 AI를 써서 만든 홍보 영상, 교재, 디자인을 기관 저작물로 등록하거나 관리하려 할 때 쓴다. 사람이 고친 부분을 기록해 두어야 하는 이유가 여기서 나온다.</dd>
+<dt><b>주의</b></dt><dd>등록 실무는 원문과 한국저작권위원회 안내로 확인한다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-f" href="ch10.html#p-F2"><span class="pid">F2</span>편집 가능한 출력</a>, <a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span></a>.</dd>
+</dl>
+
+<h3 id="e-cr-dispute">생성형 인공지능 결과물에 의한 저작권 분쟁 예방 안내서</h3>
+<p>문화체육관광부·한국저작권위원회. 4종 모음 게시물에 수록.</p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>AI 결과물이 기존 저작물과 닮아 생기는 분쟁을 예방하는 안내서다. 개별 구성은 확인하지 못했다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>운영 단계에서 AI 결과물을 외부로 배포하는 부서가 배포 전 확인 절차를 만들 때 쓴다. PAX 목록이 꼽은 결과물 유사성과 AI 이용 사실 기록이 이 절차의 항목이다.</dd>
+<dt><b>주의</b></dt><dd>지식베이스 문서를 그대로 옮겨 답하는 RAG 서비스도 결과물 유사성 문제를 안는다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-f" href="ch10.html#p-F1"><span class="pid">F1</span>출처 표시</a>, <a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span>검토 큐</a>, <a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span></a>.</dd>
+</dl>
+
+<h3 id="e-cr-fairuse">생성형 인공지능의 저작물 학습에 대한 저작권법상 공정이용 안내서</h3>
+<p>문화체육관광부·한국저작권위원회, 2026.2.26 발간. 4종 모음 게시물에 수록.</p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>AI 학습에 저작물을 쓰는 경우의 공정이용 판단 안내다. 이용의 목적과 성격, 저작물의 종류와 용도, 이용 비중, 시장에 미치는 영향의 네 요소로 판단하며, 상업적 목적이나 웹 크롤링이라는 사실만으로 공정이용에서 자동으로 빠지지는 않는다고 설명한다. 법적 구속력이 없는 참고 자료라고 스스로 밝혔다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>모델을 튜닝하거나 외부 문서를 지식베이스에 넣는 사업이라면 데이터 수집 계획서의 저작권 검토 칸을 이 문서로 채운다. 학습과 검색·인용을 구분하라는 PAX 목록의 메모는 이 문서와 RAG 운영 기준을 나눠 적으라는 뜻이다.</dd>
+<dt><b>주의</b></dt><dd>공정이용 판단은 사안별이다. 공공누리 유형이나 이용허락이 확인되는 자료를 먼저 쓰고, 공정이용은 그 다음 근거로 둔다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-a" href="ch07.html#p-A1"><span class="pid">A1</span></a>, <a class="pat lc-b" href="ch05.html#p-B3"><span class="pid">B3</span>지식 접지 상담</a>, <a class="pat lc-s" href="ch09.html#p-S11"><span class="pid">S11</span>인제스천·공급망 검증</a>, <a class="pat lc-a" href="ch07.html#p-A2_3"><span class="pid">A2.3</span>튜닝형</a>.</dd>
+</dl>
+
+<h2>산업통상부·국가기술표준원·KS 국가표준</h2>
+
+<p>이 절의 문서는 PAX 안내서 목록에 없다. 이 책이 따로 보탰다. 산업통상부(조직 개편 전 산업통상자원부)는 제조 현장의 AI 전환 정책을 내고, 그 소속인 국가기술표준원(국표원)은 AI 국가표준(KS)을 고시한다. 공공 AX 사업에서 이 문서들이 걸리는 자리는 두 곳이다. 산업 현장 데이터나 설비를 다루는 기관은 산업통상부 전략에서 사업 방향과 지원 사업을 찾는다. 모든 기관은 KS로 들어온 ISO/IEC 표준을 용어, 위험관리, 경영체계, 성능 평가의 공통 기준으로 쓴다. 행정안전부나 국가정보원 문서가 "무엇을 하라"고 할 때, KS는 "어떤 말과 절차로 하라"를 정한다. KS 항목의 발행일·고시번호·적용범위는 한국표준정보망(<a href="https://www.kssn.net/">kssn.net</a>)의 표준 상세 정보에서, 정책 문서는 산업통상부와 국표원 보도자료에서 확인했고, 2026년 10월에 열람했다.</p>
+
+<h3 id="e-motir-mai2030">제조AI 2030 전략</h3>
+<p>산업통상부, 2026.6(2026.6.29 공개). 현행. 배포처: <a href="https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171975/view">산업통상부 참고자료</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>정식 제목은 「대한민국 제조업 대전환의 길: 제조AI 2030 전략」이다. 과학기술정보통신부, 중소벤처기업부, 국가인공지능전략위원회 제조TF가 함께 만들었다. 핵심 과제는 셋이다. 국가 차원의 제조데이터 관리·활용 체계 구축, 제조업 특화 AI 모델 개발, 지역 제조AI 확산이다. 부처별로 흩어진 제조데이터를 보안이 갖춰진 국가 제조데이터 라이브러리로 잇고, 표준화·암호화·비식별화 체계를 설계하겠다고 했다. 은퇴를 앞둔 숙련공의 노하우를 데이터로 바꾸는 사업과 제조AX 인증 제도 도입도 들어 있다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>산업단지, 지역 제조 지원, 산업 데이터 플랫폼을 맡은 지자체·공공기관이 사업계획서의 정책 근거와 연계 사업을 적을 때 편다. 기관이 가진 제조·설비 데이터를 외부와 나누는 사업이라면 데이터 수집 계획서에서 라이브러리 체계와의 연계를 검토한다.</dd>
+<dt><b>주의</b></dt><dd>정책 전략이며 사업 수행 지침이 아니다. 라이브러리와 인증 제도의 세부 기준은 후속 사업 공고와 법 개정(「산업디지털전환 및 인공지능 활용 촉진법」)을 확인한다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd>제조데이터 라이브러리는 <a class="pat lc-a" href="ch07.html#p-A1"><span class="pid">A1</span>데이터 자산 서비스</a>와 <a class="pat lc-s" href="ch09.html#p-S13"><span class="pid">S13</span>로컬 비식별 게이트</a>의 조합이다. 숙련공 노하우의 데이터화는 <a class="pat lc-c" href="ch08.html#p-C6"><span class="pid">C6</span>환류 파이프라인</a>으로 현장 판단을 쌓는 일과 같은 방향이다. 설비에 붙는 AI는 <a class="pat lc-b" href="ch05.html#p-B5"><span class="pid">B5</span>현장 감지·경보</a>와 <a class="pat lc-a" href="ch07.html#p-A11"><span class="pid">A11</span>액추에이션·현장 통지 어댑터</a>.</dd>
+</dl>
+
+<h3 id="e-motie-autonomous">AI 자율제조 전략 1.0</h3>
+<p>산업통상자원부, 2024.5(2024.5.8 AI 시대의 신산업정책 위원회 출범식에서 발표). 선행 전략. 배포처: 산업통상자원부 보도자료(언론 보도로 확인)</p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>AI 자율제조 도입 확산, 핵심역량 확보, 생태계 진흥의 세 전략이다. 2030년까지 AI 자율제조 확산률을 30% 이상으로, 제조 생산성을 20% 이상 높이겠다는 목표와 200대 선도 프로젝트, 민·관·연 자율제조 얼라이언스 구성을 담았다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>이미 이 전략에 따라 선정된 지역 선도 프로젝트를 이어받거나 평가할 때 당시의 목표와 지표를 확인하는 용도다.</dd>
+<dt><b>주의</b></dt><dd>산업통상자원부는 2025년 5월 사업명을 AI 팩토리로 바꾸고 확대 개편했고, 2026년 6월 제조AI 2030 전략이 나왔다. 신규 사업의 근거는 제조AI 2030 전략으로 쓴다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-b" href="ch05.html#p-B5"><span class="pid">B5</span></a>, <a class="pat lc-a" href="ch07.html#p-A5"><span class="pid">A5</span>엣지 추론 런타임</a>, <a class="pat lc-c" href="ch08.html#p-C3"><span class="pid">C3</span>상태 머신·롤백</a>.</dd>
+</dl>
+
+<h3 id="e-kats-roadmap">인공지능(AI) 표준화 전략 로드맵</h3>
+<p>산업통상자원부 국가기술표준원, 2024.8(2024.8.28 제2차 AI산업정책위원회에서 발표). 배포처: 국가기술표준원 보도자료(언론 보도로 확인)</p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>국제표준 17종을 적기에 개발하고 국가표준 30종을 보급한다는 계획이다. 30종은 고유표준 7종, ISO/IEC 42001 같은 국제표준 부합화 13종, 자동차·조선·철강·제조로봇 등 주력 산업 현장용 업종별 맞춤형 표준 10종으로 이루어진다. 생성형 AI 모델의 안전성 평가 표준 개발과 산업인공지능 표준화포럼 확대 운영도 들어 있다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>과업지시서에 "관련 표준 준수"를 적으려는 담당자가 어떤 AI 표준이 이미 KS로 들어왔고 어떤 것이 개발 중인지 가늠할 때 편다. 아래 KS 항목들이 이 로드맵의 국제표준 부합화 몫이다.</dd>
+<dt><b>주의</b></dt><dd>2026년 3월 제6차 국가표준기본계획이 국가 AI 표준화 전략 로드맵을 새로 수립하겠다고 밝혔으므로, 개정 로드맵이 나오면 그것을 먼저 본다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd>안전성 평가 표준은 <a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span>평가 세트·회귀시험</a>의 시험 항목을 정할 근거가 된다.</dd>
+</dl>
+
+<h3 id="e-kats-6th">제6차 국가표준기본계획(2026~2030)</h3>
+<p>18개 부·처·청 합동(국가기술표준원 표준정책과 주관), 2026.3(2026.3.31 발표). 현행. 배포처: <a href="https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171649/view">산업통상부 보도자료</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>미래 핵심산업 및 AI 기반·융합 표준 선도, 국민체감 표준 인프라 확대, 기술규제 대응 및 인증·인정 혁신, 혁신적 표준 생태계 조성의 4대 전략과 129개 실행과제다. 2026년 2월 대한민국 인공지능행동계획에 따라 그해 안에 국가 AI 표준화 거버넌스 체계를 만들고 국가 AI 표준화 전략 로드맵을 세운다고 적었다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>기관의 중장기 AI 계획이나 정보화 기본계획에서 표준 적용 방향을 쓸 때 상위 근거로 인용한다. 개별 사업에서 직접 펴는 일은 드물다.</dd>
+<dt><b>주의</b></dt><dd>계획 문서다. 실제 적용할 표준은 고시된 KS 번호로 적는다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd>직접 대응하는 부품은 없다. 표준화 거버넌스가 서면 <a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span>감사 로그·지표</a>의 기록 항목을 표준 용어로 맞추는 근거가 된다.</dd>
+</dl>
+
+<h3 id="e-ks-42001">KS X ISO/IEC 42001 인공지능 경영시스템</h3>
+<p>국가기술표준원 고시 제2025-0413호, 발행 2025.10.30(한국표준협회). ISO/IEC 42001:2023과 일치(IDT). 배포처: <a href="https://www.kssn.net/search/stddetail.do?itemNo=K001010154495">한국표준정보망</a>, 제정 예고는 <a href="https://kats.go.kr/content.do?cmsid=240&amp;cid=24824&amp;mode=view">국표원 보도자료(2024.11.28)</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>AI 제품·서비스를 제공하거나 활용하는 조직이 AI 경영시스템을 세우고 운영하는 요구사항이다. 국표원 보도자료는 AI 시스템의 구축·운영·유지 계획 수립, 리스크 대처와 평가, 데이터 관리, 투명성 확보를 주요 요구사항으로 꼽았다. 인용표준으로 KS X ISO/IEC 22989, 23894, 23053, 27001이 걸려 있다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>기관이 AI 서비스를 여러 개 운영하면서 책임자, 위험 평가 주기, 변경 관리, 기록 보존을 기관 차원의 규정으로 묶으려 할 때 뼈대로 쓴다. 외부 AI 사업자를 고를 때 42001 인증이나 그에 준하는 관리체계를 평가 항목에 넣을 수도 있다. 이미 정보보호 관리체계(27001 계열, ISMS-P)를 운영하는 기관이면 같은 구조에 AI 항목을 덧붙이는 방식이 수월하다.</dd>
+<dt><b>주의</b></dt><dd>요구사항 표준이라 개별 서비스의 설계를 정해 주지 않는다. 사업 단위의 통제는 국정원·KISA·개보위 문서로 내려가서 정한다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span>감사 로그·지표</a>, <a class="pat lc-c" href="ch08.html#p-C2"><span class="pid">C2</span>위험도 라우터</a>, <a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span></a>. 관리체계가 없으면 서비스가 <a class="pat lc-x" href="ch14.html#p-X9"><span class="pid">X9</span>담당자와 함께 사라지는 도구</a>가 되기 쉽다.</dd>
+</dl>
+
+<h3 id="e-ks-23894">KS X ISO/IEC 23894 인공지능 리스크관리 지침</h3>
+<p>국가기술표준원 고시 제2025-0413호, 발행 2025.10.30. ISO/IEC 23894:2023과 일치(IDT). 배포처: <a href="https://www.kssn.net/search/stddetail.do?itemNo=K001010154496">한국표준정보망</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>AI를 활용하는 제품·시스템·서비스를 개발, 생산, 배치, 사용하는 조직이 AI 관련 리스크를 관리하는 방법과, 리스크관리를 AI 활동과 기능에 통합하는 방법에 대한 지침이다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>사업계획서나 영향평가서의 위험 식별·평가 절차를 쓸 때 용어와 절차의 틀로 쓴다. 금융분야 AI 위험관리프레임워크나 AI 프라이버시 리스크 관리 모델처럼 분야별 문서가 없는 기관은 이 지침으로 위험 대장의 칸을 정한다.</dd>
+<dt><b>주의</b></dt><dd>지침(guidance) 표준이어서 인증 대상이 아니다. 42001의 리스크 요구사항을 이행하는 방법을 보탤 때 함께 편다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-c" href="ch08.html#p-C2"><span class="pid">C2</span>위험도 라우터</a>, <a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span></a>, <a class="pat lc-s" href="ch09.html#p-S8"><span class="pid">S8</span></a>.</dd>
+</dl>
+
+<h3 id="e-ks-23053">KS X ISO/IEC 23053 기계 학습(ML)을 사용하는 인공지능(AI) 시스템 프레임워크</h3>
+<p>국가기술표준원 고시 제2025-0413호, 발행 2025.10.30. ISO/IEC 23053:2022와 일치(IDT). 배포처: <a href="https://www.kssn.net/search/stddetail.do?itemNo=K001010154497">한국표준정보망</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>기계 학습을 쓰는 일반적인 AI 시스템을 설명하는 프레임워크다. AI 생태계 안의 시스템 구성요소와 그 기능을 설명하며, 공공·민간, 정부 기관, 비영리 조직을 포함한 모든 유형과 규모의 조직에 적용된다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>아키텍처 설계서에서 데이터, 모델, 학습, 추론 구성요소를 이름 붙여 나눌 때 공통 어휘로 쓴다. 발주기관과 사업자가 구성도를 놓고 서로 다른 말을 쓰는 일을 줄인다.</dd>
+<dt><b>주의</b></dt><dd>기술 프레임워크이며 보안·망 요구는 다루지 않는다. 망 설계는 N²SF와 AI보안 가이드북으로 정한다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-a" href="ch07.html#p-A2"><span class="pid">A2</span>모델 서빙 계층</a>, <a class="pat lc-a" href="ch07.html#p-A1"><span class="pid">A1</span></a>. 이 책의 여덟 계층(4장)과 23053의 구성요소를 대응시켜 두면 설계서와 표준 용어를 오가기 쉽다.</dd>
+</dl>
+
+<h3 id="e-ks-4213">KS X ISO/IEC TS 4213 기계 학습 분류 성능에 대한 평가</h3>
+<p>국가기술표준원 고시 제2025-0413호, 발행 2025.10.30. ISO/IEC TS 4213:2022와 일치(IDT). 배포처: <a href="https://www.kssn.net/search/stddetail.do?itemNo=K001010154499">한국표준정보망</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>기계 학습 모델, 시스템, 알고리즘의 분류 성능을 측정하는 방법론을 규정한다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>민원 분류, 문서 유형 판별, 이상 탐지처럼 분류 모델을 납품받는 사업에서 인수 시험 계획서의 성능 지표와 측정 방법을 정할 때 쓴다. 과업지시서에 "정확도 90% 이상"만 적으면 측정 방법을 두고 다툼이 생긴다. 이 표준을 인용해 지표 정의와 평가 데이터 구성을 함께 적는다.</dd>
+<dt><b>주의</b></dt><dd>분류 성능에 한정된다. 생성형 AI의 답변 품질 평가는 이 표준의 범위가 아니다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span>평가 세트·회귀시험</a>, <a class="pat lc-b" href="ch05.html#p-B2"><span class="pid">B2</span>예측·추천기</a>, <a class="pat lc-f" href="ch10.html#p-F7"><span class="pid">F7</span>한계·신뢰도 안내</a>.</dd>
+</dl>
+
+<h3 id="e-ks-22989">KS X ISO/IEC 22989 인공지능 개념 및 용어, KS X ISO/IEC TR 24028 인공지능의 신뢰성 개요</h3>
+<p>국가기술표준원 고시 제2023-0612호, 두 표준 모두 발행 2023.12.14. 각각 ISO/IEC 22989:2022, ISO/IEC TR 24028:2020과 일치(IDT). 배포처: 한국표준정보망 <a href="https://www.kssn.net/search/stddetail.do?itemNo=K001010146001">22989</a>, <a href="https://www.kssn.net/search/stddetail.do?itemNo=K001010146004">TR 24028</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>22989는 AI 용어를 정하고 개념을 설명한다. 다른 표준을 만들거나 이해관계자끼리 소통할 때 쓰도록 했고, 영리 기업, 정부 기관, 비영리 조직 등 모든 유형의 조직에 적용된다. TR 24028은 AI 서비스를 제공하거나 활용하는 시스템의 신뢰성에 영향을 주는 요인을 분석하고, 기술 시스템의 신뢰성을 높이는 기존 접근 방식과 그 AI 적용 가능성을 살핀 기술보고서다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>과업지시서와 제안요청서의 용어 정의 절에 22989를 인용하면 "학습", "추론", "AI 시스템" 같은 말의 범위를 두고 다투는 일이 준다. TR 24028은 신뢰성 요구사항을 처음 정리하는 기획 단계에서 점검 항목의 출처로 쓴다.</dd>
+<dt><b>주의</b></dt><dd>TR은 기술보고서라 요구사항이 아니다. 신뢰성 검증 항목은 TTA 신뢰할 수 있는 AI 개발 안내서처럼 구체 문서로 내려간다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd>용어 표준이어서 특정 부품보다 이 책의 계층 설명(4장) 전체와 잇닿는다. 신뢰성 요인은 <a class="pat lc-f" href="ch10.html#p-F7"><span class="pid">F7</span></a>, <a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span>검토 큐</a>, <a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span></a>로 이행한다.</dd>
+</dl>
+
+<h3 id="e-ks-8001">KS X 8001 인공지능 윤리에 대한 이해관계자 공통 영향 요소 및 유스케이스 수집 템플릿</h3>
+<p>국가기술표준원 고시 제2023-0128호, 발행 2023.6.13. 국내 고유 표준. 배포처: <a href="https://www.kssn.net/search/stddetail.do?itemNo=K001010143295">한국표준정보망</a></p>
+<dl>
+<dt><b>담은 내용</b></dt><dd>AI 기술, 데이터, 알고리즘 사용에 관한 윤리 유스케이스를 규정한다. 윤리적 사용을 위한 심각성 수준 설정, 이해관계자와 시나리오 정의, 다룰 수 있는 이슈를 기술하며, 인공지능 윤리 표준화 포럼이 정하는 윤리 항목을 정의하는 것이 목적이다.</dd>
+<dt><b>쓰는 작업</b></dt><dd>기획 단계에서 서비스가 누구에게 어떤 영향을 주는지 정리할 때 수집 템플릿의 칸을 빌려 쓴다. 인권·윤리 자율점검표나 고영향 판단 가이드라인을 채우기 전에 이해관계자와 시나리오를 먼저 적어 두면 판단이 빨라진다.</dd>
+<dt><b>주의</b></dt><dd>국제표준 부합화가 아닌 국내 고유 표준이다. 해외 사업자에게 요구할 때는 대응 국제표준이 없다는 점을 감안한다.</dd>
+<dt><b>이어지는 패턴</b></dt><dd><a class="pat lc-d" href="ch11.html#p-D3"><span class="pid">D3</span>자격·심사</a>, <a class="pat lc-c" href="ch08.html#p-C2"><span class="pid">C2</span></a>, <a class="pat lc-f" href="ch10.html#p-F9"><span class="pid">F9</span>판정 근거·기여도 표시</a>.</dd>
+</dl>
+
+<h2>작업별 빠른 찾기</h2>
+
+<p>표 E.2는 공공 AX 현장에서 자주 생기는 작업을 출발점으로 문서를 고른다. 문서는 먼저 펼 것부터 적었다. 기관별 절의 항목 이름을 그대로 썼으므로 찾아 들어가면 된다.</p>
+
+<div class="tbl"><table><caption><b>표 E.2</b> 작업별로 펴는 문서</caption>
+<thead><tr><th>작업</th><th>먼저 펴는 문서</th><th>함께 보는 문서</th><th>주요 부품</th></tr></thead>
+<tbody>
+<tr><td class="k">AI 사업계획서와 예산 요구서를 쓴다</td><td>공공부문 AI 도입·활용 가이드(2026.6)</td><td>고영향 인공지능 판단 가이드라인, AI 도입·활용 사례집, AI 정부 서비스 사례집</td><td>12장, <a class="pat lc-a" href="ch07.html#p-A2"><span class="pid">A2</span></a></td></tr>
+<tr><td class="k">외부 문서로 RAG 지식베이스를 만든다</td><td>공공데이터의 인공지능 친화적 관리 가이드라인</td><td>공정이용 안내서, 공개된 개인정보 처리 안내서, 인공지능(AI) 보안 안내서</td><td><a class="pat lc-b" href="ch05.html#p-B3"><span class="pid">B3</span></a>, <a class="pat lc-a" href="ch07.html#p-A10"><span class="pid">A10</span></a>, <a class="pat lc-s" href="ch09.html#p-S11"><span class="pid">S11</span></a>, <a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span></a></td></tr>
+<tr><td class="k">직원이 외부 생성형 AI를 쓰게 한다</td><td>생성형 AI 서비스 이용자를 위한 개인정보 보호 가이드</td><td>국정원 생성형 AI 활용 보안 가이드라인(2023), N²SF, 금융권은 SaaS 망분리 예외 해설서</td><td><a class="pat lc-b" href="ch05.html#p-B1"><span class="pid">B1</span></a>, <a class="pat lc-s" href="ch09.html#p-S13"><span class="pid">S13</span></a>, <a class="pat lc-s" href="ch09.html#p-S1"><span class="pid">S1</span></a></td></tr>
+<tr><td class="k">상용 모델 API를 업무망에서 쓴다</td><td>N²SF 보안가이드라인 1.0</td><td>국가·공공기관 AI보안 가이드북, CSAP 제도 안내, N2SF 실증 사례집</td><td><a class="pat lc-a" href="ch07.html#p-A2_1"><span class="pid">A2.1</span></a>, <a class="pat lc-a" href="ch07.html#p-A2_4"><span class="pid">A2.4</span></a>, <a class="pat lc-s" href="ch09.html#p-S12"><span class="pid">S12</span></a></td></tr>
+<tr><td class="k">심사·선정에 AI를 쓴다</td><td>고영향 인공지능 판단 가이드라인</td><td>자동화된 결정에 대한 정보주체 권리 안내서, 공공 AX 프라이버시 보호 안내서(선별·판단 유형), 인권 가이드라인, 사업자 책무 가이드라인</td><td><a class="pat lc-d" href="ch11.html#p-D3"><span class="pid">D3</span></a>, <a class="pat lc-c" href="ch08.html#p-C1_2"><span class="pid">C1.2</span></a>, <a class="pat lc-f" href="ch10.html#p-F9"><span class="pid">F9</span></a>, <a class="pat lc-f" href="ch10.html#p-F10"><span class="pid">F10</span></a></td></tr>
+<tr><td class="k">MCP 서버를 열거나 연결한다</td><td>국가·공공기관 AI보안 가이드북(에이전틱 AI 장)</td><td>SW 공급망 보안 가이드라인 1.0, 소프트웨어 보안약점 진단가이드, 제로트러스트 가이드라인 2.0, AI·ML 공급망 위험</td><td><a class="pat lc-a" href="ch07.html#p-A8"><span class="pid">A8</span></a>, <a class="pat lc-c" href="ch08.html#p-C8"><span class="pid">C8</span></a>, <a class="pat lc-s" href="ch09.html#p-S4"><span class="pid">S4</span></a>, 17장 MCP 검증</td></tr>
+<tr><td class="k">에이전트에 업무 처리 권한을 준다</td><td>국가·공공기관 AI보안 가이드북</td><td>제로트러스트 가이드라인 2.0, AI 보안 위협 대응 매뉴얼</td><td><a class="pat lc-b" href="ch05.html#p-B6"><span class="pid">B6</span></a>, <a class="pat lc-s" href="ch09.html#p-S5"><span class="pid">S5</span></a>, <a class="pat lc-c" href="ch08.html#p-C8"><span class="pid">C8</span></a>, <a class="pat lc-f" href="ch10.html#p-F6"><span class="pid">F6</span></a></td></tr>
+<tr><td class="k">모바일 민원 챗봇을 연다</td><td>모바일 대민서비스 보안취약점 점검 가이드</td><td>투명성 확보 가이드라인, AI 보안 안내서, 공공 AX 프라이버시 보호 안내서, 윤리 자율점검표(챗봇)</td><td><a class="pat lc-d" href="ch11.html#p-D1"><span class="pid">D1</span></a>, <a class="pat lc-b" href="ch05.html#p-B3"><span class="pid">B3</span></a>, <a class="pat lc-f" href="ch10.html#p-F7"><span class="pid">F7</span></a>, <a class="pat lc-f" href="ch10.html#p-F11"><span class="pid">F11</span></a></td></tr>
+<tr><td class="k">배포 전 공격 시험을 한다</td><td>AI 보안 레드티밍 가이드</td><td>AI 보안 위협 대응 매뉴얼, 인공지능 위험 사례집</td><td><a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span></a>, <a class="pat lc-s" href="ch09.html#p-S8"><span class="pid">S8</span></a>, <a class="pat lc-c" href="ch08.html#p-C5"><span class="pid">C5</span></a></td></tr>
+<tr><td class="k">AI 학습·분석에 민원 데이터를 쓴다</td><td>가명정보 처리 가이드라인</td><td>합성데이터 생성·활용 안내서, 생성형 AI 개인정보 처리 안내서, AI 프라이버시 리스크 관리 모델</td><td><a class="pat lc-s" href="ch09.html#p-S13"><span class="pid">S13</span></a>, <a class="pat lc-d" href="ch11.html#p-D8_8"><span class="pid">D8.8</span></a>, <a class="pat lc-a" href="ch07.html#p-A1"><span class="pid">A1</span></a></td></tr>
+<tr><td class="k">영향평가서를 쓴다</td><td>개인정보 영향평가 수행안내서(2025.12 수정)</td><td>인공지능 영향평가 가이드라인(양식·작성 예시)</td><td><a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span></a>, <a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span></a></td></tr>
+<tr><td class="k">AI로 홍보물·보고서를 만들어 배포한다</td><td>생성형 인공지능 결과물에 의한 저작권 분쟁 예방 안내서</td><td>생성형 AI 저작권 안내서, 투명성 확보 가이드라인(생성물 표시)</td><td><a class="pat lc-b" href="ch05.html#p-B7"><span class="pid">B7</span></a>, <a class="pat lc-d" href="ch11.html#p-D8_10"><span class="pid">D8.10</span></a>, <a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span></a></td></tr>
+<tr><td class="k">오픈소스 모델을 내부망에 들인다</td><td>인공지능과 머신러닝 공급망 위험 및 완화방안</td><td>SW 공급망 보안 가이드라인 1.0, 주요정보통신기반시설 기술적 취약점 상세가이드</td><td><a class="pat lc-a" href="ch07.html#p-A2_2"><span class="pid">A2.2</span></a>, <a class="pat lc-s" href="ch09.html#p-S11"><span class="pid">S11</span></a></td></tr>
+<tr><td class="k">현장 장비·센서에 AI를 붙인다</td><td>OT 환경의 제로트러스트 적용 안내서</td><td>국가·공공기관 AI보안 가이드북(피지컬 AI), 관리·물리적 취약점 안내서</td><td><a class="pat lc-a" href="ch07.html#p-A11"><span class="pid">A11</span></a>, <a class="pat lc-a" href="ch07.html#p-A5"><span class="pid">A5</span></a>, <a class="pat lc-b" href="ch05.html#p-B5"><span class="pid">B5</span></a></td></tr>
+<tr><td class="k">운영 중 사고에 대응한다</td><td>AI 보안 위협 대응 매뉴얼</td><td>개인정보의 안전성 확보조치 기준 안내서, 금융권은 프런티어 AI 대응 요령</td><td><a class="pat lc-s" href="ch09.html#p-S10"><span class="pid">S10</span></a>, <a class="pat lc-c" href="ch08.html#p-C7"><span class="pid">C7</span></a>, <a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span></a></td></tr>
+<tr><td class="k">기관 차원의 AI 관리체계를 세운다</td><td>KS X ISO/IEC 42001</td><td>KS X ISO/IEC 23894, KS X ISO/IEC 22989(용어), 공공부문 AI 도입·활용 가이드</td><td><a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span></a>, <a class="pat lc-c" href="ch08.html#p-C2"><span class="pid">C2</span></a>, <a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span></a></td></tr>
+<tr><td class="k">분류 모델의 인수 시험 기준을 정한다</td><td>KS X ISO/IEC TS 4213</td><td>신뢰할 수 있는 AI 개발 안내서, AI 보안 레드티밍 가이드</td><td><a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span></a>, <a class="pat lc-b" href="ch05.html#p-B2"><span class="pid">B2</span></a></td></tr>
+<tr><td class="k">제조·산업 현장 데이터로 AI 사업을 기획한다</td><td>제조AI 2030 전략</td><td>OT 환경의 제로트러스트 적용 안내서, 가명정보 처리 가이드라인, 인공지능(AI) 표준화 전략 로드맵</td><td><a class="pat lc-a" href="ch07.html#p-A1"><span class="pid">A1</span></a>, <a class="pat lc-b" href="ch05.html#p-B5"><span class="pid">B5</span></a>, <a class="pat lc-s" href="ch09.html#p-S13"><span class="pid">S13</span></a></td></tr>
+<tr><td class="k">금융 업무에 AI를 들인다</td><td>금융분야 인공지능 가이드라인</td><td>금융분야 AI 위험관리프레임워크, 금융분야 인공지능 보안 안내서, AI 기반 신용평가모형 검증체계</td><td><a class="pat lc-c" href="ch08.html#p-C2"><span class="pid">C2</span></a>, <a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span></a>, <a class="pat lc-b" href="ch05.html#p-B2"><span class="pid">B2</span></a></td></tr>
+</tbody></table></div>
+
+<h2>패턴과 문서의 대응</h2>
+
+<p>설계가 먼저 있는 경우가 있다. 부품 목록을 손에 쥔 개발 책임자는 이 부품을 넣으면 어느 문서의 요구를 채우는지, 빼면 어느 문서의 요구가 비는지를 알고 싶어 한다. 표 E.3은 이 책의 부품에서 문서로 거꾸로 찾는 표다. 부품마다 그 부품이 이행 수단이 되는 문서를 적었다.</p>
+
+<div class="tbl"><table><caption><b>표 E.3</b> 부품별로 이어지는 문서</caption>
+<thead><tr><th>부품</th><th>이 부품이 이행 수단이 되는 문서</th></tr></thead>
+<tbody>
+<tr><td class="k"><a class="pat lc-a" href="ch07.html#p-A1"><span class="pid">A1</span></a>, <a class="pat lc-a" href="ch07.html#p-A3"><span class="pid">A3</span></a>, <a class="pat lc-a" href="ch07.html#p-A10"><span class="pid">A10</span></a></td><td>공공데이터의 인공지능 친화적 관리 가이드라인, 공개된 개인정보 처리 안내서, 공정이용 안내서</td></tr>
+<tr><td class="k"><a class="pat lc-a" href="ch07.html#p-A2"><span class="pid">A2</span></a> 계열</td><td>공공부문 AI 도입·활용 가이드(공통기반), N²SF, CSAP, 생성형 AI 개인정보 처리 안내서(세 활용 유형), 최첨단 AI 안전성 가이드라인</td></tr>
+<tr><td class="k"><a class="pat lc-a" href="ch07.html#p-A8"><span class="pid">A8</span></a></td><td>국가·공공기관 AI보안 가이드북(에이전틱 AI), SW 공급망 보안 가이드라인, 보안약점 진단가이드</td></tr>
+<tr><td class="k"><a class="pat lc-a" href="ch07.html#p-A5"><span class="pid">A5</span></a>, <a class="pat lc-a" href="ch07.html#p-A11"><span class="pid">A11</span></a>, <a class="pat lc-b" href="ch05.html#p-B5"><span class="pid">B5</span></a></td><td>AI보안 가이드북(피지컬 AI), OT 환경 제로트러스트 안내서, 관리·물리적 취약점 안내서, 제조AI 2030 전략</td></tr>
+<tr><td class="k"><a class="pat lc-b" href="ch05.html#p-B3"><span class="pid">B3</span></a></td><td>공공부문 AI 도입·활용 가이드(RAG 우선), AI 친화적 데이터 가이드라인, 저작권 안내서 4종</td></tr>
+<tr><td class="k"><a class="pat lc-b" href="ch05.html#p-B2"><span class="pid">B2</span></a>, <a class="pat lc-d" href="ch11.html#p-D3"><span class="pid">D3</span></a></td><td>고영향 AI 판단·사업자 책무 가이드라인, 자동화된 결정 안내서, 인권 가이드라인, 신용평가모형 검증체계, 금융 AI 가이드라인</td></tr>
+<tr><td class="k"><a class="pat lc-b" href="ch05.html#p-B7"><span class="pid">B7</span></a></td><td>투명성 확보 가이드라인(생성물 표시), 저작권 안내서 4종</td></tr>
+<tr><td class="k"><a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span></a>, <a class="pat lc-c" href="ch08.html#p-C1_2"><span class="pid">C1.2</span></a></td><td>금융 AI 가이드라인(보조수단성), 사업자 책무 가이드라인, 자동화된 결정 안내서, 신뢰가능 AI 실용가이드(인간개입)</td></tr>
+<tr><td class="k"><a class="pat lc-c" href="ch08.html#p-C2"><span class="pid">C2</span></a></td><td>금융분야 AI 위험관리프레임워크, AI 프라이버시 리스크 관리 모델, 고영향 AI 판단 가이드라인, KS X ISO/IEC 23894</td></tr>
+<tr><td class="k"><a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span></a></td><td>안전성 확보조치 기준 안내서, 개인정보 영향평가 수행안내서, AI 영향평가 가이드라인, 위협 대응 매뉴얼, KS X ISO/IEC 42001</td></tr>
+<tr><td class="k"><a class="pat lc-c" href="ch08.html#p-C5"><span class="pid">C5</span></a>, <a class="pat lc-s" href="ch09.html#p-S3"><span class="pid">S3</span></a></td><td>인공지능(AI) 보안 안내서, 공공 AX 프라이버시 보호 안내서(입출력 필터링), 금융 AI 보안 안내서</td></tr>
+<tr><td class="k"><a class="pat lc-c" href="ch08.html#p-C8"><span class="pid">C8</span></a></td><td>제로트러스트 가이드라인 2.0·성숙도 해설서, AI보안 가이드북, 위협 대응 매뉴얼</td></tr>
+<tr><td class="k"><a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span></a>, <a class="pat lc-s" href="ch09.html#p-S8"><span class="pid">S8</span></a></td><td>AI 보안 레드티밍 가이드, 신뢰할 수 있는 AI 개발 안내서(검증항목), AI 영향평가 가이드라인, 합성데이터 안내서, KS X ISO/IEC TS 4213</td></tr>
+<tr><td class="k"><a class="pat lc-s" href="ch09.html#p-S1"><span class="pid">S1</span></a>, <a class="pat lc-s" href="ch09.html#p-S2"><span class="pid">S2</span></a></td><td>N²SF, 제로트러스트 가이드라인 2.0, 안전성 확보조치 기준 안내서</td></tr>
+<tr><td class="k"><a class="pat lc-s" href="ch09.html#p-S10"><span class="pid">S10</span></a></td><td>AI 보안 위협 대응 매뉴얼, AI 보안 레드티밍 가이드(재시험)</td></tr>
+<tr><td class="k"><a class="pat lc-s" href="ch09.html#p-S11"><span class="pid">S11</span></a></td><td>AI·ML 공급망 위험 및 완화방안, SW 공급망 보안 가이드라인·로드맵, AI 보안 안내서</td></tr>
+<tr><td class="k"><a class="pat lc-s" href="ch09.html#p-S12"><span class="pid">S12</span></a>, <a class="pat lc-s" href="ch09.html#p-S13"><span class="pid">S13</span></a></td><td>공공 AX 프라이버시 보호 안내서, 가명정보 처리 가이드라인, 생성형 AI 이용자 가이드, N²SF</td></tr>
+<tr><td class="k"><a class="pat lc-f" href="ch10.html#p-F1"><span class="pid">F1</span></a>, <a class="pat lc-f" href="ch10.html#p-F7"><span class="pid">F7</span></a></td><td>투명성 확보 가이드라인, 분쟁 예방 안내서, 신뢰가능 AI 실용가이드(고객소통)</td></tr>
+<tr><td class="k"><a class="pat lc-f" href="ch10.html#p-F9"><span class="pid">F9</span></a>, <a class="pat lc-f" href="ch10.html#p-F10"><span class="pid">F10</span></a></td><td>자동화된 결정 안내서(설명·검토 요구권), 신용평가모형 검증체계(설명가능성), 인권 가이드라인(구제)</td></tr>
+</tbody></table></div>
+
+<p>표 E.3에 한 번도 나오지 않는 부품이 있다고 해서 그 부품에 규범 근거가 없다는 뜻은 아니다. 문서들이 통제를 요구할 뿐 구현 방식을 정하지 않기 때문에, 같은 요구를 다른 부품으로 채우는 설계도 성립한다. 반대로 표에 자주 나오는 <a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span>감사 로그·지표</a>와 <a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span>검토 큐</a>를 빼면 여러 문서의 요구가 한꺼번에 빈다. 검수 단계에서 증적을 내놓지 못하는 사업은 대개 이 두 부품이 없다.</p>
+<nav class="pager"><a class="prev" href="appx-d.html"><small>← 이전</small>참고문헌</a><a class="next" href="appx-f.html"><small>다음 →</small>사례 케이스북: PAX 사례로 읽는 패턴 활용</a></nav></main></div><script>
+(function(){var b=document.querySelector('.navbtn');if(b){b.addEventListener('click',function(){var o=document.body.classList.toggle('toc-open');b.setAttribute('aria-expanded',o)});}
+document.querySelectorAll('.toc a').forEach(function(a){a.addEventListener('click',function(){document.body.classList.remove('toc-open')})});
+var on=document.querySelector('.toc a.on');if(on&&on.scrollIntoView){try{on.scrollIntoView({block:'center'})}catch(e){}}})();
+</script></body></html>

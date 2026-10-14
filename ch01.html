@@ -1,0 +1,365 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>공공 AX와 패턴 언어 · 공공 AX 디자인 패턴</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700;800;900&family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap"><link rel="stylesheet" href="book.css"></head><body><div class="bar"><button class="navbtn" type="button" aria-controls="toc" aria-expanded="false">차례</button><a class="bk" href="index.html">공공 AX 디자인 패턴</a><span class="where">공공 AX와 패턴 언어</span><span class="pn"><a href="case-background.html">← 이전</a><a href="ch02.html">다음 →</a></span></div><div class="layout"><nav class="toc" id="toc" aria-label="책 차례"><a href="index.html"><b>표지 · 차례</b></a><div class="part">앞붙이</div><a href="preface.html"><span class="n"></span>서문</a><a href="reading.html"><span class="n"></span>이 책을 읽는 법</a><a href="case-background.html"><span class="n"></span>사례 배경: 가람시(가상)</a><div class="part">1부 기초</div><a href="ch01.html" class="on" aria-current="page"><span class="n">1</span>공공 AX와 패턴 언어</a><a href="ch02.html"><span class="n">2</span>AX 성숙도와 측정 눈금자</a><a href="ch03.html"><span class="n">3</span>디자인 패턴의 원리</a><a href="ch04.html"><span class="n">4</span>카탈로그의 구조</a><div class="part">2부 패턴 레퍼런스</div><a href="ch05.html"><span class="n">5</span>B 업무 컴포넌트</a><a href="ch06.html"><span class="n">6</span>B′ 제어 흐름 원형</a><a href="ch07.html"><span class="n">7</span>A 공통 서비스</a><a href="ch08.html"><span class="n">8</span>C 운영 컴포넌트</a><a href="ch09.html"><span class="n">9</span>S 보안 패턴</a><a href="ch10.html"><span class="n">10</span>F 상호작용 패턴</a><a href="ch11.html"><span class="n">11</span>D 서비스 블록</a><div class="part">3부 적용</div><a href="ch12.html"><span class="n">12</span>조립: 적용 절차와 서비스 유형별 템플릿</a><a href="ch13.html"><span class="n">13</span>조립 예시와 축 교차표</a><a href="ch14.html"><span class="n">14</span>안티패턴</a><a href="ch15.html"><span class="n">15</span>태깅·검증·참조 구현 레지스트리</a><a href="ch16.html"><span class="n">16</span>PAX 557건으로 본 공공 AX의 현재</a><a href="ch17.html"><span class="n">17</span>PAX 가이드라인과 리소스</a><div class="part">부록</div><a href="appx-a.html"><span class="n">A</span>패턴 한눈에 보기</a><a href="appx-b.html"><span class="n">B</span>판정 규칙 개정 이력 R1~R28</a><a href="appx-c.html"><span class="n">C</span>용어집</a><a href="appx-d.html"><span class="n">D</span>참고문헌</a><a href="appx-e.html"><span class="n">E</span>공공 AX 가이드라인 문서 해설</a><a href="appx-f.html"><span class="n">F</span>사례 케이스북: PAX 사례로 읽는 패턴 활용</a></nav><main class="content" id="ch01"><header class="chap-head"><div class="num-big">1</div><div class="eyebrow">1부 기초 · 제 1장</div><h1>공공 AX와 패턴 언어</h1><p class="lede">공공 AI 과제를 어떤 기술을 썼는지로 읽지 않고, 사람과 AI가 일을 어떻게 나누었는지와 어떤 부품을 어떤 환경 조건 아래 조립했는지로 읽는다. 이 장은 그 읽기 방식과, 그것을 단련한 PAX 사례 557건과 카탈로그의 역사를 소개한다.</p><div class="goals"><b>이 장에서 얻을 것</b><ul><li>기술명 분류와 역할 분담 분류의 차이를 예로 설명할 수 있다</li><li>부품·조립도·배선·패턴 서명이라는 기본 용어를 쓸 수 있다</li><li>PAX 557건의 사례 구분·런타임 AI·주 부품·전이 단계 분포를 말하고, 그것이 카탈로그에 남긴 흔적을 설명할 수 있다</li><li>카탈로그가 v0.2에서 v0.7.1까지 판마다 무엇을 바꿨는지 요약할 수 있다</li><li>패턴 언어가 기관에 주는 세 가지 능력(공통 서비스화·참조 구현·결손 진단)을 구분할 수 있다</li></ul></div></header>
+
+<p>PAX에 올라온 공공 AI 사례 소개를 열 개쯤 읽으면 비슷한 문장이 반복된다. "생성형 AI 기반 지능형 상담 서비스", "RAG를 활용한 업무 지원 챗봇", "멀티 에이전트 기반 자동화". 문장은 모두 기술명으로 시작한다. 그런데 기술명이 같은 두 사례가 실제로는 전혀 다른 일을 하는 경우가 많다. 기술명이 다른 두 사례가 사실상 같은 구조를 각자 다시 만든 경우도 그만큼 많다. 기술명은 도구가 무엇으로 만들어졌는지를 말해 줄 뿐, 그 도구가 업무를 어떻게 바꾸는지는 말해 주지 않는다.</p>
+<p>이 책은 다른 질문으로 과제를 읽는다. 사람과 AI가 일을 어떻게 나누었는가. 그 분담을 받치려고 어떤 공통 부품을 끌어다 썼는가. 그 부품들은 어떤 환경 조건 아래 놓였는가. 이 질문에 같은 어휘로 답하게 해 주는 것이 패턴 언어(pattern language)다. 그 언어는 공직 현장의 사례 원장과 AI·에이전트·보안 패턴 문헌을 겹쳐 읽으며 만들어졌고, 지금까지 여섯 번 고쳐 쓰였다.</p>
+
+<aside class="case"><span class="lbl">사례 연구 · 가람시(가상)</span>
+<h4>부서마다 챗봇을 만들겠다는 요청서 네 장</h4>
+<p>2026년 가을, 가람시 정보통신과 AX팀에 요청서 네 장이 한 주 사이에 들어왔다. 민원여권과는 민원 안내 챗봇을, 기획예산과는 보고서 작성 챗봇을, 복지정책과는 상담 기록 요약 챗봇을, 재난안전과는 상황실 질의응답 챗봇을 원했다. 네 장 모두 "생성형 AI 챗봇 구축"이라는 제목이었고, 각자 상용 LLM API 키를 따로 받고 문서를 따로 모아 따로 벡터 저장소를 만들겠다는 계획이 붙어 있었다.</p>
+<p>AX팀은 세 명이다. 네 개의 챗봇을 따로 만들어 따로 운영할 인력은 없다. 팀장은 요청서를 나란히 놓고 물었다. "이 네 개가 정말 다른 물건인가?" 업무를 들여다보니 네 장은 서로 달랐다. 민원 안내는 근거 문서를 붙여 시민에게 답해야 했고, 보고서 작성은 초안을 만들어 담당자가 고쳐 확정해야 했다. 기술로 보면 넷을 따로 만들 까닭이 없었고, 업무로 보면 넷을 모두 챗봇이라 부를 까닭이 없었다. AX팀이 이 책의 카탈로그를 처음 펼친 것이 이때다. 카탈로그에는 이 상황에 붙은 이름이 이미 있었다. <a class="pat lc-x" href="ch14.html#p-X3"><span class="pid">X3</span>부서마다 챗봇</a>이다.</p>
+</aside>
+
+<h2>1.1 기술명 대신 역할 분담으로 읽기</h2>
+<p>카탈로그는 스스로를 패턴 언어로 정의하면서, 공공 AI 과제에 던질 질문을 "어떤 기술을 썼나"에서 "어떤 공통 컴포넌트와 서비스를 어떤 환경 조건 아래 조립했나"로 바꾼다. 이 정의를 받아들이면 먼저 분류 기준이 바뀐다. RAG, 에이전트, MCP, 비전 같은 기술명은 분류 기준에서 내려온다. 그 자리에 사람과 AI의 역할 분담이 들어간다.</p>
+<p>상용 LLM을 부르는 같은 호출도 쓰임에 따라 갈린다(그림 1.1). AI가 초안을 만들고 담당자가 고쳐서 확정하면 <a class="pat lc-b" href="ch05.html#p-B1"><span class="pid">B1</span>코파일럿</a>이다. 근거 문서를 검색해 붙인 답변을 내면 <a class="pat lc-b" href="ch05.html#p-B3"><span class="pid">B3</span>지식 접지 상담</a>이다. AI가 스스로 계획을 세우고 도구를 골라 결과를 보며 반복 호출하면 <a class="pat lc-b" href="ch05.html#p-B6"><span class="pid">B6</span>에이전트 오케스트레이터</a>에 가까워진다. 호출되는 모델은 같아도 업무 산출물이 만들어지는 모양이 다르고, 그래서 필요한 통제 부품도 다르다. 코파일럿에는 사람이 확정하는 자리(<a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span>검토 큐</a>)가, 지식 접지 상담에는 근거를 보여 주는 자리(<a class="pat lc-f" href="ch10.html#p-F1"><span class="pid">F1</span>출처 표시</a>)가, 오케스트레이터에는 도구 권한을 묶는 자리(<a class="pat lc-c" href="ch08.html#p-C8"><span class="pid">C8</span>권한 경계·킬스위치</a>)가 먼저 필요하다.</p>
+
+<figure class="fig" id="fig-1-1"><div class="canvas"><svg viewBox="0 0 900 300" role="img" aria-label="같은 LLM 호출이 역할 분담에 따라 B1, B6, B3 세 부품으로 갈리는 비교 그림">
+<defs><marker id="ah-1-1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+<rect class="n zone" x="20" y="16" width="270" height="270" rx="6"/>
+<rect class="n zone" x="315" y="16" width="270" height="270" rx="6"/>
+<rect class="n zone" x="610" y="16" width="270" height="270" rx="6"/>
+<rect class="n soft" x="85" y="34" width="140" height="36" rx="6"/><text class="t" x="155" y="57" text-anchor="middle">상용 LLM 호출</text>
+<rect class="n soft" x="380" y="34" width="140" height="36" rx="6"/><text class="t" x="450" y="57" text-anchor="middle">상용 LLM 호출</text>
+<rect class="n soft" x="675" y="34" width="140" height="36" rx="6"/><text class="t" x="745" y="57" text-anchor="middle">상용 LLM 호출</text>
+<rect class="n" x="40" y="112" width="96" height="36" rx="6"/><text class="t" x="88" y="135" text-anchor="middle">AI 초안</text>
+<rect class="n person" x="164" y="112" width="106" height="36" rx="6"/><text class="t" x="217" y="135" text-anchor="middle">담당자 확정</text>
+<path class="ln" d="M110,70 L90,110" marker-end="url(#ah-1-1)"/>
+<path class="ln" d="M136,130 L162,130" marker-end="url(#ah-1-1)"/>
+<text class="t3" x="155" y="176" text-anchor="middle">사람이 고쳐서 확정한다</text>
+<rect class="n" x="335" y="112" width="96" height="36" rx="6"/><text class="t" x="383" y="135" text-anchor="middle">계획</text>
+<rect class="n" x="469" y="112" width="96" height="36" rx="6"/><text class="t" x="517" y="135" text-anchor="middle">도구 실행</text>
+<path class="ln" d="M420,70 L395,110" marker-end="url(#ah-1-1)"/>
+<path class="ln" d="M431,130 L467,130" marker-end="url(#ah-1-1)"/>
+<path class="ln" d="M517,112 C517,90 500,80 488,72" marker-end="url(#ah-1-1)"/>
+<text class="t3" x="450" y="176" text-anchor="middle">AI가 도구를 골라 결과를 보며 반복</text>
+<rect class="n" x="630" y="112" width="96" height="36" rx="6"/><text class="t" x="678" y="135" text-anchor="middle">문서 검색</text>
+<rect class="n" x="754" y="112" width="106" height="36" rx="6"/><text class="t" x="807" y="135" text-anchor="middle">근거+답변</text>
+<path class="ln" d="M690,112 L715,72" marker-end="url(#ah-1-1)"/>
+<path class="ln" d="M780,70 L800,110" marker-end="url(#ah-1-1)"/>
+<text class="t3" x="745" y="176" text-anchor="middle">찾은 문서에 기대어 답한다</text>
+<path class="ln thin" d="M155,190 L155,214" marker-end="url(#ah-1-1)"/>
+<path class="ln thin" d="M450,190 L450,214" marker-end="url(#ah-1-1)"/>
+<path class="ln thin" d="M745,190 L745,214" marker-end="url(#ah-1-1)"/>
+<rect class="n b" x="70" y="218" width="170" height="44" rx="6"/><text class="tm tb" x="155" y="236" text-anchor="middle">B1</text><text class="t b" x="155" y="254" text-anchor="middle">코파일럿</text>
+<rect class="n b" x="365" y="218" width="170" height="44" rx="6"/><text class="tm tb" x="450" y="236" text-anchor="middle">B6</text><text class="t b" x="450" y="254" text-anchor="middle">에이전트 오케스트레이터</text>
+<rect class="n b" x="660" y="218" width="170" height="44" rx="6"/><text class="tm tb" x="745" y="236" text-anchor="middle">B3</text><text class="t b" x="745" y="254" text-anchor="middle">지식 접지 상담</text>
+</svg></div>
+<figcaption><b>그림 1.1</b> 같은 상용 LLM 호출이라도 사람이 확정하는 초안이면 B1, AI가 계획을 세우고 도구를 반복 호출하면 B6, 검색한 근거에 기대어 답하면 B3로 갈린다. 기술명은 같고 역할 분담이 다르다.</figcaption></figure>
+
+<p>카탈로그는 이 판단을 규칙으로 고정했다. 판정 규칙 R1, 곧 <em>가치 흐름 규칙</em>이다. 처음(v0.5까지)에는 우선순위표가 있었다. 에이전트가 있으면 B6, 아니면 RAG가 있으면 B3 하는 식이다. 그런데 사례를 정독 태깅하자 이 표가 실제 가치 흐름과 어긋난다는 보고가 잇따랐다. 에이전트 기능은 시범으로 붙어 있을 뿐이고 담당자가 받는 핵심 산출물은 코파일럿 초안인 사례가 많았다. v0.6은 우선순위표를 버리고 다음 규칙으로 바꿨다.</p>
+
+<aside class="rule"><span class="lbl">판정 규칙 R1 · 가치 흐름</span>
+<p>사람(또는 국민)이 최종으로 받는 핵심 산출물을 만드는 부품이 주 부품(primary)이다. RAG·에이전트·비전이 파이프라인의 한 단계이거나 시범 부가 기능이면 보조 부품(secondary)이나 제어 흐름 원형(B′)으로 적는다. 우선순위표는 산출물 기여도가 비슷할 때만 쓴다.</p>
+</aside>
+
+<p>B6의 문턱도 같은 이유로 높아졌다. v0.6부터는 복수의 LLM 역할, 도구 호출 루프, AI가 계획과 도구 선택을 맡는 구조가 함께 있어야 B6로 판정한다. 고정된 순서로 단계를 밟는 파이프라인은 <a class="pat lc-bp" href="ch06.html#p-Bp1"><span class="pid">B′1</span>순차 파이프라인</a> 배선을 가진 B1이나 <a class="pat lc-b" href="ch05.html#p-B4"><span class="pid">B4</span>인식 파이프라인</a>이다. 이 요건 아래 PAX 557건에서 B6를 주 부품으로 판정한 사례는 11건(2.0%)이다. 서비스 유형 5b 데이터 에이전트로 분류된 77건 가운데서도 주 부품이 B6인 사례는 3건뿐이고, 70건은 B0 결정적 도구다. 이름에 에이전트가 붙은 유형과 에이전트가 실제로 업무 산출물을 만드는 사례 사이에는 그만큼 거리가 있다.</p>
+<p>역할 분담으로 읽으면 AI 런타임이 없는 도구도 제자리를 얻는다. 공직자가 AI 코딩으로 만들었지만 실행할 때는 모델을 부르지 않는 엑셀 변환기, 지도 시각화 도구, 공공데이터 조회기가 그렇다. 카탈로그는 이것을 <a class="pat lc-b" href="ch05.html#p-B0"><span class="pid">B0</span>결정적 도구</a>로 부르고 AX 성숙도의 Ready 부품으로 둔다. "AI가 아니니 제외"라고 버리면 공공 AX에서 가장 많이 재사용되는 부품 공급원을 잃는다.</p>
+
+<aside class="key"><span class="lbl">핵심 요약</span><ul>
+<li>분류 기준은 사람과 AI의 역할 분담이다. 같은 LLM 호출도 분담에 따라 B1·B3·B6로 갈린다.</li>
+<li>주 부품은 사람이나 국민이 최종으로 받는 산출물을 만드는 부품이다(R1 가치 흐름 규칙).</li>
+<li>B6는 복수 LLM 역할, 도구 호출 루프, AI의 계획·도구 선택이 모두 있을 때만 붙인다.</li>
+<li>런타임 AI가 없는 도구는 B0 결정적 도구로 정직하게 이름 붙인다.</li>
+</ul></aside>
+
+<h2>1.2 부품과 배선도</h2>
+<p>카탈로그의 정의는 세 출처를 합친 것이다. 고전 디자인 패턴 해설은 패턴을 "반복되는 설계 문제의 전형적 해법이자 상황에 맞게 고쳐 쓰는 청사진"으로 보고, 그 가치를 팀이 더 효율적으로 소통하게 하는 공통 언어에 둔다. Levine의 서비스 디자인 패턴은 패턴을 서비스를 이루는 기본 빌딩블록이라 부른다. 마이크로서비스 패턴은 그 빌딩블록을 게이트웨이·서킷브레이커·사가처럼 배포 가능한 인프라 부품으로 만든 것이다. 카탈로그는 세 관점을 한 문장으로 묶는다.</p><figure class="fig screen"><img src="img/pr-same-solution.jpg" alt="서로 다른 도구가 같은 문제를 푼다" loading="lazy"><figcaption><b>화면 1.1</b>서로 다른 PAX 도구 다섯 개가 &#x27;최종 판단은 사람이 한다&#x27;는 같은 해법에 닿는다. 반복되는 해법이 부품이 되는 순간이다. <span class="src">쇼릴 「공공 AX 디자인 패턴」(2026년 9월 제작)의 한 장면. 화면 속 수치는 제작 당시 기준이다.</span></figcaption></figure>
+
+<aside class="key"><span class="lbl">핵심</span>
+<p>AX 디자인 패턴은 여러 기관이 공통으로 쓸 수 있는 컴포넌트 또는 서비스이며, 과제는 그 부품을 특정 환경 조건 아래 조립한 배선도다.</p>
+</aside>
+
+<p><strong>부품</strong>(component)은 카탈로그에 이름과 ID가 붙은 패턴 하나다. <strong>조립도</strong>(assembly)는 한 과제가 어떤 부품을 가졌는지의 목록이고, <strong>배선</strong>(wiring)은 그 부품들 사이로 데이터와 산출물이 흐르는 순서다. 배선은 <code>A2.4 → B1 → C1 → C4</code>처럼 화살표로 적는다. 한 과제의 조립도와 배선, 환경 조건, 서비스 유형을 한데 모은 요약을 <strong>패턴 서명</strong>(pattern signature)이라 부른다. 패턴 서명은 주 부품 B 하나, 제어 흐름 원형 B′ 0개 이상, 공통 서비스 A 0개 이상, 운영·보안·상호작용 부품 C·S·F, 서비스 블록 D 하나 또는 둘, 환경 조건 E 다섯 축, 서비스 유형 하나로 이루어진다. 4장에서 가람시 AX팀이 첫 패턴 서명을 직접 쓴다.</p>
+
+<h3>Provider로 모으기</h3>
+<p>부품 관점의 설계 원리는 웹 프런트엔드의 Provider 패턴에서 빌려 왔다. 공유 데이터를 컴포넌트 계층의 중간마다 손으로 내려보내는 대신(prop drilling), 상위에 Provider를 두고 필요한 곳에서 꺼내 쓴다. 카탈로그는 X3 부서마다 챗봇을 prop drilling의 공공판으로 본다. 부서마다 모델 키를 받고, 벡터 저장소를 만들고, 프롬프트를 쓴다. 기반 부품이 부서 수만큼 중복되고, 사본마다 계약·키 관리·로그가 따로 생긴다(그림 1.2 왼쪽).</p>
+<p>해법은 기반을 위로 올리는 것이다. 모델 호출은 <a class="pat lc-a" href="ch07.html#p-A2"><span class="pid">A2</span>모델 서빙 계층</a> 뒤로 모으고, <a class="pat lc-s" href="ch09.html#p-S1"><span class="pid">S1</span>AI 게이트웨이·단일 진입점</a>에서 인증·요청 상한·비용 상한·감사 기록을 한 번에 건다. 부서별 차이는 모델을 따로 두는 대신 <a class="pat lc-a" href="ch07.html#p-A9"><span class="pid">A9</span>업무 규범 스킬</a>과 부서 코퍼스(<a class="pat lc-a" href="ch07.html#p-A1"><span class="pid">A1</span>데이터 자산 서비스</a>)로 표현한다(그림 1.2 오른쪽). 범정부 AI 공통기반, 공공 깃랩 같은 실물 Provider가 이미 있다면 <a class="pat lc-a" href="ch07.html#p-A3"><span class="pid">A3</span>공공 API 제공자</a>로 소비한다.</p>
+
+<figure class="fig" id="fig-1-2"><div class="canvas"><svg viewBox="0 0 900 300" role="img" aria-label="부서마다 챗봇을 따로 만든 구조와 Provider로 기반을 모은 구조의 비교">
+<defs><marker id="ah-1-2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah acc"/></marker></defs>
+<text class="t b" x="30" y="30">부서마다 챗봇</text><text class="tm tx" x="140" y="30">X3</text>
+<rect class="n" x="30" y="48" width="92" height="36" rx="6"/><text class="t" x="76" y="71" text-anchor="middle">민원</text>
+<rect class="n" x="132" y="48" width="92" height="36" rx="6"/><text class="t" x="178" y="71" text-anchor="middle">재난</text>
+<rect class="n" x="234" y="48" width="92" height="36" rx="6"/><text class="t" x="280" y="71" text-anchor="middle">기획</text>
+<rect class="n" x="336" y="48" width="92" height="36" rx="6"/><text class="t" x="382" y="71" text-anchor="middle">복지</text>
+<rect class="n x" x="30" y="96" width="92" height="26" rx="6"/><text class="t2" x="76" y="113" text-anchor="middle">모델 키</text>
+<rect class="n x" x="30" y="128" width="92" height="26" rx="6"/><text class="t2" x="76" y="145" text-anchor="middle">벡터 저장소</text>
+<rect class="n x" x="30" y="160" width="92" height="26" rx="6"/><text class="t2" x="76" y="177" text-anchor="middle">프롬프트</text>
+<rect class="n x" x="132" y="96" width="92" height="26" rx="6"/><text class="t2" x="178" y="113" text-anchor="middle">모델 키</text>
+<rect class="n x" x="132" y="128" width="92" height="26" rx="6"/><text class="t2" x="178" y="145" text-anchor="middle">벡터 저장소</text>
+<rect class="n x" x="132" y="160" width="92" height="26" rx="6"/><text class="t2" x="178" y="177" text-anchor="middle">프롬프트</text>
+<rect class="n x" x="234" y="96" width="92" height="26" rx="6"/><text class="t2" x="280" y="113" text-anchor="middle">모델 키</text>
+<rect class="n x" x="234" y="128" width="92" height="26" rx="6"/><text class="t2" x="280" y="145" text-anchor="middle">벡터 저장소</text>
+<rect class="n x" x="234" y="160" width="92" height="26" rx="6"/><text class="t2" x="280" y="177" text-anchor="middle">프롬프트</text>
+<rect class="n x" x="336" y="96" width="92" height="26" rx="6"/><text class="t2" x="382" y="113" text-anchor="middle">모델 키</text>
+<rect class="n x" x="336" y="128" width="92" height="26" rx="6"/><text class="t2" x="382" y="145" text-anchor="middle">벡터 저장소</text>
+<rect class="n x" x="336" y="160" width="92" height="26" rx="6"/><text class="t2" x="382" y="177" text-anchor="middle">프롬프트</text>
+<text class="t2 twarn" x="229" y="218" text-anchor="middle">같은 기반을 부서 수만큼 다시 만든다</text>
+<text class="t3" x="229" y="238" text-anchor="middle">계약 4건 · 키 4개 · 로그 4곳 · 통제 기준 제각각</text>
+<path class="ln dash" d="M450,20 L450,280"/>
+<text class="t b" x="480" y="30">Provider에서 꺼내 쓰기</text>
+<rect class="n a" x="480" y="48" width="250" height="56" rx="6"/><text class="tm ta" x="494" y="68">A2 · A1</text><text class="t" x="494" y="90">모델 서빙 계층 · 부서 코퍼스</text>
+<rect class="n s" x="740" y="48" width="138" height="56" rx="6"/><text class="tm ts" x="752" y="68">S1</text><text class="t" x="752" y="90">단일 진입점</text>
+<rect class="n a" x="480" y="160" width="92" height="26" rx="6"/><text class="t2" x="526" y="177" text-anchor="middle">A9 스킬</text>
+<rect class="n a" x="582" y="160" width="92" height="26" rx="6"/><text class="t2" x="628" y="177" text-anchor="middle">A9 스킬</text>
+<rect class="n a" x="684" y="160" width="92" height="26" rx="6"/><text class="t2" x="730" y="177" text-anchor="middle">A9 스킬</text>
+<rect class="n a" x="786" y="160" width="92" height="26" rx="6"/><text class="t2" x="832" y="177" text-anchor="middle">A9 스킬</text>
+<path class="ln acc" d="M526,158 L526,106" marker-end="url(#ah-1-2)"/>
+<path class="ln acc" d="M628,158 L628,106" marker-end="url(#ah-1-2)"/>
+<path class="ln acc" d="M730,158 L730,106" marker-end="url(#ah-1-2)"/>
+<path class="ln acc" d="M832,158 L832,106" marker-end="url(#ah-1-2)"/>
+<rect class="n" x="480" y="196" width="92" height="36" rx="6"/><text class="t" x="526" y="219" text-anchor="middle">민원</text>
+<rect class="n" x="582" y="196" width="92" height="36" rx="6"/><text class="t" x="628" y="219" text-anchor="middle">재난</text>
+<rect class="n" x="684" y="196" width="92" height="36" rx="6"/><text class="t" x="730" y="219" text-anchor="middle">기획</text>
+<rect class="n" x="786" y="196" width="92" height="36" rx="6"/><text class="t" x="832" y="219" text-anchor="middle">복지</text>
+<text class="t2 tok" x="679" y="262" text-anchor="middle">기반은 한 번, 부서 차이는 스킬과 코퍼스로</text>
+</svg></div>
+<figcaption><b>그림 1.2</b> 왼쪽은 부서마다 모델 키·벡터 저장소·프롬프트를 따로 만든 X3 부서마다 챗봇이다. 오른쪽은 모델 호출을 A2 뒤로 모으고 S1에서 통제를 한 번에 건 뒤, 부서 차이를 A9 스킬과 A1 코퍼스로 표현한 조립이다.</figcaption></figure>
+
+<h3>여덟 계층과 렌즈</h3>
+<p>부품은 계층으로 나뉜다. 출발점은 고전 GoF 패턴의 생성·구조·행위 세 범주를 옮겨 온 것이었다. 아래층의 A 공통 서비스는 위층이 의존하는 기반이고, B 업무 컴포넌트는 사람과 AI가 일을 나누는 모양을 정한다. C 운영 컴포넌트는 어떤 업무 컴포넌트에도 끼울 수 있는 횡단 부품이다. 이 세 계층은 AX 성숙도의 관문과도 대응한다. 공통 서비스는 Ready 관문, 업무 컴포넌트는 Enabled 관문, 운영 컴포넌트는 First·Native 관문에 걸린다(2장).</p>
+<p>그 뒤 판을 거치며 계층이 늘었다. B 안의 배선을 적는 B′ 제어 흐름 원형, 적대자를 전제한 S 보안 패턴, 통제를 이용자 쪽에서 보이게 하는 F 상호작용 패턴이 더해졌다. D 서비스 블록은 부품이라기보다 조립도를 읽는 렌즈다. 산출물이 시민이나 담당자에게 도달하는 접점이 어디인지를 적는다. E 환경 조건은 모든 부품이 답해야 할 다섯 축(배포망·모델 의존·실행 형태·권한 범위·데이터 등급)으로, 부품 목록에는 들지 않는다. 같은 부품이라도 폐쇄망이나 시스템 쓰기 권한 아래서는 함께 끼워야 할 부품이 달라진다. 피해야 할 조립은 X 안티패턴으로 따로 모았다. 그림 1.3이 이 배치를 보여 준다.</p>
+
+<figure class="fig" id="fig-1-3"><div class="canvas"><svg viewBox="0 0 900 470" role="img" aria-label="E 환경 조건이 감싸고 F, C, B와 B′, S, A가 층을 이루며 D 서비스 블록과 서비스 유형이 옆에 붙는 카탈로그 전체 구조도">
+<defs><marker id="ah-1-3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+<rect class="n e" x="10" y="10" width="880" height="450" rx="6"/>
+<text class="t b te" x="30" y="34">E 환경 조건</text><text class="t2" x="130" y="34">배포망 · 모델 의존 · 실행 형태 · 권한 범위 · 데이터 등급 (전체를 감싸는 전제)</text>
+<rect class="n f" x="30" y="50" width="600" height="50" rx="6"/><text class="t b tf" x="44" y="71">F 상호작용 패턴</text><text class="t3" x="44" y="89">출처 표시 · 편집 가능한 출력 · 에이전트 행동 확인 · 한계 안내 — 이용자가 통제를 체감하는 면</text>
+<rect class="n c" x="30" y="110" width="600" height="50" rx="6"/><text class="t b tc" x="44" y="131">C 운영 컴포넌트</text><text class="t3" x="44" y="149">검토 큐 · 위험도 라우터 · 롤백 · 감사 로그 · 폴백 · 권한 경계 — 실수와 장애를 잡는 층</text>
+<rect class="n b" x="30" y="170" width="600" height="84" rx="6"/><text class="t b tb" x="44" y="191">B 업무 컴포넌트 + B′ 제어 흐름 원형</text><text class="t3" x="44" y="209">과제마다 주 부품 하나(B0~B8)가 핵심 산출물을 만들고, B′ 원형이 그 안의 배선을 정한다</text>
+<rect class="n bp" x="44" y="220" width="572" height="24" rx="6"/><text class="t3 tbp" x="330" y="236" text-anchor="middle">B′ 순차 · 라우터 · 병렬 · 계층 · 비평 · 반복 · ReAct · 계획-실행 · 결정론 판정 · 기억</text>
+<rect class="n s" x="30" y="264" width="600" height="50" rx="6"/><text class="t b ts" x="44" y="285">S 보안 패턴</text><text class="t3" x="44" y="303">적대자를 전제 — 신뢰 불가 입력이 결과적 행동을 촉발하지 못하게 하는 층</text>
+<rect class="n a" x="30" y="324" width="600" height="56" rx="6"/><text class="t b ta" x="44" y="345">A 공통 서비스</text><text class="t3" x="44" y="364">데이터 자산 · 모델 서빙 · 공공 API · MCP · 업무 규범 스킬 · 문서 형식 어댑터 — Provider로 제공</text>
+<rect class="n x" x="30" y="392" width="600" height="52" rx="6"/><text class="t b tx" x="44" y="413">X 안티패턴</text><text class="t3" x="44" y="431">피해야 할 조립 16종 — 부서마다 챗봇, 설계도만 있는 운영, 단일 모델 인질 …</text>
+<rect class="n d" x="660" y="50" width="210" height="150" rx="6"/><text class="t b td" x="676" y="74">D 서비스 블록</text><text class="t2" x="676" y="98">산출물이 도달하는 접점</text><text class="t3" x="676" y="124">대민 D1~D7</text><text class="t3" x="676" y="142">내부 운영 D8.0~D8.10</text><text class="t3" x="676" y="168">조립도를 읽는 렌즈</text>
+<rect class="n" x="660" y="230" width="210" height="150" rx="6"/><text class="t b" x="676" y="254">서비스 유형</text><text class="t2" x="676" y="278">조립 전체에 붙는 이름</text><text class="t3" x="676" y="304">유형 0~13 (5a·5b 등)</text><text class="t3" x="676" y="322">유형별 필수 부품을</text><text class="t3" x="676" y="340">검증기가 자동 점검</text>
+<path class="ln" d="M630,212 L658,150" marker-end="url(#ah-1-3)"/>
+<path class="ln" d="M765,200 L765,228" marker-end="url(#ah-1-3)"/>
+</svg></div>
+<figcaption><b>그림 1.3</b> 카탈로그의 계층 배치. 주 부품 B와 그 배선 B′을 가운데 두고, 위로는 이용자가 보는 F와 운영 통제 C가, 아래로는 보안 S와 공통 서비스 A가 붙는다. E 환경 조건이 전체를 감싸고, D 서비스 블록과 서비스 유형은 조립 전체를 읽는 이름이다.</figcaption></figure>
+
+<p>표 1.1에 계층마다 디렉터리에 오른 항목 수와 그 계층을 다루는 장을 모았다.</p>
+<div class="tbl"><table><caption><b>표 1.1</b> 카탈로그의 계층과 패턴 디렉터리 항목 수</caption>
+<thead><tr><th>계층</th><th>이름</th><th>한 줄 정의</th><th>항목 수</th><th>다루는 장</th></tr></thead>
+<tbody>
+<tr><td class="k">A</td><td>공통 서비스</td><td>업무 컴포넌트가 딛고 서는 기반. Provider로 제공한다.</td><td class="c">19</td><td>7장</td></tr>
+<tr><td class="k">B</td><td>업무 컴포넌트</td><td>사람과 AI가 일을 나누는 모양. 과제마다 주 부품 하나.</td><td class="c">9</td><td>5장</td></tr>
+<tr><td class="k">B′</td><td>제어 흐름 원형</td><td>B 부품 안의 배선을 적는 원형.</td><td class="c">11</td><td>6장</td></tr>
+<tr><td class="k">C</td><td>운영 컴포넌트</td><td>검토·분기·롤백·기록·폴백 같은 횡단 통제. 운영 증거가 있을 때만 present.</td><td class="c">10</td><td>8장</td></tr>
+<tr><td class="k">S</td><td>보안 패턴</td><td>적대자를 전제한 횡단 부품.</td><td class="c">13</td><td>9장</td></tr>
+<tr><td class="k">F</td><td>상호작용 패턴</td><td>C의 통제를 이용자 쪽에서 보이게 하는 면.</td><td class="c">11</td><td>10장</td></tr>
+<tr><td class="k">D</td><td>서비스 블록</td><td>시민·담당자의 동작 단위. 조립도를 읽는 렌즈.</td><td class="c">18</td><td>11장</td></tr>
+<tr><td class="k">E</td><td>환경 조건</td><td>모든 부품이 답하는 다섯 축. 디렉터리 항목이 아니라 조립의 전제.</td><td class="c">5축</td><td>4장</td></tr>
+<tr><td class="k">X</td><td>안티패턴</td><td>피해야 할 조립.</td><td class="c">16</td><td>14장</td></tr>
+<tr><td class="k" colspan="3">합계(E 제외)</td><td class="c">107</td><td></td></tr>
+</tbody></table></div>
+
+<aside class="key"><span class="lbl">핵심 요약</span><ul>
+<li>부품은 기관 간 재사용 가능한 컴포넌트·서비스이고, 과제는 부품을 환경 조건 아래 조립한 배선도다.</li>
+<li>패턴 서명은 주 부품 B 하나에 B′·A·C·S·F·D·E·서비스 유형을 더한 한 과제의 요약이다.</li>
+<li>X3 부서마다 챗봇은 Provider 없이 기반을 부서마다 내려보낸 구조다. 기반은 A2·S1로 올리고 부서 차이는 A9·A1로 표현한다.</li>
+<li>디렉터리는 E를 뺀 여덟 계층(X 포함) 107개 항목으로 이루어진다.</li>
+</ul></aside>
+
+<aside class="case"><span class="lbl">사례 연구 · 가람시(가상)</span>
+<h4>요청서 네 장을 부품으로 다시 읽기</h4>
+<p>AX팀은 네 장의 "챗봇 구축" 요청서를 역할 분담 기준으로 다시 썼다. 민원여권과의 민원 안내는 시민이 받는 답변이 핵심 산출물이고 근거 규정을 붙여야 하므로 <a class="pat lc-b" href="ch05.html#p-B3"><span class="pid">B3</span>지식 접지 상담</a>이었다. 기획예산과의 보고서 작성은 담당자가 고쳐 확정하는 초안이므로 <a class="pat lc-b" href="ch05.html#p-B1"><span class="pid">B1</span>코파일럿</a>이었다. 복지정책과의 상담 기록 요약도 담당자가 확인하는 초안이라 B1에 가까웠다. 재난안전과의 상황실 질의응답은 사정이 달랐다. 실제로 필요한 것은 질의응답보다 하천 수위 센서 값이 기준을 넘을 때 알려 주는 일이었고, 이것은 <a class="pat lc-b" href="ch05.html#p-B5"><span class="pid">B5</span>현장 감지·경보</a>의 몫이었다.</p>
+<p>주 부품을 고르고 나니 겹치는 것이 보였다. 네 과제 모두 모델 호출이 필요했고, 가람시는 상용 API를 내부망 프록시로만 부를 수 있었다. 그렇다면 모델 호출은 <a class="pat lc-a" href="ch07.html#p-A2_4"><span class="pid">A2.4</span>내부망 프록시</a> 하나 뒤로 모으면 된다. 네 과제 모두 문서 원본이 HWPX였으니 <a class="pat lc-a" href="ch07.html#p-A10"><span class="pid">A10</span>문서 형식 어댑터</a>도 하나면 된다. "챗봇 넷"은 "주 부품 넷, 공통 부품 둘"로 바뀌었다. 팀장은 이 메모를 들고 부서장 회의에 들어갔다. 아직 조립도라고 부를 만한 것은 아니었다. 이 메모는 4장에서 처음으로 패턴 서명이 된다.</p>
+</aside>
+
+<h2>1.3 PAX 공공 AX 사례 아카이브 557건</h2>
+<p>카탈로그는 PAX 공공 AX 사례 아카이브(hollobit.github.io/PAX)를 읽으며 만들고 고쳤다. PAX는 공직자 개인과 커뮤니티가 오픈채팅·스레드 같은 곳에서 자발적으로 공유한 도구와, 기관이 공개한 AI 활용 사례를 한 원장에 모은다. 2026년 10월 13일 갱신 기준으로 557건이다. 원장의 사례 구분으로 보면 개인 개발이 333건(59.8%)으로 가장 많고, 커뮤니티 104건(18.7%)과 기관 공식 54건(9.7%)이 뒤를 잇는다. 나머지 66건(11.8%)은 민간이나 해외 사례를 견줄 거리로 실어 둔 참고 사례다. 만든 곳을 기관 유형으로 나누면 공직 개인이 319건이고, 중앙행정기관 23건, 공공기관 19건, 기초지자체 11건, 광역지자체 9건, 지방의회 9건, 교육기관 5건이다.</p>
+<p>도구의 모양은 제각각이다. 4축 평가의 도구 유형으로는 실행 파일·스크립트 같은 도구·기타가 129건, 웹 서비스 107건, MCP 서버·도구 91건, 대시보드·분석 49건, 데스크톱 도구 43건, AI 스킬·에이전트 40건 순이다. 더 크게 갈리는 것은 런타임 AI의 유무다. 패턴 태깅의 모델 의존 조건으로 보면 557건 중 296건(53.1%)은 실행할 때 LLM을 부르지 않는다. LLM을 부르는 사례도 해외 상용 API에 묶인 것(64건)보다 이용자가 모델을 골라 끼우는 모델 중립 구성(89건)이 많다. 해외 오픈웨이트 모델을 로컬에서 돌리는 사례가 30건, 국산 모델을 쓰는 사례가 8건이다. 태깅의 네트워크 요건으로는 인터넷 없이 로컬에서 끝나는 사례가 129건, 폐쇄망에서도 돌아가는 사례가 52건이다.</p>
+<p>주 부품 분포는 이 성격을 그대로 비춘다(그림 1.4). 결정적 도구 B0가 390건(70.0%)을 차지하고, 코파일럿 B1이 77건(13.8%)으로 뒤를 잇는다. 나머지 일곱 부품을 다 합쳐도 90건이다. 주 부품은 성숙도 단계를 가르는 첫 신호이기도 하다. B0를 주 부품으로 둔 390건 중 325건이 AI-Ready이고, B1을 둔 77건 중 61건이 AI-Enabled다.</p>
+
+<figure class="fig" id="fig-1-4"><div class="canvas"><svg viewBox="0 0 900 396" role="img" aria-label="PAX 557건의 주 부품 B 분포와 주 부품별 AI-Ready, AI-Enabled 사례 수를 나란히 놓은 가로 막대 그림">
+<text class="t b" x="200" y="30">주 부품별 사례 수 · PAX 557건</text>
+<text class="t2" x="770" y="30" text-anchor="middle">AI-Ready</text>
+<text class="t2" x="855" y="30" text-anchor="middle">AI-Enabled</text>
+<line class="grid" x1="200" y1="44" x2="200" y2="340"/><line class="grid" x1="725" y1="44" x2="725" y2="340"/>
+<text class="tm" x="20" y="68">B0</text><text class="t2" x="48" y="68">결정적 도구</text>
+<text class="tm" x="20" y="100">B1</text><text class="t2" x="48" y="100">코파일럿</text>
+<text class="tm" x="20" y="132">B2</text><text class="t2" x="48" y="132">예측·추천기</text>
+<text class="tm" x="20" y="164">B3</text><text class="t2" x="48" y="164">지식 접지 상담</text>
+<text class="tm" x="20" y="196">B4</text><text class="t2" x="48" y="196">인식 파이프라인</text>
+<text class="tm" x="20" y="228">B5</text><text class="t2" x="48" y="228">현장 감지·경보</text>
+<text class="tm" x="20" y="260">B6</text><text class="t2" x="48" y="260">오케스트레이터</text>
+<text class="tm" x="20" y="292">B7</text><text class="t2" x="48" y="292">콘텐츠 생성기</text>
+<text class="tm" x="20" y="324">B8</text><text class="t2" x="48" y="324">레거시 오버레이</text>
+<rect class="bar-bg" x="200" y="56" width="480" height="16"/><rect class="bar-fill" x="200" y="56" width="336" height="16"/><text class="t3 ti" x="530" y="69" text-anchor="end">390 · 70.0%</text>
+<rect class="bar-bg" x="200" y="88" width="480" height="16"/><rect class="bar-fill" x="200" y="88" width="66" height="16"/><text class="t3" x="272" y="101">77 · 13.8%</text>
+<rect class="bar-bg" x="200" y="120" width="480" height="16"/><rect class="bar-fill" x="200" y="120" width="3" height="16"/><text class="t3" x="209" y="133">4 · 0.7%</text>
+<rect class="bar-bg" x="200" y="152" width="480" height="16"/><rect class="bar-fill" x="200" y="152" width="27" height="16"/><text class="t3" x="233" y="165">31 · 5.6%</text>
+<rect class="bar-bg" x="200" y="184" width="480" height="16"/><rect class="bar-fill" x="200" y="184" width="20" height="16"/><text class="t3" x="226" y="197">23 · 4.1%</text>
+<rect class="bar-bg" x="200" y="216" width="480" height="16"/><rect class="bar-fill" x="200" y="216" width="1" height="16"/><text class="t3" x="207" y="229">1 · 0.2%</text>
+<rect class="bar-bg" x="200" y="248" width="480" height="16"/><rect class="bar-fill" x="200" y="248" width="10" height="16"/><text class="t3" x="216" y="261">11 · 2.0%</text>
+<rect class="bar-bg" x="200" y="280" width="480" height="16"/><rect class="bar-fill" x="200" y="280" width="9" height="16"/><text class="t3" x="215" y="293">10 · 1.8%</text>
+<rect class="bar-bg" x="200" y="312" width="480" height="16"/><rect class="bar-fill" x="200" y="312" width="9" height="16"/><text class="t3" x="215" y="325">10 · 1.8%</text>
+<text class="t3" x="770" y="69" text-anchor="middle">325</text><text class="t3" x="855" y="69" text-anchor="middle">42</text>
+<text class="t3" x="770" y="101" text-anchor="middle">13</text><text class="t3" x="855" y="101" text-anchor="middle">61</text>
+<text class="t3" x="770" y="133" text-anchor="middle">1</text><text class="t3" x="855" y="133" text-anchor="middle">3</text>
+<text class="t3" x="770" y="165" text-anchor="middle">3</text><text class="t3" x="855" y="165" text-anchor="middle">27</text>
+<text class="t3" x="770" y="197" text-anchor="middle">5</text><text class="t3" x="855" y="197" text-anchor="middle">18</text>
+<text class="t3" x="770" y="229" text-anchor="middle">0</text><text class="t3" x="855" y="229" text-anchor="middle">1</text>
+<text class="t3" x="770" y="261" text-anchor="middle">5</text><text class="t3" x="855" y="261" text-anchor="middle">5</text>
+<text class="t3" x="770" y="293" text-anchor="middle">1</text><text class="t3" x="855" y="293" text-anchor="middle">8</text>
+<text class="t3" x="770" y="325" text-anchor="middle">5</text><text class="t3" x="855" y="325" text-anchor="middle">3</text>
+<text class="t3" x="20" y="364">막대 전체 폭 = 557건의 100%. 주 부품은 사례당 1개.</text><text class="t3" x="20" y="382">오른쪽 두 열은 그 주 부품을 가진 사례 중 AI-Ready·AI-Enabled 판정 수(나머지 단계는 생략).</text>
+</svg></div>
+<figcaption><b>그림 1.4</b> PAX 557건의 주 부품 분포. B0 결정적 도구가 70.0%를 차지하고 대부분 AI-Ready에 머문다. B1 코파일럿과 B3 지식 접지 상담을 주 부품으로 둔 사례는 대부분 AI-Enabled로 판정된다.</figcaption></figure>
+
+<p>표 1.2는 557건의 성격을 부품 바깥까지 넓혀 정리한다. 4축 평가의 AX 단계로는 AI-Ready가 358건(64.3%), AI-Enabled가 168건(30.2%)이고, AI-First는 5건에 그친다. 통제 부품 쪽은 비어 있다. 운영 부품(C)을 하나도 확인할 수 없는 사례가 426건(76.5%), 보안 부품(S)이 없는 사례가 509건(91.4%)이다. 태깅의 전이 단계로는 만든 사람 혼자 쓰는 개인 사용이 356건(63.9%)이고, 다른 기관이 가져다 쓴 사례는 7건, 범정부에 탑재된 사례는 3건이다. 기반 부품은 반대로 풍부하다. <a class="pat lc-a" href="ch07.html#p-A3"><span class="pid">A3</span>공공 API 제공자</a>가 154건, <a class="pat lc-a" href="ch07.html#p-A10"><span class="pid">A10</span>문서 형식 어댑터</a>가 136건, <a class="pat lc-a" href="ch07.html#p-A8"><span class="pid">A8</span>MCP 서버·호스트</a>가 94건, <a class="pat lc-a" href="ch07.html#p-A9"><span class="pid">A9</span>업무 규범 스킬</a>이 54건에서 쓰였다. PAX는 성숙도 사다리의 Ready 칸에 넓게 서 있다. 재사용할 기반 부품은 넘치지만, 그것을 업무 산출물과 통제 부품으로 엮은 조립은 아직 드물다.</p>
+
+<div class="tbl"><table><caption><b>표 1.2</b> PAX 557건의 성격 (2026년 10월 13일 원장, 557건 전수 태깅·4축 평가)</caption>
+<thead><tr><th>항목</th><th>분포</th></tr></thead>
+<tbody>
+<tr><td class="k">사례 구분(원장)</td><td>개인 개발 333 (59.8%) · 커뮤니티 104 (18.7%) · 참고 66 (11.8%) · 기관 공식 54 (9.7%)</td></tr>
+<tr><td class="k">기관 유형(원장)</td><td>공직 개인 319 · 커뮤니티 104 · 민간(참고) 45 · 중앙행정기관 23 · 공공기관 19 · 해외(참고) 13 · 기초지자체 11 · 광역지자체 9 · 지방의회 9 · 교육기관 5</td></tr>
+<tr><td class="k">도구 유형(4축 평가)</td><td>도구·기타 129 · 웹 서비스 107 · MCP 서버·도구 91 · 대시보드·분석 49 · 데스크톱 도구 43 · AI 스킬·에이전트 40 · 플랫폼·포털 37 · 오픈소스 도구 31 · 도입·정책 18 · 브라우저 확장 12</td></tr>
+<tr><td class="k">런타임 AI(태깅 모델 의존)</td><td>LLM 없음 296 (53.1%) · 모델 중립 89 · 해외 상용 API 64 · 해외 오픈웨이트(로컬) 30 · LLM(모델 미상) 22 · 혼합 17 · 국산 모델 8 · 미확인 31</td></tr>
+<tr><td class="k">망 요건(태깅 네트워크 요건)</td><td>인터넷 필수 254 · 로컬 완결 129 · 폐쇄망 가능 52 · 미확인 122</td></tr>
+<tr><td class="k">권한 범위(태깅)</td><td>P0 읽기 전용 239 · P1 산출물 생성 292 · P2 시스템 쓰기 26</td></tr>
+<tr><td class="k">최다 주 부품</td><td>B0 390 (70.0%) · B1 77 (13.8%) · B3 31 (5.6%)</td></tr>
+<tr><td class="k">최다 서비스 유형</td><td>8 취합·변환 자동화 109 · 0 기타 94 · 5b 데이터 에이전트 77</td></tr>
+<tr><td class="k">최다 업무 분야(원장)</td><td>데이터·통계 126 · 문서·기안 106 · 공통·범용 95</td></tr>
+<tr><td class="k">AX 단계(4축 평가)</td><td>AI-Ready 358 (64.3%) · AI-Enabled 168 (30.2%) · AX 단계 외 25 · AI-First 5 · AI-Native 계획 1</td></tr>
+<tr><td class="k">통제 부품 없음</td><td>운영(C) 426 (76.5%) · 보안(S) 509 (91.4%) · 상호작용(F) 343 (61.6%). present·implemented 기준</td></tr>
+<tr><td class="k">전이 단계(태깅)</td><td>개인 사용 356 (63.9%) · 부서 공유 114 · 기관 공식 56 · 구현·미배포 18 · 타 기관 재사용 7 · 범정부 탑재 3 · 미착수 3</td></tr>
+</tbody></table></div>
+
+<p>PAX의 판정은 보수적이다. 공개된 소스와 화면, 게시글만으로 판정하고, 근거가 없으면 "미확인"으로 둔다. 557건 가운데 코드·도구·저장소를 직접 확인한 근거(E1)가 391건이고, 운영 중인 공식 주소나 보도까지 확인된 사례(E3)는 19건이다. 그래서 "운영 부품 없음 76.5%"는 운영 부품이 실제로 없다는 뜻이기보다, 공개된 서술에서 확인되지 않았다는 뜻으로 읽어야 한다. 이 구분은 15장과 16장에서 다시 나온다. 이 책의 패턴 프로필에 실린 PAX 사용 사례 수도 같은 557건 태깅에서 나왔다. B는 주 부품이나 보조 부품으로, C·S·F는 present나 implemented로 태깅된 사례를 센다.</p>
+
+<aside class="warn"><span class="lbl">주의</span>
+<p>PAX는 자발적으로 공유된 사례의 원장이다. 공개된 사례만 모으므로 기관이 공개하지 않은 내부 시스템은 들어 있지 않다. 그래서 PAX의 비율은 이 카탈로그가 어떤 자료에서 단련되었는지를 알려 줄 뿐, 공공부문 전체의 AX 수준을 대표하지 않는다.</p>
+</aside>
+
+<aside class="key"><span class="lbl">핵심 요약</span><ul>
+<li>원장의 사례 구분으로 PAX 557건 가운데 437건(78.5%)은 공직 개인과 커뮤니티가 만든 사례이고, 태깅의 모델 의존 조건으로 296건(53.1%)은 실행할 때 LLM을 부르지 않는다.</li>
+<li>주 부품의 70.0%가 B0 결정적 도구이고, AX 단계로는 64.3%가 AI-Ready다.</li>
+<li>기반 부품(A3·A10·A8·A9)은 풍부하지만, 운영 부품은 76.5%, 보안 부품은 91.4%의 사례에서 확인되지 않는다.</li>
+<li>개인 사용에 머문 사례가 63.9%이고, 다른 기관이 재사용한 사례는 7건이다.</li>
+</ul></aside>
+
+<h2>1.4 카탈로그의 진화: v0.2에서 v0.7.1까지</h2>
+<p>지금의 카탈로그는 여섯 번 고쳐 쓴 결과다(그림 1.5). 판마다 바뀐 이유가 분명하다. 앞쪽 네 판(v0.2~v0.5)은 PAX 사례나 새 문헌을 겹쳐 보고 빠진 부품과 형식을 더했다. 뒤쪽 세 판(v0.6~v0.7.1)은 카탈로그를 사례 전수에 적용한 뒤 태깅 과정에서 나온 피드백으로 규칙을 고쳤다.</p>
+
+<figure class="fig" id="fig-1-5"><div class="canvas"><svg viewBox="0 0 900 360" role="img" aria-label="카탈로그 v0.2부터 v0.7.1까지 각 판을 촉발한 자료와 더한 것을 보여 주는 타임라인">
+<rect class="n zone" x="14" y="40" width="490" height="300" rx="6"/>
+<rect class="n zone" x="514" y="40" width="372" height="300" rx="6"/>
+<text class="t2" x="26" y="30">출처를 겹쳐 부품과 형식을 더한 시기</text>
+<text class="t2" x="526" y="30">전수 태깅 피드백으로 규칙을 고친 시기</text>
+<path class="ln" d="M40,170 L860,170"/>
+<circle class="dot" cx="70" cy="170" r="7"/><circle class="dot" cx="190" cy="170" r="7"/><circle class="dot" cx="310" cy="170" r="7"/><circle class="dot" cx="430" cy="170" r="7"/><circle class="dot warn" cx="580" cy="170" r="7"/><circle class="dot warn" cx="700" cy="170" r="7"/><circle class="dot warn" cx="820" cy="170" r="7"/>
+<text class="t b" x="70" y="152" text-anchor="middle">v0.2</text><text class="t b" x="190" y="152" text-anchor="middle">v0.3</text><text class="t b" x="310" y="152" text-anchor="middle">v0.4</text><text class="t b" x="430" y="152" text-anchor="middle">v0.5</text><text class="t b" x="580" y="152" text-anchor="middle">v0.6</text><text class="t b" x="700" y="152" text-anchor="middle">v0.7</text><text class="t b" x="820" y="152" text-anchor="middle">v0.7.1</text>
+<text class="t3" x="70" y="80" text-anchor="middle">첫 골격</text><text class="t3" x="70" y="96" text-anchor="middle">세 계층 분류</text>
+<text class="t3" x="190" y="80" text-anchor="middle">PAX 사례</text><text class="t3" x="190" y="96" text-anchor="middle">자생 도구 검증</text>
+<text class="t3" x="310" y="80" text-anchor="middle">AI·에이전트</text><text class="t3" x="310" y="96" text-anchor="middle">패턴 문헌 10종</text>
+<text class="t3" x="430" y="80" text-anchor="middle">보안 패턴</text><text class="t3" x="430" y="96" text-anchor="middle">문헌 5종</text>
+<text class="t3" x="580" y="80" text-anchor="middle">전수 정독 태깅</text><text class="t3" x="580" y="96" text-anchor="middle">피드백 반영</text>
+<text class="t3" x="700" y="80" text-anchor="middle">재태깅 + PAX</text><text class="t3" x="700" y="96" text-anchor="middle">전수 정독 태깅</text>
+<text class="t3" x="820" y="80" text-anchor="middle">잔여 피드백</text><text class="t3" x="820" y="96" text-anchor="middle">문서 반영</text>
+<text class="t2" x="70" y="200" text-anchor="middle">A·B·C 3계층</text><text class="t2" x="70" y="218" text-anchor="middle">D 렌즈</text>
+<text class="t2" x="190" y="200" text-anchor="middle">E 환경 조건</text><text class="tm" x="190" y="218" text-anchor="middle">A8·A9·A10</text><text class="tm" x="190" y="234" text-anchor="middle">B0·B8·C8</text>
+<text class="t2" x="310" y="200" text-anchor="middle">템플릿·등재·뷰</text><text class="t2" x="310" y="218" text-anchor="middle">B′ · F 계층</text><text class="tm" x="310" y="234" text-anchor="middle">C9</text>
+<text class="t2" x="430" y="200" text-anchor="middle">S 보안 계층</text><text class="t2" x="430" y="218" text-anchor="middle">위협 매트릭스</text>
+<text class="t2" x="580" y="200" text-anchor="middle">R1 가치 흐름</text><text class="t2" x="580" y="218" text-anchor="middle">구현 3단계</text><text class="tm" x="580" y="234" text-anchor="middle">B′9·A2.5·A11</text>
+<text class="t2" x="700" y="200" text-anchor="middle">R10~R17</text><text class="tm" x="700" y="218" text-anchor="middle">A2.0~A2.6</text><text class="tm" x="700" y="234" text-anchor="middle">B′10</text>
+<text class="t2" x="820" y="200" text-anchor="middle">R18~R28</text><text class="t2" x="820" y="218" text-anchor="middle">문서만 개정</text>
+<text class="t3" x="26" y="326">위: 그 판을 촉발한 자료 · 아래: 더하거나 고친 것</text>
+</svg></div>
+<figcaption><b>그림 1.5</b> 카탈로그의 판별 변화. v0.2~v0.5는 PAX 사례와 문헌을 겹쳐 계층과 부품을 더했고, v0.6~v0.7.1은 사례 전수 태깅에서 나온 피드백으로 판정 규칙을 고쳤다.</figcaption></figure>
+
+<p>v0.2는 공통 서비스·업무 컴포넌트·운영 컴포넌트 세 계층과 서비스 블록 렌즈를 골격으로 세웠다. v0.3은 PAX 사례로 v0.2를 검증했다. 구멍은 세 군데에서 드러났다. 폐쇄망·로컬 LLM·MCP·권한 범위가 부품 안에 숨어 있었다. 공공데이터 MCP 서버, 업무 규범 스킬, HWPX·엑셀 어댑터, 온나라를 덧입힌 브라우저 확장, 런타임 AI가 없는 도구처럼 현장 자생 도구가 쓰는 부품은 아예 빠져 있었다. PAX 원칙 "공공에서는 자율성보다 통제"를 담을 통제 부품도 하나 모자랐다. 그래서 E 환경 조건 계층과 <a class="pat lc-a" href="ch07.html#p-A8"><span class="pid">A8</span>MCP 서버·호스트</a>, <a class="pat lc-a" href="ch07.html#p-A9"><span class="pid">A9</span>업무 규범 스킬</a>, <a class="pat lc-a" href="ch07.html#p-A10"><span class="pid">A10</span>문서 형식 어댑터</a>, <a class="pat lc-b" href="ch05.html#p-B0"><span class="pid">B0</span>결정적 도구</a>, <a class="pat lc-b" href="ch05.html#p-B8"><span class="pid">B8</span>레거시 오버레이</a>, <a class="pat lc-c" href="ch08.html#p-C8"><span class="pid">C8</span>권한 경계·킬스위치</a>가 들어왔다.</p>
+<p>v0.4는 AI·에이전트 디자인 패턴 문헌 10종을 겹쳤다. 부품 목록은 있었지만 패턴을 패턴답게 만드는 형식이 없었다. 이름·문제·해법·결과라는 최소 템플릿, 사용례 세 건 이상이면 확립이라는 등재 규칙(Rule of Three), 다섯 관점의 분류 뷰가 이때 정해졌다. 여러 에이전트 카탈로그의 교집합에서 B′ 제어 흐름 원형이, AI UX 패턴에서 F 상호작용 계층이, 평가 문헌에서 <a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span>평가 세트·회귀시험</a>이 나왔다. v0.5는 보안 패턴 문헌 5종으로 S 계층을 세웠다. v0.4까지의 C 계층은 실수와 장애를 막는 통제였고, 적대자는 염두에 두지 않았기 때문이다.</p>
+<p>v0.6부터 성격이 바뀐다. 카탈로그를 사례 전수에 정독 태깅으로 적용했다. 태깅 지침은 "카탈로그가 맞지 않는 지점을 반드시 적어라"였다. 앞에서 본 R1 가치 흐름 규칙, present·implemented·planned 구현 상태 3단계, <a class="pat lc-bp" href="ch06.html#p-Bp9"><span class="pid">B′9</span>결정론 판정 게이트</a>, <a class="pat lc-a" href="ch07.html#p-A2_5"><span class="pid">A2.5</span>비LLM 학습 모델</a>, <a class="pat lc-a" href="ch07.html#p-A11"><span class="pid">A11</span>액추에이션·현장 통지 어댑터</a>가 모두 이 태깅 피드백을 반영해 들어왔다. v0.7은 v0.6 규칙으로 재태깅하고 PAX를 처음으로 전수 정독 태깅했다(당시 459건). v0.6 규칙으로 사례를 다시 정독 태깅하며 나온 피드백으로 R10~R17을 개정했다. v0.7.1은 태깅이 끝난 뒤 추가로 보고된 잔여 피드백을 R18~R28로 문서에 반영했다. 스키마와 검증기에는 아직 적용되지 않았다. 이 책 2판은 원장이 557건으로 늘어난 뒤, 기존 481건에 새로 들어온 76건을 더해 557건 전수를 v0.7.1 규칙으로 태깅한 결과를 쓴다.</p>
+
+<p>표 1.3은 판마다 무엇이 개정을 촉발했고 무엇을 바꿨는지를 한 줄로 줄인 것이다.</p>
+<div class="tbl"><table><caption><b>표 1.3</b> 판별 자극과 결정 요약</caption>
+<thead><tr><th>판</th><th>자극</th><th>대표 결정</th></tr></thead>
+<tbody>
+<tr><td class="k">v0.2</td><td>첫 골격</td><td>A·B·C 세 계층, D 서비스 블록 렌즈</td></tr>
+<tr><td class="k">v0.3</td><td>PAX 사례로 검증</td><td>E 환경 조건 신설, 부품 6개 추가, 재사용 척도를 전이 5단계로 교체</td></tr>
+<tr><td class="k">v0.4</td><td>AI·에이전트 패턴 문헌 10종</td><td>패턴 템플릿·Rule of Three·분류 뷰, B′·F 계층, C9</td></tr>
+<tr><td class="k">v0.5</td><td>보안 패턴 문헌 5종</td><td>S 계층, 위협 × 부품 매트릭스, 신뢰 불가 입력 규칙</td></tr>
+<tr><td class="k">v0.6</td><td>전수 정독 태깅 피드백</td><td>R1 가치 흐름, B6 요건, 구현 상태 3단계, B′9·A2.5·A11·A12·F9~F11</td></tr>
+<tr><td class="k">v0.7</td><td>v0.6 규칙으로 사례를 다시 정독 태깅하며 나온 피드백</td><td>R10~R17 (필수 부품 대안, A2.0~A2.6, B′10, A11a/b 분리 등)</td></tr>
+<tr><td class="k">v0.7.1</td><td>잔여 피드백</td><td>R18~R28 (5a·5b·2a·2b 세분 등, 문서만 개정)</td></tr>
+</tbody></table></div>
+
+<p>카탈로그는 아직 자라는 중이다. 판마다 사례가 카탈로그의 틀린 곳을 드러냈고, 카탈로그는 그 지점을 규칙으로 고쳤다. 필수 부품 결손으로 잡힌 것 가운데 일부는 규칙이 지나치게 요구해서 생긴 것이었다. 그때 고쳐야 할 쪽은 카탈로그였고, v0.7은 필수 부품에 대안을 허용하는 규칙으로 이를 고쳤다. 이 책이 15장에서 태깅·검증·피드백 루프를 따로 다루는 까닭이 여기에 있다. 기관이 자기 과제를 태깅하다 만나는 어긋남도 같은 루프를 타고 다음 판에 들어간다.</p>
+
+<aside class="key"><span class="lbl">핵심 요약</span><ul>
+<li>v0.2~v0.5는 PAX 사례와 문헌을 겹쳐 계층(E·B′·F·S)과 부품을 더했다.</li>
+<li>v0.6~v0.7.1은 사례 전수 정독 태깅의 피드백을 반영해 판정 규칙을 고쳤다. 2판은 557건 전수 태깅을 쓴다.</li>
+<li>사례와 맞지 않는 지점은 과제의 빈칸일 수도, 카탈로그의 오류일 수도 있다. 둘을 가르는 것이 피드백 루프다.</li>
+</ul></aside>
+
+<h2>1.5 패턴이 주는 세 가지 능력</h2>
+<p>과제를 부품의 조립도로 읽으면 세 가지 일이 가능해진다(그림 1.6). 카탈로그를 만든 이유도 이 셋에 있다.</p>
+<p><strong>공통 서비스화.</strong> 같은 부품을 각자 만든 과제들을 찾아 공통 서비스로 올린다. 문서 형식 어댑터를 따로 만든 과제가 여럿이면 그 어댑터는 기관이나 범정부 수준의 A 부품이 될 후보다. 부품 이름이 없으면 이 중복은 보이지 않는다. 과제마다 "HWP 파싱 모듈 개발"이라고 적고, 저마다 처음 만드는 것이라 여기기 때문이다.</p>
+<p><strong>참조 구현.</strong> 잘 만든 부품을 참조 구현으로 지정해 다른 기관이 가져다 쓰게 한다. PAX 557건 태깅에서 참조 구현 후보로 가장 많이 지목된 부품은 <a class="pat lc-f" href="ch10.html#p-F7"><span class="pid">F7</span>한계·신뢰도 안내</a>(17건), <a class="pat lc-a" href="ch07.html#p-A10"><span class="pid">A10</span>문서 형식 어댑터</a>(14건), <a class="pat lc-s" href="ch09.html#p-S12"><span class="pid">S12</span>데이터 비도달 설계</a>(11건), <a class="pat lc-bp" href="ch06.html#p-Bp9"><span class="pid">B′9</span>결정론 판정 게이트</a>(9건), <a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span>평가 세트·회귀시험</a>(8건)이었다. 업무를 가리지 않고 끼울 수 있는 부품일수록 다른 기관이 가져가기 쉽다. 이 후보를 모은 것이 참조 구현 레지스트리(15장)다.</p>
+<p><strong>결손 진단.</strong> 어떤 부품이 빠져서 AX 단계가 멈췄는지를 과제마다 같은 언어로 말한다. "고도화가 필요하다"는 진단은 다음 행동을 알려 주지 않는다. "B1은 있는데 C1 검토 큐가 운영 기록 없이 planned에 머물러 있다"는 진단은 다음에 무엇을 끼울지 알려 준다. 서비스 유형마다 필수 부품이 정해져 있어서, 검증기는 유형별 결손을 자동으로 적는다. PAX 557건에서 가장 많이 빠진 필수 부품은 C5 가드레일 필터(177건), C1 검토 큐(108건), C8 권한 경계·킬스위치(106건), C9 평가 세트·회귀시험(100건), F1 출처 표시(83건)였다.</p>
+
+<figure class="fig" id="fig-1-6"><div class="canvas"><svg viewBox="0 0 900 300" role="img" aria-label="패턴 언어의 세 능력: 공통 서비스화, 참조 구현, 결손 진단">
+<defs><marker id="ah-1-6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker><marker id="ah-1-6w" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah warn"/></marker></defs>
+<rect class="n zone" x="20" y="16" width="270" height="268" rx="6"/>
+<rect class="n zone" x="315" y="16" width="270" height="268" rx="6"/>
+<rect class="n zone" x="610" y="16" width="270" height="268" rx="6"/>
+<text class="t b" x="155" y="44" text-anchor="middle">① 공통 서비스화</text>
+<text class="t b" x="450" y="44" text-anchor="middle">② 참조 구현</text>
+<text class="t b" x="745" y="44" text-anchor="middle">③ 결손 진단</text>
+<rect class="n a" x="55" y="66" width="200" height="40" rx="6"/><text class="tm ta" x="155" y="82" text-anchor="middle">A10</text><text class="t2" x="155" y="98" text-anchor="middle">공통 문서 형식 어댑터</text>
+<rect class="n" x="36" y="176" width="70" height="56" rx="6"/><text class="t3" x="71" y="194" text-anchor="middle">과제 1</text><rect class="n a" x="46" y="202" width="50" height="22" rx="6"/><text class="tm ta" x="71" y="217" text-anchor="middle">A10</text>
+<rect class="n" x="120" y="176" width="70" height="56" rx="6"/><text class="t3" x="155" y="194" text-anchor="middle">과제 2</text><rect class="n a" x="130" y="202" width="50" height="22" rx="6"/><text class="tm ta" x="155" y="217" text-anchor="middle">A10</text>
+<rect class="n" x="204" y="176" width="70" height="56" rx="6"/><text class="t3" x="239" y="194" text-anchor="middle">과제 3</text><rect class="n a" x="214" y="202" width="50" height="22" rx="6"/><text class="tm ta" x="239" y="217" text-anchor="middle">A10</text>
+<path class="ln" d="M71,174 L120,110" marker-end="url(#ah-1-6)"/><path class="ln" d="M155,174 L155,110" marker-end="url(#ah-1-6)"/><path class="ln" d="M239,174 L190,110" marker-end="url(#ah-1-6)"/>
+<text class="t3" x="155" y="262" text-anchor="middle">같은 부품을 각자 만든 과제를 찾는다</text>
+<rect class="n acc" x="335" y="112" width="100" height="56" rx="6"/><text class="t2" x="385" y="134" text-anchor="middle">기관 갑</text><text class="tm tacc" x="385" y="154" text-anchor="middle">C9 잘 만듦</text>
+<rect class="n" x="475" y="76" width="96" height="44" rx="6"/><text class="t2" x="523" y="96" text-anchor="middle">기관 을</text><text class="tm" x="523" y="112" text-anchor="middle">C9 가져옴</text>
+<rect class="n" x="475" y="160" width="96" height="44" rx="6"/><text class="t2" x="523" y="180" text-anchor="middle">기관 병</text><text class="tm" x="523" y="196" text-anchor="middle">C9 가져옴</text>
+<path class="ln acc" d="M435,130 L473,100" marker-end="url(#ah-1-6)"/><path class="ln acc" d="M435,150 L473,180" marker-end="url(#ah-1-6)"/>
+<text class="t3" x="450" y="236" text-anchor="middle">레지스트리에 올려 가져다 쓴다</text>
+<rect class="n b" x="626" y="110" width="60" height="44" rx="6"/><text class="tm tb" x="656" y="137" text-anchor="middle">B1</text>
+<rect class="n missing" x="712" y="110" width="60" height="44" rx="6"/><text class="tm twarn" x="742" y="137" text-anchor="middle">C1 ?</text>
+<rect class="n person" x="798" y="110" width="66" height="44" rx="6"/><text class="t2" x="831" y="137" text-anchor="middle">공문</text>
+<path class="ln" d="M686,132 L710,132" marker-end="url(#ah-1-6)"/><path class="ln warn" d="M772,132 L796,132" marker-end="url(#ah-1-6w)"/>
+<text class="t2 twarn" x="745" y="186" text-anchor="middle">확정 지점이 비어 있다</text>
+<text class="t3" x="745" y="236" text-anchor="middle">무엇이 빠졌는지 같은 언어로 말한다</text>
+</svg></div>
+<figcaption><b>그림 1.6</b> 패턴 언어가 주는 세 능력. 같은 부품의 중복을 찾아 공통 서비스로 올리고(①), 잘 만든 부품을 다른 기관이 가져다 쓰게 하며(②), 조립도의 빈칸을 부품 이름으로 짚는다(③).</figcaption></figure>
+
+<aside class="case"><span class="lbl">사례 연구 · 가람시(가상)</span>
+<h4>개인 개발 도구 목록에서 공통 부품을 찾다</h4>
+<p>부서장 회의가 끝난 뒤 AX팀은 시청 안에서 이미 돌고 있는 도구부터 세어 보기로 했다. 인터넷망 PC와 행정망 PC를 오가며 물어보니, 공무원 몇 명이 바이브 코딩으로 만든 도구가 일곱 개 나왔다. 엑셀 취합기 둘, HWPX를 표로 바꾸는 변환기 하나, 공공데이터를 조회하는 MCP 서버 하나, 보도자료 문체를 맞추는 스킬 파일 하나, 회의록 정리 도구 둘이었다. 일곱 개 중 다섯은 실행할 때 모델을 부르지 않는 <a class="pat lc-b" href="ch05.html#p-B0"><span class="pid">B0</span>결정적 도구</a>였다.</p>
+<p>목록을 부품 이름으로 다시 적자 세 능력이 한꺼번에 보였다. HWPX를 읽는 코드가 세 도구에 따로 들어 있었다. <a class="pat lc-a" href="ch07.html#p-A10"><span class="pid">A10</span>문서 형식 어댑터</a> 하나로 올릴 후보였다(공통 서비스화). 보도자료 스킬은 기획예산과 보고서 작성에도 그대로 쓸 수 있는 <a class="pat lc-a" href="ch07.html#p-A9"><span class="pid">A9</span>업무 규범 스킬</a>이었다(참조 구현). 그리고 일곱 개 모두 만든 사람의 PC에만 있었다. 라이선스도 인수인계 문서도 없었다. 만든 사람이 인사이동하면 함께 사라질 도구, <a class="pat lc-x" href="ch14.html#p-X9"><span class="pid">X9</span>담당자와 함께 사라지는 도구</a>였다(결손 진단). AX팀은 공용 저장소를 만드는 일을 할 일 목록 맨 위에 올렸다. 이 결정은 15장의 레지스트리로 이어진다.</p>
+</aside>
+
+<h2>1.6 흔한 오해</h2>
+<p>패턴 언어를 처음 접하는 기관에서는 다음과 같은 오해가 자주 나온다.</p><figure class="fig screen"><img src="img/ad-public-more.jpg" alt="공공 AX라서, 더: 중복·개인정보·책임" loading="lazy"><figcaption><b>화면 1.2</b>공공에서 패턴이 더 필요한 세 가지 까닭. 같은 문제를 한 번만 풀고(중복), 서버에 닿지 않게 설계하고(개인정보), 최종 확정은 사람이 한다(책임). <span class="src">쇼릴 「공공 AX 디자인 패턴」(2026년 9월 제작)의 한 장면. 화면 속 수치는 제작 당시 기준이다.</span></figcaption></figure>
+<ul>
+<li><strong>기술명을 부품으로 착각한다.</strong> RAG·MCP·에이전트는 그 자체로 패턴이 아니다. 카탈로그의 등재 규칙은 이름·동기·해법·결과가 없는 항목을 패턴으로 세지 않으며, 기술명만 있는 항목도 등재하지 않는다. MCP는 부품(A8)이자 실행 형태 조건(E3)이고, RAG는 B3 안의 검색 단계이며, 온프레미스는 조건(E1·E2)이다.</li>
+<li><strong>부품이 많을수록 성숙하다고 여긴다.</strong> 부품 수로는 성숙도를 잴 수 없다. 운영 부품은 운영 증거가 있을 때만 present로 센다. 설계서에 적힌 C 부품 열 개보다 운영 중에 한 번이라도 작동 기록이 남은 C1 하나가 무겁다. <a class="pat lc-x" href="ch14.html#p-X8"><span class="pid">X8</span>MCP 서버 개수 세기</a>와 <a class="pat lc-x" href="ch14.html#p-X2"><span class="pid">X2</span>설계도만 있는 운영</a>이 이 오해의 안티패턴이다.</li>
+<li><strong>런타임 AI가 없으면 AX가 아니라고 본다.</strong> PAX 557건 중 296건(53.1%)은 태깅의 모델 의존 조건으로 런타임에 LLM을 부르지 않는다. 카탈로그는 이것을 B0로 이름 붙여 Ready 부품으로 센다. 다만 바이브 코딩으로 만들었다는 사실만으로 Enabled가 되지는 않는다.</li>
+<li><strong>카탈로그를 평가표로만 쓴다.</strong> 패턴 서명은 채점 도구이기 전에 설계 도구다. 과제를 시작할 때 주 부품을 고르고 환경 조건에 맞는 의존 부품을 끼우는 순서(12장)가 먼저다.</li>
+</ul>
+
+<aside class="glance"><span class="lbl">한눈에 보기</span><dl>
+<dt>무엇</dt><dd>공공 AI 과제를 기술명으로 분류하면 같은 구조를 부서마다 다시 만들고, 무엇이 빠졌는지 같은 언어로 말할 수 없다.</dd>
+<dt>왜</dt><dd>사람과 AI의 역할 분담으로 주 부품을 정하고, 공통 부품과 환경 조건을 함께 적으면 과제가 재사용 가능한 부품의 조립도가 된다. 그러면 중복을 찾고, 좋은 부품을 옮기고, 빈칸을 짚을 수 있다.</dd>
+<dt>경험칙</dt><dd>과제 설명이 기술명으로 시작하면 "사람이 최종으로 받는 산출물은 무엇이고, 누가 확정하는가"를 먼저 묻는다. 그 답이 주 부품이다.</dd>
+</dl></aside>
+
+<div class="summary"><h2>핵심 정리</h2><ul>
+<li>카탈로그는 공공 AI 과제를 "어떤 공통 컴포넌트와 서비스를 어떤 환경 조건 아래 조립했나"로 읽는 패턴 언어다.</li>
+<li>분류 기준은 사람과 AI의 역할 분담이고, 주 부품은 사람이나 국민이 최종으로 받는 산출물을 만드는 부품이다(R1).</li>
+<li>부품은 A·B·B′·C·S·F·D 일곱 계층과 X 안티패턴으로 나뉘고, E 환경 조건 다섯 축이 전체를 감싼다. 디렉터리 항목은 107개다.</li>
+<li>한 과제의 요약은 패턴 서명이다. 주 부품 B 하나에 B′·A·C·S·F·D·E·서비스 유형이 붙는다.</li>
+<li>PAX 557건 가운데 개인·커뮤니티 사례가 78.5%, 주 부품 B0가 70.0%다. 사례는 AI-Ready에 몰려 있고, 기반 부품은 풍부하지만 운영·보안 부품은 대부분 확인되지 않는다.</li>
+<li>카탈로그는 v0.2에서 v0.7.1까지 PAX 사례·문헌·태깅 피드백으로 여섯 번 고쳐졌다. 맞지 않는 지점은 다음 판의 재료다.</li>
+<li>패턴 언어가 주는 능력은 공통 서비스화, 참조 구현, 결손 진단 세 가지다.</li>
+</ul></div>
+<nav class="pager"><a class="prev" href="case-background.html"><small>← 이전</small>사례 배경: 가람시(가상)</a><a class="next" href="ch02.html"><small>다음 →</small>AX 성숙도와 측정 눈금자</a></nav></main></div><script>
+(function(){var b=document.querySelector('.navbtn');if(b){b.addEventListener('click',function(){var o=document.body.classList.toggle('toc-open');b.setAttribute('aria-expanded',o)});}
+document.querySelectorAll('.toc a').forEach(function(a){a.addEventListener('click',function(){document.body.classList.remove('toc-open')})});
+var on=document.querySelector('.toc a.on');if(on&&on.scrollIntoView){try{on.scrollIntoView({block:'center'})}catch(e){}}})();
+</script></body></html>

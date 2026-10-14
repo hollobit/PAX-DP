@@ -1,0 +1,196 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>사례 배경: 가람시(가상) · 공공 AX 디자인 패턴</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700;800;900&family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap"><link rel="stylesheet" href="book.css"></head><body><div class="bar"><button class="navbtn" type="button" aria-controls="toc" aria-expanded="false">차례</button><a class="bk" href="index.html">공공 AX 디자인 패턴</a><span class="where">사례 배경: 가람시(가상)</span><span class="pn"><a href="reading.html">← 이전</a><a href="ch01.html">다음 →</a></span></div><div class="layout"><nav class="toc" id="toc" aria-label="책 차례"><a href="index.html"><b>표지 · 차례</b></a><div class="part">앞붙이</div><a href="preface.html"><span class="n"></span>서문</a><a href="reading.html"><span class="n"></span>이 책을 읽는 법</a><a href="case-background.html" class="on" aria-current="page"><span class="n"></span>사례 배경: 가람시(가상)</a><div class="part">1부 기초</div><a href="ch01.html"><span class="n">1</span>공공 AX와 패턴 언어</a><a href="ch02.html"><span class="n">2</span>AX 성숙도와 측정 눈금자</a><a href="ch03.html"><span class="n">3</span>디자인 패턴의 원리</a><a href="ch04.html"><span class="n">4</span>카탈로그의 구조</a><div class="part">2부 패턴 레퍼런스</div><a href="ch05.html"><span class="n">5</span>B 업무 컴포넌트</a><a href="ch06.html"><span class="n">6</span>B′ 제어 흐름 원형</a><a href="ch07.html"><span class="n">7</span>A 공통 서비스</a><a href="ch08.html"><span class="n">8</span>C 운영 컴포넌트</a><a href="ch09.html"><span class="n">9</span>S 보안 패턴</a><a href="ch10.html"><span class="n">10</span>F 상호작용 패턴</a><a href="ch11.html"><span class="n">11</span>D 서비스 블록</a><div class="part">3부 적용</div><a href="ch12.html"><span class="n">12</span>조립: 적용 절차와 서비스 유형별 템플릿</a><a href="ch13.html"><span class="n">13</span>조립 예시와 축 교차표</a><a href="ch14.html"><span class="n">14</span>안티패턴</a><a href="ch15.html"><span class="n">15</span>태깅·검증·참조 구현 레지스트리</a><a href="ch16.html"><span class="n">16</span>PAX 557건으로 본 공공 AX의 현재</a><a href="ch17.html"><span class="n">17</span>PAX 가이드라인과 리소스</a><div class="part">부록</div><a href="appx-a.html"><span class="n">A</span>패턴 한눈에 보기</a><a href="appx-b.html"><span class="n">B</span>판정 규칙 개정 이력 R1~R28</a><a href="appx-c.html"><span class="n">C</span>용어집</a><a href="appx-d.html"><span class="n">D</span>참고문헌</a><a href="appx-e.html"><span class="n">E</span>공공 AX 가이드라인 문서 해설</a><a href="appx-f.html"><span class="n">F</span>사례 케이스북: PAX 사례로 읽는 패턴 활용</a></nav><main class="content" id="case-background"><header class="chap-head"><div class="eyebrow">앞붙이</div><h1>사례 배경: 가람시(가상)</h1><p class="lede">이 책의 장마다 등장하는 가상 기초자치단체 가람시를 소개한다. 연혁, 정보시스템과 망 구성, 부서별 AX 요구, 목표와 장애 요인, 그리고 이 책에서 가람시가 밟아 갈 여정을 정리한다.</p><div class="goals"><b>이 장에서 얻을 것</b><ul><li>가람시의 망 구성과 환경 조건을 E1~E5 축으로 말할 수 있다</li><li>부서별 AX 요구와 그것이 떠올리게 하는 주 부품 후보를 안다</li><li>가람시 AX팀의 목표와 장애 요인을 안다</li><li>장마다 가람시 이야기가 어디까지 진행되는지 안다</li></ul></div></header>
+
+<aside class="note"><span class="lbl">참고</span>
+<p>가람시는 실재하지 않는다. 이 장의 연표, 인구, 예산, 조직, 시스템, 인물은 모두 이 책을 위해 지어낸 설정이다. 실재 기관이나 특정 제품을 가리키지 않으며, 모델은 "상용 LLM", "로컬 오픈웨이트 모델"처럼 일반명으로만 부른다. 가람시가 겪는 문제는 PAX 공공 AX 사례 아카이브 557건에서 반복해 관찰된 구조를 한 기관에 모아 놓은 것이다.</p>
+</aside>
+
+<p>Erl의 SOA 책들은 가상 기업 몇 곳의 이야기를 책 전체에 깔아 둔다. 2장에서 배경을 세우고 장마다 그 기업이 다음 결정을 내린 뒤, 마지막 부록에서 처음 목표를 다시 평가한다. 이 책은 같은 장치를 공공기관에 맞게 쓴다. 주인공은 기초자치단체 하나다. 기관이 공식으로 추진하는 사업과 공직 개인의 자생 도구가 한 조직 안에서 함께 자라는 곳이 기초자치단체이기 때문이다.</p>
+
+<h2>연혁</h2>
+<aside class="case"><span class="lbl">사례 연구 · 가람시(가상)</span>
+<h4>인구 40만 도시의 행정 전산 이력</h4>
+<p>가람시는 인구 약 40만의 가상 기초자치단체다. 도심 주거지와 하천을 낀 외곽 농촌이 섞여 있고, 여름이면 하천 수위가 시정의 큰 관심사가 된다. 본청 직원은 1,500명 남짓이고, 민원 창구와 콜센터, 재난안전상황실을 직접 운영한다.</p>
+<p>시의 전산 이력은 다른 자치단체와 크게 다르지 않다. 업무망과 인터넷망을 나눈 뒤로 직원 대부분은 책상에 두 대의 PC를 두거나 망 전환 프로그램을 쓴다. 문서는 전자결재와 문서관리 시스템에서 HWPX로 만들어지고, 예산·복지·민원은 각각 중앙에서 내려온 표준 업무시스템을 쓴다. 생성형 AI가 시청에 들어온 경로는 공식 사업이 아니었다. 인터넷망 PC에서 개인적으로 상용 챗봇을 써 보던 직원들이 먼저였고, 그 가운데 몇 명은 AI 코딩 도구로 엑셀 취합기나 변환기를 만들어 옆자리 동료와 나눠 쓰기 시작했다.</p>
+<p>시는 2025년 정보통신과 안에 세 명짜리 AX팀을 만들었다. 같은 해 행정망 안에 로컬 오픈웨이트 모델을 돌리는 서버 한 대를 들였고, 상용 LLM API를 행정망에서 쓸 수 있도록 내부망 프록시를 시범 운영하기 시작했다. 이 책의 이야기는 그 이듬해 가을, 부서들의 AX 요구가 한꺼번에 AX팀으로 몰려드는 데서 시작한다.</p>
+</aside>
+
+<p>표 K.1은 이 이력을 연표로 정리하고, 사건마다 이어지는 장을 붙인 것이다.</p>
+<div class="tbl"><table><caption><b>표 K.1</b> 가람시(가상) 연표(모두 이 책의 설정)</caption>
+<thead><tr><th>시기</th><th>사건</th><th>이후 장과의 연결</th></tr></thead>
+<tbody>
+<tr><td class="k">2010년대 중반</td><td>업무망·인터넷망 분리 완료. 망연계 장치로 파일만 주고받는다.</td><td>E1 배포망 조건(4장)</td></tr>
+<tr><td class="k">2021년</td><td>콜센터 상담 이력과 민원 FAQ를 전산으로 쌓기 시작</td><td>민원 상담의 코퍼스(A1, 7장)</td></tr>
+<tr><td class="k">2023년</td><td>재난안전상황실 통합, 하천 수위 센서와 CCTV를 한 관제 화면으로</td><td>감지·경보(B5, 5장)</td></tr>
+<tr><td class="k">2024년</td><td>일부 직원이 인터넷망 PC에서 상용 챗봇과 AI 코딩 도구를 개인적으로 쓰기 시작</td><td>자생 도구(B0·A7, 5·7장)</td></tr>
+<tr><td class="k">2025년</td><td>정보통신과 AX팀(3명) 신설, 로컬 모델 서버 1대 도입, 내부망 프록시 시범 운영</td><td>모델 서빙(A2.2·A2.4, 7장)</td></tr>
+<tr><td class="k">2026년 가을</td><td>네 부서가 각자 챗봇 구축을 요청. AX팀이 패턴 카탈로그를 펼친다.</td><td>1장의 출발점</td></tr>
+</tbody></table></div>
+
+<h2>정보시스템 현황</h2>
+<p>가람시의 정보시스템은 망 하나로 설명되지 않는다(그림 K.1). 행정망에는 업무 PC, 표준 업무시스템, 업무 데이터, 로컬 모델 서버, 내부망 프록시가 있다. 재난안전상황실은 행정망 안의 별도 구역에서 CCTV와 하천 수위 센서를 받는다. 인터넷망에는 인터넷 PC와 시 홈페이지, 시민 상담 게시판이 있다. 두 망 사이는 망연계 장치가 파일 단위로만 잇는다. 상용 LLM API는 행정망에서 내부망 프록시를 거칠 때만 부를 수 있다.</p>
+
+<figure class="fig" id="fig-K-1"><div class="canvas"><svg viewBox="0 0 900 450" role="img" aria-label="가람시(가상)의 행정망, 재난안전상황실 구역, 인터넷망, 외부 상용 LLM API의 망 구성도">
+<defs>
+<marker id="ah-K-1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker>
+<marker id="ah-K-1a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah acc"/></marker>
+</defs>
+<text class="t b" x="24" y="34">행정망 (폐쇄)</text><text class="t3" x="130" y="34">데이터 등급 대부분 S(민감)</text>
+<rect class="n zone" x="20" y="44" width="520" height="340" rx="6"/>
+<text class="t b" x="604" y="34">인터넷망</text>
+<rect class="n zone" x="600" y="44" width="280" height="190" rx="6"/>
+<text class="t b" x="604" y="270">외부</text>
+<rect class="n zone" x="600" y="280" width="280" height="104" rx="6"/>
+<rect class="n person" x="40" y="70" width="130" height="48" rx="6"/><text class="t" x="105" y="91" text-anchor="middle">업무 PC</text><text class="t3" x="105" y="108" text-anchor="middle">부서 직원</text>
+<rect class="n" x="200" y="70" width="150" height="48" rx="6"/><text class="t" x="275" y="91" text-anchor="middle">표준 업무시스템</text><text class="t3" x="275" y="108" text-anchor="middle">결재·민원·예산·복지</text>
+<rect class="n a" x="380" y="70" width="140" height="48" rx="6"/><text class="t" x="450" y="91" text-anchor="middle">로컬 모델 서버</text><text class="tm ta" x="450" y="108" text-anchor="middle">A2.2 · 1대</text>
+<rect class="n" x="200" y="150" width="150" height="48" rx="6"/><text class="t" x="275" y="171" text-anchor="middle">업무 데이터</text><text class="t3" x="275" y="188" text-anchor="middle">상담 이력 · 문서 · 대장</text>
+<rect class="n a" x="380" y="150" width="140" height="48" rx="6"/><text class="t" x="450" y="171" text-anchor="middle">내부망 프록시</text><text class="tm ta" x="450" y="188" text-anchor="middle">A2.4 · 시범</text>
+<rect class="n zone" x="36" y="230" width="250" height="138" rx="6"/><text class="t2" x="48" y="250">재난안전상황실 구역</text>
+<rect class="n" x="48" y="262" width="110" height="48" rx="6"/><text class="t2" x="103" y="283" text-anchor="middle">CCTV·수위 센서</text><text class="t3" x="103" y="300" text-anchor="middle">현장</text>
+<rect class="n" x="168" y="262" width="108" height="48" rx="6"/><text class="t2" x="222" y="283" text-anchor="middle">통합관제 서버</text><text class="t3" x="222" y="300" text-anchor="middle">관제 화면</text>
+<text class="t3" x="48" y="340">자동 알림 없음 · 관제 요원이 화면을 본다</text>
+<rect class="n missing" x="306" y="262" width="214" height="62" rx="6"/><text class="t2" x="413" y="284" text-anchor="middle">개인 개발 도구 7개</text><text class="t3" x="413" y="301" text-anchor="middle">엑셀 취합 · 변환 · MCP · 스킬</text><text class="t3 twarn" x="413" y="316" text-anchor="middle">공용 저장소 없음</text>
+<rect class="n person" x="620" y="70" width="110" height="48" rx="6"/><text class="t" x="675" y="91" text-anchor="middle">인터넷 PC</text><text class="t3" x="675" y="108" text-anchor="middle">일부 직원</text>
+<rect class="n" x="620" y="150" width="240" height="48" rx="6"/><text class="t" x="740" y="171" text-anchor="middle">시 홈페이지 · 상담 게시판</text><text class="t3" x="740" y="188" text-anchor="middle">시민 접점</text>
+<rect class="n" x="620" y="306" width="240" height="48" rx="6"/><text class="t" x="740" y="327" text-anchor="middle">상용 LLM API</text><text class="t3" x="740" y="344" text-anchor="middle">외부 서비스</text>
+<rect class="n soft" x="556" y="206" width="80" height="34" rx="6"/><text class="t2" x="596" y="228" text-anchor="middle">망연계</text>
+<path class="ln" d="M170,94 L198,94" marker-end="url(#ah-K-1)"/>
+<path class="ln" d="M350,94 L378,94" marker-end="url(#ah-K-1)"/>
+<path class="ln" d="M275,118 L275,148" marker-end="url(#ah-K-1)"/>
+<path class="ln" d="M158,286 L166,286" marker-end="url(#ah-K-1)"/>
+<path class="ln dash" d="M350,190 C400,228 480,228 554,223"/><path class="ln dash" d="M636,214 L660,200"/>
+<path class="ln acc" d="M520,174 L548,174 L548,330 L618,330" marker-end="url(#ah-K-1a)"/>
+<text class="t3 tacc" x="556" y="400">상용 API는 A2.4 경유만 허용</text>
+<path class="ln" d="M730,118 L760,148" marker-end="url(#ah-K-1)"/>
+<text class="t3" x="24" y="414">E1 행정망·인터넷망 분리 · E2 로컬 오픈웨이트 + 상용 API(프록시 경유) · E5 대부분 S</text>
+<text class="t3" x="24" y="432">점선은 파일 단위 망연계 · 붉은 점선 상자는 관리 체계 밖에 있는 자산</text>
+</svg></div>
+<figcaption><b>그림 K.1</b> 가람시(가상)의 망 구성. 행정망 안에 로컬 모델 서버와 내부망 프록시가 있고, 상용 LLM API는 프록시를 거쳐서만 부른다. 재난안전상황실은 별도 구역이며, 직원들이 만든 개인 도구는 관리 체계 밖에 흩어져 있다.</figcaption></figure>
+
+<p>표 K.2는 이 망 구성을 카탈로그의 환경 조건 다섯 축으로 옮긴 것이다. 가람시의 과제는 대부분 이 조건을 기본값으로 시작한다. 4장에서 첫 패턴 서명을 쓸 때 AX팀이 채우는 E 칸이 이 표에서 나온다.</p>
+
+<div class="tbl"><table><caption><b>표 K.2</b> 가람시(가상)의 환경 조건 기본값</caption>
+<thead><tr><th>축</th><th>가람시의 값</th><th>뜻하는 것</th></tr></thead>
+<tbody>
+<tr><td class="k">E1 배포망</td><td>행정망(폐쇄), 일부 업무는 인터넷망 PC</td><td>외부 서비스는 망연계나 프록시를 거쳐야 한다.</td></tr>
+<tr><td class="k">E2 모델 의존</td><td>로컬 오픈웨이트 모델 1대 + 상용 LLM API(프록시 경유)</td><td>상용 API 직접 호출은 금지. 모델이 멈출 때의 대체 경로를 따로 정해야 한다.</td></tr>
+<tr><td class="k">E3 실행 형태</td><td>브라우저, 설치형 도구, 일부 MCP·CLI 설정</td><td>개인 도구는 설치형과 MCP가 섞여 있다.</td></tr>
+<tr><td class="k">E4 권한 범위</td><td>대부분 P0~P1, 업무시스템 쓰기는 아직 없음</td><td>P2 이상으로 올라가는 과제는 위험도 분기·롤백·권한 경계를 먼저 갖춘다.</td></tr>
+<tr><td class="k">E5 데이터 등급</td><td>대부분 S(민감)</td><td>S 이상이면 상용 API는 내부망 프록시 없이 쓸 수 없다.</td></tr>
+</tbody></table></div>
+
+<h2>부서별 AX 요구</h2>
+<p>2026년 가을 AX팀에 들어온 요구는 다섯 갈래다. 네 부서의 공식 요청과, 공식 요청은 아니지만 시청 안에서 이미 돌고 있는 개인 개발 도구다. 그림 K.2는 각 요구가 카탈로그의 어떤 서비스 유형에 닿고, 어떤 주 부품을 떠올리게 하는지를 AX팀의 첫 메모 수준에서 보여 준다. 이 대응은 가설이다. 주 부품은 4장과 2부를 지나며 정해진다.</p>
+
+<figure class="fig" id="fig-K-2"><div class="canvas"><svg viewBox="0 0 900 330" role="img" aria-label="가람시(가상) 다섯 요구 주체와 서비스 유형, 주 부품 후보의 대응">
+<defs><marker id="ah-K-2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+<text class="t3" x="20" y="14">요구 주체</text><text class="t3" x="250" y="14">서비스 유형</text><text class="t3" x="540" y="14">주 부품 후보 · 함께 떠오르는 부품</text>
+<rect class="n person" x="20" y="24" width="170" height="44" rx="6"/><text class="t" x="105" y="51" text-anchor="middle">민원여권과</text>
+<rect class="n person" x="20" y="86" width="170" height="44" rx="6"/><text class="t" x="105" y="113" text-anchor="middle">재난안전과</text>
+<rect class="n person" x="20" y="148" width="170" height="44" rx="6"/><text class="t" x="105" y="175" text-anchor="middle">기획예산과</text>
+<rect class="n person" x="20" y="210" width="170" height="44" rx="6"/><text class="t" x="105" y="237" text-anchor="middle">복지정책과</text>
+<rect class="n person" x="20" y="272" width="170" height="44" rx="6"/><text class="t" x="105" y="299" text-anchor="middle">개인 개발 공무원</text>
+<rect class="n" x="250" y="24" width="230" height="44" rx="6"/><text class="t2" x="365" y="43" text-anchor="middle">유형 1 대민 상담·안내</text><text class="t3" x="365" y="60" text-anchor="middle">유형 2 접수·심사</text>
+<rect class="n" x="250" y="86" width="230" height="44" rx="6"/><text class="t2" x="365" y="113" text-anchor="middle">유형 3 현장 감시·경보</text>
+<rect class="n" x="250" y="148" width="230" height="44" rx="6"/><text class="t2" x="365" y="167" text-anchor="middle">유형 4 내부 문서·기안 코파일럿</text><text class="t3" x="365" y="184" text-anchor="middle">유형 8 취합·변환 자동화</text>
+<rect class="n" x="250" y="210" width="230" height="44" rx="6"/><text class="t2" x="365" y="237" text-anchor="middle">유형 10 위험 예측·표적 선별</text>
+<rect class="n" x="250" y="272" width="230" height="44" rx="6"/><text class="t2" x="365" y="291" text-anchor="middle">유형 8 취합·변환 자동화 등</text><text class="t3" x="365" y="308" text-anchor="middle">공식 사업 밖</text>
+<rect class="n b" x="540" y="24" width="340" height="44" rx="6"/><text class="tm tb" x="554" y="43">B3</text><text class="t" x="580" y="43">지식 접지 상담</text><text class="t3" x="554" y="60">접수 쪽은 B4 인식 파이프라인 후보</text>
+<rect class="n b" x="540" y="86" width="340" height="44" rx="6"/><text class="tm tb" x="554" y="105">B5</text><text class="t" x="580" y="105">현장 감지·경보</text><text class="t3" x="554" y="122">A11 액추에이션·현장 통지 어댑터</text>
+<rect class="n b" x="540" y="148" width="340" height="44" rx="6"/><text class="tm tb" x="554" y="167">B1</text><text class="t" x="580" y="167">코파일럿</text><text class="t3" x="554" y="184">A9 업무 규범 스킬 · A10 문서 형식 어댑터</text>
+<rect class="n b" x="540" y="210" width="340" height="44" rx="6"/><text class="tm tb" x="554" y="229">B2</text><text class="t" x="580" y="229">예측·추천기</text><text class="t3" x="554" y="246">C2 위험도 라우터 · F9 판정 근거 표시</text>
+<rect class="n b" x="540" y="272" width="340" height="44" rx="6"/><text class="tm tb" x="554" y="291">B0</text><text class="t" x="580" y="291">결정적 도구</text><text class="t3" x="554" y="308">A8 MCP 서버·호스트 · A9 업무 규범 스킬</text>
+<path class="ln" d="M190,46 L248,46" marker-end="url(#ah-K-2)"/><path class="ln" d="M190,108 L248,108" marker-end="url(#ah-K-2)"/><path class="ln" d="M190,170 L248,170" marker-end="url(#ah-K-2)"/><path class="ln" d="M190,232 L248,232" marker-end="url(#ah-K-2)"/><path class="ln dash" d="M190,294 L248,294" marker-end="url(#ah-K-2)"/>
+<path class="ln" d="M480,46 L538,46" marker-end="url(#ah-K-2)"/><path class="ln" d="M480,108 L538,108" marker-end="url(#ah-K-2)"/><path class="ln" d="M480,170 L538,170" marker-end="url(#ah-K-2)"/><path class="ln" d="M480,232 L538,232" marker-end="url(#ah-K-2)"/><path class="ln dash" d="M480,294 L538,294" marker-end="url(#ah-K-2)"/>
+</svg></div>
+<figcaption><b>그림 K.2</b> 가람시(가상)의 다섯 요구와 AX팀의 첫 대응 메모. 왼쪽은 요구 주체, 가운데는 서비스 유형, 오른쪽은 떠오르는 주 부품과 함께 필요해 보이는 부품이다. 개인 개발 도구는 공식 사업 바깥이라 점선으로 이었다.</figcaption></figure>
+
+<aside class="case"><span class="lbl">사례 연구 · 가람시(가상)</span>
+<h4>다섯 갈래의 요구</h4>
+<p><strong>민원여권과</strong>는 여권·전입·각종 증명 발급 문의가 몰리는 창구다. 콜센터 상담 이력이 몇 년 치 쌓여 있지만, 같은 질문에 상담원마다 다른 답을 하는 일이 잦다. 요구는 "시민이 밤에도 물어볼 수 있는 챗봇"이다. 시민에게 나가는 답변이 산출물이므로, 답마다 근거 규정을 붙이고 답하지 말아야 할 질문은 사람에게 넘겨야 한다.</p>
+<p><strong>재난안전과</strong>는 여름마다 하천 수위를 지켜본다. 센서 값과 CCTV는 한 화면에 모였지만, 기준을 넘었는지 판단하고 알리는 일은 여전히 관제 요원의 눈에 달려 있다. 요구는 "상황실 질의응답 챗봇"으로 들어왔지만, 이야기를 들어 보면 필요한 것은 감지와 통지다.</p>
+<p><strong>기획예산과</strong>는 부서 보고서를 모아 요약하고, 기안문을 쓰고, 예산 요구서를 취합한다. 엑셀 서식이 부서마다 달라 취합에 매번 며칠이 걸린다. 요구는 "보고서 작성 챗봇"이다.</p>
+<p><strong>복지정책과</strong>는 위기가구를 일찍 찾아내고 싶어 한다. 공과금 체납, 상담 기록, 각종 신청 이력에서 신호를 모으면 방문 우선순위가 잡힌다고 복지정책과는 본다. 요구는 "상담 기록 요약 챗봇"이었지만, 더 큰 그림은 예측과 선별이다. 선별이 틀리면 도움이 필요한 가구가 빠지거나 그렇지 않은 가구가 불필요한 방문을 받는다.</p>
+<p><strong>개인 개발 공무원들</strong>은 공식 요청을 낸 적이 없다. 그런데도 시청에서 AI를 가장 먼저 업무에 들인 사람은 이들이다. AI 코딩 도구로 만든 엑셀 취합기, HWPX 변환기, 공공데이터 조회 MCP 서버, 보도자료 문체 스킬이 부서를 건너 퍼지고 있다. 대부분은 실행할 때 모델을 부르지 않는다.</p>
+</aside>
+
+<p>표 K.3은 다섯 갈래의 요구마다 처음 들어온 말, 들여다본 실제 필요, 먼저 보이는 걸림돌을 적은 것이다.</p>
+<div class="tbl"><table><caption><b>표 K.3</b> 부서별 요구와 걸림돌(가람시 가상 설정)</caption>
+<thead><tr><th>요구 주체</th><th>처음 들어온 요구</th><th>들여다본 실제 필요</th><th>먼저 보이는 걸림돌</th></tr></thead>
+<tbody>
+<tr><td class="k">민원여권과</td><td>민원 안내 챗봇</td><td>근거를 붙인 답변, 사람에게 넘기는 경로</td><td>상담 이력에 개인정보(S등급), 상용 API는 프록시 경유만</td></tr>
+<tr><td class="k">재난안전과</td><td>상황실 질의응답 챗봇</td><td>수위 초과 감지와 현장 통지</td><td>관제 구역이 별도, 오경보 책임 소재</td></tr>
+<tr><td class="k">기획예산과</td><td>보고서 작성 챗봇</td><td>초안 작성과 서식이 다른 엑셀·HWPX 취합</td><td>문서 형식(HWPX), 부서별 서식 제각각</td></tr>
+<tr><td class="k">복지정책과</td><td>상담 기록 요약 챗봇</td><td>위기가구 예측과 방문 우선순위 선별</td><td>민감 정보 결합, 선별 근거 설명, 누락의 비용</td></tr>
+<tr><td class="k">개인 개발 공무원</td><td>(공식 요구 없음)</td><td>이미 퍼진 도구의 공유·인수인계</td><td>개인 PC에만 있음, 라이선스·문서 없음</td></tr>
+</tbody></table></div>
+
+<h2>목표와 장애 요인</h2>
+<p>Erl의 사례 배경이 그렇듯, 가람시 이야기도 목표와 장애 요인을 먼저 적어 두고 시작한다. 16장에서 이 목록을 다시 펼쳐 무엇을 이루었고 무엇이 남았는지 확인한다.</p>
+
+<aside class="case"><span class="lbl">사례 연구 · 가람시(가상)</span>
+<h4>AX팀이 세운 목표</h4>
+<ul>
+<li>부서마다 따로 챗봇을 만드는 대신, 부서별 주 부품과 시 공통 부품을 구분해 조립한다.</li>
+<li>모델 호출을 한 진입점으로 모아 비용·권한·기록을 한곳에서 통제한다.</li>
+<li>AI 산출물이 시민이나 공문으로 나가기 전에 누가 어디서 확인하는지 과제마다 명시한다.</li>
+<li>모델이나 API가 멈춰도 민원 접수와 재난 통지가 끊기지 않게 한다.</li>
+<li>개인 개발 도구를 공용 저장소로 옮기고, 잘 만든 것은 시의 참조 구현으로 등재한다.</li>
+<li>과제마다 패턴 서명을 남겨, 다음 해 사업 계획과 외부 평가에 같은 언어로 쓴다.</li>
+</ul>
+<h4>AX팀이 마주한 장애 요인</h4>
+<ul>
+<li><strong>인력.</strong> AX팀은 세 명이다. 팀장 한 명, 데이터와 업무시스템 연계를 맡은 주무관 한 명, 개발과 모델 서버를 맡은 주무관 한 명이다.</li>
+<li><strong>망.</strong> 행정망과 인터넷망이 나뉘어 있고, 외부 서비스는 프록시나 망연계를 거쳐야 한다.</li>
+<li><strong>데이터 등급.</strong> 다루는 데이터 대부분이 S(민감)다. 민원 상담 이력과 복지 정보는 특히 그렇다.</li>
+<li><strong>모델.</strong> 로컬 모델 서버는 한 대뿐이다. 상용 API는 프록시를 거쳐야만 쓸 수 있는데, 그 프록시도 아직 시범 운영 중이다.</li>
+<li><strong>예산.</strong> AX 관련 예산은 부서별 사업비에 흩어져 있다. AX팀 고유 예산은 연 수억 원 규모(설정)라 공통 부품을 크게 새로 만들 여력이 없다.</li>
+<li><strong>운영 기록의 습관.</strong> 검토 건수, 수정률, 장애 전환 이력을 남기는 습관이 없다. 시범 사업이 끝나면 "잘 됐다"는 보고서만 남는다.</li>
+<li><strong>자생 도구의 그늘.</strong> 개인 도구는 빠르고 현장에 맞지만, 만든 사람이 자리를 옮기면 멈춘다.</li>
+</ul>
+</aside>
+
+<p>이 목록은 PAX 557건에서 반복해 관찰된 빈칸과 겹친다. PAX 사례에는 기반 부품이 많고 실행 환경도 다양하지만, 운영 부품(C)이 구현 이상으로 확인된 사례는 131건(23.5%)이고, 보안 부품(S)은 48건(8.6%)에 그친다. 전이 단계로 보면 만든 사람 혼자 쓰는 개인 사용이 356건(63.9%)으로 가장 많다. 가람시에는 이 빈칸을 두 갈래로 심어 두었다. 시범 사업은 운영 기록 없이 끝나고, 공무원이 만든 도구는 만든 사람의 PC를 떠나지 못한다.</p>
+
+<h2>가람시가 밟아 갈 여정</h2>
+<p>가람시 이야기는 장마다 한 걸음씩 나아간다(그림 K.3). AX팀은 1장에서 부서마다 챗봇을 따로 만들려는 흐름이 문제라는 것을 알아차리고, 4장에서 첫 패턴 서명을 쓴다. 2부의 각 패턴 프로필에서는 부서 하나가 그 패턴이 필요한 상황을 만나 부품을 들인다. 3부에서는 부품을 모아 서비스 유형별로 조립하고 안티패턴을 점검한 뒤, 과제를 태깅해 레지스트리에 올린다. 마지막 16장에서는 처음 세운 목표를 다시 평가한다.</p>
+
+<figure class="fig" id="fig-K-3"><div class="canvas"><svg viewBox="0 0 900 260" role="img" aria-label="가람시(가상)가 장별로 밟아 가는 여정 타임라인">
+<rect class="n zone" x="20" y="20" width="300" height="220" rx="6"/>
+<rect class="n zone" x="330" y="20" width="200" height="220" rx="6"/>
+<rect class="n zone" x="540" y="20" width="340" height="220" rx="6"/>
+<text class="t2" x="32" y="40">앞붙이 · 1부 기초</text><text class="t2" x="342" y="40">2부 패턴 레퍼런스</text><text class="t2" x="552" y="40">3부 적용</text>
+<path class="ln acc" d="M50,120 L860,120"/>
+<circle class="dot ok" cx="70" cy="120" r="8"/><circle class="dot" cx="170" cy="120" r="8"/><circle class="dot" cx="270" cy="120" r="8"/><circle class="dot" cx="430" cy="120" r="8"/><circle class="dot" cx="590" cy="120" r="8"/><circle class="dot" cx="680" cy="120" r="8"/><circle class="dot" cx="770" cy="120" r="8"/><circle class="dot ok" cx="850" cy="120" r="8"/>
+<text class="t b" x="70" y="96" text-anchor="middle">배경</text><text class="t b" x="170" y="96" text-anchor="middle">1장</text><text class="t b" x="270" y="96" text-anchor="middle">4장</text><text class="t b" x="430" y="96" text-anchor="middle">5~11장</text><text class="t b" x="590" y="96" text-anchor="middle">12~13장</text><text class="t b" x="680" y="96" text-anchor="middle">14장</text><text class="t b" x="770" y="96" text-anchor="middle">15장</text><text class="t b" x="850" y="96" text-anchor="middle">16장</text>
+<text class="t3" x="70" y="150" text-anchor="middle">요구 접수</text><text class="t3" x="70" y="166" text-anchor="middle">망·조건 정리</text>
+<text class="t3" x="170" y="150" text-anchor="middle">부서마다 챗봇</text><text class="tm tx" x="170" y="166" text-anchor="middle">X3 발견</text>
+<text class="t3" x="270" y="150" text-anchor="middle">첫 패턴 서명</text><text class="t3" x="270" y="166" text-anchor="middle">작성</text>
+<text class="t3" x="430" y="150" text-anchor="middle">부서별 부품 도입</text><text class="tm" x="430" y="166" text-anchor="middle">B·B′·A·C·S·F·D</text>
+<text class="t3" x="590" y="150" text-anchor="middle">유형별 조립</text><text class="t3" x="590" y="166" text-anchor="middle">종합 조립도</text>
+<text class="t3" x="680" y="150" text-anchor="middle">안티패턴</text><text class="t3" x="680" y="166" text-anchor="middle">점검</text>
+<text class="t3" x="770" y="150" text-anchor="middle">태깅·검증</text><text class="t3" x="770" y="166" text-anchor="middle">레지스트리</text>
+<text class="t3" x="850" y="150" text-anchor="middle">회고</text><text class="t3" x="850" y="166" text-anchor="middle">다음 단계</text>
+<text class="t3" x="32" y="222">질문: 무엇이 문제인가</text><text class="t3" x="342" y="222">질문: 어떤 부품을 끼우나</text><text class="t3" x="552" y="222">질문: 어떻게 묶고, 어떻게 증명하나</text>
+</svg></div>
+<figcaption><b>그림 K.3</b> 가람시(가상)의 여정. 1부에서 문제를 발견하고 첫 서명을 쓰며, 2부에서 부서별로 부품을 들이고, 3부에서 조립·점검·등재를 거쳐 16장에서 처음 목표를 다시 평가한다.</figcaption></figure>
+
+<aside class="glance"><span class="lbl">한눈에 보기</span><dl>
+<dt>무엇</dt><dd>인구 약 40만의 가상 기초자치단체. 행정망·인터넷망이 나뉘고 데이터는 대부분 민감 등급이며, 세 명짜리 AX팀이 다섯 갈래의 AI 요구를 받는다.</dd>
+<dt>왜</dt><dd>기초자치단체는 기관 사업과 공직 개인의 자생 도구가 한 조직 안에서 함께 자라는 곳이다. PAX 사례에서 관찰된 빈칸을 한 이야기 안에 모아 보이기에 알맞다.</dd>
+<dt>경험칙</dt><dd>2부의 사례 연구를 읽을 때 그림 K.1의 망 구성과 표 K.2의 환경 조건을 기본값으로 떠올린다. 조건이 바뀌는 장면이 곧 필수 부품이 바뀌는 장면이다.</dd>
+</dl></aside>
+
+<div class="summary"><h2>핵심 정리</h2><ul>
+<li>가람시는 이 책을 위해 지어낸 가상 기초자치단체이고, 장마다 같은 기관이 AX를 한 걸음씩 밟는다.</li>
+<li>환경 조건 기본값은 행정망(폐쇄), 로컬 오픈웨이트 모델 1대와 프록시 경유 상용 API, P0~P1 권한, 데이터 대부분 S 등급이다.</li>
+<li>요구는 민원여권과(유형 1·2), 재난안전과(유형 3), 기획예산과(유형 4·8), 복지정책과(유형 10), 개인 개발 공무원(B0·A8·A9) 다섯 갈래다.</li>
+<li>처음 들어온 요구는 모두 "챗봇"이었지만, 실제 필요는 상담·감지·초안·예측·공유로 서로 다르다.</li>
+<li>AX팀의 장애 요인은 인력 3명, 망분리, 민감 데이터, 단일 모델 서버, 흩어진 예산, 운영 기록 부재, 개인 도구의 인수인계 공백이다.</li>
+<li>여정은 1장 문제 발견 → 4장 첫 서명 → 5~11장 부품 도입 → 12~13장 조립 → 14장 점검 → 15장 등재 → 16장 회고로 이어진다.</li>
+</ul></div>
+<nav class="pager"><a class="prev" href="reading.html"><small>← 이전</small>이 책을 읽는 법</a><a class="next" href="ch01.html"><small>다음 →</small>공공 AX와 패턴 언어</a></nav></main></div><script>
+(function(){var b=document.querySelector('.navbtn');if(b){b.addEventListener('click',function(){var o=document.body.classList.toggle('toc-open');b.setAttribute('aria-expanded',o)});}
+document.querySelectorAll('.toc a').forEach(function(a){a.addEventListener('click',function(){document.body.classList.remove('toc-open')})});
+var on=document.querySelector('.toc a.on');if(on&&on.scrollIntoView){try{on.scrollIntoView({block:'center'})}catch(e){}}})();
+</script></body></html>

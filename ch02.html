@@ -1,0 +1,1271 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>AX 성숙도와 측정 눈금자 · 공공 AX 디자인 패턴</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700;800;900&family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap"><link rel="stylesheet" href="book.css"></head><body><div class="bar"><button class="navbtn" type="button" aria-controls="toc" aria-expanded="false">차례</button><a class="bk" href="index.html">공공 AX 디자인 패턴</a><span class="where">AX 성숙도와 측정 눈금자</span><span class="pn"><a href="ch01.html">← 이전</a><a href="ch03.html">다음 →</a></span></div><div class="layout"><nav class="toc" id="toc" aria-label="책 차례"><a href="index.html"><b>표지 · 차례</b></a><div class="part">앞붙이</div><a href="preface.html"><span class="n"></span>서문</a><a href="reading.html"><span class="n"></span>이 책을 읽는 법</a><a href="case-background.html"><span class="n"></span>사례 배경: 가람시(가상)</a><div class="part">1부 기초</div><a href="ch01.html"><span class="n">1</span>공공 AX와 패턴 언어</a><a href="ch02.html" class="on" aria-current="page"><span class="n">2</span>AX 성숙도와 측정 눈금자</a><a href="ch03.html"><span class="n">3</span>디자인 패턴의 원리</a><a href="ch04.html"><span class="n">4</span>카탈로그의 구조</a><div class="part">2부 패턴 레퍼런스</div><a href="ch05.html"><span class="n">5</span>B 업무 컴포넌트</a><a href="ch06.html"><span class="n">6</span>B′ 제어 흐름 원형</a><a href="ch07.html"><span class="n">7</span>A 공통 서비스</a><a href="ch08.html"><span class="n">8</span>C 운영 컴포넌트</a><a href="ch09.html"><span class="n">9</span>S 보안 패턴</a><a href="ch10.html"><span class="n">10</span>F 상호작용 패턴</a><a href="ch11.html"><span class="n">11</span>D 서비스 블록</a><div class="part">3부 적용</div><a href="ch12.html"><span class="n">12</span>조립: 적용 절차와 서비스 유형별 템플릿</a><a href="ch13.html"><span class="n">13</span>조립 예시와 축 교차표</a><a href="ch14.html"><span class="n">14</span>안티패턴</a><a href="ch15.html"><span class="n">15</span>태깅·검증·참조 구현 레지스트리</a><a href="ch16.html"><span class="n">16</span>PAX 557건으로 본 공공 AX의 현재</a><a href="ch17.html"><span class="n">17</span>PAX 가이드라인과 리소스</a><div class="part">부록</div><a href="appx-a.html"><span class="n">A</span>패턴 한눈에 보기</a><a href="appx-b.html"><span class="n">B</span>판정 규칙 개정 이력 R1~R28</a><a href="appx-c.html"><span class="n">C</span>용어집</a><a href="appx-d.html"><span class="n">D</span>참고문헌</a><a href="appx-e.html"><span class="n">E</span>공공 AX 가이드라인 문서 해설</a><a href="appx-f.html"><span class="n">F</span>사례 케이스북: PAX 사례로 읽는 패턴 활용</a></nav><main class="content" id="ch02"><header class="chap-head"><div class="num-big">2</div><div class="eyebrow">1부 기초 · 제 2장</div><h1>AX 성숙도와 측정 눈금자</h1><p class="lede">AX 단계는 AI가 업무를 얼마나 바꿨는지를 잰다. 네 단계의 관문과 미달 기준, S·C·M 눈금자와 P 권한 축, 보조축과 증거 등급, 강등 경로를 익히고 나면 다음에 어느 부품을 끼워야 할지가 보인다.</p><div class="goals"><b>이 장에서 얻을 것</b><ul><li>AI-Ready·Enabled·First·Native 네 단계의 정의, 필수 관문, 미달 기준, AI를 끄면 일어나는 일을 구분한다</li><li>&#x27;AX 단계 외&#x27;, &#x27;AI-Native 계획&#x27;, &#x27;First 후보&#x27; 같은 PAX 판정값의 뜻을 안다</li><li>체크리스트 Q1~Q6과 증거 등급, 운영 증거 원칙으로 현재 단계를 판정한다</li><li>S·C·M 눈금자와 P 권한 축, 보조축 H·R·E·T·위험으로 단계 안의 위치를 적고 PAX 557건의 분포를 읽는다</li><li>강등 경로와 설계 원칙 AIM01~AIM06을 부품과 연결해 다음 관문을 여는 부품을 고른다</li><li>『AI 네이티브 핸드북 2026』의 전환 경로와 아홉 가지 설계 원칙을 공공 AX 부품에 잇는다</li><li>실제 PAX 사례의 판정과 경계 사례 쌍을 따라가며 S·C·M·P를 질문 단위로 채점한다</li><li>단계 올리기 작업표와 자가진단 워크시트로 자기 서비스의 단계를 판정하고 다음 판정에 내밀 산출물과 운영 증거를 정한다</li></ul></div></header>
+
+<p>가람시 민원여권과는 여름부터 상담원용 답변 챗봇을 시범 운영해 왔다. 석 달이 지나자 과장이 정보통신과 AX팀에 짧은 질문을 보냈다. "우리 과는 AX 몇 단계쯤 됩니까?" 팀원 셋의 대답이 모두 달랐다. 한 사람은 챗봇이 매일 돌아가니 AI-First라고 했다. 다른 사람은 상담원이 답변을 전부 다시 확인하니 AI-Enabled라고 했다. 마지막 사람은 눈금자부터 정하자고 했다.</p>
+
+<p>세 번째 사람이 옳다. 이 책은 PAX(모두의 공공AX 사례 아카이브)가 공개한 공공 AI 서비스 성숙도 모형을 눈금자로 쓴다. 네 단계와 단계마다 넘어야 할 관문(gate), 단계 안의 위치를 적는 S·C·M 눈금자, AI가 바꿀 수 있는 것의 상한을 적는 P 권한 축, 인간 통제·복원력·증거 같은 보조축이 그 구성이다. PAX는 이 눈금자로 아카이브 사례 557건을 모두 평가해 공개했다(평가일 2026-10-13). 이 장의 수치는 그 557건에서 센 것이다.</p>
+
+<h2>2.1 무엇을 재는 눈금자인가</h2>
+
+<p>PAX 인포그래픽에 따르면 AX(AI Transformation) 성숙도 등급은 AI를 얼마나 쓰느냐보다 일이 어디까지 스스로 끝나느냐로 정해진다. 위 단계로 갈수록 요구되는 것은 더 좋은 모델보다 더 촘촘한 운영 설계다. 단계마다 바뀌는 대상도 다르다. PAX 기준서는 그 대상을 차례로 준비 조건, 업무 산출물, 운영 모델, 가치 생산과 학습 체계로 적는다. 그림 2.1은 네 단계를 계단으로 그리고 관문과 AI를 껐을 때 일어나는 일을 붙였다.</p>
+
+<figure class="fig" id="fig-2-1"><div class="canvas"><svg viewBox="0 0 880 392" role="img" aria-label="AX 성숙도 네 단계를 계단으로 그린 그림. 단계마다 관문 요건과 AI를 끄면 일어나는 일을 적었다.">
+<text class="t3" x="125" y="194" text-anchor="middle">관문</text>
+<text class="t2" x="125" y="210" text-anchor="middle">데이터·권한·책임·기준선</text>
+<rect class="n a" x="30" y="220" width="190" height="34" rx="6"/>
+<text class="t b" x="125" y="242" text-anchor="middle">AI-Ready</text>
+<rect class="n soft" x="30" y="254" width="190" height="124" rx="6"/>
+<text class="t3" x="335" y="144" text-anchor="middle">관문</text>
+<text class="t2" x="335" y="160" text-anchor="middle">검증 가능한 산출물·사람 확인</text>
+<rect class="n b" x="240" y="170" width="190" height="34" rx="6"/>
+<text class="t b" x="335" y="192" text-anchor="middle">AI-Enabled</text>
+<rect class="n soft" x="240" y="204" width="190" height="174" rx="6"/>
+<text class="t3" x="545" y="94" text-anchor="middle">관문</text>
+<text class="t2" x="545" y="110" text-anchor="middle">재설계·운영 증거</text>
+<rect class="n c" x="450" y="120" width="190" height="34" rx="6"/>
+<text class="t b" x="545" y="142" text-anchor="middle">AI-First</text>
+<rect class="n soft" x="450" y="154" width="190" height="224" rx="6"/>
+<text class="t3" x="755" y="44" text-anchor="middle">관문</text>
+<text class="t2" x="755" y="60" text-anchor="middle">핵심 가치·환류·복원력</text>
+<rect class="n acc" x="660" y="70" width="190" height="34" rx="6"/>
+<text class="t b tacc" x="755" y="92" text-anchor="middle">AI-Native</text>
+<rect class="n soft" x="660" y="104" width="190" height="274" rx="6"/>
+<text class="t2" x="125" y="276" text-anchor="middle">데이터·권한·책임·</text>
+<text class="t2" x="125" y="292" text-anchor="middle">기준선을 갖춘 상태</text>
+<text class="t3" x="125" y="318" text-anchor="middle">AI를 끄면</text>
+<text class="t2" x="125" y="334" text-anchor="middle">달라지는 것 없음</text>
+<text class="t2" x="335" y="276" text-anchor="middle">한 구간에서 AI가</text>
+<text class="t2" x="335" y="292" text-anchor="middle">만들고 사람이 검토</text>
+<text class="t3" x="335" y="318" text-anchor="middle">AI를 끄면</text>
+<text class="t2" x="335" y="334" text-anchor="middle">손이 조금 더 감</text>
+<text class="t2" x="545" y="276" text-anchor="middle">시작점·경로·역할을</text>
+<text class="t2" x="545" y="292" text-anchor="middle">AI 전제로 재설계</text>
+<text class="t3" x="545" y="318" text-anchor="middle">AI를 끄면</text>
+<text class="t2" x="545" y="334" text-anchor="middle">처리량 급감·적체</text>
+<text class="t2" x="755" y="276" text-anchor="middle">AI가 핵심 가치를 만들고</text>
+<text class="t2" x="755" y="292" text-anchor="middle">사용 결과가 서비스를 고침</text>
+<text class="t3" x="755" y="318" text-anchor="middle">AI를 끄면</text>
+<text class="t2 twarn" x="755" y="334" text-anchor="middle">서비스 불성립 → 강등 경로</text>
+<text class="t3" x="125" y="358" text-anchor="middle">전형 구간</text><text class="tm" x="125" y="372" text-anchor="middle">S1–S2 · C0</text>
+<text class="t3" x="335" y="358" text-anchor="middle">전형 구간</text><text class="tm" x="335" y="372" text-anchor="middle">S2–S3 · C1–C2</text>
+<text class="t3" x="545" y="358" text-anchor="middle">전형 구간</text><text class="tm" x="545" y="372" text-anchor="middle">S3–S4 · C3–C4</text>
+<text class="t3" x="755" y="358" text-anchor="middle">전형 구간</text><text class="tm" x="755" y="372" text-anchor="middle">S4–S5 · C5 · M4–M5</text>
+</svg></div>
+<figcaption><b>그림 2.1</b> AX 성숙도 네 단계. 계단을 하나 오를 때마다 관문 요건이 더해지고 AI를 껐을 때 잃는 것이 커진다. 맨 아래 줄은 인포그래픽이 제시한 단계별 전형 S·C 구간이며, 명시적 필수 조건은 Native의 C5뿐이다.</figcaption></figure>
+
+<p>단계를 가르는 가장 빠른 질문은 오늘 AI를 끄면 무슨 일이 일어나느냐다. Ready에서는 달라지는 것이 없다. Enabled에서는 손이 조금 더 갈 뿐 업무는 돌아간다. First에서는 처리량이 급감하고 적체가 시작된다. Native에서는 서비스가 성립하지 않는다. 그래서 Native에는 모델이 멈출 때 밟을 강등 경로가 필수로 붙는다.</p>
+
+<p>이 질문 뒤에는 PAX가 판정 내내 지키는 원칙 다섯 가지가 있다.</p>
+
+<ol>
+<li><strong>업무 변화로 판정한다.</strong> 생성형 AI, 에이전트, MCP, RAG, 바이브 코딩은 기술의 특성일 뿐 단계를 정하지 않는다.</li>
+<li><strong>관문은 합산되지 않는다.</strong> 필수 관문 하나가 비면 그 단계는 성립하지 않는다. 기준서에는 여섯 항목을 0~3점으로 매기는 18점 척도도 있지만, 비교를 돕는 보조 지표일 뿐 단계를 정하지 못한다.</li>
+<li><strong>근거가 없으면 미확인이다.</strong> 공개 자료에서 확인되지 않는 것을 없다고 단정하지 않고, 미확인으로 적은 뒤 상위 단계 판정을 보류한다.</li>
+<li><strong>단계와 도입 상태는 별개다.</strong> 운영 중인 Ready도, 시제품인 Enabled도 있다.</li>
+<li><strong>공공에서는 자율성보다 통제가 우선이다.</strong> 고영향 업무에서는 인간 승인, 이의 제기, 감사 로그, 예외 처리가 성숙도의 구성 요소다. 통제 없는 자율성은 위험 신호로 읽는다.</li>
+</ol>
+
+<aside class="note"><span class="lbl">참고 · 에이전트 성숙도 사다리와의 비교</span><p>Gulli의 『Agentic Design Patterns』도 네 칸짜리 사다리를 세운다. 모델 하나로 추론만 하는 Level 0, 도구와 검색을 붙인 Level 1, 계획을 세우고 맥락을 설계하는 Level 2, 여러 에이전트가 협업하는 Level 3이다. 겉모양은 AX 네 단계와 닮았지만 재는 대상이 다르다. Gulli의 사다리는 에이전트가 무엇을 할 줄 아는지를 재고, AX 사다리는 그 에이전트 때문에 기관의 업무가 어떻게 바뀌었는지를 잰다. 그래서 두 사다리는 엇갈린다. Level 3의 멀티에이전트 시스템도 결재선과 담당 역할이 그대로면 AX로는 Enabled다. 런타임 AI가 없는 결정적 도구도 데이터 기준선을 정비했다면 AX로는 Ready다. 에이전트의 능력은 2부의 B′ 원형과 <a class="pat lc-b" href="ch05.html#p-B6"><span class="pid">B6</span>에이전트 오케스트레이터</a>에서, 업무의 변화는 이 장의 관문에서 읽는다.</p></aside>
+
+<h2>2.2 네 단계 자세히 보기</h2>
+
+<p>관문에는 두 종류의 문장이 붙어 있다. 무엇이 있어야 하는지를 적은 필수 관문과, 무엇만으로는 부족한지를 적은 미달 기준이다. 미달 기준을 읽으면 이 모형이 경계하는 것이 보인다. Ready에서는 AI로 코딩했다는 사실을, Enabled에서는 화면에 붙은 AI 기능을, First에서는 설계 문서를, Native에서는 환류와 강등 경로 없는 고성능을 경계한다. 모두 겉으로는 AI를 한 것처럼 보이지만 일은 그만큼 바뀌지 않은 상태다. 표 2.1은 네 단계를 한 장에 모았다.</p>
+
+<div class="tbl"><table><caption><b>표 2.1</b> 네 단계 한눈에 비교 (출처: PAX AX 성숙도 인포그래픽·평가분류기준 상세보고서, 2026-08-08. 건수는 PAX 4축 평가 557건)</caption>
+<thead><tr><th></th><th>AI-Ready</th><th>AI-Enabled</th><th>AI-First</th><th>AI-Native</th></tr></thead>
+<tbody>
+<tr><td class="k">핵심 질문</td><td>AI를 활용할 조건을 만들었는가</td><td>업무 결과 일부를 AI가 만들고 사람이 검증하는가</td><td>AI를 전제로 역할과 흐름을 다시 짰는가</td><td>AI가 핵심 가치와 학습 구조에 결합되었는가</td></tr>
+<tr><td class="k">필수 관문</td><td>데이터·권한·책임·기준선 중 하나 이상, 지금 붙여 돌려 볼 수 있는 상태</td><td>실제 업무 산출물, 맞고 틀림 확인, 사람 확인 뒤에야 다음으로</td><td>시작점·경로·역할 재설계, 저위험 자동 처리, 고위험 이관, 승인·거부·롤백, 지표화, 반복 예외의 기준 반영</td><td>핵심 가치 결합, 학습 구조, 복원력, 적용 범위 기록</td></tr>
+<tr><td class="k">미달 기준</td><td>AI로 코딩했다는 사실만</td><td>화면에 AI 기능만</td><td>설계 문서만</td><td>환류·강등 경로 없는 고성능</td></tr>
+<tr><td class="k">AI를 끄면</td><td>달라지는 것 없음</td><td>손이 조금 더 감</td><td>처리량 급감·적체</td><td>서비스 불성립</td></tr>
+<tr><td class="k">전형 구간</td><td>S1–S2 · C0 · E0–E1</td><td>S2–S3 · C1–C2 · E1–E2</td><td>S3–S4 · C3–C4 · E3 이상</td><td>S4–S5 · C5 · M4–M5 · E4 이상</td></tr>
+<tr><td class="k">PAX 557건</td><td class="c">358건</td><td class="c">168건</td><td class="c">5건</td><td class="c">0건(계획 1건)</td></tr>
+</tbody></table></div>
+
+<p>전형 구간은 인포그래픽이 단계 요건에서 끌어낸 값이고, 명시적 필수 조건은 Native의 C5뿐이다.</p>
+
+<h3>AI-Ready: 쓸 수 있게 만든 상태</h3>
+
+<p>Ready는 AI를 실제 업무에 붙여 시험해 볼 수 있도록 데이터·권한·책임·기준선을 갖춘 단계다. 데이터는 문서와 규정을 기계가 읽게 구조화하는 일, 권한은 AI가 읽고 실행할 범위를 나누는 일, 책임은 AI 결과를 누가 확인할지 정하는 일, 기준선은 지금 업무의 시간·정확도와 허용 오류를 재 두는 일이다. 필수 관문은 이 가운데 하나 이상을 지금 붙여 돌려 볼 수 있는 실물로 확보하는 것이다. PAX는 문턱을 일부러 낮게 잡았다. 문서 구조화, 업무 절차의 가시화, 개인정보 마스킹, 로컬 처리, 교육, API·MCP 가운데 하나만 실물로 있어도 인정하고, 그 준비물을 바이브 코딩으로 만들었어도 마찬가지다.</p>
+
+<p>미달 기준은 "AI로 코딩했다"는 사실만으로는 부족하다는 것이다. AI와 무관한 정보 시각화, 원클릭 이동 같은 편의 기능, 무엇을 준비했는지 알 수 없는 시연, 계획만 있는 경우가 여기서 걸린다.</p>
+
+<p>PAX에서 Ready는 358건(64.3%)으로 가장 많다. 공직 현장의 개인 개발자가 법령 17만 5천여 건을 64개 도구로 묶은 국가법령정보 MCP는 Ready·S1·C0·M3이다. 공개 50일 만에 한 기관의 내부망 AI에 법령 에이전트로 등록되어 도입 상태는 Production으로 올랐지만 단계는 그대로다. 한국산업인력공단의 공식 HRDKorea MCP 서비스는 Ready·S2·C0·M4다. 기관이 공식 제공하니 파급력은 생태계형인데, 그 MCP로 업무 결과를 만든 증거는 아직 없다. 전북특별자치도교육청이 공식 배포한 문서 취합·변환 도구는 운영 중인 Ready다.</p>
+
+<p>흔한 오판은 Ready를 낮은 등급으로 깎아 읽는 것이다. 기준서는 Ready가 많은 것을 상향식 준비 활동을 출발점으로 인정한 결과로 본다. 대신 Ready가 넓은 만큼 무엇을 준비했는지 Data-ready, Access-ready, Baseline-ready, Integration-ready 같은 배지로 따로 적으라고 권한다. 반대 방향의 오판도 있다. 인증·감사·고가용성을 갖춘 공식 MCP라도 실제 업무에 쓰이지 않으면 Ready·C0다.</p>
+
+<p>전종홍의 『AI 네이티브 핸드북 2026』(미발행본) 3부는 같은 네 단계를 전기화의 역사에 빗댄다. Ready는 공장에 전선을 까는 단계다. 전등은 아직 하나도 켜지 않았다. 핸드북이 꼽는 이 단계의 함정은 준비만 하다 끝나는 것이다. 처방은 준비하면서 한 부서, 한 업무에서 작은 실험을 시작하고 그 경험을 준비에 되먹이는 것이다. 전등 하나를 시험 점등해 봐야 배선이 제대로 깔렸는지 안다. 핸드북의 자가진단 질문은 "우리 조직의 데이터는 AI 모델이 바로 학습할 수 있는 상태인가"다. PAX의 Ready 관문도 같은 곳을 보지만, 붙여서 돌려 볼 수 있는 실물 하나가 확인되어야 문턱을 넘은 것으로 친다.</p>
+
+<h3>AI-Enabled: 결과물이 나오는 상태</h3>
+
+<p>Enabled는 기존 업무 흐름을 그대로 두고, 한 구간에서 AI가 검색·요약·분류·번역·초안·추천·분석 같은 결과를 만들어 사람이 확인하는 단계다. 필수 관문은 실제 업무 산출물, 맞고 틀림을 확인할 수 있는 결과, 사람이 확인해야 다음으로 넘어가는 절차다. 사용자가 AI를 직접 부르고, 사람이 결과를 고치고, AI를 빼도 기존 방식으로 일이 돌아간다. 사람의 수정 결과가 평가 데이터로 환류되지는 않는다. 미달 기준은 화면에 AI 기능만 붙은 상태다. AI 버튼만 추가하고 흐름은 그대로인 경우, 시연 영상은 있는데 운영 지표가 하나도 없는 경우가 여기서 걸린다.</p>
+
+<p>Ready와의 경계는 기준서가 짝으로 보여 준다. 법령 데이터를 MCP로 제공하기만 하면 Ready이고, 그 MCP로 법령을 찾아 AI가 업무 답변을 만들면 Enabled다. 내부 문서를 RAG로 색인해 시험 환경만 만들면 Ready이고, RAG 답변을 실제 보고서·민원 업무에 쓰고 사람이 검증하면 Enabled다. 경계를 넘게 하는 것은 업무 산출물이다. 기술은 양쪽에 똑같이 있다.</p>
+
+<p>PAX의 Enabled는 168건(30.2%)이다. 법제처 공무원이 만든 AI 법령 비서는 판례·법령·자치법규 수십만 건을 RAG로 묶어 근거가 붙은 답변을 내고, 답변을 중간 검토 자료로 한정해 사람이 최종 판단한다(Enabled·S2·C1). 과학기술혁신본부가 법령 MCP로 과학기술 법령 체계를 분석한 사례는 Enabled·S3·C2·M2다. 온나라 sAIde는 문서등록대장 목록에서 공문을 로컬 모델로 요약·분석하고 첨부를 한꺼번에 내려받는 확장이다(Enabled·S2·C2). 세 사례 모두 사람이 결과를 확인한 뒤 쓰며, 일하는 순서는 그대로다.</p>
+
+<p>Enabled 판정은 한 번 정하면 끝나는 값이 아니다. 557건 평가표에는 이전 판정과 현재 판정이 함께 적혀 있는데, 둘이 다른 20건 중 17건이 Ready에서 Enabled로 올라간 경우다. AI 업무 도우미 기능이 새로 붙었거나, AI가 산출물을 만들고 사람이 검토하는 사용 방식이 새로 확인된 사례들이다.</p>
+
+<p>핸드북은 Enabled를 전등을 켠 단계라 부른다. 공장은 밝아졌지만 천장에는 증기기관 시절의 동력 전달축이 그대로 걸려 있다. 기존 절차 위에 AI를 얹으면 그 절차의 한계가 곧 AI의 한계가 된다. AI가 빨리 낸 결과도 사람 손을 거치는 병목에서 다시 느려진다. 핸드북은 이 단계의 가장 큰 위험을 "good enough" 함정이라 부른다. 성과가 나오니 여기서 멈추자는 유혹이다. 빠져나올 신호는 AI 결과를 사람이 일일이 다시 가공하는 구간이 많은데도 전체 처리 시간이 그대로인 상황이다. 자가진단 질문은 "AI를 빼도 업무가 돌아가는가"이고, 답이 "예"면 Enabled다. PAX의 "AI를 끄면 손이 조금 더 갈 뿐"과 같은 시험이다. 공공기관에서 이 함정은 시범 사업 결과 보고서로 끝나는 과제의 모습을 한다.</p>
+
+<h3>AI-First: 흐름을 다시 짠 상태</h3>
+
+<p>First는 AI를 전제로 업무의 시작점·처리 경로·역할을 다시 설계하고, 그 설계가 실제로 돌아간 기록이 있는 단계다. 기준서는 이것이 모든 판단을 AI에 먼저 맡긴다는 뜻이 아니라고 굳이 적어 둔다. Enabled에서는 AI가 기존 업무의 한 단계를 돕지만, First에서는 업무가 접수되는 순간부터 처리 경로가 달라진다. 필수 관문은 여섯 개다. 시작점·경로·역할의 재설계, 저위험 건의 자동 처리, 고위험 건의 숙련자 이관, 승인·거부·롤백 같은 예외 처리, 운영 결과의 지표화, 반복 예외의 제도·기준 반영이다. 민원이라면 피해 가능성이 낮은 반복 건은 AI가 처리하고, 민감한 건은 숙련자에게 자동으로 넘어간다. 사람이 고친 결과는 평가 데이터로 쌓이고, 반복되는 예외는 규정과 절차를 고치는 신호가 된다.</p>
+
+<p>미달 기준은 설계 문서다. 여섯 관문 모두에 운영 증거(operational evidence)가 있어야 한다. 자동 처리는 되는데 되돌리는 절차가 없는 경우도 미달이다. 정황은 있으나 역할 분기와 평가 환류가 충분히 확인되지 않으면 First 후보로 따로 표시한다.</p>
+
+<p>PAX에서 First는 5건(0.9%)이다. C3에 닿은 사례는 광진구가 공무원이 직접 개발한 AI 도구 6종을 전 직원 업무에 투입한 사례 하나다. PAX는 여기서 도구 하나하나 대신 기관의 운영 모델을 등재 단위로 삼았다. 개인정보 입력 금지라는 위험 기준, 담당자와 팀장의 최종 판단 책임, 전용 문의 창구라는 예외 처리, 피드백 관리, 여러 도구와 기관 자체 AI 서비스의 연동, 전 직원 투입이라는 운영 책임이 공표된 관리 원칙과 운영 사실로 확인되었다(First·S3·C3·M3, 증거 E3). 그래도 PAX는 이것을 잠정 판정으로 적었다. 저위험 자동 처리의 정량 기준, 롤백과 이의 제기 절차, 운영 결과의 평가 데이터화가 공개 자료에 없기 때문이다. 나머지 4건은 인용 검증 스킬, 정책 여론 시뮬레이터, 로컬 노트 기반 작업 공간, 카드뉴스 제작 스킬 같은 S2·C2의 개인·커뮤니티 도구이고, 판정 근거란에 관문 충족 표시는 없다.</p>
+
+<p>Enabled를 First로 올려 읽는 오판은 PAX의 재평가 이력에 남아 있다. 서울시가 기관 공용 AI 엔진 기반 AI 에이전트 구축에 착수한 사례는 First로 적혔다가 Ready로 내려갔다. 공용 엔진과 MCP 구조는 준비 자산이지만, 착수 단계라 자동 처리·인간 이관·예외 처리·평가 환류의 운영 증거가 없었다. 공무원용 로컬 AI 에이전트 워크플레이스는 First에서 Enabled로 내려갔다. 업무 기능은 검증 가능했지만 역할 재편과 예외·평가 폐쇄루프가 확인되지 않았다. PAX는 이 조정을 두고, First는 아키텍처의 의도보다 운영 중인 역할·경로·예외·평가 구조의 증거를 요구한다고 적었다.</p>
+
+<p>핸드북은 First를 공장 설계도를 다시 그리는 단계로 본다. 포드가 전기를 전제로 조립 라인을 깐 것처럼, 질문이 "이 업무에 AI를 어떻게 적용할까"에서 "AI가 있다는 전제에서 이 업무를 처음부터 어떻게 만들까"로 바뀐다. 핸드북이 드는 보험 심사 예는 PAX의 First 관문과 거의 같은 모양이다. 단순한 청구는 AI가 심사와 지급까지 처리하고, 사람은 복잡한 건과 윤리적 판단이 필요한 건에 집중한다. 반대 예로는 AI가 몇 초 만에 낸 권고를 심사관이 기존 절차대로 30분씩 검토해 처리 시간이 거의 줄지 않은 보험사를 든다. 전건 검토가 영원히 남은 <a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span>검토 큐</a>와 같은 자리다. 자가진단 질문은 "새 일을 기획할 때 AI 활용이 전제 조건인가"다. 여기서 두 기준이 갈린다. 핸드북은 사고방식의 전환을 First의 입구로 보고, PAX는 그 사고가 운영 기록으로 남아야 First로 인정한다. 공공 판정에는 PAX의 문턱을 쓴다.</p>
+
+<h3>AI-Native: 없으면 성립하지 않는 상태</h3>
+
+<p>Native는 AI가 서비스의 핵심 가치를 만들고, 사용 결과가 서비스를 고치며, 장애와 품질 변동에도 서비스가 유지되는 단계다. 이 단계가 보는 것은 기능의 개수보다 순환이다. 사용, 결과 관찰, 품질·위험 평가, 사람의 수정과 이의 제기 반영, 개선, 재검증이 실제로 한 바퀴씩 돌아야 한다. 필수 관문은 넷이다. AI를 빼면 서비스가 성립하지 않는 핵심 가치 결합, 사용 결과가 평가와 개선으로 돌아오는 학습 구조, 장애·가격·품질 변동에도 핵심 기능을 지키는 복원력, 그리고 적용 범위 기록이다. 상세 기준서는 여기에 거버넌스 내장을 더한다. 감사 로그와 이의 제기 절차가 운영 체계에 들어 있고, 고위험 결정에 사람의 중단 권한이 있어야 한다.</p>
+
+<p>적용 범위는 그 Native가 어디까지인지를 적는다. MCP 기준서는 MCP 도구, 단위 업무(Task), 업무 흐름, 서비스, 조직, 생태계의 여섯 범위를 둔다. 핵심 기능이 원자적이면 MCP 도구 하나도 Task-native가 되지만, 그것을 근거로 서비스나 기관 전체를 Native라고 부르지 않는다.</p>
+
+<p>가장 흔한 실패는 성능은 충분한데 환류 회로와 강등 경로가 없는 경우다. 점수가 높아도 이 두 관문을 채우지 못하면 Native가 아니다.</p>
+
+<p>PAX 557건 중 Native는 0건이다. 기준서는 이것을 공공 AX의 실패로 읽지 않는다. 아카이브가 아직 초기·상향식 사례 중심이고, 운영 학습과 복원력의 공개 증거가 부족하다는 뜻으로 읽는다. 대신 판정값 'AI-Native 계획'이 1건 있다. 과학기술정보통신부의 '모두의 AI' 사업으로, 국산 모델 기반 범용 챗봇과 행정 처리 에이전트를 민간 컨소시엄 세 곳이 개발한다. 공고와 사업자 선정 보도만 확인된 계획 단계라, 서비스가 열린 뒤 실측해 다시 판정한다.</p>
+
+<p>핸드북은 Native를 전기를 빼면 존재할 이유가 사라지는 반도체 공장에 빗대고, AI 제거 테스트를 제안한다. AI를 걷어냈을 때 핵심 가치가 사라지면 엔진, 느려지거나 비싸지지만 기능은 남으면 터보차저, 별 차이가 없으면 장식이다. 사용할수록 나아지는 자기 강화 루프를 결정적 차이로 꼽는 점은 PAX의 학습 구조 관문과 같다. 차이는 보는 자리에 있다. 핸드북은 기업이 경쟁 우위의 해자를 쌓는 관점에서 Native를 본다. 공공 서비스에는 따라올 경쟁자 대신 멈추면 안 된다는 의무가 있고, 그래서 PAX는 복원력과 강등 경로를 필수 관문으로 세운다. 핸드북은 또 큰 조직이 Native에 닿는 길을 기존 시스템의 전환이 아닌 핵심 사업 일부의 새 구축으로 본다. Native를 기관 전체가 아닌 적용 범위 단위로 적는 PAX의 기록 방식과 맞닿는 대목이다.</p>
+
+<p>네 단계를 같은 업무 하나에 대 보면 차이가 선명해진다. 그림 2.2는 PAX 인포그래픽이 설명용으로 구성한 지자체 보조금 업무 예시다.</p>
+
+<figure class="fig" id="fig-2-2"><div class="canvas"><svg viewBox="0 0 900 290" role="img" aria-label="지자체 보조금 신청 접수부터 지급 종결까지 같은 업무가 Ready, Enabled, First, Native 단계에서 어떻게 달라지는지 비교한 그림.">
+<rect class="n a" x="15" y="15" width="204" height="34" rx="6"/>
+<text class="t b" x="117" y="37" text-anchor="middle">AI-Ready</text>
+<rect class="n soft" x="15" y="55" width="204" height="180" rx="6"/>
+<text class="t2" x="27" y="82">3년 심사 결과 항목별 라벨링</text>
+<text class="t2" x="27" y="112">요건·감액 기준 조문 색인</text>
+<text class="t2" x="27" y="142">실험 환경·조회 권한 부여</text>
+<text class="t2" x="27" y="172">처리일수·반려율 기준선 기록</text>
+<rect class="n zone" x="15" y="243" width="204" height="34" rx="6"/>
+<text class="t2" x="117" y="265" text-anchor="middle">산출물은 아직 없다</text>
+<rect class="n b" x="237" y="15" width="204" height="34" rx="6"/>
+<text class="t b" x="339" y="37" text-anchor="middle">AI-Enabled</text>
+<rect class="n soft" x="237" y="55" width="204" height="180" rx="6"/>
+<text class="t2" x="249" y="82">누락 서류·요건 불일치 표시</text>
+<text class="t2" x="249" y="112">유사 심사 사례·조문 근거 제시</text>
+<text class="t2" x="249" y="142">담당자가 확인 후 승인·반려</text>
+<rect class="n zone" x="237" y="243" width="204" height="34" rx="6"/>
+<text class="t2" x="339" y="265" text-anchor="middle">일하는 순서는 그대로다</text>
+<rect class="n c" x="459" y="15" width="204" height="34" rx="6"/>
+<text class="t b" x="561" y="37" text-anchor="middle">AI-First</text>
+<rect class="n soft" x="459" y="55" width="204" height="180" rx="6"/>
+<text class="t2" x="471" y="82">요건 충족 건은 승인 초안 직행</text>
+<text class="t2" x="471" y="112">감액·신규·저확신 건 자동 이관</text>
+<text class="t2" x="471" y="142">이의 인용 시 지급 롤백</text>
+<text class="t2" x="471" y="172">처리시간·수정률·이관률 적재</text>
+<text class="t2" x="471" y="202">반복 이의는 기준 개정 상신</text>
+<rect class="n zone" x="459" y="243" width="204" height="34" rx="6"/>
+<text class="t2" x="561" y="265" text-anchor="middle">접수부터 종결까지 닫힌다</text>
+<rect class="n acc" x="681" y="15" width="204" height="34" rx="6"/>
+<text class="t b tacc" x="783" y="37" text-anchor="middle">AI-Native</text>
+<rect class="n soft" x="681" y="55" width="204" height="180" rx="6"/>
+<text class="t2" x="693" y="82">자동 심사 전제로 인력 재편</text>
+<text class="t2" x="693" y="112">이의 인용률 오르면 기준 강화</text>
+<text class="t2" x="693" y="142">분기마다 모델 재검증</text>
+<text class="t2" x="693" y="172">장애 시 대체 → 규칙 → 수동</text>
+<text class="t2" x="693" y="202">다른 기관이 호출하는 실행계층</text>
+<rect class="n zone" x="681" y="243" width="204" height="34" rx="6"/>
+<text class="t2 twarn" x="783" y="265" text-anchor="middle">멈추면 서비스가 성립하지 않는다</text>
+</svg></div>
+<figcaption><b>그림 2.2</b> 같은 업무, 네 가지 버전. 지자체 보조금 신청부터 지급 종결까지를 단계별로 그렸다. Ready에는 산출물이 없고, Enabled에는 결과물이, First에는 갈림길과 되돌림이, Native에는 되먹임과 강등 경로가 더해진다. PAX 인포그래픽의 설명용 예시를 옮겼다.</figcaption></figure>
+
+<p>네 칸을 가로로 읽으면 단계가 오를 때 무엇이 더해지는지 보인다. Ready에서 Enabled로 갈 때는 화면 위의 결과물이 생긴다. Enabled에서 First로 갈 때는 갈림길이 생긴다. 요건이 명확한 건은 대기열을 건너뛰고, 불확실한 건은 숙련자에게 가며, 잘못 나간 지급은 되돌아온다. First에서 Native로 갈 때는 되먹임이 생긴다. 이의 인용률이 오른 유형은 자동 처리 기준이 엄격해지고, 모델이 멈추면 정해 둔 순서대로 내려간다.</p>
+
+<h3>단계를 오르는 경로와 시간</h3>
+
+<p>핸드북은 출발점에 따라 경로가 다르다고 본다. 레거시가 없는 신생 조직은 처음부터 Native를 목표로 하되 AI 없이는 성립하지 않는 핵심 기능 하나에 집중하라고 한다. 오래된 큰 조직은 단계를 건너뛸 수 없고, 전체를 한꺼번에 옮기려 하면 실패하니 한 사업부에서 먼저 바꾸고 성과를 근거로 넓히라고 한다. 핸드북이 큰 조직에 제시한 일정은 Ready 6~12개월, Enabled 12~24개월(핵심 업무 3~5개에 파일럿), First 24~36개월(한 사업부나 신규 사업에서 AI 중심 설계), 그 뒤 Native 지향이다. 물리 설비가 있는 제조업에는 설계·시뮬레이션의 디지털 트랙과 현장 설비의 물리 트랙을 함께 밟으라고 권한다.</p>
+
+<p>공공기관으로 옮기면 세 경로는 이렇게 읽힌다. 새로 만드는 대민 서비스는 신생 조직의 경로를 따른다. 기획 단계에서 AI가 없으면 성립하지 않는 기능과 강등 경로를 함께 정한다. 기존 기관의 업무는 큰 조직의 경로를 따른다. 한 과, 한 업무에서 First를 만들고 그 운영 기록을 근거로 넓힌다. 센서와 설비가 얽힌 관제·점검 업무는 제조업의 두 트랙과 닮았다. 기간은 핸드북이 기업에 제시한 값이니 그대로 옮기지 말고, 단계마다 남길 운영 증거를 일정의 단위로 삼는다.</p>
+
+<aside class="note"><span class="lbl">참고 · 핸드북과 PAX, 같은 사다리를 두 방향에서 보기</span><p>두 틀은 단계 이름, AI를 빼 보는 시험, 기술보다 구조를 묻는 태도를 공유한다. 보는 자리는 다르다. 『AI 네이티브 핸드북 2026』 3부는 기업의 사업 모델과 조직 전환을 보며, 자가진단 질문은 경영진이 스스로 묻는 형태다. PAX는 공공 업무의 관문과 증거를 보며, 판정은 공개 자료와 운영 기록으로 제3자가 내린다. 핸드북이 드는 경고 신호, 곧 확산되지 않는 파일럿과 업무 계획과 따로 노는 AI 전략은 공공에서 First 관문이 비어 있다는 신호로 읽는다. 이 책은 판정은 PAX의 관문으로, 다음 단계로 가는 조직의 움직임은 핸드북의 경로로 읽기를 권한다.</p></aside>
+
+<aside class="key"><span class="lbl">핵심 요약</span><ul>
+<li>Ready는 준비물, Enabled는 검증 가능한 결과물, First는 운영 증거가 있는 재설계, Native는 핵심 가치·학습·복원력의 결합이다.</li>
+<li>미달 기준은 겉모양만 갖춘 상태를 막는다. AI로 코딩한 사실, 화면의 AI 버튼, 설계 문서, 환류 없는 고성능이다.</li>
+<li>PAX 557건에서 First는 5건, Native는 0건이다. First로 적혔다가 운영 증거가 없어 내려간 사례가 판정 원칙을 가장 잘 보여 준다.</li>
+</ul></aside>
+
+<h2>2.3 단계 밖의 판정값과 557건의 분포</h2>
+
+<p>PAX 판정표에는 네 단계 이름만 있지 않다. 단계 밖의 값과 단계에 덧붙이는 표시가 함께 쓰이고, 이것을 정확히 읽어야 분포를 바로 해석한다(표 2.2).</p>
+
+<div class="tbl"><table><caption><b>표 2.2</b> PAX 판정값과 덧붙이는 표시 (출처: PAX 평가분류기준 상세보고서·전체분류기준, 건수는 4축 평가 557건)</caption>
+<thead><tr><th>판정값·표시</th><th>뜻</th><th>557건</th></tr></thead>
+<tbody>
+<tr><td class="k">AX 단계 외</td><td>준비 요소, 검증 가능한 AI 산출물, AI 전제 업무 설계 중 어느 것도 확인되지 않음. 가치 판단이 아니며, 통계에 넣으면 Ready 비율이 부풀어 따로 둔다</td><td class="c">25건</td></tr>
+<tr><td class="k">AI-Native 계획</td><td>Native를 지향하는 사업이 공고·선정 단계라 실측 불가. 서비스 개시 후 재평가</td><td class="c">1건</td></tr>
+<tr><td class="k">First 후보·잠정</td><td>재설계 정황은 있으나 운영 증거가 충분하지 않음. 증거 확보 시 확정</td><td>First 5건 중 '관문 잠정 충족' 기록 1건</td></tr>
+<tr><td class="k">미확인</td><td>공개 자료로 확인되지 않음. 상위 단계 판정 보류</td><td>승인 게이트·감사 로그 557건 전부</td></tr>
+<tr><td class="k">(잠정)</td><td>서술 근거가 약한 축에 붙는 표시. 근거가 없으면 낮게 적는다</td><td>P 판정 557건 전부</td></tr>
+<tr><td class="k">도입 상태</td><td>Concept·Prototype·PoC·Pilot·Production·Scale-up·Published tool 등. 단계와 독립</td><td>Published tool 336건 최다</td></tr>
+</tbody></table></div>
+
+<p>'AX 단계 외' 25건에는 공공데이터를 화면에 보여 주기만 하는 파주 실시간 인파 지도, 초과근무 기록을 알려 주는 규칙 기반 브라우저 확장, 민간 상용 API 플랫폼, 홍보용 미니게임이 있다. 쓸모없는 도구들은 아니지만, AI와 이어지는 준비물도 산출물도 없으니 사다리 위에 올리지 않는다. 기준서는 같은 인파 지도도 AI가 혼잡을 예측하고 사람이 검증하면 Enabled, 예측에 따라 현장 인력을 재배치하면 First 후보가 된다고 적는다.</p>
+
+<p>557건이 사다리 어디에 서 있는지는 그림 2.3과 같다.</p>
+
+<figure class="fig" id="fig-2-3"><div class="canvas"><svg viewBox="0 0 880 312" role="img" aria-label="PAX 557건의 AX 단계 분포 막대그래프. AI-Ready 358건, AI-Enabled 168건, AI-First 5건, AI-Native 0건, AI-Native 계획 1건, AX 단계 외 25건.">
+<text class="t b" x="20" y="51">AI-Ready</text>
+<rect class="bar-bg" x="180" y="30" width="537" height="32"/>
+<rect class="n a" x="180" y="30" width="537.0" height="32" rx="2"/>
+<text class="t2" x="727.0" y="51">358건 (64.3%)</text>
+<text class="t b" x="20" y="93">AI-Enabled</text>
+<rect class="bar-bg" x="180" y="72" width="537" height="32"/>
+<rect class="n b" x="180" y="72" width="252.0" height="32" rx="2"/>
+<text class="t2" x="442.0" y="93">168건 (30.2%)</text>
+<text class="t b" x="20" y="135">AI-First</text>
+<rect class="bar-bg" x="180" y="114" width="537" height="32"/>
+<rect class="n c" x="180" y="114" width="7.5" height="32" rx="2"/>
+<text class="t2" x="197.5" y="135">5건 (0.9%)</text>
+<text class="t b" x="20" y="177">AI-Native</text>
+<rect class="bar-bg" x="180" y="156" width="537" height="32"/>
+<text class="t2" x="190" y="177">0건</text>
+<text class="t b" x="20" y="219">AI-Native 계획</text>
+<rect class="bar-bg" x="180" y="198" width="537" height="32"/>
+<rect class="n acc" x="180" y="198" width="2" height="32" rx="2"/>
+<text class="t2" x="192" y="219">1건 (0.2%)</text>
+<text class="t b" x="20" y="261">AX 단계 외</text>
+<rect class="bar-bg" x="180" y="240" width="537" height="32"/>
+<rect class="n soft" x="180" y="240" width="37.5" height="32" rx="2"/>
+<text class="t2" x="227.5" y="261">25건 (4.5%)</text>
+<text class="t3" x="20" y="296">막대 길이는 건수에 비례한다(1건 = 1.5px, 회색 바탕 = Ready 358건 길이). PAX 4축 평가 557건, 평가일 2026-10-13.</text>
+</svg></div>
+<figcaption><b>그림 2.3</b> PAX 557건의 AX 단계 분포. Ready 358건(64.3%)과 Enabled 168건(30.2%)이 94.4%를 차지하고, First는 5건, Native는 0건이다. Native 계획 1건과 단계 외 25건은 사다리 밖의 판정값이다.</figcaption></figure>
+
+<p>Ready와 Enabled를 합치면 526건, 94.4%다. 이 모양은 아카이브의 구성에서 나온다. PAX에는 공식 사업과 함께 공무원 개인이 만든 도구, 커뮤니티가 공개한 도구, MCP 서버가 함께 실려 있고, 도입 상태로는 Published tool 336건, Live service 82건, Production 47건 순이다. 공식 운영 여부가 불분명한 도구가 대부분이니 First의 운영 증거가 드러나기 어렵다. 2.6절에서 보듯 보조축 기록이 비어 있는 것도 같은 이유다.</p>
+
+<aside class="warn"><span class="lbl">주의</span><p>이 분포를 "공공 AX는 Ready 수준"이라는 결론으로 옮기면 안 된다. 이것은 PAX에 등재된 사례의 분포이고, 판정은 공개 자료에 근거한다. 기관 내부에서 실제로 돌고 있는 First 수준의 업무는 이 그림에 잡히지 않았을 수 있다.</p></aside>
+
+<h2>2.4 현재 위치 판단: 체크리스트와 판정 원칙</h2>
+
+<p>현재 단계를 판정할 때는 여섯 개의 질문을 앞에서부터 차례로 던지고(그림 2.4), 처음으로 "아니오"가 나온 자리에서 멈춘다. 위에서부터 묻는 이유는 단계가 누적되기 때문이다. Q2가 "아니오"라면 재설계를 묻는 Q3은 의미가 없다.</p>
+
+<figure class="fig" id="fig-2-4"><div class="canvas"><svg viewBox="0 0 880 290" role="img" aria-label="현재 위치 판단 체크리스트 Q1부터 Q6까지의 흐름도. 처음 아니오가 나오는 질문 아래의 단계가 현재 단계다.">
+<defs><marker id="ah-2-4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+<rect class="n" x="15" y="70" width="120" height="84" rx="6"/>
+<text class="tm tacc" x="75" y="90" text-anchor="middle">Q1</text>
+<text class="t2" x="75" y="108" text-anchor="middle">준비 자산을</text>
+<text class="t2" x="75" y="124" text-anchor="middle">붙여 쓸 수</text>
+<text class="t2" x="75" y="140" text-anchor="middle">있는가</text>
+<rect class="n" x="157" y="70" width="120" height="84" rx="6"/>
+<text class="tm tacc" x="217" y="90" text-anchor="middle">Q2</text>
+<text class="t2" x="217" y="108" text-anchor="middle">검증 가능한</text>
+<text class="t2" x="217" y="124" text-anchor="middle">AI 산출물이</text>
+<text class="t2" x="217" y="140" text-anchor="middle">있는가</text>
+<rect class="n" x="299" y="70" width="120" height="84" rx="6"/>
+<text class="tm tacc" x="359" y="90" text-anchor="middle">Q3</text>
+<text class="t2" x="359" y="108" text-anchor="middle">시작점·역할이</text>
+<text class="t2" x="359" y="124" text-anchor="middle">실제로</text>
+<text class="t2" x="359" y="140" text-anchor="middle">바뀌었는가</text>
+<rect class="n" x="441" y="70" width="120" height="84" rx="6"/>
+<text class="tm tacc" x="501" y="90" text-anchor="middle">Q4</text>
+<text class="t2" x="501" y="108" text-anchor="middle">자동·이관·롤백</text>
+<text class="t2" x="501" y="124" text-anchor="middle">운영 기록이</text>
+<text class="t2" x="501" y="140" text-anchor="middle">있는가</text>
+<rect class="n" x="583" y="70" width="120" height="84" rx="6"/>
+<text class="tm tacc" x="643" y="90" text-anchor="middle">Q5</text>
+<text class="t2" x="643" y="108" text-anchor="middle">지표가 기준을</text>
+<text class="t2" x="643" y="124" text-anchor="middle">실제로</text>
+<text class="t2" x="643" y="140" text-anchor="middle">바꾸는가</text>
+<rect class="n" x="725" y="70" width="120" height="84" rx="6"/>
+<text class="tm tacc" x="785" y="90" text-anchor="middle">Q6</text>
+<text class="t2" x="785" y="108" text-anchor="middle">모델이 멈춰도</text>
+<text class="t2" x="785" y="124" text-anchor="middle">핵심 기능이</text>
+<text class="t2" x="785" y="140" text-anchor="middle">유지되는가</text>
+<path class="ln" d="M135,112 L155,112" marker-end="url(#ah-2-4)"/>
+<path class="ln" d="M277,112 L297,112" marker-end="url(#ah-2-4)"/>
+<path class="ln" d="M419,112 L439,112" marker-end="url(#ah-2-4)"/>
+<path class="ln" d="M561,112 L581,112" marker-end="url(#ah-2-4)"/>
+<path class="ln" d="M703,112 L723,112" marker-end="url(#ah-2-4)"/>
+<text class="t3" x="146" y="104" text-anchor="middle">예</text>
+<text class="t3" x="288" y="104" text-anchor="middle">예</text>
+<text class="t3" x="430" y="104" text-anchor="middle">예</text>
+<text class="t3" x="572" y="104" text-anchor="middle">예</text>
+<text class="t3" x="714" y="104" text-anchor="middle">예</text>
+<rect class="n acc" x="725" y="12" width="120" height="36" rx="6"/>
+<text class="t b tacc" x="785" y="35" text-anchor="middle">AI-Native</text>
+<path class="ln acc" d="M785,70 L785,50" marker-end="url(#ah-2-4)"/>
+<text class="t3" x="792" y="64">예</text>
+<path class="ln warn" d="M75,154 L75,198" marker-end="url(#ah-2-4)"/>
+<path class="ln warn" d="M217,154 L217,198" marker-end="url(#ah-2-4)"/>
+<path class="ln warn" d="M359,154 L359,198" marker-end="url(#ah-2-4)"/>
+<path class="ln warn" d="M501,154 L501,198" marker-end="url(#ah-2-4)"/>
+<path class="ln warn" d="M643,154 L643,198" marker-end="url(#ah-2-4)"/>
+<path class="ln warn" d="M785,154 L785,198" marker-end="url(#ah-2-4)"/>
+<text class="t3 twarn" x="81" y="180">아니오</text>
+<text class="t3 twarn" x="223" y="180">아니오</text>
+<text class="t3 twarn" x="365" y="180">아니오</text>
+<text class="t3 twarn" x="507" y="180">아니오</text>
+<text class="t3 twarn" x="649" y="180">아니오</text>
+<text class="t3 twarn" x="791" y="180">아니오</text>
+<rect class="n soft" x="15" y="200" width="120" height="40" rx="6"/>
+<text class="t b" x="75" y="225" text-anchor="middle">미착수</text>
+<rect class="n a" x="157" y="200" width="120" height="40" rx="6"/>
+<text class="t b" x="217" y="225" text-anchor="middle">AI-Ready</text>
+<rect class="n b" x="299" y="200" width="120" height="40" rx="6"/>
+<text class="t b" x="359" y="225" text-anchor="middle">AI-Enabled</text>
+<rect class="n b" x="441" y="200" width="120" height="40" rx="6"/>
+<text class="t b" x="501" y="216" text-anchor="middle">Enabled</text>
+<text class="t2" x="501" y="232" text-anchor="middle">First 후보</text>
+<rect class="n c" x="583" y="200" width="120" height="40" rx="6"/>
+<text class="t b" x="643" y="216" text-anchor="middle">First 후보</text>
+<text class="t2" x="643" y="232" text-anchor="middle">기준 반영 확인</text>
+<rect class="n c" x="725" y="200" width="120" height="40" rx="6"/>
+<text class="t b" x="785" y="225" text-anchor="middle">AI-First</text>
+<text class="t3" x="15" y="272">공개 근거가 없으면 "아니오"가 아니라 "미확인"으로 적고 상위 판정을 보류한다. 계획·설계 문서만 있으면 그 단계에 도달하지 않은 것으로 본다.</text>
+</svg></div>
+<figcaption><b>그림 2.4</b> 현재 위치 판단 체크리스트. 왼쪽부터 묻고 처음 "아니오"가 나온 질문 아래가 현재 단계다. Q4에서 멈추면 재설계는 했지만 운영 기록이 없는 상태로, Enabled이면서 First 후보로 적는다. Q5에서 멈추면 First 후보로 두고 기준 반영 증거를 확인한다.</figcaption></figure>
+
+<p>판정이 가장 자주 갈리는 곳은 Q3과 Q4 사이다. Q3은 일의 모양이 바뀌었는지를 묻고, Q4는 바뀐 모양이 실제로 돌았는지를 묻는다. 접수 순서를 AI 분류 중심으로 바꾸는 설계를 마쳤더라도, 자동 처리와 이관과 롤백이 실제로 일어난 기록이 없으면 Enabled에 First 후보를 덧붙여 적는다. Q5도 비슷한 자리를 가른다. 지표가 쌓이는 것과 지표가 기준을 바꾸는 것은 다르다. 2.2절은 반복 예외의 기준 반영을 First의 필수 관문으로 두었으니, 자동 처리·이관·롤백의 운영 기록이 있어도 Q5가 "아니오"면 First 후보(기준 반영 증거 확인 필요)로 적는다. PAX 인포그래픽의 체크리스트는 이 출구를 AI-First로 적는다. 이 책은 기준서의 First 판정 질문(반복 오류를 개선 신호로 쓰는가)에 맞춰 더 엄격한 문턱을 쓴다. 지금의 PAX 판정과 부딪히지는 않는다. First로 적힌 5건 가운데 Q4를 온전히 넘은 사례가 없기 때문이다.</p>
+
+<h3>증거 등급</h3>
+
+<p>"예"라고 답하려면 근거가 있어야 하고, PAX는 근거의 강도를 증거 등급으로 적는다. 상세 기준서는 여섯 칸을 둔다. 게시글 주장만 있으면 E0, 코드·실행 파일·화면 같은 실물이 확인되면 E1, 공식 설명 자료가 있으면 E2, 운영 URL·운영 주체·운영 기간이 확인되면 E3, 이용량·비용·품질 같은 성과 지표가 있으면 E4, 독립 평가·감사가 있으면 E5다. 557건 평가표에는 E0~E3만 나온다. E1(코드·도구 확인)이 391건(70.2%)으로 대부분이고, E2(화면·서비스 확인) 132건, E3(운영·공식 URL 확인) 19건, E0 15건이다. 인포그래픽은 First의 전형 증거를 E3 이상, Native를 E4 이상으로 적는다. 557건 중 E3은 19건뿐이고 E4는 없으니, 상위 단계가 드문 이유가 여기서도 보인다.</p>
+
+<h3>운영 증거 원칙</h3>
+
+<p>First 이상은 운영 증거로만 판정한다. 설계서, 계획서, 아키텍처 그림, 시연 영상은 운영 증거가 아니다. 기준서는 First 후보에게서 받을 자료를 바뀐 업무 흐름도, 사람과 AI의 역할표, 자동 처리·이관 기준, 예외 처리 절차, 수정·거부 로그, 운영 성과로 적는다. Native 후보에게는 평가·개선 주기, 피드백 데이터 흐름, 모델·정책 변경 이력, 회귀시험 결과, 폴백 구조, 장애 훈련과 복구 목표를 더 받는다. 두 목록 모두 일이 실제로 흘러간 흔적을 요구한다.</p>
+
+<p>First 이상, 위험 R3 이상, 쓰기·실행 권한이 있는 사례, 증거가 엇갈리는 사례는 반드시 사람이 다시 보고, 피드백 구조가 새로 확인되면 다시 평가한다. 이 절차를 실제 PAX 사례에 적용한 기록은 2.12절과 2.13절에, 자기 서비스에 적용할 워크시트는 2.16절에 있다.</p>
+
+<aside class="rule"><span class="lbl">판정 규칙</span><p>Q1부터 차례로 묻고 처음 "아니오"가 나온 자리에서 멈춘다. 공개 근거가 없으면 "미확인"으로 적고 상위 단계 판정을 보류한다. First 이상은 모든 관문에 운영 증거가 있어야 하며, 설계 문서와 계획서는 끝까지 증거로 치지 않는다.</p></aside>
+
+<aside class="case"><span class="lbl">사례 연구 · 가람시(가상)</span><h4>민원여권과 상담원용 챗봇은 몇 단계인가</h4>
+<p>AX팀은 체크리스트를 들고 민원여권과를 찾았다. Q1은 쉽게 통과했다. 민원여권과는 자주 묻는 질문 수백 건을 답변 기준선으로 정리해 두었고, 챗봇은 그 기준선을 검색해 답을 만든다(<a class="pat lc-a" href="ch07.html#p-A1"><span class="pid">A1</span>데이터 자산 서비스</a>, <a class="pat lc-b" href="ch05.html#p-B3"><span class="pid">B3</span>지식 접지 상담</a>). 모델은 내부망 프록시를 거쳐 상용 LLM을 부른다(<a class="pat lc-a" href="ch07.html#p-A2_4"><span class="pid">A2.4</span>모델 서빙 · 내부망 프록시</a>). Q2도 통과였다. 챗봇의 답변 초안은 상담원이 확인하고, 틀린 답은 고쳐서 내보낸다(<a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span>검토 큐</a>).</p>
+<p>Q3에서 멈췄다. 상담원은 여전히 모든 문의를 처음부터 받는다. 챗봇 답변은 상담원 화면 오른쪽에 참고용으로 뜰 뿐이다. AX팀은 판정을 한 줄로 적었다. "AI-Enabled, S2/C1, P1, 증거 E2(시범 운영 화면 확인)."</p>
+<p>과장에게는 그다음 문장이 더 쓸모 있었다. AX팀은 다음 관문에 빠진 것을 부품 이름으로 적었다. 여권 발급 소요일처럼 위험이 낮은 문의는 자동으로 답하고 끝내며, 수수료 감면처럼 판단이 필요한 문의는 숙련 상담원에게 넘기는 <a class="pat lc-c" href="ch08.html#p-C2"><span class="pid">C2</span>위험도 라우터</a>, 이의가 들어오면 답변을 되돌리는 <a class="pat lc-c" href="ch08.html#p-C3"><span class="pid">C3</span>상태 머신·롤백</a>, 건마다 자동 종결률과 수정률을 남기는 <a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span>감사 로그·지표</a>였다. 조립도는 <code>A1 → A2.4 → B3 → C1</code>에서 <code>A1 → A2.4 → B3 → C2 → (자동 종결 | C1) → C3 → C4</code>로 바뀌어야 했다. AX팀은 한 가지를 못 박았다. 새 조립도를 그려 놓는다고 First가 되지는 않는다. 실제 문의가 그 갈림길을 지나간 기록이 석 달 쌓인 뒤에 다시 판정한다.</p>
+</aside>
+
+<h2>2.5 S·C·M 눈금자와 P 권한 축</h2>
+
+<p>단계 하나로는 같은 Enabled 안의 차이를 적을 수 없다. 법령 조회 한 기능만 하는 도구와 의회 질의·예산·조례를 한 흐름으로 찾아 주는 도구가 둘 다 Enabled일 수 있다. 그래서 PAX는 사례마다 단계와 S·C·M을 함께 적고, 557건 평가에는 P 권한 축을 더했다. 표 2.3은 네 눈금자의 등급 정의다.</p>
+
+<div class="tbl"><table><caption><b>표 2.3</b> S·C·M·P 눈금자의 등급 정의 (출처: PAX 전체분류기준·MCP 평가기준, P는 카탈로그 환경 조건 E4)</caption>
+<thead><tr><th>축</th><th>등급</th><th>판정 기준</th></tr></thead>
+<tbody>
+<tr><td class="k" rowspan="5">S 업무 범위</td><td>S1 단일 기능</td><td>조회·변환·생성·검사 하나</td></tr>
+<tr><td>S2 기능 묶음</td><td>관련된 여러 도구·데이터·기능의 묶음</td></tr>
+<tr><td>S3 업무 흐름</td><td>업무 목표 하나를 위한 순차·조건부 처리</td></tr>
+<tr><td>S4 종단 서비스</td><td>접수·처리·승인·통지·종료 확인까지 연결</td></tr>
+<tr><td>S5 생태계</td><td>여러 기관·서비스·에이전트가 공동 목표를 수행</td></tr>
+<tr><td class="k" rowspan="6">C 업무 완결성</td><td>C0 기능 제공</td><td>도구가 있고 호출된다</td></tr>
+<tr><td>C1 결과 제공</td><td>결과를 내놓고 후속 업무는 사람이 한다</td></tr>
+<tr><td>C2 연속 처리</td><td>여러 단계를 잇지만 판단과 완료는 사람이 맡는다</td></tr>
+<tr><td>C3 운영 폐쇄루프</td><td>입력→처리→검증→완료, 종료 상태까지 확인한다</td></tr>
+<tr><td>C4 예외 포함 완결</td><td>오류·승인·이의 제기·이관·롤백까지 처리한다</td></tr>
+<tr><td>C5 적응형 완결</td><td>평가·학습·재검증·대체 경로·장애 복원까지 갖춘다(Native 필수)</td></tr>
+<tr><td class="k" rowspan="5">M 실행계층 파급력<br/>(MCP 사례만)</td><td>M1 제한적</td><td>개인·단일 도구·제한된 사용자 중심</td></tr>
+<tr><td>M2 재사용형</td><td>공개 MCP이거나 여러 사용자·모델이 재사용</td></tr>
+<tr><td>M3 업무통합형</td><td>여러 MCP·API·업무 시스템과 연결</td></tr>
+<tr><td>M4 생태계형</td><td>기관이 공식 제공하고 여러 기관이 함께 쓴다</td></tr>
+<tr><td>M5 핵심인프라형</td><td>공식 실행 계층이며 SLA·책임·감사·복원력을 갖춘다</td></tr>
+<tr><td class="k" rowspan="5">P 권한 범위</td><td>P0 읽기 전용</td><td>조회·검색·시각화</td></tr>
+<tr><td>P1 산출물 생성</td><td>업무 시스템 밖에서 산출물을 만든다</td></tr>
+<tr><td>P2 시스템 쓰기</td><td>업무 시스템에 직접 쓴다</td></tr>
+<tr><td>P3 처분 보조</td><td>지급·승인·반려처럼 처분에 직결된다</td></tr>
+<tr><td>P4 자율 처분</td><td>사람 없이 처분한다</td></tr>
+</tbody></table></div>
+
+<p>S는 AI가 덮는 업무의 폭이며, 도구 수로 판정하지 않는다. 서로 독립된 조회 도구 백 개는 S2에 머물고, 도구가 적어도 접수부터 통지까지 이으면 S4가 된다.</p>
+
+<p>C는 한 건을 시스템이 어디까지 끝내는지를 잰다. 기술적 완성도와는 따로 판정하므로, 인증과 감사 기능을 갖춘 공식 MCP도 쓰이지 않으면 C0이다. 기준서의 완결성 질문 열 개를 순서대로 읽으면 등급이 갈린다. 시작 조건 인식, 도구 선택, 상태 유지, 업무 시스템 반영, 종료 확인까지가 C3이고, 위험 건 이관, 재시도·롤백, 승인·이의 제기 처리가 C4이며, 환류와 대체 경로가 C5다.</p>
+
+<p>557건의 S와 C 분포는 그림 2.5와 같다. S는 S1 332건(59.6%), S2 202건(36.3%), S3 23건(4.1%)이고 S4·S5는 없다. C는 C1 309건(55.5%), C0 141건(25.3%), C2 106건(19.0%), C3 1건이고 C4·C5는 없다. 접수에서 종료 확인까지 닫힌 사례, 예외까지 품은 사례가 공개 자료로는 아직 확인되지 않는다는 뜻이다.</p>
+
+<figure class="fig" id="fig-2-5"><div class="canvas"><svg viewBox="0 0 900 284" role="img" aria-label="PAX 557건의 S 업무 범위와 C 업무 완결성 분포. S1 332, S2 202, S3 23, S4와 S5는 0. C0 141, C1 309, C2 106, C3 1, C4와 C5는 0.">
+<text class="t b" x="20" y="28">S 업무 범위</text>
+<text class="t3" x="20" y="44">얼마나 넓은 일을 덮는가</text>
+<text class="tm" x="20" y="79">S1</text>
+<text class="t2" x="46" y="79">단일 기능</text>
+<rect class="bar-bg" x="140" y="65" width="249" height="20"/>
+<rect class="n b" x="140" y="65" width="249.0" height="20" rx="2"/>
+<text class="t2" x="397.0" y="80">332</text>
+<text class="tm" x="20" y="111">S2</text>
+<text class="t2" x="46" y="111">기능 묶음</text>
+<rect class="bar-bg" x="140" y="97" width="249" height="20"/>
+<rect class="n b" x="140" y="97" width="151.5" height="20" rx="2"/>
+<text class="t2" x="299.5" y="112">202</text>
+<text class="tm" x="20" y="143">S3</text>
+<text class="t2" x="46" y="143">업무 흐름</text>
+<rect class="bar-bg" x="140" y="129" width="249" height="20"/>
+<rect class="n b" x="140" y="129" width="17.2" height="20" rx="2"/>
+<text class="t2" x="165.2" y="144">23</text>
+<text class="tm" x="20" y="175">S4</text>
+<text class="t2" x="46" y="175">종단 서비스</text>
+<rect class="bar-bg" x="140" y="161" width="249" height="20"/>
+<text class="t2" x="148.0" y="176">0</text>
+<text class="tm" x="20" y="207">S5</text>
+<text class="t2" x="46" y="207">생태계</text>
+<rect class="bar-bg" x="140" y="193" width="249" height="20"/>
+<text class="t2" x="148.0" y="208">0</text>
+<text class="t b" x="460" y="28">C 업무 완결성</text>
+<text class="t3" x="460" y="44">어디까지 스스로 끝내는가</text>
+<text class="tm" x="460" y="79">C0</text>
+<text class="t2" x="486" y="79">기능 제공</text>
+<rect class="bar-bg" x="580" y="65" width="249" height="20"/>
+<rect class="n c" x="580" y="65" width="105.8" height="20" rx="2"/>
+<text class="t2" x="693.8" y="80">141</text>
+<text class="tm" x="460" y="111">C1</text>
+<text class="t2" x="486" y="111">결과 제공</text>
+<rect class="bar-bg" x="580" y="97" width="249" height="20"/>
+<rect class="n c" x="580" y="97" width="231.8" height="20" rx="2"/>
+<text class="t2" x="819.8" y="112">309</text>
+<text class="tm" x="460" y="143">C2</text>
+<text class="t2" x="486" y="143">연속 처리</text>
+<rect class="bar-bg" x="580" y="129" width="249" height="20"/>
+<rect class="n c" x="580" y="129" width="79.5" height="20" rx="2"/>
+<text class="t2" x="667.5" y="144">106</text>
+<text class="tm" x="460" y="175">C3</text>
+<text class="t2" x="486" y="175">폐쇄루프</text>
+<rect class="bar-bg" x="580" y="161" width="249" height="20"/>
+<rect class="n c" x="580" y="161" width="2" height="20" rx="2"/>
+<text class="t2" x="588.8" y="176">1</text>
+<text class="tm" x="460" y="207">C4</text>
+<text class="t2" x="486" y="207">예외 포함</text>
+<rect class="bar-bg" x="580" y="193" width="249" height="20"/>
+<text class="t2" x="588.0" y="208">0</text>
+<text class="tm" x="460" y="239">C5</text>
+<text class="t2" x="486" y="239">적응형</text>
+<rect class="bar-bg" x="580" y="225" width="249" height="20"/>
+<text class="t2" x="588.0" y="240">0</text>
+<text class="t3" x="20" y="268">두 패널 모두 같은 축척(1건 = 0.75px)이다. S4·S5와 C4·C5는 0건, C3은 1건이다.</text>
+</svg></div>
+<figcaption><b>그림 2.5</b> PAX 557건의 S 업무 범위와 C 업무 완결성 분포. 단일 기능과 기능 묶음이 95.9%이고, 결과 제공(C1)이 가장 많다. 종단 서비스(S4) 이상과 예외 포함 완결(C4) 이상은 공개 자료로 확인된 사례가 없다.</figcaption></figure>
+
+<p>M은 MCP 사례에만 적용한다. MCP 개발 자체는 원칙적으로 Ready지만 First와 Native 전환에 미치는 잠재력은 일반 데이터 정비보다 크다. 개인이 만든 단일 공공데이터 MCP와 정부기관의 공식 통계 MCP는 같은 Ready라도 무게가 다르고, M이 이 차이를 적는다. 그래서 'AI-Ready / S2 / C0 / M4'처럼 업무 성과는 아직 없지만 파급력은 큰 조합이 자연스럽게 나온다.</p>
+
+<p>P는 AI 부품이 바꿀 수 있는 것의 상한이고, 카탈로그의 환경 조건 E4와 같다. P가 올라간다고 단계가 오르지는 않는다. 끼워야 할 통제 부품이 늘어날 뿐이다. P2 이상이면 <a class="pat lc-c" href="ch08.html#p-C2"><span class="pid">C2</span>위험도 라우터</a>, <a class="pat lc-c" href="ch08.html#p-C3"><span class="pid">C3</span>상태 머신·롤백</a>, <a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span>감사 로그·지표</a>, <a class="pat lc-c" href="ch08.html#p-C8"><span class="pid">C8</span>권한 경계·킬스위치</a>가 모두 필수다.</p>
+
+<p>그림 2.6은 MCP 사례의 M 분포와 557건의 P 분포다. 4축 평가에서 MCP 역할이 매겨진 사례는 87건(서버 79건, 클라이언트·호스트 7건, 계획 1건)이고, M2 재사용형이 60건(69.0%)으로 대부분이다. M3 14건, M1 9건, M4 4건이고 M5는 없다. M4 4건은 HRDKorea MCP, 미국 GovInfo의 정부 문서 MCP, 싱가포르 통계청의 SingStat MCP, 민간 MCP 에이전트 플랫폼이며 넷 모두 Ready다. 4축 평가의 P는 P1 357건(64.1%), P0 181건(32.5%), P2 19건(3.4%)이고 P3 이상은 없다. 권한 서술이 드물어 557건의 P 판정은 모두 잠정이다.</p>
+
+<figure class="fig" id="fig-2-6"><div class="canvas"><svg viewBox="0 0 900 252" role="img" aria-label="MCP 사례 87건의 M 분포와 557건의 P 분포. M1 9, M2 60, M3 14, M4 4, M5 0. P0 181, P1 357, P2 19, P3와 P4는 0.">
+<text class="t b" x="20" y="28">M 실행계층 파급력 (MCP 사례 87건)</text>
+<text class="t3" x="20" y="44">1건 = 2.5px · 비-MCP 470건은 해당 없음</text>
+<text class="tm" x="20" y="79">M1</text>
+<text class="t2" x="46" y="79">제한적</text>
+<rect class="bar-bg" x="140" y="65" width="150" height="20"/>
+<rect class="n a" x="140" y="65" width="22.5" height="20" rx="2"/>
+<text class="t2" x="170.5" y="80">9</text>
+<text class="tm" x="20" y="111">M2</text>
+<text class="t2" x="46" y="111">재사용형</text>
+<rect class="bar-bg" x="140" y="97" width="150" height="20"/>
+<rect class="n a" x="140" y="97" width="150.0" height="20" rx="2"/>
+<text class="t2" x="298.0" y="112">60</text>
+<text class="tm" x="20" y="143">M3</text>
+<text class="t2" x="46" y="143">업무통합형</text>
+<rect class="bar-bg" x="140" y="129" width="150" height="20"/>
+<rect class="n a" x="140" y="129" width="35.0" height="20" rx="2"/>
+<text class="t2" x="183.0" y="144">14</text>
+<text class="tm" x="20" y="175">M4</text>
+<text class="t2" x="46" y="175">생태계형</text>
+<rect class="bar-bg" x="140" y="161" width="150" height="20"/>
+<rect class="n a" x="140" y="161" width="10.0" height="20" rx="2"/>
+<text class="t2" x="158.0" y="176">4</text>
+<text class="tm" x="20" y="207">M5</text>
+<text class="t2" x="46" y="207">핵심인프라</text>
+<rect class="bar-bg" x="140" y="193" width="150" height="20"/>
+<text class="t2" x="148.0" y="208">0</text>
+<text class="t b" x="460" y="28">P 권한 범위 (557건, 전부 잠정)</text>
+<text class="t3" x="460" y="44">1건 = 0.6px</text>
+<text class="tm" x="460" y="79">P0</text>
+<text class="t2" x="486" y="79">읽기 전용</text>
+<rect class="bar-bg" x="580" y="65" width="214" height="20"/>
+<rect class="n e" x="580" y="65" width="108.6" height="20" rx="2"/>
+<text class="t2" x="696.6" y="80">181</text>
+<text class="tm" x="460" y="111">P1</text>
+<text class="t2" x="486" y="111">산출물 생성</text>
+<rect class="bar-bg" x="580" y="97" width="214" height="20"/>
+<rect class="n e" x="580" y="97" width="214.2" height="20" rx="2"/>
+<text class="t2" x="802.2" y="112">357</text>
+<text class="tm" x="460" y="143">P2</text>
+<text class="t2" x="486" y="143">시스템 쓰기</text>
+<rect class="bar-bg" x="580" y="129" width="214" height="20"/>
+<rect class="n e" x="580" y="129" width="11.4" height="20" rx="2"/>
+<text class="t2" x="599.4" y="144">19</text>
+<text class="tm" x="460" y="175">P3</text>
+<text class="t2" x="486" y="175">처분 보조</text>
+<rect class="bar-bg" x="580" y="161" width="214" height="20"/>
+<text class="t2" x="588.0" y="176">0</text>
+<text class="tm" x="460" y="207">P4</text>
+<text class="t2" x="486" y="207">자율 처분</text>
+<rect class="bar-bg" x="580" y="193" width="214" height="20"/>
+<text class="t2" x="588.0" y="208">0</text>
+<text class="t3" x="20" y="236">두 패널은 분모와 축척이 다르다. M5와 P3·P4는 0건이다.</text>
+</svg></div>
+<figcaption><b>그림 2.6</b> 4축 평가의 M 실행계층 파급력(MCP 사례 87건)과 P 권한 범위(557건, 잠정). MCP의 69.0%가 재사용형(M2)이고 핵심인프라형(M5)은 없다. 권한은 산출물 생성(P1)이 64.1%이며 처분 보조(P3) 이상은 없다.</figcaption></figure>
+
+<p>네 축은 서로 독립적이다. 그림 2.7에서 단계와 C를 교차시키면 Ready 358건 가운데 C0은 120건뿐이고, C1이 201건, C2가 37건이다. 런타임 AI가 없는 결정적 도구도 결과를 내놓으면 C1이 되기 때문이다. 엑셀 취합 도구는 취합본을 내놓고 뒷일을 사람이 하니 C1이지만, 그 결과를 AI가 만들지 않았으므로 단계는 Ready다. 완결성은 일이 닫히는 정도를 재고, 단계는 그 일에서 AI가 맡는 몫을 잰다.</p>
+
+<figure class="fig" id="fig-2-7"><div class="canvas"><svg viewBox="0 0 870 318" role="img" aria-label="AX 단계와 C 업무 완결성의 교차표. Ready는 C1에 201건, Enabled는 C1 101건과 C2 64건, First는 C2 4건과 C3 1건이다.">
+<text class="tm" x="209.0" y="36" text-anchor="middle">C0</text>
+<text class="tm" x="327.0" y="36" text-anchor="middle">C1</text>
+<text class="tm" x="445.0" y="36" text-anchor="middle">C2</text>
+<text class="tm" x="563.0" y="36" text-anchor="middle">C3</text>
+<text class="tm" x="681.0" y="36" text-anchor="middle">C4</text>
+<text class="tm" x="799.0" y="36" text-anchor="middle">C5</text>
+<text class="t b" x="20" y="78">AI-Ready</text>
+<rect class="n zone" x="153" y="53" width="112" height="40" rx="4"/>
+<circle class="dot" cx="182" cy="73.0" r="13.1"/>
+<text class="t2" x="206" y="77.0">120</text>
+<rect class="n soft" x="271" y="53" width="112" height="40" rx="4"/>
+<circle class="dot" cx="300" cy="73.0" r="17.0"/>
+<text class="t2" x="324" y="77.0">201</text>
+<rect class="n soft" x="389" y="53" width="112" height="40" rx="4"/>
+<circle class="dot" cx="418" cy="73.0" r="7.3"/>
+<text class="t2" x="442" y="77.0">37</text>
+<rect class="n soft" x="507" y="53" width="112" height="40" rx="4"/>
+<rect class="n soft" x="625" y="53" width="112" height="40" rx="4"/>
+<rect class="n soft" x="743" y="53" width="112" height="40" rx="4"/>
+<text class="t b" x="20" y="124">AI-Enabled</text>
+<rect class="n soft" x="153" y="99" width="112" height="40" rx="4"/>
+<circle class="dot" cx="182" cy="119.0" r="2.1"/>
+<text class="t2" x="206" y="123.0">3</text>
+<rect class="n zone" x="271" y="99" width="112" height="40" rx="4"/>
+<circle class="dot" cx="300" cy="119.0" r="12.1"/>
+<text class="t2" x="324" y="123.0">101</text>
+<rect class="n zone" x="389" y="99" width="112" height="40" rx="4"/>
+<circle class="dot" cx="418" cy="119.0" r="9.6"/>
+<text class="t2" x="442" y="123.0">64</text>
+<rect class="n soft" x="507" y="99" width="112" height="40" rx="4"/>
+<rect class="n soft" x="625" y="99" width="112" height="40" rx="4"/>
+<rect class="n soft" x="743" y="99" width="112" height="40" rx="4"/>
+<text class="t b" x="20" y="170">AI-First</text>
+<rect class="n soft" x="153" y="145" width="112" height="40" rx="4"/>
+<rect class="n soft" x="271" y="145" width="112" height="40" rx="4"/>
+<rect class="n soft" x="389" y="145" width="112" height="40" rx="4"/>
+<circle class="dot" cx="418" cy="165.0" r="2.4"/>
+<text class="t2" x="442" y="169.0">4</text>
+<rect class="n zone" x="507" y="145" width="112" height="40" rx="4"/>
+<circle class="dot" cx="536" cy="165.0" r="2"/>
+<text class="t2" x="560" y="169.0">1</text>
+<rect class="n zone" x="625" y="145" width="112" height="40" rx="4"/>
+<rect class="n soft" x="743" y="145" width="112" height="40" rx="4"/>
+<text class="t b" x="20" y="216">Native 계획</text>
+<rect class="n soft" x="153" y="191" width="112" height="40" rx="4"/>
+<rect class="n soft" x="271" y="191" width="112" height="40" rx="4"/>
+<rect class="n soft" x="389" y="191" width="112" height="40" rx="4"/>
+<circle class="dot" cx="418" cy="211.0" r="2"/>
+<text class="t2" x="442" y="215.0">1</text>
+<rect class="n soft" x="507" y="191" width="112" height="40" rx="4"/>
+<rect class="n soft" x="625" y="191" width="112" height="40" rx="4"/>
+<rect class="n soft" x="743" y="191" width="112" height="40" rx="4"/>
+<text class="t b" x="20" y="262">AX 단계 외</text>
+<rect class="n soft" x="153" y="237" width="112" height="40" rx="4"/>
+<circle class="dot" cx="182" cy="257.0" r="5.1"/>
+<text class="t2" x="206" y="261.0">18</text>
+<rect class="n soft" x="271" y="237" width="112" height="40" rx="4"/>
+<circle class="dot" cx="300" cy="257.0" r="3.2"/>
+<text class="t2" x="324" y="261.0">7</text>
+<rect class="n soft" x="389" y="237" width="112" height="40" rx="4"/>
+<rect class="n soft" x="507" y="237" width="112" height="40" rx="4"/>
+<rect class="n soft" x="625" y="237" width="112" height="40" rx="4"/>
+<rect class="n soft" x="743" y="237" width="112" height="40" rx="4"/>
+<rect class="n zone" x="20" y="291" width="22" height="14" rx="3"/><text class="t3" x="50" y="302">기준서가 제시한 단계별 전형 C 구간(Native는 C5)</text>
+<circle class="dot" cx="410" cy="298" r="6"/><text class="t3" x="424" y="302">원 면적은 건수에 비례</text>
+</svg></div>
+<figcaption><b>그림 2.7</b> AX 단계와 C 업무 완결성의 교차. Ready의 절반 이상이 C1에 있다. 결정적 도구도 결과를 내놓으면 C1이 되기 때문이다. 완결성은 일이 닫히는 정도를, 단계는 그 일에서 AI가 맡는 몫을 잰다.</figcaption></figure>
+
+<p>그래서 판정 한 줄은 네 축을 함께 적는다. 기준서의 표기 예로, 공식 통계를 여러 기관이 재사용하지만 업무 활용은 확인되지 않은 MCP는 'AI-Ready / S2 / C0 / M4'이고, 공개 법령 MCP를 실제 분석 업무에 쓴 사례는 'AI-Enabled / S2 / C2 / M2'다. "AI-Enabled, S2/C1, P1"이라고 적으면 기능 묶음을 쓰고, 결과만 주는 데서 멈춰 있으며, 업무 시스템에는 손대지 않는다는 뜻이다. 다음에 끼울 부품도 이 한 줄에서 나온다.</p>
+
+<aside class="warn"><span class="lbl">흔한 실수</span><p>권한을 올리는 것을 성숙으로 착각하는 경우가 있다. 4축 평가에서 PAX 557건 중 P2는 19건인데, 단계별로는 Ready 11건, Enabled 6건, 단계 외 2건이다. 권한이 높은 사례가 단계도 높지는 않다. 통제 부품 없이 권한만 높인 조립을 PAX 원칙은 위험 신호로 읽는다.</p></aside>
+
+<aside class="key"><span class="lbl">핵심 요약</span><ul>
+<li>S는 폭, C는 완결, M은 공식성과 재사용, P는 권한의 상한을 잰다. 단계와 함께 적으면 같은 단계 안의 차이가 드러난다.</li>
+<li>PAX 557건은 S1~S3, C0~C3 안에 있다. 4축 평가의 MCP 사례 87건은 M2가 60건이고 M5는 없다.</li>
+<li>네 축은 독립적이다. Ready의 절반 이상이 C1이고, P2 사례는 대부분 Ready다.</li>
+</ul></aside>
+
+<h2>2.6 보조축: 인간 통제, 복원력, 증거, 전이, 위험</h2>
+
+<p>PAX는 네 축 말고도 사례마다 보조축을 기록한다. 보조축은 단계를 정하지 않지만 판정의 근거를 받치고 다음에 끼울 부품을 가리킨다. 표 2.4는 보조축의 등급, 557건에서 관측된 값, 카탈로그에서 읽는 부품이다.</p>
+
+<div class="tbl"><table><caption><b>표 2.4</b> 보조축의 등급과 PAX 557건 관측 (등급 출처: PAX 평가분류기준 상세보고서·MCP 평가기준, 부품 대응: 카탈로그 §8)</caption>
+<thead><tr><th>축</th><th>등급</th><th>PAX 557건</th><th>카탈로그 부품</th></tr></thead>
+<tbody>
+<tr><td class="k">H 인간 통제</td><td>H1 정보만 제공 / H2 모든 결과를 사람이 승인 / H3 AI 실행·사람 감독 / H4 사람은 목표·권한·감사 관리 / H5 사전 승인 없는 자율 실행</td><td>검토 방식 기록 114건(모두 H2 계열), 미확인·미정 24건, 기록 없음 419건</td><td><a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span>검토 큐</a>(H2), <a class="pat lc-c" href="ch08.html#p-C2"><span class="pid">C2</span>위험도 라우터</a></td></tr>
+<tr><td class="k">R 복원력</td><td>재시도 / 기존 API 폴백 / 대체 MCP / 대체 모델 / 수동 업무 전환</td><td>부분 확인 46건, 미확인 464건. 대체 모델 전환 절차 확인 0건</td><td><a class="pat lc-c" href="ch08.html#p-C7"><span class="pid">C7</span>폴백 스위치</a>, 전제 <a class="pat lc-a" href="ch07.html#p-A2"><span class="pid">A2</span>모델 서빙 계층</a></td></tr>
+<tr><td class="k">피드백</td><td>없음 / 로그 수집 / 평가 데이터화 / 지속 개선</td><td>부분 확인 38건, 미확인 519건</td><td><a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span>감사 로그·지표</a> → <a class="pat lc-c" href="ch08.html#p-C6"><span class="pid">C6</span>환류 파이프라인</a></td></tr>
+<tr><td class="k">E 증거</td><td>E0 주장 / E1 실물 / E2 공식 설명·화면 / E3 운영 확인 / E4 성과 지표 / E5 독립 평가</td><td>E0 15, E1 391, E2 132, E3 19건</td><td>구현 상태 present·implemented·planned(4장)</td></tr>
+<tr><td class="k">T 전이</td><td>개인 사용 → 부서 공유 → 기관 공식 → 타 기관 재사용 → 범정부 탑재</td><td>카탈로그 척도(PAX 판정표에는 없음)</td><td>모든 부품의 전이 범위</td></tr>
+<tr><td class="k">위험</td><td>R0 최소 / R1 낮음 / R2 보통 / R3 높음 / R4 중대</td><td>R0 316, R1 200, R2 41건</td><td>R3 이상이면 사람 재검토 필수</td></tr>
+</tbody></table></div>
+
+<p>위험의 R0~R4는 업무 영향의 크기이고 복원력 축의 R은 장애 대응 경로다. 위험은 공개 정보 검색이 R0, 사람이 전면 검토하는 내부 초안이 R1, 민원 분류가 R2, 복지·인허가·법 집행에 실질 영향을 주면 R3이다. 인간 통제에서 기준서는 H5를 최고 성숙도로 보지 않고, 업무 위험에 맞는 통제인지를 따로 평가하라고 적는다. T 전이는 PAX 판정표에는 따로 없다. 카탈로그가 부품마다 적는 전이 범위이고, M2 재사용형은 부서 공유에, M4 생태계형은 범정부 탑재에 해당한다.</p>
+
+<p>그림 2.8은 보조축의 기록 상태를 557건 전체로 쌓은 것이다. 승인 게이트와 감사 로그는 557건 모두 미확인이다. 피드백은 519건(93.2%), 복원력은 464건(83.3%)이 미확인이다. 복원력이 부분 확인된 46건도 절반 이상은 로컬이나 내부망 실행으로 외부 API 의존을 줄인 경우이고, 장애 복구와 대체 모델 전환까지 확인된 사례는 없다.</p>
+
+<figure class="fig" id="fig-2-8"><div class="canvas"><svg viewBox="0 0 880 434" role="img" aria-label="PAX 557건의 보조축 기록 상태. 승인 게이트와 감사 로그는 557건 모두 미확인이고, 피드백은 519건, 복원력은 464건이 미확인이다.">
+<text class="t b" x="20" y="37">인간 통제</text>
+<rect class="n b" x="200.0" y="22" width="122.8" height="22"/>
+<rect class="n soft" x="322.8" y="22" width="25.9" height="22"/>
+<rect class="n zone" x="348.7" y="22" width="451.3" height="22"/>
+<text class="t3" x="200" y="60">검토 방식 기록 114 · H1/H2 미확인·미정 24 · 기록 없음 419</text>
+<text class="t b" x="20" y="93">피드백</text>
+<rect class="n b" x="200.0" y="78" width="40.9" height="22"/>
+<rect class="n soft" x="240.9" y="78" width="559.1" height="22"/>
+<text class="t3" x="200" y="116">부분 확인 38 · 미확인 519 · 지속개선 확인 0</text>
+<text class="t b" x="20" y="149">복원력</text>
+<rect class="n b" x="200.0" y="134" width="49.6" height="22"/>
+<rect class="n zone" x="249.6" y="134" width="44.2" height="22"/>
+<rect class="n zone" x="293.7" y="134" width="6.5" height="22"/>
+<rect class="n soft" x="300.2" y="134" width="499.8" height="22"/>
+<text class="t3" x="200" y="172">부분 확인 46 · 유지보수 활동만 기록 41 · 해당 없음 6 · 미확인 464</text>
+<text class="t b" x="20" y="205">승인 게이트</text>
+<rect class="n soft" x="200.0" y="190" width="600.0" height="22"/>
+<text class="t3" x="200" y="228">미확인 557</text>
+<text class="t b" x="20" y="261">감사 로그</text>
+<rect class="n soft" x="200.0" y="246" width="600.0" height="22"/>
+<text class="t3" x="200" y="284">미확인 557</text>
+<text class="t b" x="20" y="317">증거 등급</text>
+<rect class="n acc" x="200.0" y="302" width="20.5" height="22"/>
+<rect class="n b" x="220.5" y="302" width="142.2" height="22"/>
+<rect class="n soft" x="362.7" y="302" width="421.2" height="22"/>
+<rect class="n zone" x="783.8" y="302" width="16.2" height="22"/>
+<text class="t3" x="200" y="340">E3 19 · E2 132 · E1 391 · E0 15</text>
+<text class="t b" x="20" y="373">위험</text>
+<rect class="n acc" x="200.0" y="358" width="44.2" height="22"/>
+<rect class="n b" x="244.2" y="358" width="215.4" height="22"/>
+<rect class="n soft" x="459.6" y="358" width="340.4" height="22"/>
+<text class="t3" x="200" y="396">R2 41 · R1 200 · R0 316 · R3 이상 0</text>
+<text class="t3" x="20" y="418">각 막대는 557건 전체(600px)이며 왼쪽부터 확인 정도가 높은 순서로 쌓았다.</text>
+</svg></div>
+<figcaption><b>그림 2.8</b> PAX 557건의 보조축 기록 상태. 승인 게이트와 감사 로그는 전부 미확인이고, 피드백과 복원력도 대부분 미확인이다. 증거는 E1이 70.2%이며 성과 지표를 갖춘 E4 이상은 없다.</figcaption></figure>
+
+<aside class="key"><span class="lbl">핵심 요약</span><ul>
+<li>보조축은 단계를 정하지 않지만 다음 부품을 가리킨다. H는 C1·C2로, R은 C7·A2로, 피드백은 C4·C6으로, 증거는 구현 상태 판정으로 이어진다.</li>
+<li>PAX 557건에서 승인 게이트와 감사 로그는 전부 미확인이고, 피드백과 복원력도 대부분 미확인이다.</li>
+<li>H5 자율 실행은 최고 성숙도가 아니다. 위험 등급에 맞는 통제인지가 기준이다.</li>
+</ul></aside>
+
+<h2>2.7 단계별 필수 설계 요소</h2>
+
+<p>설계 요소는 단계마다 누적된다. 표 2.5는 PAX 인포그래픽이 열두 가지 설계 요소를 단계별로 필수와 권장으로 나눈 것이다. 필수 칸이 비면 그 단계 판정이 성립하지 않고, 권장 칸은 다음 단계로 가는 발판이다. 위 단계로 올라간다고 아래 단계의 요구가 면제되지 않는다.</p>
+
+<div class="tbl"><table><caption><b>표 2.5</b> 단계별 필수 설계 요소 (출처: PAX AX 성숙도 인포그래픽 §03, 빈칸은 그 단계에서 묻지 않음. 대응 부품은 저자 정리)</caption>
+<thead><tr><th>설계 요소</th><th>Ready</th><th>Enabled</th><th>First</th><th>Native</th><th>대응 부품</th></tr></thead>
+<tbody>
+<tr><td class="k">준비 자산(데이터·권한·책임·기준선)</td><td class="c">필수</td><td class="c">필수</td><td class="c">필수</td><td class="c">필수</td><td><a class="pat lc-a" href="ch07.html#p-A1"><span class="pid">A1</span></a>·<a class="pat lc-a" href="ch07.html#p-A4"><span class="pid">A4</span></a>·<a class="pat lc-a" href="ch07.html#p-A8"><span class="pid">A8</span></a></td></tr>
+<tr><td class="k">검증 가능한 업무 산출물</td><td class="c"></td><td class="c">필수</td><td class="c">필수</td><td class="c">필수</td><td>B 주 부품</td></tr>
+<tr><td class="k">사람의 확인 절차</td><td class="c"></td><td class="c">필수</td><td class="c">필수</td><td class="c">필수</td><td><a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span></a></td></tr>
+<tr><td class="k">위험도에 따른 자동·이관 분기</td><td class="c"></td><td class="c"></td><td class="c">필수</td><td class="c">필수</td><td><a class="pat lc-c" href="ch08.html#p-C2"><span class="pid">C2</span></a></td></tr>
+<tr><td class="k">종료 상태 확인</td><td class="c"></td><td class="c">권장</td><td class="c">필수</td><td class="c">필수</td><td><a class="pat lc-c" href="ch08.html#p-C3"><span class="pid">C3</span></a></td></tr>
+<tr><td class="k">승인·거부·롤백 경로</td><td class="c"></td><td class="c"></td><td class="c">필수</td><td class="c">필수</td><td><a class="pat lc-c" href="ch08.html#p-C3"><span class="pid">C3</span></a>·<a class="pat lc-c" href="ch08.html#p-C8"><span class="pid">C8</span></a></td></tr>
+<tr><td class="k">처리 건별 지표 적재</td><td class="c"></td><td class="c">권장</td><td class="c">필수</td><td class="c">필수</td><td><a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span></a></td></tr>
+<tr><td class="k">반복 예외의 제도 반영</td><td class="c"></td><td class="c"></td><td class="c">필수</td><td class="c">필수</td><td><a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span></a> → 기준 개정</td></tr>
+<tr><td class="k">핵심 가치 결합</td><td class="c"></td><td class="c"></td><td class="c">권장</td><td class="c">필수</td><td>B 주 부품의 위치</td></tr>
+<tr><td class="k">평가→개선 환류 회로</td><td class="c"></td><td class="c"></td><td class="c"></td><td class="c">필수</td><td><a class="pat lc-c" href="ch08.html#p-C6"><span class="pid">C6</span></a>·<a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span></a></td></tr>
+<tr><td class="k">대체 경로·장애 복원</td><td class="c"></td><td class="c"></td><td class="c">권장</td><td class="c">필수</td><td><a class="pat lc-c" href="ch08.html#p-C7"><span class="pid">C7</span></a>·<a class="pat lc-a" href="ch07.html#p-A2"><span class="pid">A2</span></a></td></tr>
+<tr><td class="k">적용 범위 명시 기록</td><td class="c"></td><td class="c"></td><td class="c"></td><td class="c">필수</td><td>판정 기록</td></tr>
+</tbody></table></div>
+
+<p>위에서 아래로 읽으면 단계 사이의 거리가 보인다. Ready에서 Enabled로 갈 때 필수가 두 줄 늘어난다. 산출물과 사람의 확인이다. Enabled에서 First로 갈 때는 다섯 줄이 늘어난다. 분기, 종료 확인, 롤백, 건별 지표, 제도 반영이다. 이 다섯 줄은 회의실에서 만들어지지 않고 실제로 건이 흘러가야 생긴다. 많은 과제가 Enabled에 오래 머무는 이유다. First에서 Native로 갈 때 늘어나는 네 줄은 분기 단위의 환류와 훈련을 거친 강등 경로처럼 시간이 쌓여야 증거가 된다. 권장 칸은 다음 단계의 필수 칸으로 읽는다. Enabled 때 종료 확인과 건별 지표를 깔아 두지 않으면 First 판정에 쓸 운영 기록이 처음부터 없다.</p>
+
+<h2>2.8 강등 경로: Native를 가르는 한 장면</h2>
+
+<p>Native는 AI를 빼면 서비스가 성립하지 않는 단계다. 그러니 모델이 멈추면 서비스도 멈춘다. 상용 API가 응답을 늦추거나, 오류율이 치솟거나, 단가가 갑자기 오르는 일은 운영 중에 실제로 일어난다. PAX 인포그래픽은 이때 일어날 일을 미리 정해 두었느냐를 Native를 가르는 한 장면으로 꼽고, 그것이 문서로만 있으면 관문을 통과하지 못한다고 적었다. 미리 정해 둔 순서가 강등 경로(fallback path)다(그림 2.9).</p>
+
+<figure class="fig" id="fig-2-9"><div class="canvas"><svg viewBox="0 0 880 300" role="img" aria-label="강등 경로 흐름도. 정상 운영에서 대체 모델 자동 절체, 규칙 기반 판정범위 축소, 수동 전환 순으로 내려가며 접수 처리 통지는 유지되고 전환 이력은 감사 기록에 남는다.">
+<defs><marker id="ah-2-9" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+<text class="tm tc" x="20" y="30">C7</text>
+<text class="t2" x="44" y="30">폴백 스위치가 오류율·지연·단가 신호를 보고 경로를 바꾼다</text>
+<rect class="n a" x="20" y="60" width="190" height="80" rx="6"/>
+<text class="t b" x="115" y="88" text-anchor="middle">정상 운영</text>
+<text class="t2" x="115" y="106" text-anchor="middle">주 모델을 게이트웨이로</text>
+<text class="tm ta" x="115" y="126" text-anchor="middle">A2</text>
+<rect class="n c" x="235" y="60" width="190" height="80" rx="6"/>
+<text class="tm tc" x="330" y="82" text-anchor="middle">①</text>
+<text class="t b" x="330" y="102" text-anchor="middle">대체 모델</text>
+<text class="t2" x="330" y="122" text-anchor="middle">자동 절체</text>
+<rect class="n c" x="450" y="60" width="190" height="80" rx="6"/>
+<text class="tm tc" x="545" y="82" text-anchor="middle">②</text>
+<text class="t b" x="545" y="102" text-anchor="middle">규칙 기반</text>
+<text class="t2" x="545" y="122" text-anchor="middle">판정 범위 축소</text>
+<rect class="n c" x="665" y="60" width="194" height="80" rx="6"/>
+<text class="tm tc" x="762" y="82" text-anchor="middle">③</text>
+<text class="t b" x="762" y="102" text-anchor="middle">수동 전환</text>
+<text class="t2" x="762" y="122" text-anchor="middle">전건 사람 처리</text>
+<path class="ln" d="M210,100 L233,100" marker-end="url(#ah-2-9)"/>
+<path class="ln" d="M425,100 L448,100" marker-end="url(#ah-2-9)"/>
+<path class="ln" d="M640,100 L663,100" marker-end="url(#ah-2-9)"/>
+<text class="t3" x="222" y="54" text-anchor="middle">악화</text>
+<text class="t3" x="437" y="54" text-anchor="middle">악화</text>
+<text class="t3" x="652" y="54" text-anchor="middle">악화</text>
+<path class="ln thin dash" d="M115,140 L115,180"/>
+<path class="ln thin dash" d="M330,140 L330,180"/>
+<path class="ln thin dash" d="M545,140 L545,180"/>
+<path class="ln thin dash" d="M762,140 L762,180"/>
+<rect class="n d" x="20" y="180" width="840" height="36" rx="6"/>
+<text class="t b td" x="440" y="203" text-anchor="middle">어느 경로에서도 접수 · 처리 · 통지는 끊기지 않는다</text>
+<path class="ln thin dash" d="M115,216 L115,240"/>
+<path class="ln thin dash" d="M330,216 L330,240"/>
+<path class="ln thin dash" d="M545,216 L545,240"/>
+<path class="ln thin dash" d="M762,216 L762,240"/>
+<rect class="n c" x="20" y="240" width="840" height="36" rx="6"/>
+<text class="t" x="440" y="263" text-anchor="middle">전환 이력은 감사 기록에 남는다</text>
+<text class="tm tc" x="40" y="263">C4</text>
+</svg></div>
+<figcaption><b>그림 2.9</b> 강등 경로. 신호가 나빠질수록 대체 모델, 규칙 기반 축소, 수동 전환 순으로 내려간다. 어느 경로에서도 접수·처리·통지는 유지되고, 전환이 일어난 시점과 이유는 감사 기록에 남는다.</figcaption></figure>
+
+<p>첫 경로는 같은 일을 동급의 다른 모델로 계속한다. 품질은 달라져도 범위는 줄지 않는다. 둘째 경로는 판정 범위를 좁혀 확정 규칙으로 처리할 수 있는 건만 처리한다. 셋째 경로에서는 모든 건을 사람이 처리하고 접수와 통지만 시스템이 맡는다. 내려갈수록 처리량은 줄지만, 민원인이 "접수가 안 된다"는 말을 듣는 일은 없다. 카탈로그의 <a class="pat lc-c" href="ch08.html#p-C7"><span class="pid">C7</span>폴백 스위치</a>는 PAX MCP 기준서의 복원력 값에 따라 이 경로를 재시도, 기존 API 폴백, 대체 MCP, 대체 모델, 수동 업무 전환의 다섯 단계로 나눈다.</p>
+
+<p>강등 경로를 끼우려면 끼울 자리가 먼저 있어야 한다. 업무 컴포넌트가 모델 API를 직접 부르면 대체 모델로 바꿔 끼울 곳이 없다. <a class="pat lc-a" href="ch07.html#p-A2"><span class="pid">A2</span>모델 서빙 계층</a>이 Native 관문의 전제인 이유다. 패턴 디렉터리는 상용 API를 직접 호출하는 구조라면 환류가 아무리 구체적이어도 C7을 끼울 자리가 없다고 적는다. 이 함정의 이름이 <a class="pat lc-x" href="ch14.html#p-X4"><span class="pid">X4</span>단일 모델 인질</a>이다. PAX 557건에서도 이 관문이 가장 비어 있다. 로컬 실행은 외부 API가 멈춰도 도는 경로 하나를 확보한다는 점에서 출발점이 되지만, 대체 모델·규칙 축소·수동 전환의 순서가 정해지고 훈련되기 전까지 관문은 열리지 않는다.</p>
+
+<aside class="warn"><span class="lbl">주의</span><p>강등 경로가 잘 설계되어 있다고 해서 "AI 없이도 정상 운영된다"는 뜻은 아니다. 강등 경로는 특정 모델·벤더 장애 때 서비스 연속성을 지키는 일시적 대체 수단이다. 그러므로 강등 경로가 있다는 사실을 근거로 핵심 가치 결합의 판정을 낮추면 안 된다. 두 관문은 서로 독립적으로 판정한다.</p></aside>
+
+<aside class="case"><span class="lbl">사례 연구 · 가람시(가상)</span><h4>재난안전과의 첫 강등 훈련</h4>
+<p>재난안전과는 하천 수위 센서와 CCTV 영상을 함께 보는 관제 시스템을 운영한다(<a class="pat lc-b" href="ch05.html#p-B5"><span class="pid">B5</span>현장 감지·경보</a>). 영상 분석은 과에서 직접 학습시킨 비LLM 모델이 맡고(<a class="pat lc-a" href="ch07.html#p-A2_5"><span class="pid">A2.5</span>모델 서빙 · 비LLM 학습 모델</a>), 위험 수위가 감지되면 관제요원에게 경보가 뜬 뒤 주민 문자 통지로 이어진다.</p>
+<p>AX팀은 장마철을 앞두고 영상 분석 서버를 일부러 내려 보는 강등 훈련을 제안했다. 이전 안정판 모델로 되돌리는 첫 경로는 문제없이 작동했다. 두 번째 경로에서 문제가 드러났다. 영상 판정 없이 수위 임계값 규칙만으로 경보를 내리도록 범위를 줄이자 주민 통지가 함께 멈췄다. 통지 모듈이 영상 분석 서버의 응답을 기다리도록 묶여 있었던 것이다.</p>
+<p>재난안전과는 통지 경로를 분석 서버에서 떼어 냈다. 경보의 출처가 영상이든 수위 규칙이든 관제요원의 판단이든 통지는 같은 경로로 나가게 했고, 경로가 바뀔 때마다 언제 왜 바뀌었는지 남도록 <a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span>감사 로그·지표</a>도 손봤다. 조립도에는 <code>A2.5 → B5 → C2 → D5</code> 옆에 <code>C7(이전 모델 → 수위 규칙 → 수동 관제) → C4</code>가 붙었다. 훈련 보고서의 마지막 줄은 이랬다. "모델은 멈춰도 된다. 통지는 멈추면 안 된다." 이 훈련 기록이 재난안전과가 처음 가진 복원력의 운영 증거였다.</p>
+</aside>
+
+<h2>2.9 여섯 가지 설계 원칙</h2>
+
+<p>관문을 외우기보다 관문 앞에서 던질 질문을 쥐고 있는 편이 쓸모 있다. PAX 인포그래픽은 무엇을 만들지에 답하는 설계 원칙 여섯 가지를 두고, 원칙마다 관문 하나를 맞대어 확인 질문을 붙였다. 질문은 모두 구체적인 숫자나 사람이나 절차를 대라고 요구한다. 대답하지 못하는 질문이 곧 빠진 부품이다(표 2.6).</p>
+
+<div class="tbl"><table><caption><b>표 2.6</b> 설계 원칙 AIM01~AIM06과 대답하는 부품 (원칙·질문 출처: PAX AX 성숙도 인포그래픽 §07, 부품 대응은 저자 정리)</caption>
+<thead><tr><th>원칙</th><th>원칙이 말하는 것</th><th>확인 질문</th><th>대답하는 부품</th></tr></thead>
+<tbody>
+<tr><td class="k">AIM01 결과가 아니라 종료를 설계</td><td>무엇을 완료로 볼지를 먼저 정한다. 종료 상태가 없으면 완결성은 C2에 머문다</td><td>이 건이 끝났다는 것을 시스템이 어떻게 압니까?</td><td><a class="pat lc-c" href="ch08.html#p-C3"><span class="pid">C3</span>상태 머신·롤백</a></td></tr>
+<tr><td class="k">AIM02 예외 경로를 먼저 그리기</td><td>되돌리는 방법이 없는 자동화는 자동화가 아니다</td><td>잘못 처리된 건을 누가 어떤 절차로 되돌립니까?</td><td><a class="pat lc-c" href="ch08.html#p-C3"><span class="pid">C3</span>상태 머신·롤백</a>, <a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span>검토 큐</a></td></tr>
+<tr><td class="k">AIM03 위험도로 분기</td><td>전부 자동도, 전부 사람도 설계 실패다</td><td>자동으로 넘길 건과 사람에게 보낼 건의 경계는 무엇입니까?</td><td><a class="pat lc-c" href="ch08.html#p-C2"><span class="pid">C2</span>위험도 라우터</a></td></tr>
+<tr><td class="k">AIM04 처리마다 흔적을 남기기</td><td>처리시간·수정률·이관률·비용이 건별로 쌓여야 다음 단계의 연료가 생긴다</td><td>지난달 수정률을 지금 숫자로 말할 수 있습니까?</td><td><a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span>감사 로그·지표</a></td></tr>
+<tr><td class="k">AIM05 모델 하나에 묶지 않기</td><td>특정 모델에 하드코딩된 서비스는 Native가 되지 못한다</td><td>오늘 그 모델이 멈추면 무슨 일이 일어납니까?</td><td><a class="pat lc-a" href="ch07.html#p-A2"><span class="pid">A2</span>모델 서빙 계층</a>, <a class="pat lc-c" href="ch08.html#p-C7"><span class="pid">C7</span>폴백 스위치</a></td></tr>
+<tr><td class="k">AIM06 결과가 기준을 고치게 하기</td><td>지표가 판정 기준을 바꾸지 않으면 회로가 닫히지 않는다</td><td>지난 분기 지표 때문에 바뀐 규칙이 하나라도 있습니까?</td><td><a class="pat lc-c" href="ch08.html#p-C6"><span class="pid">C6</span>환류 파이프라인</a>, <a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span>평가 세트·회귀시험</a></td></tr>
+</tbody></table></div>
+
+<p>AIM04의 질문은 특히 날카롭다. 지난달 수정률은 검토 큐가 있어야 생기고 감사 로그가 있어야 남는 숫자다. 검토는 했는데 기록이 없으면 답하지 못한다. 557건에서 감사 로그가 확인된 사례가 없다는 것은 이 질문에 숫자로 답한 공개 사례가 아직 없다는 뜻이다. AIM01은 C 눈금과 직접 맞물린다. 종료 상태를 정의하지 않은 도구는 아무리 정확해도 C3에 닿지 못하고, 557건 중 C3이 1건뿐인 것도 같은 이야기다.</p>
+
+<p>인포그래픽은 원칙 옆에 자주 나오는 미달 사례 여섯 가지를 적었다. 그중 넷은 카탈로그의 안티패턴과 바로 짝을 이룬다. AI 버튼만 붙인 경우는 <a class="pat lc-x" href="ch14.html#p-X1"><span class="pid">X1</span>AI 스티커</a>, 시연 영상만 있는 경우는 <a class="pat lc-x" href="ch14.html#p-X6"><span class="pid">X6</span>데모웨어</a>, 도구 개수만 는 경우는 <a class="pat lc-x" href="ch14.html#p-X8"><span class="pid">X8</span>MCP 서버 개수 세기</a>, 모델 한 곳에 묶인 경우는 <a class="pat lc-x" href="ch14.html#p-X4"><span class="pid">X4</span>단일 모델 인질</a>이다(14장). 나머지 둘, 되돌릴 수 없는 자동 처리와 규칙을 바꾸지 못하는 지표는 AIM02와 AIM06이 직접 겨냥한다. 2부의 패턴 프로필 요약표에는 각 패턴이 따르는 원칙이 AIM 코드로 적혀 있으니, 낯선 코드는 이 표로 돌아와 확인한다.</p>
+
+<h2>2.10 아홉 가지 설계 원칙과 공공 AX 부품</h2>
+
+<p>AIM01~AIM06이 관문 앞에서 던지는 확인 질문이라면, 『AI 네이티브 핸드북 2026』 4부의 아홉 가지 설계 원칙은 무엇을 지을지에 관한 사고법이다. 핸드북은 전기 공장이 중앙 동력축을 걷어내고 배치도를 다시 그렸을 때 비로소 생산성이 올랐다는 이야기로 4부를 연다. 표 2.7은 원칙마다 한 줄 뜻과 공공 맥락의 번역, 이어지는 패턴, 가까운 AIM 원칙을 붙였다. 한 줄 뜻은 핸드북을 의역했고, 공공 맥락과 패턴 대응은 이 책의 해석이다.</p>
+
+<div class="tbl"><table><caption><b>표 2.7</b> 아홉 가지 설계 원칙과 공공 AX 부품 (원칙 출처: 전종홍, 『AI 네이티브 핸드북 2026』(미발행본) 4부. 공공 번역·패턴·AIM 대응은 저자 정리)</caption>
+<thead><tr><th>원칙</th><th>한 줄 뜻</th><th>공공 맥락으로 옮기면</th><th>이어지는 패턴</th><th>AIM</th></tr></thead>
+<tbody>
+<tr><td class="k">1 엔진을 설계하라</td><td>AI를 부속품이 아닌 핵심 동력으로</td><td>AI가 없으면 성립하지 않는 공공 가치를 찾는다. Native의 핵심 가치 결합 관문</td><td><a class="pat lc-b" href="ch05.html#p-B2"><span class="pid">B2</span>예측·추천기</a>, <a class="pat lc-b" href="ch05.html#p-B5"><span class="pid">B5</span>현장 감지·경보</a></td><td>AIM05(엔진일수록 강등 경로 필수)</td></tr>
+<tr><td class="k">2 결과를 팔아라</td><td>도구가 아니라 완성된 결과를 전달</td><td>기능 제공에서 멈추지 않고 종결된 민원·통지까지 책임진다</td><td><a class="pat lc-c" href="ch08.html#p-C3"><span class="pid">C3</span>상태 머신·롤백</a>, <a class="pat lc-d" href="ch11.html#p-D5"><span class="pid">D5</span>통지·추적</a></td><td>AIM01</td></tr>
+<tr><td class="k">3 의도를 읽어라</td><td>메뉴와 버튼 대신 의도를 해석해 실행</td><td>민원인이 부서와 서식을 몰라도 말한 요구를 해석해 맞는 창구로 잇는다</td><td><a class="pat lc-d" href="ch11.html#p-D1"><span class="pid">D1</span>안내·탐색</a>, <a class="pat lc-d" href="ch11.html#p-D4"><span class="pid">D4</span>분류·이관</a>, <a class="pat lc-f" href="ch10.html#p-F4"><span class="pid">F4</span>구조화 입력</a></td><td>AIM03</td></tr>
+<tr><td class="k">4 플라이휠을 돌려라</td><td>쓸수록 데이터가 쌓이고 스스로 나아지는 순환</td><td>사용 결과·수정·이의 제기가 평가 데이터가 되어 기준을 고친다</td><td><a class="pat lc-c" href="ch08.html#p-C6"><span class="pid">C6</span>환류 파이프라인</a>, <a class="pat lc-f" href="ch10.html#p-F10"><span class="pid">F10</span>이용자 자기확인·피드백</a>, <a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span>평가 세트·회귀시험</a></td><td>AIM06</td></tr>
+<tr><td class="k">5 에이전트에게 맡겨라</td><td>에이전트가 자율적으로 일하고 협업하는 인프라</td><td>기관 기능을 기계가 읽는 API·MCP로 연다. 권한은 제안·승인에서 저위험 자율 처리로 차츰 넓힌다</td><td><a class="pat lc-a" href="ch07.html#p-A8"><span class="pid">A8</span>MCP 서버·호스트</a>, <a class="pat lc-b" href="ch05.html#p-B6"><span class="pid">B6</span>에이전트 오케스트레이터</a>, <a class="pat lc-c" href="ch08.html#p-C8"><span class="pid">C8</span>권한 경계·킬스위치</a></td><td>AIM03</td></tr>
+<tr><td class="k">6 한 팀으로 일하라</td><td>사람과 AI가 역할을 나눈 한 팀</td><td>AI는 실행, 사람은 감독과 최종 책임. 형식적 승인을 막는다</td><td><a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span>검토 큐</a>, <a class="pat lc-c" href="ch08.html#p-C2"><span class="pid">C2</span>위험도 라우터</a>, <a class="pat lc-f" href="ch10.html#p-F6"><span class="pid">F6</span>에이전트 행동 검토·확인</a></td><td>AIM02·AIM03</td></tr>
+<tr><td class="k">7 신뢰를 내장하라</td><td>보안·윤리·데이터 주권을 설계 단계부터</td><td>최종 인간 승인 지점, 사람에게 재검토를 요청할 권리, 정기 편향 점검을 운영에 넣는다</td><td><a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span>감사 로그·지표</a>, <a class="pat lc-c" href="ch08.html#p-C5"><span class="pid">C5</span>가드레일 필터</a>, <a class="pat lc-s" href="ch09.html#p-S3"><span class="pid">S3</span>컨텍스트 방화벽</a></td><td>AIM04</td></tr>
+<tr><td class="k">8 확률을 경영하라</td><td>비결정적 시스템의 품질을 관리하는 운영</td><td>정확도 목표와 이관 시간을 함께 적는 서비스 수준, 입력·출력·행동 가드레일, 폴백 시나리오 문서</td><td><a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span>평가 세트·회귀시험</a>, <a class="pat lc-c" href="ch08.html#p-C7"><span class="pid">C7</span>폴백 스위치</a></td><td>AIM05·AIM02</td></tr>
+<tr><td class="k">9 최적 조합을 찾아라</td><td>대형·소형 모델, 클라우드·엣지를 상황에 맞게</td><td>망 분리와 데이터 등급에 맞춰 로컬 모델과 상용 API를 섞고 요청 복잡도로 나눠 보낸다</td><td><a class="pat lc-a" href="ch07.html#p-A2"><span class="pid">A2</span>모델 서빙 계층</a>, <a class="pat lc-a" href="ch07.html#p-A5"><span class="pid">A5</span>엣지 추론 런타임</a>, <a class="pat lc-bp" href="ch06.html#p-Bp10"><span class="pid">B′10</span>선게이트·후보축소</a></td><td>AIM05</td></tr>
+</tbody></table></div>
+
+<p>핸드북은 아홉 원칙이 맞물려 돌 때 힘을 낸다고 하며 그 순서를 적었다. 엔진을 설계하면 결과를 팔 수 있고, 의도를 읽으면 플라이휠이 돌며, 에이전트가 일하려면 한 팀으로 움직여야 하고, 이 모든 것이 신뢰 위에서 확률을 관리하며 최적 조합으로 구현된다. 그림 2.10은 이 문장을 세 쌍의 원칙과 그 아래를 받치는 세 층으로 그렸다.</p>
+
+<figure class="fig" id="fig-2-10"><div class="canvas"><svg viewBox="0 0 900 318" role="img" aria-label="AI 네이티브 핸드북의 아홉 설계 원칙이 맞물리는 구조. 원칙 1과 2, 3과 4, 5와 6이 쌍을 이루고 원칙 7, 8, 9가 그 아래를 받친다. 원칙마다 이어지는 패턴 ID를 적었다.">
+<defs><marker id="ah-2-10" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+<text class="t3" x="20" y="26">가치</text>
+<rect class="n" x="20" y="36" width="124" height="56" rx="6"/>
+<text class="tm tacc" x="82" y="56" text-anchor="middle">원칙 1</text>
+<text class="t2" x="82" y="78" text-anchor="middle">엔진을 설계하라</text>
+<text class="tm" x="82" y="110" text-anchor="middle">B2 · B5</text>
+<rect class="n" x="170" y="36" width="124" height="56" rx="6"/>
+<text class="tm tacc" x="232" y="56" text-anchor="middle">원칙 2</text>
+<text class="t2" x="232" y="78" text-anchor="middle">결과를 팔아라</text>
+<text class="tm" x="232" y="110" text-anchor="middle">C3 · D5</text>
+<path class="ln" d="M144,64 L168,64" marker-end="url(#ah-2-10)"/>
+<path class="ln thin dash" d="M157,118 L157,138"/>
+<text class="t3" x="315" y="26">경험·학습</text>
+<rect class="n" x="315" y="36" width="124" height="56" rx="6"/>
+<text class="tm tacc" x="377" y="56" text-anchor="middle">원칙 3</text>
+<text class="t2" x="377" y="78" text-anchor="middle">의도를 읽어라</text>
+<text class="tm" x="377" y="110" text-anchor="middle">D1 · D4 · F4</text>
+<rect class="n" x="465" y="36" width="124" height="56" rx="6"/>
+<text class="tm tacc" x="527" y="56" text-anchor="middle">원칙 4</text>
+<text class="t2" x="527" y="78" text-anchor="middle">플라이휠을 돌려라</text>
+<text class="tm" x="527" y="110" text-anchor="middle">C6 · F10 · C9</text>
+<path class="ln" d="M439,64 L463,64" marker-end="url(#ah-2-10)"/>
+<path class="ln thin dash" d="M452,118 L452,138"/>
+<text class="t3" x="610" y="26">실행</text>
+<rect class="n" x="610" y="36" width="124" height="56" rx="6"/>
+<text class="tm tacc" x="672" y="56" text-anchor="middle">원칙 5</text>
+<text class="t2" x="672" y="78" text-anchor="middle">에이전트에게 맡겨라</text>
+<text class="tm" x="672" y="110" text-anchor="middle">A8 · B6 · C8</text>
+<rect class="n" x="760" y="36" width="124" height="56" rx="6"/>
+<text class="tm tacc" x="822" y="56" text-anchor="middle">원칙 6</text>
+<text class="t2" x="822" y="78" text-anchor="middle">한 팀으로 일하라</text>
+<text class="tm" x="822" y="110" text-anchor="middle">C1 · C2 · F6</text>
+<path class="ln" d="M734,64 L758,64" marker-end="url(#ah-2-10)"/>
+<path class="ln thin dash" d="M747,118 L747,138"/>
+<rect class="n soft" x="20" y="140" width="860" height="36" rx="6"/>
+<text class="tm tacc" x="40" y="163">원칙 7</text>
+<text class="t b" x="110" y="163">신뢰를 내장하라</text>
+<text class="tm" x="560" y="163">C4 · C5 · S3</text>
+<text class="t3" x="760" y="163">AIM04</text>
+<rect class="n soft" x="20" y="184" width="860" height="36" rx="6"/>
+<text class="tm tacc" x="40" y="207">원칙 8</text>
+<text class="t b" x="110" y="207">확률을 경영하라</text>
+<text class="tm" x="560" y="207">C9 · C7</text>
+<text class="t3" x="760" y="207">AIM05 · AIM02</text>
+<rect class="n soft" x="20" y="228" width="860" height="36" rx="6"/>
+<text class="tm tacc" x="40" y="251">원칙 9</text>
+<text class="t b" x="110" y="251">최적 조합을 찾아라</text>
+<text class="tm" x="560" y="251">A2 · A5 · B′10</text>
+<text class="t3" x="760" y="251">AIM05</text>
+<text class="t3" x="20" y="290">위 세 쌍은 핸드북이 적은 맞물림(1→2, 3→4, 5→6), 아래 세 층은 그 모두를 받치는 바탕(7 신뢰 · 8 확률 · 9 조합)이다.</text>
+<text class="t3" x="20" y="306">쌍의 묶음 이름과 패턴 ID·AIM 대응은 이 책의 정리다.</text>
+</svg></div>
+<figcaption><b>그림 2.10</b> 아홉 가지 설계 원칙의 맞물림(전종홍, 『AI 네이티브 핸드북 2026』(미발행본) 4부). 엔진은 결과로, 의도는 플라이휠로, 에이전트는 한 팀으로 이어지고, 신뢰·확률·최적 조합이 그 아래를 받친다. 원칙마다 이어지는 공공 AX 패턴을 붙였다.</figcaption></figure>
+
+<p>기업 맥락의 원칙은 그대로 옮기지 않았다. 원칙 2의 결과를 판다는 말은 기업에서는 사용자 수 기반 과금을 해결 건수 기반 과금으로 바꾸라는 뜻이다. 공공기관에는 팔 상품이 없으니, 이 책은 이 원칙을 기능 제공에서 멈추지 말고 업무를 종결까지 책임지라는 뜻으로 읽는다. 그러면 AIM01 "결과가 아니라 종료를 설계"와 같은 방향이 된다. 원칙 4의 플라이휠도 핸드북에서는 경쟁 해자의 엔진이지만, 공공에서는 이의 제기와 수정이 기준을 고치는 학습 구조 관문으로 읽힌다. 원칙 5의 실행 순서, 곧 반복 업무를 목록화하고 숨은 기능을 API로 열고 제안에서 시작해 저위험 업무부터 자율 처리를 허용하는 순서는 공공에 그대로 맞는다.</p>
+
+<p>원칙 6~8은 공공 판정과 가장 가깝다. 핸드북은 최종 산출물의 책임이 언제나 사람에게 있다고 쓰고, 자율 처리의 정확도와 처리하지 못한 문의를 몇 분 안에 사람에게 넘기는지를 함께 적는 서비스 수준을 제안한다. 이 서비스 수준은 <a class="pat lc-c" href="ch08.html#p-C2"><span class="pid">C2</span>위험도 라우터</a>의 이관 기준과 <a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span>감사 로그·지표</a>의 이관률을 계약 문서의 언어로 옮긴 모양이다. 원칙 8의 폴백 시나리오는 2.8절의 강등 경로와 같은 이야기다.</p>
+
+<aside class="key"><span class="lbl">핵심 요약</span><ul>
+<li>『AI 네이티브 핸드북 2026』 4부의 아홉 원칙은 무엇을 지을지에 관한 사고법이고, AIM01~AIM06은 관문 앞의 확인 질문이다. 둘을 함께 쓰면 설계 방향과 판정 기준이 이어진다.</li>
+<li>기업 맥락의 원칙(결과를 팔아라, 플라이휠)은 공공 서비스의 종결 책임과 학습 구조로 옮겨 읽는다.</li>
+<li>원칙 6~8은 C1·C2·C4·C7·C9로 바로 이어지고, 원칙 7·8·9는 나머지 원칙을 받치는 바닥층이다.</li>
+</ul></aside>
+
+<h2>2.11 어느 부품이 어느 관문을 여는가</h2>
+
+<p>카탈로그는 처음부터 성숙도 단계와 맞물리도록 계층을 나눴다. 공통 서비스(A)는 Ready 관문, 업무 컴포넌트(B)는 Enabled 관문, 운영 컴포넌트(C)는 First와 Native 관문에 대응한다. 그림 2.11은 이 대응을 부품 단위로 펼친 것이다. 각 부품 카드의 AX 함의와 패턴 디렉터리의 판정 서술을 모았다.</p>
+
+<figure class="fig" id="fig-2-11"><div class="canvas"><svg viewBox="0 0 820 480" role="img" aria-label="관문과 부품 매트릭스. 행은 부품, 열은 네 단계다. 채운 점은 그 부품이 관문이 되는 단계, 빈 원은 이후 단계에서도 필수, 네모는 환경 조건이나 다른 부품에 달린 전제다.">
+<text class="t b" x="420" y="34" text-anchor="middle">Ready</text>
+<text class="t b" x="530" y="34" text-anchor="middle">Enabled</text>
+<text class="t b" x="640" y="34" text-anchor="middle">First</text>
+<text class="t b" x="750" y="34" text-anchor="middle">Native</text>
+<line class="grid" x1="20" y1="46" x2="805" y2="46"/>
+<text class="tm ta" x="30" y="69">A1</text><text class="t" x="95" y="69">데이터 자산 서비스</text>
+<circle class="dot" cx="420" cy="65" r="6"/><circle class="n" cx="530" cy="65" r="5"/><circle class="n" cx="640" cy="65" r="5"/><circle class="n" cx="750" cy="65" r="5"/>
+<text class="tm ta" x="30" y="95">A4</text><text class="t" x="95" y="95">데이터 연계 서비스</text>
+<circle class="dot" cx="420" cy="91" r="6"/><circle class="n" cx="530" cy="91" r="5"/><circle class="n" cx="640" cy="91" r="5"/><circle class="n" cx="750" cy="91" r="5"/>
+<text class="tm ta" x="30" y="121">A2</text><text class="t" x="95" y="121">모델 서빙 계층</text>
+<rect class="n e" x="744" y="111" width="12" height="12" rx="2"/>
+<line class="grid" x1="20" y1="134" x2="805" y2="134"/>
+<text class="tm tb" x="30" y="155">B0~B8</text><text class="t" x="95" y="155">업무 컴포넌트(주 부품)</text>
+<circle class="dot" cx="530" cy="151" r="6"/><circle class="n" cx="640" cy="151" r="5"/><circle class="n" cx="750" cy="151" r="5"/>
+<text class="tm tc" x="30" y="181">C1</text><text class="t" x="95" y="181">검토 큐</text>
+<circle class="dot" cx="530" cy="177" r="6"/><circle class="n" cx="640" cy="177" r="5"/><circle class="n" cx="750" cy="177" r="5"/>
+<text class="tm tf" x="30" y="207">F1·F2·F7</text><text class="t" x="95" y="207">대민 서비스의 최소 이용자 면</text>
+<rect class="n e" x="524" y="197" width="12" height="12" rx="2"/><rect class="n e" x="634" y="197" width="12" height="12" rx="2"/><rect class="n e" x="744" y="197" width="12" height="12" rx="2"/>
+<line class="grid" x1="20" y1="220" x2="805" y2="220"/>
+<text class="tm tc" x="30" y="241">C2</text><text class="t" x="95" y="241">위험도 라우터</text>
+<circle class="dot" cx="640" cy="237" r="6"/><circle class="n" cx="750" cy="237" r="5"/>
+<text class="tm tc" x="30" y="267">C3</text><text class="t" x="95" y="267">상태 머신·롤백</text>
+<circle class="dot" cx="640" cy="263" r="6"/><circle class="n" cx="750" cy="263" r="5"/>
+<text class="tm tc" x="30" y="293">C4</text><text class="t" x="95" y="293">감사 로그·지표</text>
+<circle class="dot" cx="640" cy="289" r="6"/><circle class="n" cx="750" cy="289" r="5"/>
+<text class="tm tc" x="30" y="319">C8</text><text class="t" x="95" y="319">권한 경계·킬스위치 (P2 이상)</text>
+<rect class="n e" x="634" y="309" width="12" height="12" rx="2"/><rect class="n e" x="744" y="309" width="12" height="12" rx="2"/>
+<line class="grid" x1="20" y1="332" x2="805" y2="332"/>
+<text class="tm tc" x="30" y="353">C9</text><text class="t" x="95" y="353">평가 세트·회귀시험</text>
+<rect class="n e" x="744" y="343" width="12" height="12" rx="2"/>
+<text class="tm tc" x="30" y="379">C6</text><text class="t" x="95" y="379">환류 파이프라인</text>
+<circle class="dot" cx="750" cy="375" r="6"/>
+<text class="tm tc" x="30" y="405">C7</text><text class="t" x="95" y="405">폴백 스위치</text>
+<circle class="dot" cx="750" cy="401" r="6"/>
+<line class="grid" x1="20" y1="418" x2="805" y2="418"/>
+<text class="tm tc" x="30" y="439">C5</text><text class="t" x="95" y="439">가드레일 필터 (상용 API 조건)</text>
+<rect class="n e" x="414" y="429" width="12" height="12" rx="2"/><rect class="n e" x="524" y="429" width="12" height="12" rx="2"/><rect class="n e" x="634" y="429" width="12" height="12" rx="2"/><rect class="n e" x="744" y="429" width="12" height="12" rx="2"/>
+<circle class="dot" cx="30" cy="467" r="6"/><text class="t3" x="42" y="471">관문이 되는 단계</text>
+<circle class="n" cx="170" cy="467" r="5"/><text class="t3" x="182" y="471">이후 단계에서도 필수</text>
+<rect class="n e" x="320" y="461" width="12" height="12" rx="2"/><text class="t3" x="340" y="471">전제·조건부(환경 조건이나 다른 부품에 달림)</text>
+</svg></div>
+<figcaption><b>그림 2.11</b> 관문과 부품 매트릭스. A1·A4가 Ready를, 주 부품과 C1이 Enabled를, C2·C3·C4가 First를, C6·C7이 Native를 연다. A2와 C9는 그 자체로 관문은 아니지만 C7과 C6이 성립하려면 먼저 있어야 하고, C8과 C5는 권한 범위와 모델 의존 조건에 따라 필수가 된다.</figcaption></figure>
+
+<p>세로로 읽으면 단계마다 갖출 부품 목록이 된다. First 열의 <a class="pat lc-c" href="ch08.html#p-C2"><span class="pid">C2</span>위험도 라우터</a>는 결정 관문으로 불린다. Q3("일의 시작점과 역할이 바뀌었는가")에 직접 답하는 부품이기 때문이다. 전건을 사람이 검토하는 <a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span>검토 큐</a>는 Enabled의 필수 관문이지만, 전건 검토가 영원히 남으면 First로 가지 못한다. 대민 서비스라면 이용자 면도 갖춰야 한다. 패턴 디렉터리는 대민 서비스가 최소 <a class="pat lc-f" href="ch10.html#p-F1"><span class="pid">F1</span>출처 표시</a>, <a class="pat lc-f" href="ch10.html#p-F2"><span class="pid">F2</span>편집 가능한 출력</a>, <a class="pat lc-f" href="ch10.html#p-F7"><span class="pid">F7</span>한계·신뢰도 안내</a>를 갖춰야 Enabled로 인정한다고 적는다. 가로로 읽으면 <a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span>평가 세트·회귀시험</a>이 눈에 띈다. 어느 단계의 관문도 아니지만, C9가 없으면 <a class="pat lc-c" href="ch08.html#p-C6"><span class="pid">C6</span>환류 파이프라인</a>도 <a class="pat lc-c" href="ch08.html#p-C7"><span class="pid">C7</span>폴백 스위치</a>를 이용한 모델 교체도 성립하지 않는다. 모델을 바꿨을 때 무엇이 나아지고 무엇이 망가졌는지 잴 자가 없기 때문이다. 카탈로그가 평가 세트를 RAG보다 먼저 만들라고 하는 이유다(12장).</p>
+
+<p>부품이 있다는 것과 관문을 넘었다는 것은 다르다. 카탈로그는 부품마다 구현 상태를 적는다. 운영 기록이 있으면 present, 구현은 확인됐지만 실측 전이면 implemented, 설계나 예정이면 planned다. First와 Native의 관문은 present로만 넘는다. 설계도에 C2·C3·C4를 모두 그렸어도 planned라면 여전히 Enabled이고, 이 함정의 이름이 <a class="pat lc-x" href="ch14.html#p-X2"><span class="pid">X2</span>설계도만 있는 운영</a>이다(4장).</p>
+
+<h3>단계 올리기 경로</h3>
+
+<p>매트릭스를 사다리 위의 이동으로 다시 그리면 그림 2.12가 된다. 한 칸 오를 때마다 끼울 부품을 계층색으로 늘어놓았고, 맨 아래 줄에는 PAX MCP 기준서가 권하는 전환 경로를 두었다. 기준서는 MCP 서버 수를 세는 대신 이 경로 위의 진행 상태를 추적하라고 권한다.</p>
+
+<figure class="fig" id="fig-2-12"><div class="canvas"><svg viewBox="0 0 900 372" role="img" aria-label="단계 올리기 경로. 미착수에서 Ready, Ready에서 Enabled, Enabled에서 First, First에서 Native로 오를 때 끼워야 할 부품과 MCP 전환 경로를 보여 준다.">
+<defs><marker id="ah-2-12" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+<text class="t b" x="20" y="38">미착수 → Ready</text>
+<text class="t3" x="20" y="55">준비 자산</text>
+<rect class="n a" x="170" y="18" width="136" height="46" rx="6"/>
+<text class="tm ta" x="238" y="36" text-anchor="middle">A1</text>
+<text class="t2" x="238" y="54" text-anchor="middle">데이터 자산</text>
+<rect class="n a" x="316" y="18" width="136" height="46" rx="6"/>
+<text class="tm ta" x="384" y="36" text-anchor="middle">A4</text>
+<text class="t2" x="384" y="54" text-anchor="middle">데이터 연계</text>
+<rect class="n a" x="462" y="18" width="136" height="46" rx="6"/>
+<text class="tm ta" x="530" y="36" text-anchor="middle">A8</text>
+<text class="t2" x="530" y="54" text-anchor="middle">MCP 서버·호스트</text>
+<rect class="n b" x="608" y="18" width="136" height="46" rx="6"/>
+<text class="tm tb" x="676" y="36" text-anchor="middle">B0</text>
+<text class="t2" x="676" y="54" text-anchor="middle">결정적 도구</text>
+<text class="t b" x="20" y="100">Ready → Enabled</text>
+<text class="t3" x="20" y="117">산출물·사람 확인</text>
+<rect class="n b" x="170" y="80" width="136" height="46" rx="6"/>
+<text class="tm tb" x="238" y="98" text-anchor="middle">B1·B3</text>
+<text class="t2" x="238" y="116" text-anchor="middle">코파일럿·지식 접지</text>
+<rect class="n c" x="316" y="80" width="136" height="46" rx="6"/>
+<text class="tm tc" x="384" y="98" text-anchor="middle">C1</text>
+<text class="t2" x="384" y="116" text-anchor="middle">검토 큐</text>
+<rect class="n a" x="462" y="80" width="136" height="46" rx="6"/>
+<text class="tm ta" x="530" y="98" text-anchor="middle">A9·A10</text>
+<text class="t2" x="530" y="116" text-anchor="middle">규범 스킬·서식</text>
+<rect class="n f" x="608" y="80" width="136" height="46" rx="6"/>
+<text class="tm tf" x="676" y="98" text-anchor="middle">F1·F2·F7</text>
+<text class="t2" x="676" y="116" text-anchor="middle">대민 최소 이용자 면</text>
+<text class="t b" x="20" y="162">Enabled → First</text>
+<text class="t3" x="20" y="179">재설계·운영 증거</text>
+<rect class="n c" x="170" y="142" width="136" height="46" rx="6"/>
+<text class="tm tc" x="238" y="160" text-anchor="middle">C2</text>
+<text class="t2" x="238" y="178" text-anchor="middle">위험도 라우터</text>
+<rect class="n c" x="316" y="142" width="136" height="46" rx="6"/>
+<text class="tm tc" x="384" y="160" text-anchor="middle">C3</text>
+<text class="t2" x="384" y="178" text-anchor="middle">상태 머신·롤백</text>
+<rect class="n c" x="462" y="142" width="136" height="46" rx="6"/>
+<text class="tm tc" x="530" y="160" text-anchor="middle">C4</text>
+<text class="t2" x="530" y="178" text-anchor="middle">감사 로그·지표</text>
+<rect class="n c" x="608" y="142" width="136" height="46" rx="6"/>
+<text class="tm tc" x="676" y="160" text-anchor="middle">C8 · F6</text>
+<text class="t2" x="676" y="178" text-anchor="middle">P2 이상 권한 통제</text>
+<rect class="n f" x="754" y="142" width="136" height="46" rx="6"/>
+<text class="tm tf" x="822" y="160" text-anchor="middle">F11</text>
+<text class="t2" x="822" y="178" text-anchor="middle">진행·핸드오프 안내</text>
+<text class="t b" x="20" y="224">First → Native</text>
+<text class="t3" x="20" y="241">환류·복원력</text>
+<rect class="n a" x="170" y="204" width="136" height="46" rx="6"/>
+<text class="tm ta" x="238" y="222" text-anchor="middle">A2</text>
+<text class="t2" x="238" y="240" text-anchor="middle">모델 서빙(전제)</text>
+<rect class="n c" x="316" y="204" width="136" height="46" rx="6"/>
+<text class="tm tc" x="384" y="222" text-anchor="middle">C9</text>
+<text class="t2" x="384" y="240" text-anchor="middle">평가 세트(전제)</text>
+<rect class="n c" x="462" y="204" width="136" height="46" rx="6"/>
+<text class="tm tc" x="530" y="222" text-anchor="middle">C6</text>
+<text class="t2" x="530" y="240" text-anchor="middle">환류 파이프라인</text>
+<rect class="n c" x="608" y="204" width="136" height="46" rx="6"/>
+<text class="tm tc" x="676" y="222" text-anchor="middle">C7</text>
+<text class="t2" x="676" y="240" text-anchor="middle">폴백 스위치</text>
+<rect class="n f" x="754" y="204" width="136" height="46" rx="6"/>
+<text class="tm tf" x="822" y="222" text-anchor="middle">F10</text>
+<text class="t2" x="822" y="240" text-anchor="middle">자기확인·피드백</text>
+<line class="grid" x1="20" y1="268" x2="890" y2="268"/>
+<text class="t b" x="20" y="292">MCP 전환 경로 (PAX MCP 기준서 §10.3)</text>
+<rect class="n soft" x="20" y="306" width="124" height="34" rx="6"/>
+<text class="t2" x="82" y="328" text-anchor="middle">공개</text>
+<text class="t3" x="82" y="358" text-anchor="middle">Ready</text>
+<path class="ln" d="M144,323 L164,323" marker-end="url(#ah-2-12)"/>
+<rect class="n soft" x="166" y="306" width="124" height="34" rx="6"/>
+<text class="t2" x="228" y="328" text-anchor="middle">실제 사용자</text>
+<text class="t3" x="228" y="358" text-anchor="middle">Ready</text>
+<path class="ln" d="M290,323 L310,323" marker-end="url(#ah-2-12)"/>
+<rect class="n soft" x="312" y="306" width="124" height="34" rx="6"/>
+<text class="t2" x="374" y="328" text-anchor="middle">업무 산출물</text>
+<text class="t3" x="374" y="358" text-anchor="middle">Enabled</text>
+<path class="ln" d="M436,323 L456,323" marker-end="url(#ah-2-12)"/>
+<rect class="n soft" x="458" y="306" width="124" height="34" rx="6"/>
+<text class="t2" x="520" y="328" text-anchor="middle">공식 업무 편입</text>
+<text class="t3" x="520" y="358" text-anchor="middle">Enabled</text>
+<path class="ln" d="M582,323 L602,323" marker-end="url(#ah-2-12)"/>
+<rect class="n soft" x="604" y="306" width="124" height="34" rx="6"/>
+<text class="t2" x="666" y="328" text-anchor="middle">흐름 재설계</text>
+<text class="t3" x="666" y="358" text-anchor="middle">First</text>
+<path class="ln" d="M728,323 L748,323" marker-end="url(#ah-2-12)"/>
+<rect class="n soft" x="750" y="306" width="124" height="34" rx="6"/>
+<text class="t2" x="812" y="328" text-anchor="middle">학습·복원</text>
+<text class="t3" x="812" y="358" text-anchor="middle">Native</text>
+</svg></div>
+<figcaption><b>그림 2.12</b> 단계 올리기 경로. 한 칸 오를 때마다 끼울 부품을 계층색으로 늘어놓았다. 아래 줄은 MCP 사례가 Ready에서 Native까지 가는 전환 경로로, 서버 수보다 이 경로 위의 위치를 추적한다.</figcaption></figure>
+
+<p>미착수에서 Ready로 오를 때는 <a class="pat lc-a" href="ch07.html#p-A1"><span class="pid">A1</span>데이터 자산 서비스</a>와 <a class="pat lc-a" href="ch07.html#p-A4"><span class="pid">A4</span>데이터 연계 서비스</a>가 관문이다. A4는 계약이 체결되어 실제로 결합된 데이터가 있어야 인정된다. <a class="pat lc-b" href="ch05.html#p-B0"><span class="pid">B0</span>결정적 도구</a>는 산출물이 데이터나 기준선 정비에 기여할 때만 Ready다. Ready에서 Enabled로 오를 때는 검증 가능한 산출물을 내는 주 부품, 곧 <a class="pat lc-b" href="ch05.html#p-B1"><span class="pid">B1</span>코파일럿</a>이나 내부 검수형 <a class="pat lc-b" href="ch05.html#p-B3"><span class="pid">B3</span>지식 접지 상담</a>과 <a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span>검토 큐</a>가 짝을 이룬다. 기안 업무라면 <a class="pat lc-a" href="ch07.html#p-A9"><span class="pid">A9</span>업무 규범 스킬</a>과 <a class="pat lc-a" href="ch07.html#p-A10"><span class="pid">A10</span>문서 형식 어댑터</a>가 사실상의 조건이다. 산출물이 기안 서식으로 나가지 못하면 업무 흐름에 들어가지 못하기 때문이다.</p>
+
+<p>Enabled에서 First로 오를 때는 C2가 업무 순서를 바꾸고, <a class="pat lc-c" href="ch08.html#p-C3"><span class="pid">C3</span>상태 머신·롤백</a>이 종료와 되돌림을 맡고, <a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span>감사 로그·지표</a>가 그 모든 것을 남긴다. P2 이상이면 <a class="pat lc-c" href="ch08.html#p-C8"><span class="pid">C8</span>권한 경계·킬스위치</a>와 그 이용자 면인 <a class="pat lc-f" href="ch10.html#p-F6"><span class="pid">F6</span>에이전트 행동 검토·확인</a>이, 대민 서비스라면 이관된 민원인에게 위치를 알려 주는 <a class="pat lc-f" href="ch10.html#p-F11"><span class="pid">F11</span>진행 상태·핸드오프 안내</a>가 붙는다. First에서 Native로 오를 때는 C6과 C7이 관문이다. 둘 다 혼자 서지 못한다. C7은 A2 위에서만, C6은 C9가 있어야 선다. 이용자 쪽 입력은 <a class="pat lc-f" href="ch10.html#p-F10"><span class="pid">F10</span>이용자 자기확인·피드백</a>이 맡는다. 패턴 디렉터리는 <a class="pat lc-b" href="ch05.html#p-B5"><span class="pid">B5</span>현장 감지·경보</a>에 C2·C4·C6·C7이 실운영 증거와 함께 붙으면 Native라고 적는다.</p>
+
+<aside class="note"><span class="lbl">참고 · 제어 흐름 원형(B′)은 어디에 있나</span><p>B′ 원형은 그림 2.11과 2.12에 없다. 패턴 디렉터리는 B′ 원형마다 배선 자체로는 AX 단계가 오르지 않는다고 적는다. ReAct 루프를 짜도 기존 업무 흐름이 그대로면 Enabled다. 다만 <a class="pat lc-bp" href="ch06.html#p-Bp9"><span class="pid">B′9</span>결정론 판정 게이트</a>로 판정이 규칙에 고정되면 저위험 건 자동 확정을 설계할 근거가 생기고, <a class="pat lc-bp" href="ch06.html#p-Bp8"><span class="pid">B′8</span>계획-실행</a>이 C3과 짝을 이뤄 단계 상태를 추적하면 First 조립의 전제가 된다. 에이전트 수도 단계를 올리지 않는다. 그 함정은 <a class="pat lc-x" href="ch14.html#p-X11"><span class="pid">X11</span>처음부터 멀티에이전트</a>로 따로 등재되어 있다.</p></aside>
+
+<aside class="case"><span class="lbl">사례 연구 · 가람시(가상)</span><h4>AX팀이 그린 첫 관문 지도</h4>
+<p>민원여권과 판정을 마친 AX팀은 시청 안의 AI 과제 다섯 개를 모두 매트릭스에 올려 보았다. 민원여권과 챗봇, 재난안전과 관제, 기획예산과 보고서 초안 도구, 복지정책과 위기가구 발굴 예측, 공무원 개인이 만든 엑셀 취합 도구였다.</p>
+<p>표를 다 채우자 <a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span>감사 로그·지표</a> 행이 다섯 과제 모두에서 비어 있었다. 검토는 다들 하고 있었지만, 누가 무엇을 고쳤는지 남기는 곳은 없었다. 기획예산과 과장에게 지난달 초안 수정률을 물었을 때 돌아온 대답은 "체감상 절반쯤"이었다. AIM04의 질문에 숫자로 답한 과는 하나도 없었다.</p>
+<p>엑셀 취합 도구는 반대 방향으로 비어 있었다. 런타임에 AI가 없는 <a class="pat lc-b" href="ch05.html#p-B0"><span class="pid">B0</span>결정적 도구</a>라 취합본을 내놓으니 완결성은 C1이었지만 단계는 Ready였다. AX팀은 이 도구를 실패로 적지 않고, 다른 과제가 가져다 쓸 Ready 부품으로 이름을 붙였다. 그리고 다섯 과제가 C4를 각자 만들지 않도록 시청 공통의 로그 적재 자리를 마련하는 안을 다음 분기 계획에 올렸다.</p>
+</aside>
+
+<aside class="case"><span class="lbl">사례 연구 · 가람시(가상)</span><h4>조례 조회 MCP 서버가 Ready를 벗어난 날</h4>
+<p>건축과의 한 주무관이 주말에 바이브 코딩으로 조례·규칙 조회 MCP 서버를 만들어 부서 공유 폴더에 올렸다(<a class="pat lc-a" href="ch07.html#p-A7"><span class="pid">A7</span>자체 제작 환경</a>, <a class="pat lc-a" href="ch07.html#p-A8"><span class="pid">A8</span>MCP 서버·호스트</a>). 읽기 전용이었고 조문마다 원문 링크를 달았다. AX팀의 첫 판정은 'AI-Ready / S1 / C0 / M1, P0'이었다. 동료 몇이 설치했지만 그 서버로 만든 업무 결과는 없었다.</p>
+<p>석 달 뒤 인허가 담당자들이 민원 회신 초안을 쓸 때 로컬 오픈웨이트 모델에 이 서버를 붙여 근거 조문을 찾기 시작했다. 초안에는 조문 출처가 붙었고(<a class="pat lc-f" href="ch10.html#p-F1"><span class="pid">F1</span>출처 표시</a>), 담당자는 원문을 대조한 뒤 회신했다(<a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span>검토 큐</a>). AX팀은 판정을 'AI-Enabled / S2 / C1 / M2, P1'로 고쳤다. 단계를 올린 근거는 서버 코드에 있지 않았다. 회신 초안이라는 업무 산출물과 사람의 대조 절차가 근거였다.</p>
+<p>주무관이 First를 묻자 AX팀은 그림 2.12의 셋째 줄을 가리켰다. 단순 조문 문의는 자동 회신하고 해석이 필요한 문의는 숙련자에게 넘기는 분기, 잘못 나간 회신의 정정 절차, 건별 수정률 기록이 필요했다. 그보다 먼저 개인 저장소의 서버를 공공 깃랩으로 옮기고 라이선스를 달아야 했다. 그래야 <a class="pat lc-x" href="ch14.html#p-X9"><span class="pid">X9</span>담당자와 함께 사라지는 도구</a>가 되지 않는다.</p>
+</aside>
+
+<h2>2.12 실제 사례로 판정하기</h2>
+
+<p>규칙을 다 외워도 첫 판정에서는 손이 멈춘다. 판정 근거의 문장 하나가 사례에 따라 다르게 읽히고, 미확인 한 칸이 어디서 판정을 세우는지는 실제 기록을 따라가 봐야 보인다. 여기서는 PAX 4축 평가에서 단계마다 두세 건을 골라 판정을 처음부터 다시 밟는다. 읽는 순서는 사례마다 같다. 무엇을 하는 서비스인지, 어떤 증거가 있는지, 어느 관문을 넘고 어디서 멈췄는지, 판정 한 줄은 무엇인지, 다음 단계로 가려면 무엇이 더 있어야 하는지다. 사례 이름과 기관은 PAX 원장의 표기를 따랐고, 판정값과 근거는 4축 평가(2026-10-13)에서 옮겼다. 사례 페이지는 https://hollobit.github.io/PAX/case/ 뒤에 표 2.8의 id와 .html을 붙여 연다.</p>
+
+<p>그림 2.13은 PAX 기준서의 판정 절차를 한 줄기로 다시 그리고, 이 절의 사례가 어느 출구로 나갔는지 적었다. 그림 2.4와 다른 곳은 맨 앞과 맨 뒤다. 기준서는 단계를 묻기 전에 대상성부터 확인한다. AI 활용 준비요소, AI가 만든 검증 가능한 업무 결과, AI 전제 업무 재설계, AI 기반 핵심 가치와 학습 구조 가운데 하나도 확인되지 않으면 그 사례는 사다리에 오르지 않는다. 맨 뒤에는 잠정과 계획이라는 두 표시가 붙는다.</p>
+
+<figure class="fig" id="fig-2-13"><div class="canvas"><svg viewBox="0 0 880 584" role="img" aria-label="PAX 판정 절차 흐름도. 대상성, Q2, Q3, Q4, Q5와 Q6을 위에서 아래로 묻고, 아니오가 나오면 오른쪽 출구로 나간다. 출구마다 이 절에서 다룬 PAX 사례를 적었다.">
+<defs><marker id="ah-2-13" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+<rect class="n" x="20" y="20" width="430" height="60" rx="6"/>
+<text class="tm tacc" x="36" y="46">대상성</text>
+<text class="t2" x="262" y="44" text-anchor="middle">AI 준비물·AI 산출물·AI 전제 설계 가운데</text>
+<text class="t2" x="262" y="64" text-anchor="middle">하나라도 공개 근거로 확인되는가</text>
+<rect class="n" x="20" y="112" width="430" height="60" rx="6"/>
+<text class="tm tacc" x="36" y="138">Q2</text>
+<text class="t2" x="250" y="136" text-anchor="middle">AI가 만든 결과가 실제 업무에 쓰이고</text>
+<text class="t2" x="250" y="156" text-anchor="middle">사람이 맞고 틀림을 확인하는가</text>
+<rect class="n" x="20" y="204" width="430" height="60" rx="6"/>
+<text class="tm tacc" x="36" y="230">Q3</text>
+<text class="t2" x="250" y="228" text-anchor="middle">일의 시작점·경로·역할이</text>
+<text class="t2" x="250" y="248" text-anchor="middle">AI를 전제로 실제로 바뀌었는가</text>
+<rect class="n" x="20" y="296" width="430" height="60" rx="6"/>
+<text class="tm tacc" x="36" y="322">Q4</text>
+<text class="t2" x="250" y="320" text-anchor="middle">First의 여섯 관문 모두에</text>
+<text class="t2" x="250" y="340" text-anchor="middle">운영 증거가 있는가</text>
+<rect class="n" x="20" y="388" width="430" height="60" rx="6"/>
+<text class="tm tacc" x="36" y="414">Q5·Q6</text>
+<text class="t2" x="258" y="412" text-anchor="middle">학습 구조·복원력·핵심 가치·적용 범위가</text>
+<text class="t2" x="258" y="432" text-anchor="middle">실측으로 확인되는가</text>
+<rect class="n acc" x="20" y="480" width="430" height="60" rx="6"/>
+<text class="t b tacc" x="235" y="506" text-anchor="middle">AI-Native</text>
+<text class="t3" x="235" y="526" text-anchor="middle">PAX 557건 중 0건</text>
+<path class="ln" d="M235,80 L235,110" marker-end="url(#ah-2-13)"/>
+<path class="ln" d="M235,172 L235,202" marker-end="url(#ah-2-13)"/>
+<path class="ln" d="M235,264 L235,294" marker-end="url(#ah-2-13)"/>
+<path class="ln" d="M235,356 L235,386" marker-end="url(#ah-2-13)"/>
+<path class="ln acc" d="M235,448 L235,478" marker-end="url(#ah-2-13)"/>
+<text class="t3" x="243" y="100">예</text>
+<text class="t3" x="243" y="192">예</text>
+<text class="t3" x="243" y="284">예</text>
+<text class="t3" x="243" y="376">예</text>
+<text class="t3" x="243" y="468">예</text>
+<rect class="n soft" x="520" y="20" width="340" height="60" rx="6"/>
+<text class="t b" x="690" y="46" text-anchor="middle">AX 단계 외</text>
+<text class="t3" x="690" y="66" text-anchor="middle">초과근무 리마인더 · 전국 조례 상황판</text>
+<rect class="n a" x="520" y="112" width="340" height="60" rx="6"/>
+<text class="t b" x="690" y="138" text-anchor="middle">AI-Ready</text>
+<text class="t3" x="690" y="158" text-anchor="middle">조달 흐름도 · 부동산 상황판 · 공공 깃랩</text>
+<rect class="n b" x="520" y="204" width="340" height="60" rx="6"/>
+<text class="t b" x="690" y="230" text-anchor="middle">AI-Enabled</text>
+<text class="t3" x="690" y="250" text-anchor="middle">출장 여비 서류 · 세차내역 입력 · 전북AI</text>
+<rect class="n c" x="520" y="296" width="340" height="60" rx="6"/>
+<text class="t2" x="690" y="318" text-anchor="middle">기록 없음: Enabled + First 후보</text>
+<text class="t2" x="690" y="336" text-anchor="middle">일부 관문만: AI-First(잠정)</text>
+<text class="t3" x="690" y="352" text-anchor="middle">광진구 AI 도구 6종</text>
+<rect class="n c" x="520" y="388" width="340" height="60" rx="6"/>
+<text class="t b" x="690" y="414" text-anchor="middle">AI-First 확정</text>
+<text class="t3" x="690" y="434" text-anchor="middle">PAX 557건 중 0건</text>
+<rect class="n soft" x="520" y="480" width="340" height="60" rx="6"/>
+<text class="t2" x="690" y="506" text-anchor="middle">공고·선정 단계의 Native 지향 사업</text>
+<text class="t3" x="690" y="526" text-anchor="middle">AI-Native 계획 · 모두의 AI</text>
+<path class="ln warn" d="M450,50 L518,50" marker-end="url(#ah-2-13)"/>
+<path class="ln warn" d="M450,142 L518,142" marker-end="url(#ah-2-13)"/>
+<path class="ln warn" d="M450,234 L518,234" marker-end="url(#ah-2-13)"/>
+<path class="ln warn" d="M450,326 L518,326" marker-end="url(#ah-2-13)"/>
+<path class="ln warn" d="M450,418 L518,418" marker-end="url(#ah-2-13)"/>
+<text class="t3 twarn" x="484" y="42" text-anchor="middle">아니오</text>
+<text class="t3 twarn" x="484" y="134" text-anchor="middle">아니오</text>
+<text class="t3 twarn" x="484" y="226" text-anchor="middle">아니오</text>
+<text class="t3 twarn" x="484" y="318" text-anchor="middle">아니오</text>
+<text class="t3 twarn" x="484" y="410" text-anchor="middle">아니오</text>
+<text class="t3" x="20" y="572">공개 근거가 없는 칸은 "아니오"가 아닌 미확인으로 적고, 그 자리에서 상위 판정을 보류한다.</text>
+</svg></div>
+<figcaption><b>그림 2.13</b> PAX 판정 절차와 이 절의 사례. 위에서부터 묻고 처음 "아니오"가 나온 자리의 오른쪽 출구가 판정이다. Q4에서는 운영 기록이 하나도 없으면 Enabled에 First 후보를, 일부 관문만 확인되면 First 잠정을 적는다. 이 그림의 Q4는 반복 예외의 기준 반영까지 여섯 관문을 한꺼번에 묻고, Q5·Q6 칸은 Native 관문만 묻는다. 그림 2.4의 Q5에서 멈출 사례는 여기서 Q4의 일부 관문 출구로 나간다. 출처: PAX 평가분류기준 상세보고서 §10의 판정 절차, 사례 판정값은 4축 평가.</figcaption></figure>
+
+<h3>단계 외: 쓸모는 있지만 사다리 밖에 있다</h3>
+
+<p>전남 광양시(개인 개발)의 <a href="https://hollobit.github.io/PAX/case/dc0632528765c694.html">인사랑 초과근무기록 리마인더</a>는 인사랑 탭이 열려 있는 동안 자동 로그아웃을 막고, 직원이 초과근무 기록 버튼을 직접 누른 때부터 59분 뒤에 알림을 띄운다. AI도 서버도 없이 브라우저 확장 하나로 돈다. 증거는 코드와 도구를 확인한 E1이다. 이 도구는 대상성 질문에서 멈춘다. 데이터를 구조화하지도 않고 AI 결과를 내지도 않으니 판정은 'AX 단계 외 / S1 / C0'이다. 그래도 PAX는 판정 근거에 이 도구가 기록을 대신하지 않고 알림만 한다는 경계를 설계 원칙으로 못 박았다고 따로 적었다. 표 2.2가 단계 외를 가치 판단으로 읽지 말라고 적은 까닭이 이런 기록에 있다.</p>
+
+<p>지방자치혁신연구원의 <a href="https://hollobit.github.io/PAX/case/113e9caee50e73cc.html">전국 조례 상황판</a>은 판정이 조금 더 까다롭다. 국회도서관 지방의정포털 Open API로 전국 지방의회 조례안 1,293건을 모아 의회별로 처리 단계를 보여 주고, 전국에 비슷한 조례가 없는 제정안을 기계로 추린 뒤 편집자가 원문 사실만으로 소개하는 코너를 함께 운영한다. 기계가 추리고 사람이 확인해 쓰는 모양은 Enabled와 닮았다. PAX는 운영 화면을 직접 확인해 증거를 E2로 적었지만, 추리는 일이 핵심어 대조이고 화면에 LLM 사용이 드러나지 않는다는 이유로 단계 외에 두었다. 갈림목은 결과를 만든 주체가 AI인지에 있었다. 기준서가 인파 지도를 두고 든 예처럼, 추린 조례를 AI가 요약하고 편집자가 그 요약을 검증해 쓰기 시작하면 이 상황판은 Q2를 다시 묻게 된다.</p>
+
+<h3>AI-Ready: 준비물이 실물로 있다</h3>
+
+<p>공직 현장(개인 개발)의 <a href="https://hollobit.github.io/PAX/case/a8fbf74431025f70.html">공공조달 제도 88개 업무 흐름도</a>는 입찰참가자격 등록부터 계약 체결과 대금 지급까지, 국가계약법·시행령·계약예규에 흩어진 제도 88개를 담당자·서류·기한이 보이는 흐름도로 정리했다. 근거는 국가법령정보센터 현행 법령의 조문 단위로 연결했고 법령 기준일을 밝혔다. 런타임에 AI는 없다. 대상성 질문은 업무 절차와 규칙의 가시화라는 준비물로 넘는다. Q2에서 멈춘다. AI가 만든 업무 결과가 없기 때문이다. 판정 한 줄은 'AI-Ready / S2 / C1 / P1(잠정)', 증거는 화면을 확인한 E2다. Enabled로 가려면 이 흐름도 위에서 AI가 일해야 한다. 흐름도와 조문 연결을 근거로 AI가 조달 담당자의 질의에 답하거나 제출 서류를 점검하고, 담당자가 그 결과를 확인하는 업무가 생겨야 한다. 그때 주 부품은 <a class="pat lc-b" href="ch05.html#p-B3"><span class="pid">B3</span>지식 접지 상담</a>이나 <a class="pat lc-b" href="ch05.html#p-B1"><span class="pid">B1</span>코파일럿</a>이 되고 <a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span>검토 큐</a>가 짝을 이룬다.</p>
+
+<p>같은 공공데이터 화면이라도 Ready와 단계 외가 갈린다. 공직 현장(개인 개발)의 <a href="https://hollobit.github.io/PAX/case/63a81d23af115b66.html">인구감소지역 부동산 상황판</a>은 인구감소지역·관심지역 107곳의 지정 특례와 최근 24개월 아파트 실거래를 한 화면에 모았다. PAX는 흩어진 특례 고시와 실거래 자료를 구조화했다는 점을 들어 Ready로 판정했다(S2·C1, E2). 공직 커뮤니티의 <a href="https://hollobit.github.io/PAX/case/0826e58f026fe560.html">파주 실시간 인파 지도</a>는 주요 명소와 상권의 혼잡도를 5분 단위로 갱신해 보여 주지만 단계 외다(S1·C0, E2). 두 화면 모두 AI를 부르지 않는다. 판정을 가른 것은 흩어진 자료를 모아 다시 쓸 수 있는 꼴로 정리했느냐다.</p>
+
+<p>행정안전부의 <a href="https://hollobit.github.io/PAX/case/54c2561cf3e1a268.html">정부 공공 깃랩</a>은 공직자가 만든 AI 도구와 코드를 기관끼리 공유하는 저장소이고, 행정안전부가 각 기관에 공문으로 안내했다. 운영 URL이 확인되어 증거는 E3, 도입 상태는 Production, 판정 신뢰도는 높음이다. 단계는 Ready다. 교육·API·공통 플랫폼 제공에 해당하는 준비 자산이지만 플랫폼 자체가 업무 결과를 내지는 않는다. 이런 자산은 다음 단계로 올라갈 대상이 아니다. 그 위에 올라온 도구들이 각자 단계를 오르고, 공공 깃랩은 그 도구들이 <a class="pat lc-x" href="ch14.html#p-X9"><span class="pid">X9</span>담당자와 함께 사라지는 도구</a>가 되지 않게 붙잡는 자리다.</p>
+
+<h3>AI-Enabled: 사람이 확인하는 AI 산출물이 나온다</h3>
+
+<p>공직 현장(개인 개발)의 <a href="https://hollobit.github.io/PAX/case/e7949c7bc45ca8e6.html">출장 여비 서류 자동화 오픈소스</a>는 출장 승인 문서(PDF·HWPX)를 읽어 여비를 계산하고 여비신청서·여비명세서·출장복명서를 한 벌로 만든다. 복명서 본문은 로컬 LLM이 쓰고, 담당자가 확인한 뒤 PDF로 출력한다. 처음에는 Ready로 적혔다. 복명서 본문을 AI가 쓰고 사람이 확인하는 구조가 작성자의 공개 게시물로 확인되자 PAX는 Enabled로 올렸다. Q2를 넘긴 근거는 복명서라는 업무 산출물과 사람의 확인 절차다. Q3에서 멈춘다. 출장 정산의 순서나 결재선이 바뀌었다는 자료는 없고, 도구는 담당자 한 사람의 서류 작성을 덜어 준다. 판정 한 줄은 'AI-Enabled / S2 / C2 / P1(잠정)', 인간 통제 H2, 증거 E1이다. 패턴 태깅은 이 사례에 빠진 필수 부품으로 <a class="pat lc-a" href="ch07.html#p-A9"><span class="pid">A9</span>업무 규범 스킬</a>, <a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span>검토 큐</a>, <a class="pat lc-c" href="ch08.html#p-C5"><span class="pid">C5</span>가드레일 필터</a>를 적었다. First를 말하기 전에 할 일이 이것이다. 확인 절차를 기록이 남는 검토 큐로 바꾸고, 복명서 작성 규범을 스킬로 묶어야 기관이 이 도구를 정산 흐름에 넣을 근거가 생긴다.</p>
+
+<p>같은 개인 개발의 <a href="https://hollobit.github.io/PAX/case/90f8afce65c6f327.html">영수증 사진으로 공용차량 세차내역 자동 입력</a>도 Ready에서 Enabled로 올라간 사례다. 세차 영수증 사진에서 날짜·차량번호·금액을 여러 줄 뽑아 보유 차량 대장과 표기를 맞추고, 결과 엑셀의 차종 칸을 채운다. 손글씨 판독에는 상용 시각 인식 모델을 쓴다. 대조에 실패했거나 인식이 미덥지 않은 줄은 비고에 남겨 담당자가 직접 확인한다. PAX는 이 비고 처리를 완결 판정의 근거로 들었다. 판정은 'AI-Enabled / S2 / C2 / P1(잠정)', 증거 E1이다. 이 사례는 2.14절에서 눈금을 하나씩 채점한다.</p>
+
+<p>전북특별자치도의 <a href="https://hollobit.github.io/PAX/case/55f606c2835337ba.html">전북AI</a>는 규모가 다르다. 도가 외부 상용 서비스에 기대지 않고 직접 세운 생성형 AI 업무 시스템으로, 보고서 작성과 업무편람 질의응답 등 서른 가지 남짓한 기능을 제공한다. 사례 페이지에 따르면 운영 석 달 만에 누적 이용 10만 건과 이용자 3천 명을 넘겼고, 천 명 넘게 교육을 마친 뒤 산하 공공기관으로 넓히는 중이다. 기관 단위 시스템에 전용 앱과 교육 체계까지 붙어 S3이지만 단계는 Enabled다. 보고서 초안과 질의응답 결과를 사람이 받아 마무리할 뿐, 일의 경로나 역할이 바뀌었다는 공개 자료가 없다. 이용량 수치가 있어도 기관 발표를 다룬 기사에서 확인한 것이라 증거는 E2로 적혔다. 위험은 R2다. 행정정보를 다루는데 산출물 검토 절차가 공개되지 않았기 때문이다. 다음 관문 앞에서 전북AI가 먼저 할 일은 인간 통제가 미확인으로 남은 자리를 공개된 검토 절차로 채우는 것이다. 이용자 수는 그 칸을 대신하지 못한다.</p>
+
+<h3>AI-First: 운영 원칙이 공표되었다</h3>
+
+<p>광진구의 <a href="https://hollobit.github.io/PAX/case/9dc1a7081bc869b1.html">공무원이 직접 개발한 AI 도구 6종 전 직원 업무 투입</a>은 2.2절에서 소개했다. 여기서는 PAX가 확인한 공표 원칙과 운영 사실을 First의 여섯 관문에 대 본다. 시작점·경로·역할의 재설계 관문에는 담당자와 팀장의 최종 판단 책임이라는 역할 분담과 전 직원 투입이 있다. 예외 처리 관문에는 전용 문의 창구가 있고, 지표화 관문에는 피드백 관리 원칙이 있다. 개인정보 입력 금지는 PAX가 위험 기준으로 적은 것이고, 이를 고위험 건 이관 관문의 근거로 읽는 것은 이 책의 해석이다. 금지 규칙이 있을 뿐 고위험 건을 숙련자에게 넘기는 장치는 따로 확인되지 않았다. 비어 있는 칸은 판정 근거에 그대로 적혀 있다. 저위험 자동 처리의 정량 기준, 롤백과 이의 제기 절차, 운영 결과의 평가 데이터화다. 여섯째 관문인 반복 예외의 기준 반영도 비어 있다. 평가표의 피드백 칸이 반복 개선의 운영 증거를 미확인으로 적었기 때문이다. 일부 관문만 운영 증거로 확인되었으니 판정은 'AI-First(잠정) / S3 / C3 / M3 / P1(잠정)', 관문 칸은 '잠정 충족'이다. 증거 등급도 한 번 조정되었다. 지방정부 AI 우수사례 발표대회에서 서울시 대표로 뽑힌 일을 독립 심사로 보아 E5가 제안되었지만, 개별 목록을 사후에 검증할 수 없어 E3으로 적었다. 이 판정을 확정으로 바꾸는 데 새 도구는 필요 없다. 비어 있는 네 칸의 운영 기록을 공개하면 된다.</p>
+
+<p>4축 평가에서 First로 적힌 나머지 4건은 다르게 읽어야 한다. 공직 현장(개인 개발)의 <a href="https://hollobit.github.io/PAX/case/ada7cb6b9fabac8f.html">paper-verify</a>는 AI로 쓴 보고서나 논문의 인용이 실재하는지, 표기가 맞는지, 개정으로 내용이 달라지지 않았는지를 원본과 대조하는 Claude Code 스킬이다. 법령·판례는 국가법령정보센터, 영문 논문은 CrossRef·OpenAlex, 국문 논문은 KCI, 학위논문은 RISS, 웹 출처는 Wayback Machine으로 확인하고, 참고문헌 PDF를 넣으면 지목한 페이지의 내용까지 다섯 단계로 판정한다. 평가표의 단계 칸은 First인데 관문 칸은 '상위 관문 미충족/해당 없음'이고, 판정 근거는 S2와 C2만 설명한다. 그림 2.13을 따라 다시 판정하면 Q2는 넘는다. 대조를 AI가 먼저 하고 사람은 판정을 확인하니 Q3의 정황도 보인다. 그러나 그 역할 분담이 실제 업무에서 돌았다는 운영 기록은 없고 증거는 저장소 문서(E1)뿐이다. 이 책은 이 사례를 Enabled에 First 후보를 덧붙인 모양으로 읽는다. PAX 판정을 인용할 때는 평가표 값을 그대로 쓰되, 자기 기관을 판정할 때는 단계 칸과 관문 칸을 함께 읽어야 한다.</p>
+
+<h3>AI-Native: 아직 계획만 있다</h3>
+
+<p>과학기술정보통신부·NIPA의 <a href="https://hollobit.github.io/PAX/case/e57919fda43f59c0.html">모두의 AI</a>는 국산 AI 모델을 바탕으로 전 국민이 쓰는 범용 AI 챗봇과 공공 행정 처리를 돕는 AI 에이전트를 만드는 사업이다. SK텔레콤·카카오·KT 세 컨소시엄이 수행기관으로 선정되었고, 10월 베타 운영을 거쳐 12월 정식 서비스를 시작해 연내 월 이용자 500만 명에 닿는 것이 목표다. 증거는 보도와 공고(E3)뿐이고 판정 신뢰도는 낮음이다. 관문 칸에는 '정식 출시 전, 실측 시 재평가'가 적혀 있다.</p>
+
+<p>서비스가 열린 뒤의 재판정은 Q2부터 다시 시작한다. Native 판정값을 계획에서 넘겨받지 않기 때문이다. 행정 처리 에이전트가 실제 민원·행정 건에서 검증 가능한 결과를 내는지, 저위험 건 자동 처리와 숙련자 이관이 운영 기록으로 남는지가 먼저다. 그다음에야 Native 관문을 묻는다. 이용자의 수정과 이의 제기가 평가로 돌아가 기준을 바꾸는지, 한 컨소시엄의 모델이 멈출 때 정해 둔 강등 경로가 있는지, Native를 주장하는 범위가 범용 챗봇 서비스인지 행정 처리 업무 하나인지를 따진다. 월 이용자 수는 이 가운데 어느 관문의 증거도 되지 못한다. 전북AI의 이용량이 단계를 올리지 않은 것과 같은 이유다.</p>
+
+<p>표 2.8은 이 절의 판정을 한 장에 모았다. 각 행은 2.16절의 기록 양식을 줄여 채운 모양이다.</p>
+
+<div class="tbl"><table><caption><b>표 2.8</b> 단계별 PAX 사례 판정 기록 (판정값·증거: PAX 4축 평가 2026-10-13, 사례명·기관: 원장, 빠진 부품: 패턴 태깅. 다음에 필요한 것은 저자 정리)</caption>
+<thead><tr><th>사례(기관)</th><th>id</th><th>증거</th><th>멈춘 자리</th><th>판정 한 줄</th><th>다음에 필요한 것</th></tr></thead>
+<tbody>
+<tr><td class="k">인사랑 초과근무기록 리마인더<br/>(전남 광양시, 개인 개발)</td><td><code>dc0632528765c694</code></td><td>E1</td><td>대상성</td><td>AX 단계 외 / S1 / C0</td><td>단계를 올릴 대상이 아님. 편의 도구로 기록</td></tr>
+<tr><td class="k">전국 조례 상황판<br/>(지방자치혁신연구원)</td><td><code>113e9caee50e73cc</code></td><td>E2</td><td>대상성</td><td>AX 단계 외 / S1 / C1</td><td>AI가 만든 요약·분류를 편집자가 검증하는 흐름</td></tr>
+<tr><td class="k">공공조달 제도 88개 업무 흐름도<br/>(공직 현장, 개인 개발)</td><td><code>a8fbf74431025f70</code></td><td>E2</td><td>Q2</td><td>AI-Ready / S2 / C1 / P1</td><td>흐름도를 근거로 한 AI 답변·서류 점검과 담당자 확인(B3·C1)</td></tr>
+<tr><td class="k">인구감소지역 부동산 상황판<br/>(공직 현장, 개인 개발)</td><td><code>63a81d23af115b66</code></td><td>E2</td><td>Q2</td><td>AI-Ready / S2 / C1 / P1</td><td>구조화한 자료를 쓰는 AI 업무 산출물</td></tr>
+<tr><td class="k">정부 공공 깃랩<br/>(행정안전부)</td><td><code>54c2561cf3e1a268</code></td><td>E3</td><td>Q2(해당 없음)</td><td>AI-Ready / S2 / C0 / P1</td><td>플랫폼은 Ready로 둔다. 올라온 도구가 단계를 오른다</td></tr>
+<tr><td class="k">출장 여비 서류 자동화<br/>(공직 현장, 개인 개발)</td><td><code>e7949c7bc45ca8e6</code></td><td>E1</td><td>Q3</td><td>AI-Enabled / S2 / C2 / P1</td><td>A9·C1·C5. 기관 정산 흐름에 넣을 근거</td></tr>
+<tr><td class="k">영수증 세차내역 자동 입력<br/>(공직 현장, 개인 개발)</td><td><code>90f8afce65c6f327</code></td><td>E1</td><td>Q3</td><td>AI-Enabled / S2 / C2 / P1</td><td>업무 시스템 반영과 종료 확인(C3), 건별 기록(C4)</td></tr>
+<tr><td class="k">전북AI<br/>(전북특별자치도)</td><td><code>55f606c2835337ba</code></td><td>E2</td><td>Q3</td><td>AI-Enabled / S3 / C2 / P1, R2</td><td>검토 절차 공개(C1), A9·A10·C5·F2</td></tr>
+<tr><td class="k">AI 도구 6종 전 직원 투입<br/>(광진구)</td><td><code>9dc1a7081bc869b1</code></td><td>E3</td><td>Q4(일부)</td><td>AI-First(잠정) / S3 / C3 / M3 / P1</td><td>자동 처리 정량 기준, 롤백·이의 제기, 평가 데이터화, 반복 예외의 기준 반영에 대한 운영 기록</td></tr>
+<tr><td class="k">paper-verify<br/>(공직 현장, 개인 개발)</td><td><code>ada7cb6b9fabac8f</code></td><td>E1</td><td>관문 미충족 표기</td><td>AI-First / S2 / C2 / P1</td><td>역할 분담이 실제 업무에서 돈 기록(C1·F7)</td></tr>
+<tr><td class="k">모두의 AI<br/>(과학기술정보통신부·NIPA)</td><td><code>e57919fda43f59c0</code></td><td>E3</td><td>정식 출시 전</td><td>AI-Native 계획 / S3 / C2</td><td>개시 후 Q2부터 실측 재판정</td></tr>
+</tbody></table></div>
+
+<h2>2.13 비슷해 보이는데 단계가 다른 사례</h2>
+
+<p>판정이 자주 흔들리는 때는 겉모양이 닮은 두 사례가 다른 단계를 받았을 때다. 담당자는 "저쪽은 Enabled인데 우리는 왜 Ready냐"고 묻는다. 표 2.9는 그런 질문이 나올 만한 PAX 사례 쌍 셋을 골라 판정을 가른 지점을 적었다.</p>
+
+<div class="tbl"><table><caption><b>표 2.9</b> 겉모양이 닮았지만 단계가 다른 PAX 사례 쌍 (판정값: PAX 4축 평가, 부품: 패턴 태깅, 해석: 저자)</caption>
+<thead><tr><th>쌍</th><th>낮게 판정된 쪽</th><th>높게 판정된 쪽</th><th>닮은 점</th><th>판정을 가른 것</th></tr></thead>
+<tbody>
+<tr><td class="k">서식 자동 입력</td><td><a href="https://hollobit.github.io/PAX/case/33d54dde6e9408b2.html">품의도우미</a>(경기도교육청 교사, 개인 개발)<br/>AX 단계 외 / S1 / C1 / P2</td><td><a href="https://hollobit.github.io/PAX/case/e7949c7bc45ca8e6.html">출장 여비 서류 자동화</a>(공직 현장, 개인 개발)<br/>AI-Enabled / S2 / C2 / P1</td><td>반복 행정 서식을 대신 채우고, 저장·출력 전에 사람이 확인한다</td><td>채우는 내용을 누가 만드나. 품의도우미는 장바구니 정보를 규칙대로 옮기고, 여비 도구는 복명서 본문을 로컬 LLM이 쓴다</td></tr>
+<tr><td class="k">로컬 에이전트와 통제 부품</td><td><a href="https://hollobit.github.io/PAX/case/edf9a8632ff74a99.html">망분리 환경용 로컬 AI 에이전트</a>(오픈소스 커뮤니티)<br/>AI-Ready / S2 / C2 / M3 / P0</td><td><a href="https://hollobit.github.io/PAX/case/90f8afce65c6f327.html">영수증 세차내역 자동 입력</a>(공직 현장, 개인 개발)<br/>AI-Enabled / S2 / C2 / P1</td><td>같은 S2·C2. 둘 다 사람 확인 단계가 있고, 에이전트 쪽은 C8 present·C2·C4 implemented로 통제 부품이 더 많다</td><td>실제 기관 업무 산출물. 에이전트는 국가통계포털 MCP 연동을 시연했을 뿐이고, 세차 도구는 실제 영수증과 차량 대장으로 결과 엑셀을 만든다</td></tr>
+<tr><td class="k">기관 공용 AI와 MCP</td><td><a href="https://hollobit.github.io/PAX/case/02656bf9d2589964.html">기관 공용 AI 엔진 기반 AI 에이전트 구축 착수</a>(서울특별시)<br/>AI-Ready / S3 / C0 / M3</td><td><a href="https://hollobit.github.io/PAX/case/9dc1a7081bc869b1.html">AI 도구 6종 전 직원 투입</a>(광진구)<br/>AI-First(잠정) / S3 / C3 / M3</td><td>기관 단위의 공용 AI 위에 MCP로 기능을 붙인다. S3·M3가 같고 증거도 둘 다 E3이다</td><td>운영 사실. 서울시는 착수 단계라 C1·C4·C8이 planned이고, 광진구는 역할 분담과 예외 창구를 공표하고 전 직원이 쓰고 있다</td></tr>
+</tbody></table></div>
+
+<p>첫 쌍은 권한과 단계가 따로 논다는 것을 보여 준다. 품의도우미는 K-에듀파인 품의등록 화면의 품목내역에 직접 값을 채우니 4축 평가에서 P2를 받았다. 출장 여비 도구는 PDF를 만들 뿐이라 P1이다. 권한은 품의도우미가 높고 단계는 여비 도구가 높다. 품의도우미는 저장과 결재 요청을 담당자 몫으로 남겨 두었고, 태깅은 이 경계를 <a class="pat lc-c" href="ch08.html#p-C8"><span class="pid">C8</span>권한 경계·킬스위치</a>로 읽었다. 2.5절의 경고대로 P2 도구에는 단계와 상관없이 통제 부품이 먼저 붙어야 한다.</p>
+
+<p>둘째 쌍은 부품이 있는 것과 관문을 넘은 것을 가른 2.11절의 구분을 사례로 보여 준다. 망분리 환경용 에이전트는 도구 검증 게이트, 위험도 분류, 실행 승인, 감사 대시보드를 갖췄고 질의, 검증, 차트, 승인 저장으로 이어지는 연속 처리를 시연했다. 부품만 세면 세차 도구보다 First에 가깝다. 그런데 판정 근거는 실제 기관 업무 산출물의 증거가 없다는 한 줄로 끝난다. 태깅은 이 사례에 <a class="pat lc-x" href="ch14.html#p-X8"><span class="pid">X8</span>MCP 서버 개수 세기</a> 안티패턴도 붙였다. 세차 도구의 부품은 수수하지만, 그 도구에서는 실제 영수증이 실제 차량 대장과 맞춰진다.</p>
+
+<p>셋째 쌍은 착수와 운영의 차이다. 서울시 사례는 처음에 First로 적혔다가 Ready로 내려갔다(2.2절). 기관 공용 AI 엔진과 MCP 구조는 Ready의 준비물로 인정되었지만, 자동 처리와 인간 이관, 예외 처리, 평가 환류의 운영 증거가 없었다. 태깅은 검토 큐와 감사 로그, 권한 경계가 계획에만 있는 이 상태에 <a class="pat lc-x" href="ch14.html#p-X2"><span class="pid">X2</span>설계도만 있는 운영</a>을 붙였다. 광진구도 자동 처리 기준과 롤백 절차가 비어 있기는 마찬가지다. 그래도 역할 분담과 예외 창구가 공표된 원칙으로 실제 운영되고 있다는 점이 둘을 Ready와 First 잠정으로 갈랐다. 서울시가 같은 자리에 서려면 무엇을 더 만들어야 하는지는 표 2.11의 Enabled→First 행이 답한다.</p>
+
+<h2>2.14 S·C·M·P를 끝까지 채점하기</h2>
+
+<p>2.5절의 눈금자는 등급 이름만 보면 쉬워 보인다. 막상 사례에 대 보면 S2와 S3 사이, C2와 C3 사이에서 망설이게 된다. PAX MCP 기준서는 채점 순서를 정해 두었다. 제공하는 데이터·도구·기능을 확인하고, S를 정하고, 실제 업무의 C를 평가한 뒤 단계를 판정하고, MCP라면 M을 매기고, Native라면 적용 범위를 적는다. 공개 자료가 부족하면 잠재력이 아닌 확인된 현재 상태로 적는다. 여기서는 Enabled의 세차내역 입력 도구와 First 잠정의 광진구를 이 순서대로 채점한다(표 2.10).</p>
+
+<div class="tbl"><table><caption><b>표 2.10</b> S 판정 질문과 C 완결성 항목으로 두 사례 채점하기 (질문·항목: PAX MCP 기준서 §4.1·§5.1, 최종 등급: PAX 4축 평가, 항목별 예·아니오: 저자가 판정 근거와 사례 페이지에서 읽은 것)</caption>
+<thead><tr><th>축</th><th>질문·항목</th><th>세차내역 자동 입력</th><th>광진구 AI 도구 6종</th></tr></thead>
+<tbody>
+<tr><td class="k" rowspan="5">S</td><td>관련된 복수 기능인가</td><td>예. 판독·대장 대조·엑셀 기입</td><td>예. 도구 6종</td></tr>
+<tr><td>하나의 업무 목표를 위해 순차·조건부로 이어지는가</td><td>서식 한 장 안의 연결이다</td><td>예. 법령·통계·건축 도구가 기관 자체 AI 서비스와 이어진다</td></tr>
+<tr><td>업무 시스템의 조회·작성·승인·통지까지 잇는가</td><td>아니오. 결과 엑셀까지</td><td>미확인</td></tr>
+<tr><td>대국민 접점과 내부 처리를 한 흐름으로 잇는가</td><td>아니오</td><td>아니오. 직원 내부용</td></tr>
+<tr><td>여러 기관이 공동 목표로 협력하는가</td><td>아니오</td><td>아니오</td></tr>
+<tr><td class="k">S 등급</td><td></td><td class="c">S2</td><td class="c">S3</td></tr>
+<tr><td class="k" rowspan="10">C</td><td>1 업무 시작 조건을 인식하는가</td><td>아니오. 담당자가 사진을 넣어 시작</td><td>아니오. 직원이 도구를 골라 시작</td></tr>
+<tr><td>2 필요한 도구·데이터를 고르는가</td><td>해당 없음. 순서가 고정됨</td><td>미확인</td></tr>
+<tr><td>3 여러 단계를 잇고 상태를 유지하는가</td><td>예</td><td>예. 원문과 출처를 함께 제시</td></tr>
+<tr><td>4 업무 시스템에 결과를 반영하는가</td><td>아니오</td><td>미확인</td></tr>
+<tr><td>5 성공·실패·종료 상태를 확인하는가</td><td>일부. 미매칭·저신뢰 줄을 비고로 표시</td><td>예. 담당자·팀장의 최종 판단이 종결 지점</td></tr>
+<tr><td>6 불확실·고위험 건을 사람에게 넘기는가</td><td>예. 비고 줄은 담당자가 확인</td><td>일부. 전용 문의 창구</td></tr>
+<tr><td>7 재시도·복구·롤백이 되는가</td><td>미확인</td><td>미확인(판정 근거에 명시)</td></tr>
+<tr><td>8 승인·거부·이의 제기와 사후 수정을 처리하는가</td><td>미확인</td><td>미확인(판정 근거에 명시)</td></tr>
+<tr><td>9 사용 결과가 평가·개선으로 환류되는가</td><td>미확인</td><td>부분 확인. 피드백 관리 원칙만 공표</td></tr>
+<tr><td>10 장애 때 대체 경로가 있는가</td><td>미확인</td><td>미확인</td></tr>
+<tr><td class="k">C 등급</td><td></td><td class="c">C2</td><td class="c">C3</td></tr>
+</tbody></table></div>
+
+<p>세차 도구의 S는 첫 질문에서 S2로 올라가고 둘째 질문에서 멈춘다. 판독에서 엑셀 기입까지 이어지기는 하지만, 그 연결은 서식 한 장을 채우는 일 안에 있다. MCP 기준서의 S3 예시는 법령 검색, 검토, 분석, 보고서 초안으로 이어지는 업무 흐름 하나다. 차량 관리 정산 전체를 잇는 흐름은 이 도구 밖에 있다. C는 항목 3에서 C2에 닿는다. 항목 6이 예인데도 C4로 가지 않는 이유는 C 등급이 아래 칸부터 쌓이기 때문이다. C3의 조건인 업무 시스템 반영과 종료 상태 확인이 비어 있는 동안에는 이관 장치가 있어도 등급이 오르지 않는다. 덧붙여 태깅은 이 도구에 부품 C2(위험도 라우터)를 implemented로 적었다. 완결성 C2와 부품 C2는 기호만 같고 다른 것을 잰다. 완결성 C2는 일이 어디까지 닫히는지이고, 부품 C2는 저신뢰 줄을 사람에게 돌리는 갈림길 장치다.</p>
+
+<p>광진구의 S3은 도구 수에서 나오지 않았다. 도구 여섯 개가 서로 독립된 조회 기능이었다면 S2에 머물렀을 것이다. 법령·통계·건축 도구가 기관 자체 AI 서비스와 이어져 원문과 출처를 함께 내놓고, 그 결과가 기관의 운영 원칙 안에서 쓰인다는 점이 업무 흐름의 근거가 된다. C3은 조심해서 읽어야 한다. 종료 지점은 담당자와 팀장의 최종 판단이라는 공표된 원칙으로 확인되지만, 업무 시스템 반영은 공개 자료로 확인되지 않는다. 롤백과 이의 제기는 판정 근거가 미확인이라고 직접 적었다. 그래서 이 C3은 First 판정과 함께 잠정으로 읽는 편이 안전하다.</p>
+
+<p>M과 P는 표 밖에서 정한다. 세차 도구는 MCP 사례가 아니어서 M이 없다. 광진구는 4축 평가에서 MCP 역할이 클라이언트·호스트이고 M3이다. 기준서의 파급력 항목 가운데 복수 시스템 연계가 업무통합형(M3)의 근거다. 여러 기관이 함께 쓰는 표준 연결 계층은 아니니 M4에 닿지 않고, 서비스 수준과 복원력이 공식화되지 않았으니 M5와는 더 멀다. P는 둘 다 P1(잠정)이다. 세차 도구는 결과 엑셀을 만들 뿐 회계 시스템에 쓰지 않고, 광진구의 도구는 요약·재작성·조회 결과를 내놓는다. 판정 한 줄은 이렇게 적힌다.</p>
+
+<ul>
+<li>세차내역 자동 입력: AI-Enabled / S2 / C2 / P1(잠정), 위험 R1, 검토 후 사용, 증거 E1</li>
+<li>광진구 AI 도구 6종: AI-First(잠정) / S3 / C3 / M3 / P1(잠정), 위험 R1, H2, 피드백 부분 확인, 증거 E3</li>
+</ul>
+
+<p>채점이 끝나면 다음 부품이 보인다. 세차 도구의 S를 올리려면 엑셀에서 멈춘 결과가 회계 시스템 입력과 확인까지 이어져야 한다. 그 순간 P가 P2로 오르니 <a class="pat lc-c" href="ch08.html#p-C8"><span class="pid">C8</span>권한 경계·킬스위치</a>와 <a class="pat lc-f" href="ch10.html#p-F6"><span class="pid">F6</span>에이전트 행동 검토·확인</a>이 먼저 붙어야 한다. C를 올리려면 기입이 끝났는지를 시스템이 확인하는 <a class="pat lc-c" href="ch08.html#p-C3"><span class="pid">C3</span>상태 머신·롤백</a>이 필요하다. 광진구의 C를 C4로 올리는 일은 판정 근거가 비어 있다고 적은 롤백과 이의 제기 절차를 운영에 넣는 일과 같다.</p>
+
+<h2>2.15 단계 올리기 작업표</h2>
+
+<p>표 2.5는 단계마다 필수인 설계 요소를, 그림 2.12는 끼울 부품을 보여 준다. 실무 담당자에게는 한 가지가 더 필요하다. 다음 판정 때 무엇을 내밀어야 하는지다. 표 2.11은 한 칸을 오를 때 새로 만들어야 할 산출물과 판정자에게 보여 줄 운영 증거, 필요한 패턴 부품, PAX 사례에서 실제로 막힌 자리를 한 줄씩 적었다. 산출물과 증거 목록은 PAX 기준서가 First 후보와 Native 후보에게서 받는 자료를 바탕으로 했다.</p>
+
+<div class="tbl"><table><caption><b>표 2.11</b> 단계 올리기 작업표 (증거 목록: PAX 평가분류기준 상세보고서, 막힌 사례: PAX 4축 평가·패턴 태깅, 부품 대응과 정리: 저자)</caption>
+<thead><tr><th>이동</th><th>만들어야 할 산출물</th><th>보여 줄 운영 증거</th><th>필요한 부품</th><th>흔한 막힘(PAX 사례)</th></tr></thead>
+<tbody>
+<tr><td class="k">단계 외 → Ready</td><td>데이터·권한·책임·기준선 가운데 하나의 실물. 구조화한 규정·서식, 조문을 단 업무 흐름도, 현재 처리 시간과 허용 오류를 잰 기준선표, 접근용 API·MCP</td><td>다른 사람이 붙여 돌려 본 저장소·실행 화면(E1 이상). Data·Access·Baseline·Integration-ready 가운데 무엇인지 적은 배지</td><td><a class="pat lc-a" href="ch07.html#p-A1"><span class="pid">A1</span></a>·<a class="pat lc-a" href="ch07.html#p-A4"><span class="pid">A4</span></a>·<a class="pat lc-a" href="ch07.html#p-A8"><span class="pid">A8</span></a>, 준비에 기여하는 <a class="pat lc-b" href="ch05.html#p-B0"><span class="pid">B0</span></a></td><td>편의 기능과 시각화만 있다(인사랑 리마인더, 파주 인파 지도)</td></tr>
+<tr><td class="k">Ready → Enabled</td><td>AI가 만든 업무 결과 하나(초안·요약·분류·판독), 맞고 틀림을 가릴 대조 기준, 사람의 확인 절차</td><td>실제 업무 건에 쓴 결과와 확인자의 수정 기록. 화면·서비스 확인(E2)이면 더 단단하다</td><td>주 부품(<a class="pat lc-b" href="ch05.html#p-B1"><span class="pid">B1</span></a>·<a class="pat lc-b" href="ch05.html#p-B3"><span class="pid">B3</span></a>·<a class="pat lc-b" href="ch05.html#p-B4"><span class="pid">B4</span></a>)과 <a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span></a>. 기안이면 <a class="pat lc-a" href="ch07.html#p-A9"><span class="pid">A9</span></a>·<a class="pat lc-a" href="ch07.html#p-A10"><span class="pid">A10</span></a>, 대민이면 <a class="pat lc-f" href="ch10.html#p-F1"><span class="pid">F1</span></a>·<a class="pat lc-f" href="ch10.html#p-F2"><span class="pid">F2</span></a>·<a class="pat lc-f" href="ch10.html#p-F7"><span class="pid">F7</span></a></td><td>시연만 있고 기관 업무 산출물이 없다(망분리 로컬 AI 에이전트). 공공 API를 MCP 서버로 감쌌지만 업무 결과를 만든 증거가 없다(<a href="https://hollobit.github.io/PAX/case/1f5e21b854f0aa3a.html">공공데이터포털 API MCP 서버 모음</a>)</td></tr>
+<tr><td class="k">Enabled → First</td><td>바뀐 업무 흐름도, 사람과 AI의 역할표, 자동 처리·이관 기준, 승인·거부·롤백을 포함한 예외 처리 절차</td><td>갈림길을 실제로 지난 건별 기록(자동 종결률·이관률·수정률·롤백 건수), 운영 주체와 운영 기간(E3), 반복 예외로 기준을 고친 이력</td><td><a class="pat lc-c" href="ch08.html#p-C2"><span class="pid">C2</span></a>·<a class="pat lc-c" href="ch08.html#p-C3"><span class="pid">C3</span></a>·<a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span></a>가 모두 present. P2 이상이면 <a class="pat lc-c" href="ch08.html#p-C8"><span class="pid">C8</span></a>·<a class="pat lc-f" href="ch10.html#p-F6"><span class="pid">F6</span></a>, 대민이면 <a class="pat lc-f" href="ch10.html#p-F11"><span class="pid">F11</span></a></td><td>착수와 설계만 있다(서울시, X2). 역할 재편이 확인되지 않는다(<a href="https://hollobit.github.io/PAX/case/9d115930495a1e65.html">공무원용 로컬 AI 에이전트 워크플레이스</a>). 이용량은 크지만 검토 절차가 공개되지 않았다(전북AI). 롤백·이의 제기가 비어 잠정에 머문다(광진구)</td></tr>
+<tr><td class="k">First → Native</td><td>평가 세트와 회귀시험, 피드백 데이터 흐름도, 대체 모델·규칙 축소·수동 전환의 강등 경로, Native를 주장하는 적용 범위 선언</td><td>평가·개선 주기와 모델·정책 변경 이력, 회귀시험 결과, 장애 훈련 기록과 복구 목표, 이의 제기 처리와 감사 로그, 성과 지표(E4 이상)</td><td><a class="pat lc-c" href="ch08.html#p-C6"><span class="pid">C6</span></a>·<a class="pat lc-c" href="ch08.html#p-C7"><span class="pid">C7</span></a>·<a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span></a>와 그 전제 <a class="pat lc-a" href="ch07.html#p-A2"><span class="pid">A2</span></a>, 이용자 쪽 <a class="pat lc-f" href="ch10.html#p-F10"><span class="pid">F10</span></a></td><td>PAX에는 이 칸을 지난 사례가 없다. 계획 단계 사업(모두의 AI)은 개시 후 이 칸을 실측받는다</td></tr>
+</tbody></table></div>
+
+<p>표를 위에서 아래로 읽으면 증거의 성격이 바뀐다. Ready까지는 물건을 보여 주면 된다. Enabled부터는 그 물건이 실제 업무 건을 지나간 흔적이 필요하고, First부터는 그 흔적이 건별 숫자로 쌓여 있어야 한다. Native는 숫자가 기준을 바꾼 이력까지 요구한다. 그래서 다음 단계의 증거는 지금 단계에서 미리 깔아 두어야 한다. 표 2.5의 권장 칸이 그 자리다. Enabled에서 <a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span>감사 로그·지표</a>를 깔지 않은 서비스는 First 판정을 받으려 할 때 몇 달을 다시 기다려야 한다. 2.4절의 가람시 AX팀이 새 조립도를 그리고도 석 달 뒤 재판정을 잡은 까닭이 이것이다.</p>
+
+<p>맨 오른쪽 열에서 기술 때문에 막힌 사례는 찾기 어렵다. 서울시는 착수 단계에서 멈췄고, 전북AI는 검토 절차를 공개하지 않았으며, 광진구는 롤백과 이의 제기 절차를 문서로 정하지 않았다. 이들이 다음 판정에서 한 칸을 오르려면 새 모델을 들이기 전에 운영 기록부터 만들어 공개해야 한다.</p>
+
+<h2>2.16 자가진단 워크시트</h2>
+
+<p>이제 독자의 서비스를 판정할 차례다. 표 2.12는 그림 2.4와 그림 2.13의 흐름을 하나의 질문표로 합쳤다. 대상성을 묻는 W0은 그림 2.13에서, 준비물을 묻는 W1은 그림 2.4의 Q1에서 왔다. 질문마다 "예"라고 답하려면 무엇을 내놓아야 하는지, "아니오"나 "미확인"이면 무엇을 적고 멈추는지를 함께 적었다. 질문은 W0부터 차례로 묻고, 처음 "아니오"나 "미확인"이 나온 자리에서 멈춘다. 끝난 판정은 표 2.13의 양식에 남긴다.</p>
+
+<div class="tbl"><table><caption><b>표 2.12</b> 자가진단 질문표 (판정 흐름: PAX 평가분류기준 상세보고서·인포그래픽 체크리스트, 증빙 예시는 저자 정리)</caption>
+<thead><tr><th>번호</th><th>질문</th><th>"예"의 증빙으로 내놓을 것</th><th>"아니오"·"미확인"이면</th></tr></thead>
+<tbody>
+<tr><td class="k">W0</td><td>AI 준비물, AI가 만든 업무 결과, AI를 전제로 한 업무 설계 가운데 하나라도 있는가</td><td>구조화한 데이터·서식, API·MCP, AI 결과 화면, 바뀐 업무 흐름도 중 하나</td><td>AX 단계 외. 도구의 쓸모는 따로 적는다</td></tr>
+<tr><td class="k">W1</td><td>데이터·권한·책임·기준선 가운데 하나를 지금 붙여 돌려 볼 수 있는가</td><td>저장소나 실행 파일, 접근 권한표, 현재 처리 시간·정확도를 잰 기준선표</td><td>미착수. 준비할 자산 하나를 고른다</td></tr>
+<tr><td class="k">W2</td><td>AI가 만든 결과가 실제 업무 건에 쓰이고, 사람이 맞고 틀림을 확인하는가</td><td>실제 업무 건의 AI 결과와 확인자의 수정 기록</td><td>AI-Ready. 무엇을 준비했는지 배지로 적는다</td></tr>
+<tr><td class="k">W3</td><td>일의 시작점·경로·역할이 AI를 전제로 바뀌었는가</td><td>바뀐 업무 흐름도, 사람과 AI의 역할표, 자동 처리·이관 기준</td><td>AI-Enabled</td></tr>
+<tr><td class="k">W4</td><td>자동 처리·이관·롤백이 실제로 일어난 기록이 있는가</td><td>건별 처리 로그, 이관·롤백 건 기록, 운영 주체와 운영 기간</td><td>AI-Enabled에 First 후보를 덧붙인다. 일부 관문만 기록이 있으면 First 잠정</td></tr>
+<tr><td class="k">W5</td><td>쌓인 지표가 판정 기준이나 절차를 실제로 바꿨는가</td><td>지표 보고서와 그 지표로 고친 기준·절차의 개정 이력</td><td>First 후보(기준 반영 증거 확인 필요)</td></tr>
+<tr><td class="k">W6</td><td>모델이 멈춰도 핵심 기능이 유지되고, AI를 빼면 서비스가 성립하지 않는가</td><td>강등 훈련 기록과 복구 목표, 적용 범위 선언</td><td>AI-First. 모두 "예"면 AI-Native와 적용 범위를 적는다</td></tr>
+<tr><td class="k">점검 가</td><td>위험이 R3 이상인가(복지·인허가·법 집행에 실질 영향)</td><td>업무 영향 분석</td><td>"예"면 판정을 잠정으로 두고 다른 사람이 다시 본다</td></tr>
+<tr><td class="k">점검 나</td><td>AI가 업무 시스템에 쓰는가(P2 이상)</td><td>권한표와 쓰기 대상 시스템 목록</td><td>"예"면 단계와 상관없이 C2·C3·C4·C8을 확인한다</td></tr>
+<tr><td class="k">점검 다</td><td>W4 이후의 "예"가 모두 운영 증거인가</td><td>운영 로그·운영 URL·운영 기간</td><td>설계서·계획서·시연 영상뿐이면 그 질문은 "아니오"로 고친다</td></tr>
+</tbody></table></div>
+
+<div class="tbl"><table><caption><b>표 2.13</b> 판정 기록 양식 (항목 구성: PAX 판정 절차의 기록 요건을 바탕으로 저자 정리)</caption>
+<thead><tr><th>항목</th><th>적는 법</th></tr></thead>
+<tbody>
+<tr><td class="k">서비스와 담당</td><td>서비스 이름, 담당 부서, 운영 주체, 도입 상태(시제품·시범·운영)</td></tr>
+<tr><td class="k">판정일과 판정자</td><td>판정한 날, 판정한 사람, 다시 본 사람(점검 가에 걸리면 필수)</td></tr>
+<tr><td class="k">근거 자료</td><td>자료마다 이름·위치·증거 등급(E0~E5)</td></tr>
+<tr><td class="k">멈춘 질문</td><td>W0~W6 가운데 처음 "아니오"·"미확인"이 나온 번호와 그 이유 한 줄</td></tr>
+<tr><td class="k">판정 한 줄</td><td>단계(First 후보·잠정 표시 포함) / S / C / M(MCP일 때) / P(잠정 여부)</td></tr>
+<tr><td class="k">보조축</td><td>인간 통제 H, 복원력, 피드백, 위험 R0~R4. 근거가 없으면 미확인</td></tr>
+<tr><td class="k">미확인 목록</td><td>공개 근거가 없어 판정을 보류한 칸과, 그 칸을 채울 자료</td></tr>
+<tr><td class="k">다음 관문과 부품</td><td>표 2.11의 해당 행에서 고른 산출물·운영 증거·부품</td></tr>
+<tr><td class="k">재판정 조건</td><td>날짜로 정하지 말고 조건으로 적는다. 예: 자동 처리 경로가 운영되어 이관 건 기록이 쌓이면</td></tr>
+</tbody></table></div>
+
+<aside class="case"><span class="lbl">사례 연구 · 가람시(가상)</span><h4>위기가구 발굴 예측을 워크시트로 판정하다</h4>
+<p>관문 지도를 그린 뒤 AX팀은 워크시트를 복지정책과에 먼저 가져갔다. 복지정책과는 단전·단수·건강보험료 체납 같은 연계 자료로 위기 가능성이 높은 가구를 매달 추려 동 행정복지센터에 명단을 내려보낸다(<a class="pat lc-a" href="ch07.html#p-A4"><span class="pid">A4</span>데이터 연계 서비스</a>, <a class="pat lc-b" href="ch05.html#p-B2"><span class="pid">B2</span>예측·추천기</a>). 동 센터의 복지 담당은 명단을 보고 방문할 가구를 정하고, 방문 결과를 사회보장 시스템에 적는다.</p>
+<p>W0과 W1은 곧바로 "예"였다. 연계 협약으로 들어오는 자료가 있고, 지난해 발굴 실적이 기준선으로 정리되어 있었다. W2도 "예"였다. 명단이 AI의 산출물이고, 담당자가 방문해서 명단이 맞았는지 확인한다. W3에서 AX팀은 한참 머물렀다. 동 센터의 방문 순서가 예측 점수 순으로 바뀌었고, 복지정책과는 명단 생성을, 동 센터는 방문과 판정을 맡는다는 역할표가 있었다. 시작점과 역할이 바뀌었으니 "예"로 적었다.</p>
+<p>W4에서 멈췄다. 점수가 낮은 가구에는 복지 안내문을 자동으로 보내고 높은 가구만 방문하는 갈림길이 설계서에 있었지만, 안내문은 한 통도 나간 적이 없었다. 명단에서 잘못 빠진 가구를 담당자가 되돌려 넣는 절차도 없었다. 점검 가도 걸렸다. 복지 수급에 실질 영향을 주는 업무라 위험은 R3이었다. 방문 결과는 시스템에 쌓였지만, 명단의 어느 가구가 틀렸는지를 따로 모아 예측을 다시 보는 곳은 없었다. 모델 서버가 멈추면 지난달 명단을 그대로 쓰자는 구두 합의가 복원력의 전부였다.</p>
+<p>AX팀이 양식에 남긴 판정 한 줄은 이랬다. "AI-Enabled(First 후보) / S3 / C2 / P1, R3, H2, 피드백 로그 수집, 복원력 미확인, 증거 E2(동 센터 방문 기록 화면 확인). 재검토자: 정보통신과 AX팀장." 다음 관문 칸에는 표 2.11의 Enabled→First 행에서 고른 세 가지를 적었다. 안내문 자동 발송과 방문을 가르는 <a class="pat lc-c" href="ch08.html#p-C2"><span class="pid">C2</span>위험도 라우터</a>를 실제로 돌리되 자동 경로는 안내문 발송처럼 되돌릴 수 있는 행위로만 한정하기, 잘못 빠진 가구를 다시 넣는 정정 절차를 <a class="pat lc-c" href="ch08.html#p-C3"><span class="pid">C3</span>상태 머신·롤백</a>으로 만들기, 건마다 누가 무엇을 바꿨는지 <a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span>감사 로그·지표</a>에 남기기였다. 담당자가 왜 그 가구가 명단에 올랐는지 보도록 <a class="pat lc-f" href="ch10.html#p-F9"><span class="pid">F9</span>판정 근거·기여도 표시</a>도 덧붙였다. 재판정 조건은 날짜 대신 한 문장으로 적었다. "자동 안내 경로로 나간 건과 방문으로 넘어간 건, 정정된 건이 모두 기록되기 시작한 뒤."</p>
+</aside>
+
+<h2>2.17 흔한 오판 바로잡기</h2>
+
+<p>2.2절의 단계별 오판 말고도, 단계를 가로지르는 오판이 셋 있다.</p>
+
+<p><strong>MCP 서버를 만들면 First다.</strong> MCP 기준서의 최종 원칙은 이렇다. MCP를 만들면 Ready, MCP로 검증 가능한 업무 결과를 만들면 Enabled, MCP를 전제로 흐름과 역할을 재설계하면 First, 그 운영 결과가 학습과 복원력으로 이어지면 Native다. 4축 평가의 MCP 사례 87건 가운데 Ready가 79건, First는 광진구 사례 1건이다. 서버 개수로 성숙도를 말하는 습관이 <a class="pat lc-x" href="ch14.html#p-X8"><span class="pid">X8</span>MCP 서버 개수 세기</a>다.</p>
+
+<p><strong>AI로 만든 도구는 모두 AI 과제다.</strong> 런타임에 AI를 부르지 않는 도구는 산출물이 준비에 기여할 때 Ready, 그렇지 않으면 단계 외다. 그래도 재사용 부품의 가장 큰 공급원이니 버리지 않는다.</p>
+
+<p><strong>사람 개입이 적을수록 성숙하다.</strong> 공공에서는 반대다. H5는 최고 등급이 아니고, P가 올라가면 통제 부품이 먼저 붙어야 한다. 통제 없는 자율성을 위험 신호로 읽는 원칙은 <a class="pat lc-x" href="ch14.html#p-X13"><span class="pid">X13</span>도구 출력이 지시가 되는 에이전트</a>의 판정 근거로도 쓰인다.</p>
+
+<aside class="glance"><span class="lbl">한눈에 보기</span><dl>
+<dt>무엇</dt><dd>AX 성숙도는 AI 때문에 일이 어디까지 스스로 끝나는지를 Ready·Enabled·First·Native 네 단계로 잰다. S·C·M 눈금자는 단계 안의 위치를, P 축은 AI가 바꿀 수 있는 것의 상한을, 보조축은 판정의 근거를 적는다.</dd>
+<dt>왜</dt><dd>단계마다 넘어야 할 관문이 정해져 있고, 관문마다 대응하는 부품이 있다. 단계를 부품 언어로 적으면 "몇 단계인가"가 "무엇을 끼워야 하는가"로 바뀐다.</dd>
+<dt>경험칙</dt><dd>판정은 Q1부터 묻고 처음 "아니오"에서 멈춘다. 근거가 없으면 미확인으로 두고 상위 판정을 보류한다. First 이상은 운영 증거(present)가 없으면 인정하지 않는다. P2 이상으로 권한을 올리기 전에 C2·C3·C4·C8부터 끼운다.</dd>
+</dl></aside>
+
+<p>PAX 사이트의 인포그래픽과 평가 대시보드를 실제로 열어 쓰는 법은 17장에서 다룬다.</p>
+
+<div class="summary"><h2>핵심 정리</h2><ul>
+<li>네 단계는 AI를 껐을 때 잃는 것으로 구분된다. Ready는 잃는 것이 없고, Enabled는 손이 더 가며, First는 적체가 생기고, Native는 서비스가 성립하지 않는다.</li>
+<li>관문은 합산되지 않고, 근거가 없으면 미확인으로 남는다. 단계와 도입 상태는 따로 적으며, 'AX 단계 외'와 'AI-Native 계획'은 사다리 밖의 판정값이다.</li>
+<li>현재 단계는 Q1~Q6을 차례로 묻고 처음 "아니오"가 나온 자리에서 정한다. First 이상은 운영 증거로만 판정하고, 근거의 강도는 증거 등급으로 적는다.</li>
+<li>PAX 557건은 Ready 358건, Enabled 168건, First 5건, Native 0건(계획 1건), 단계 외 25건이다. S는 S3, C는 C3까지만 관측되고, 승인 게이트와 감사 로그는 전부 미확인이다.</li>
+<li>S·C·M·P는 서로 독립된 축이다. P가 올라가도 단계는 오르지 않으며, P2 이상이면 C2·C3·C4·C8이 필수다.</li>
+<li>강등 경로는 대체 모델, 규칙 기반 축소, 수동 전환 순으로 내려가며 접수·처리·통지를 끊지 않는다. 핵심 가치 결합과는 독립적으로 판정한다.</li>
+<li>『AI 네이티브 핸드북 2026』의 전기 비유(전선·전등·설계도·반도체 공장)와 아홉 설계 원칙은 같은 사다리를 기업 전환 관점에서 본다. 공공 판정은 PAX의 관문과 운영 증거로 하고, 핸드북의 경로와 원칙은 설계 방향으로 쓴다.</li>
+<li>A1·A4는 Ready를, 주 부품과 C1은 Enabled를, C2·C3·C4는 First를, C6·C7은 Native를 연다. A2와 C9는 Native 부품이 설 자리를 만든다. AIM01~AIM06의 질문에 답하지 못하는 자리가 빠진 부품이다.</li>
+<li>실제 PAX 판정에서 겉모양이 닮은 사례를 가른 물음은 AI가 만든 업무 산출물이 있느냐(품의도우미와 출장 여비 도구), 그 산출물이 실제 업무 건을 지났느냐(망분리 로컬 에이전트와 세차내역 도구), 바뀐 역할과 예외 처리가 운영되느냐(서울시와 광진구)였다. 이용량과 부품 수는 단계를 올리지 않았다.</li>
+<li>S·C는 질문과 항목을 하나씩 채워 정한다. C는 아래 칸부터 쌓이므로 이관 장치가 있어도 업무 시스템 반영과 종료 확인이 비면 C2에 머문다. 완결성 C2와 부품 C2는 다른 것을 잰다.</li>
+<li>단계를 오를수록 증거는 물건에서 업무 건의 흔적으로, 건별 숫자로, 기준을 바꾼 이력으로 바뀐다. 다음 단계의 증거는 지금 단계에서 깔아 두고, 판정은 W0~W6 워크시트와 기록 양식으로 남기며 재판정은 날짜가 아닌 조건으로 정한다.</li>
+</ul></div>
+<nav class="pager"><a class="prev" href="ch01.html"><small>← 이전</small>공공 AX와 패턴 언어</a><a class="next" href="ch03.html"><small>다음 →</small>디자인 패턴의 원리</a></nav></main></div><script>
+(function(){var b=document.querySelector('.navbtn');if(b){b.addEventListener('click',function(){var o=document.body.classList.toggle('toc-open');b.setAttribute('aria-expanded',o)});}
+document.querySelectorAll('.toc a').forEach(function(a){a.addEventListener('click',function(){document.body.classList.remove('toc-open')})});
+var on=document.querySelector('.toc a.on');if(on&&on.scrollIntoView){try{on.scrollIntoView({block:'center'})}catch(e){}}})();
+</script></body></html>
