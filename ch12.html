@@ -1,7 +1,7 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>조립: 적용 절차와 서비스 유형별 템플릿 · 모두의 공공AX 디자인 패턴</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700;800;900&family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap"><link rel="stylesheet" href="book.css"></head><body><div class="bar"><button class="navbtn" type="button" aria-controls="toc" aria-expanded="false">차례</button><a class="bk" href="index.html">모두의 공공AX 디자인 패턴</a><span class="where">조립: 적용 절차와 서비스 유형별 템플릿</span><span class="pn"><a href="ch11.html">← 이전</a><a href="ch13.html">다음 →</a></span></div><div class="layout"><nav class="toc" id="toc" aria-label="책 차례"><a href="index.html"><b>표지 · 차례</b></a><div class="part">앞붙이</div><a href="preface.html"><span class="n"></span>서문</a><a href="reading.html"><span class="n"></span>이 책을 읽는 법</a><a href="case-background.html"><span class="n"></span>사례 배경: 가람시(가상)</a><div class="part">1부 기초</div><a href="ch01.html"><span class="n">1</span>공공 AX와 패턴 언어</a><a href="ch02.html"><span class="n">2</span>AX 성숙도와 측정 눈금자</a><a href="ch03.html"><span class="n">3</span>디자인 패턴의 원리</a><a href="ch04.html"><span class="n">4</span>카탈로그의 구조</a><div class="part">2부 패턴 레퍼런스</div><a href="ch05.html"><span class="n">5</span>B 업무 컴포넌트</a><a href="ch06.html"><span class="n">6</span>B′ 제어 흐름 원형</a><a href="ch07.html"><span class="n">7</span>A 공통 서비스</a><a href="ch08.html"><span class="n">8</span>C 운영 컴포넌트</a><a href="ch09.html"><span class="n">9</span>S 보안 패턴</a><a href="ch10.html"><span class="n">10</span>F 상호작용 패턴</a><a href="ch11.html"><span class="n">11</span>D 서비스 블록</a><div class="part">3부 적용</div><a href="ch12.html" class="on" aria-current="page"><span class="n">12</span>조립: 적용 절차와 서비스 유형별 템플릿</a><a href="ch13.html"><span class="n">13</span>조립 예시와 축 교차표</a><a href="ch14.html"><span class="n">14</span>안티패턴</a><a href="ch15.html"><span class="n">15</span>태깅·검증·참조 구현 레지스트리</a><a href="ch16.html"><span class="n">16</span>PAX 557건으로 본 공공 AX의 현재</a><a href="ch17.html"><span class="n">17</span>PAX 가이드라인과 리소스</a><div class="part">부록</div><a href="appx-a.html"><span class="n">A</span>패턴 한눈에 보기</a><a href="appx-b.html"><span class="n">B</span>판정 규칙 개정 이력 R1~R28</a><a href="appx-c.html"><span class="n">C</span>용어집</a><a href="appx-d.html"><span class="n">D</span>참고문헌</a><a href="appx-e.html"><span class="n">E</span>공공 AX 가이드라인 문서 해설</a><a href="appx-f.html"><span class="n">F</span>사례 케이스북: PAX 사례로 읽는 패턴 활용</a></nav><main class="content" id="ch12"><header class="chap-head"><div class="num-big">12</div><div class="eyebrow">3부 적용 · 제 12장</div><h1>조립: 적용 절차와 서비스 유형별 템플릿</h1><p class="lede">부품 목록을 외워도 서비스는 만들어지지 않는다. 무엇부터 정하고 무엇을 함께 끼우며 실패가 나면 어디에 무엇을 더할지를 적용 절차, 진행 경로, 유형별 조립 템플릿, 위협 모델, 실패 대응표가 정한다.</p><div class="goals"><b>이 장에서 얻을 것</b><ul><li>적용 절차 여섯 단계를 순서대로 밟아 조립도를 만든다</li><li>진행 경로 열한 단계에서 지금 위치와 다음 부품을 고른다</li><li>서비스 유형별 조립 템플릿을 읽고 흔히 빠지는 필수 부품을 짚는다</li><li>신뢰 불가 입력의 출처에서 필수 보안 부품을 고른다</li><li>운영 중 관측된 실패 양상에서 끼울 부품과 확인 질문을 찾는다</li></ul></div></header>
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>조립: 적용 절차와 서비스 유형별 템플릿 · 모두의 공공AX 디자인 패턴</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700;800;900&family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap"><link rel="stylesheet" href="book.css"></head><body><div class="bar"><button class="navbtn" type="button" aria-controls="toc" aria-expanded="false">차례</button><a class="bk" href="index.html">모두의 공공AX 디자인 패턴</a><span class="where">조립: 적용 절차와 서비스 유형별 템플릿</span><span class="pn"><a href="ch11.html">← 이전</a><a href="ch13.html">다음 →</a></span></div><div class="layout"><nav class="toc" id="toc" aria-label="책 차례"><a href="index.html"><b>표지 · 차례</b></a><div class="part">앞붙이</div><a href="preface.html"><span class="n"></span>서문</a><a href="reading.html"><span class="n"></span>이 책을 읽는 법</a><a href="case-background.html"><span class="n"></span>사례 배경: 가람시(가상)</a><div class="part">1부 기초</div><a href="ch01.html"><span class="n">1</span>공공 AX와 패턴 언어</a><a href="ch02.html"><span class="n">2</span>AX 성숙도와 측정 눈금자</a><a href="ch03.html"><span class="n">3</span>디자인 패턴의 원리</a><a href="ch04.html"><span class="n">4</span>카탈로그의 구조</a><div class="part">2부 패턴 레퍼런스</div><a href="ch05.html"><span class="n">5</span>B 업무 컴포넌트</a><a href="ch06.html"><span class="n">6</span>B′ 제어 흐름 원형</a><a href="ch07.html"><span class="n">7</span>A 공통 서비스</a><a href="ch08.html"><span class="n">8</span>C 운영 컴포넌트</a><a href="ch09.html"><span class="n">9</span>S 보안 패턴</a><a href="ch10.html"><span class="n">10</span>F 상호작용 패턴</a><a href="ch11.html"><span class="n">11</span>D 서비스 블록</a><div class="part">3부 적용</div><a href="ch12.html" class="on" aria-current="page"><span class="n">12</span>조립: 적용 절차와 서비스 유형별 템플릿</a><a href="ch13.html"><span class="n">13</span>조립 예시와 축 교차표</a><a href="ch14.html"><span class="n">14</span>안티패턴</a><a href="ch15.html"><span class="n">15</span>태깅·검증·참조 구현 레지스트리</a><a href="ch16.html"><span class="n">16</span>PAX 564건으로 본 공공 AX의 현재</a><a href="ch17.html"><span class="n">17</span>PAX 가이드라인과 리소스</a><div class="part">부록</div><a href="appx-a.html"><span class="n">A</span>패턴 한눈에 보기</a><a href="appx-b.html"><span class="n">B</span>판정 규칙 개정 이력 R1~R28</a><a href="appx-c.html"><span class="n">C</span>용어집</a><a href="appx-d.html"><span class="n">D</span>참고문헌</a><a href="appx-e.html"><span class="n">E</span>공공 AX 가이드라인 문서 해설</a><a href="appx-f.html"><span class="n">F</span>사례 케이스북: PAX 사례로 읽는 패턴 활용</a></nav><main class="content" id="ch12"><header class="chap-head"><div class="num-big">12</div><div class="eyebrow">3부 적용 · 제 12장</div><h1>조립: 적용 절차와 서비스 유형별 템플릿</h1><p class="lede">부품 목록을 외워도 서비스는 만들어지지 않는다. 무엇부터 정하고 무엇을 함께 끼우며 실패가 나면 어디에 무엇을 더할지를 적용 절차, 진행 경로, 유형별 조립 템플릿, 위협 모델, 실패 대응표가 정한다.</p><div class="goals"><b>이 장에서 얻을 것</b><ul><li>적용 절차 여섯 단계를 순서대로 밟아 조립도를 만든다</li><li>진행 경로 열한 단계에서 지금 위치와 다음 부품을 고른다</li><li>서비스 유형별 조립 템플릿을 읽고 흔히 빠지는 필수 부품을 짚는다</li><li>신뢰 불가 입력의 출처에서 필수 보안 부품을 고른다</li><li>운영 중 관측된 실패 양상에서 끼울 부품과 확인 질문을 찾는다</li></ul></div></header>
 
 <p>민원 상담 챗봇을 만들겠다는 기안이 정보화 부서에 올라오면, 담당자가 붙잡는 질문은 대개 같다. 무엇부터 정하고 어떤 부품을 함께 끼워야 하는가, 그리고 무엇이 빠지면 심사에서 걸리는가. 4장의 패턴 서명은 이미 만든 과제를 읽는 데 썼다. 같은 서명을 빈칸부터 채워 나가면 조립도가 된다. 카탈로그 §7은 그 순서를 적용 절차 여섯 단계와 진행 경로로, 기본 조합을 서비스 유형별 조립 템플릿으로 정해 두었다. 이 장은 여기에 유형별 위협 모델과, 실패 양상에서 부품을 고르는 표를 덧붙였다.</p>
-<p>12.3절의 조립도는 모두 같은 문법의 가로 배선도다. 왼쪽에서 입력이 들어와 주 부품 B를 지나고, 이용자 면 F를 거쳐 접점 D에 닿는다. 위 띠에는 흐름 전체에 거는 통제 C와 보안 S가, 아래 띠에는 주 부품이 기대는 기반 A가 놓인다. 점선 상자는 그 유형의 필수 부품 가운데 PAX 557건 태깅에서 자주 빠진 것이다. 템플릿을 가져다 쓰는 사람은 점선 상자부터 확인한다.</p>
+<p>12.3절의 조립도는 모두 같은 문법의 가로 배선도다. 왼쪽에서 입력이 들어와 주 부품 B를 지나고, 이용자 면 F를 거쳐 접점 D에 닿는다. 위 띠에는 흐름 전체에 거는 통제 C와 보안 S가, 아래 띠에는 주 부품이 기대는 기반 A가 놓인다. 점선 상자는 그 유형의 필수 부품 가운데 PAX 564건 태깅에서 자주 빠진 것이다. 템플릿을 가져다 쓰는 사람은 점선 상자부터 확인한다.</p>
 
 <h2>12.1 적용 절차 여섯 단계</h2>
 <p>새 과제를 기획할 때도, 이미 만든 과제를 심사할 때도 같은 여섯 단계를 밟는다(그림 12.1). 순서에는 이유가 있다. 앞 단계의 결정이 뒤 단계의 필수 부품을 정한다.</p>
@@ -77,7 +77,7 @@
 <h3>3단계 · 업무 컴포넌트 하나와 제어 흐름 원형을 고른다 (B, B′)</h3>
 <p>사람과 AI가 일을 나누는 모양을 정한다. 단일 에이전트와 순차 배선에서 시작하고, 분리 가능한 하위 작업이 확인될 때만 계층·병렬로 승급한다. 이 단계의 산출물이 조립도의 중심선이다. 주 부품은 4장의 가치 흐름 규칙(R1)대로 사람이 받는 산출물에서 거꾸로 고른다.</p>
 <h3>4단계 · 평가 세트를 먼저 만든다 (C9)</h3>
-<p>RAG를 붙이기 전, 모델을 고르기 전에 업무 질문·정답·채점 기준 세트(<a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span>평가 세트·회귀시험</a>)를 만든다. 이후 모든 변경은 이 세트로 잰다. PAX 557건 가운데 이 세트를 갖춘 사례는 15건뿐이다. 세트가 없으면 다음 해에 모델을 바꿀 때 무엇이 나빠졌는지 알 수 없다.</p>
+<p>RAG를 붙이기 전, 모델을 고르기 전에 업무 질문·정답·채점 기준 세트(<a class="pat lc-c" href="ch08.html#p-C9"><span class="pid">C9</span>평가 세트·회귀시험</a>)를 만든다. 이후 모든 변경은 이 세트로 잰다. PAX 564건 가운데 이 세트를 갖춘 사례는 16건뿐이다. 세트가 없으면 다음 해에 모델을 바꿀 때 무엇이 나빠졌는지 알 수 없다.</p>
 <h3>5단계 · 권한 범위에 맞춰 통제 부품을 장착한다 (C1~C8)</h3>
 <p>P0~P1이면 <a class="pat lc-c" href="ch08.html#p-C1"><span class="pid">C1</span>검토 큐</a>와 <a class="pat lc-c" href="ch08.html#p-C5"><span class="pid">C5</span>가드레일 필터</a>로 충분하다. P2 이상이면 <a class="pat lc-c" href="ch08.html#p-C2"><span class="pid">C2</span>위험도 라우터</a>·<a class="pat lc-c" href="ch08.html#p-C3"><span class="pid">C3</span>상태 머신·롤백</a>·<a class="pat lc-c" href="ch08.html#p-C4"><span class="pid">C4</span>감사 로그·지표</a>·<a class="pat lc-c" href="ch08.html#p-C8"><span class="pid">C8</span>권한 경계·킬스위치</a>가 필수다. 상시 서비스이거나 상용 API에 의존하면 <a class="pat lc-c" href="ch08.html#p-C7"><span class="pid">C7</span>폴백 스위치</a>도 필수다. 되돌리는 데 사람 시간이 많이 드는 조치에는 반드시 체크포인트를 둔다.</p>
 <h3>6단계 · 이용자 면을 붙이고 환류를 닫는다 (F, C6)</h3>
@@ -197,7 +197,7 @@
 </ul></aside>
 
 <h2>12.3 서비스 유형별 조립 템플릿</h2>
-<p>카탈로그 §7.3은 서비스 유형마다 기본 조립을 정해 두었다(표 12.1). 각 행의 필수 부품은 그 유형의 권한 범위와 접점에 비추어, 빠지면 AI-Enabled 이상으로 인정하지 않는 부품이다. 참조 구현은 PAX 사례 가운데 그 유형의 조립을 잘 보여 주는 것을 골랐다. 유형 2·3·10·11은 PAX 557건 안에 사례가 1~3건뿐이다. 사례로 확인할 조립이 거의 없으므로 이 네 유형의 템플릿은 카탈로그 규칙으로 읽는다.</p>
+<p>카탈로그 §7.3은 서비스 유형마다 기본 조립을 정해 두었다(표 12.1). 각 행의 필수 부품은 그 유형의 권한 범위와 접점에 비추어, 빠지면 AI-Enabled 이상으로 인정하지 않는 부품이다. 참조 구현은 PAX 사례 가운데 그 유형의 조립을 잘 보여 주는 것을 골랐다. 유형 2·3·10·11은 PAX 564건 안에 사례가 1~3건뿐이다. 사례로 확인할 조립이 거의 없으므로 이 네 유형의 템플릿은 카탈로그 규칙으로 읽는다.</p>
 
 <div class="tbl"><table><caption><b>표 12.1</b> 서비스 유형별 조립 템플릿 요약 (카탈로그 §7.3, 참조 구현은 PAX 사례)</caption>
 <thead><tr><th>유형</th><th>접점·권한</th><th>업무 컴포넌트 + 원형</th><th>필수 기반(A)</th><th>필수 통제(C)</th><th>필수 상호작용(F)</th><th>참조 구현(PAX)</th></tr></thead>
@@ -217,10 +217,10 @@
 <tr><td class="k">12 개발 코파일럿</td><td>D8.3 · P1</td><td>B1 스킬 코파일럿 (B′5)</td><td>A9, A2.2(또는 A2.1)</td><td>C1, C9, S9</td><td>F2</td><td>바이브코드 하네스, CODERX</td></tr>
 </tbody></table></div>
 
-<p>아래 조립도는 표의 각 행을 배선도로 옮기고, 12.4절의 필수 보안 부품을 위 띠에 함께 얹었다. 점선 상자는 PAX 557건 태깅에서 그 유형 사례의 30% 이상에 <code>missing_required</code>로 오른 필수 부품이다. 사례가 5건 미만인 유형에는 점선을 긋지 않았다. 서비스를 설계하는 쪽은 점선 상자부터 확보하고, 심사하는 쪽은 점선 상자부터 묻는다.</p>
+<p>아래 조립도는 표의 각 행을 배선도로 옮기고, 12.4절의 필수 보안 부품을 위 띠에 함께 얹었다. 점선 상자는 PAX 564건 태깅에서 그 유형 사례의 30% 이상에 <code>missing_required</code>로 오른 필수 부품이다. 사례가 5건 미만인 유형에는 점선을 긋지 않았다. 서비스를 설계하는 쪽은 점선 상자부터 확보하고, 심사하는 쪽은 점선 상자부터 묻는다.</p>
 
 <h3>유형 1 · 대민 상담·안내</h3>
-<p>민원인의 질문에 기관 문서로 접지한 답을 준다. 주 부품은 <a class="pat lc-b" href="ch05.html#p-B3"><span class="pid">B3</span>지식 접지 상담</a>이고, 답할 수 없는 질문을 담당 부서로 넘기는 <a class="pat lc-bp" href="ch06.html#p-Bp2"><span class="pid">B′2</span>라우터·디스패처</a>가 예외 경로다(그림 12.3). PAX에서 유형 1로 태깅된 32건은 필수 부품 여섯 개가 모두 자주 빠졌다. 31건에 C9가, 30건에 C5가, 27건에 A2가, 21건에 F1이, 14건에 C7이, 11건에 F7이 없었다. 평가 세트와 가드레일은 거의 모든 사례에 없고, 폴백은 절반 가까이 빠졌다. 대민 서비스는 상시 운영이므로 상용 모델이 멈추는 날을 설계에 넣어야 한다. 다만 32건 중 20건은 주 부품이 B0인 비LLM 안내 도구다. 비LLM 도구는 C7·F7이 면제되고 A2 대신 A1이 인정되므로(R7·R21), A2·C7·F7 결손의 일부는 v0.7 규칙으로 걸러진다.</p>
+<p>민원인의 질문에 기관 문서로 접지한 답을 준다. 주 부품은 <a class="pat lc-b" href="ch05.html#p-B3"><span class="pid">B3</span>지식 접지 상담</a>이고, 답할 수 없는 질문을 담당 부서로 넘기는 <a class="pat lc-bp" href="ch06.html#p-Bp2"><span class="pid">B′2</span>라우터·디스패처</a>가 예외 경로다(그림 12.3). PAX에서 유형 1로 태깅된 33건은 필수 부품 여섯 개가 모두 자주 빠졌다. 32건에 C9가, 31건에 C5가, 28건에 A2가, 22건에 F1이, 15건에 C7이, 12건에 F7이 없었다. 평가 세트와 가드레일은 거의 모든 사례에 없고, 폴백은 절반 가까이 빠졌다. 대민 서비스는 상시 운영이므로 상용 모델이 멈추는 날을 설계에 넣어야 한다. 다만 33건 중 20건은 주 부품이 B0인 비LLM 안내 도구다. 비LLM 도구는 C7·F7이 면제되고 A2 대신 A1이 인정되므로(R7·R21), A2·C7·F7 결손의 일부는 v0.7 규칙으로 걸러진다.</p>
 <figure class="fig" id="fig-12-3"><div class="canvas"><svg viewBox="0 0 920 286" role="img" aria-label="유형 1 대민 상담·안내 조립도">
 <defs><marker id="ah-12-3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
 <text class="t b" x="16" y="20">유형 1 · 대민 상담·안내</text>
@@ -256,12 +256,12 @@
 <rect class="n soft" x="446" y="210" width="140" height="40" rx="6"/><text class="tm ta" x="516" y="226" text-anchor="middle">A6</text><text class="t2" x="516" y="242" text-anchor="middle">지식그래프</text>
 <path class="ln" d="M256 208 L256 178" marker-end="url(#ah-12-3)"/>
 <text class="t3" x="262" y="198">기댄다</text>
-<text class="t3" x="16" y="274">점선 상자 = PAX 557건 태깅에서 이 유형 사례의 30% 이상에 빠진 필수 부품(missing_required) · 회색 상자 = 선택</text>
+<text class="t3" x="16" y="274">점선 상자 = PAX 564건 태깅에서 이 유형 사례의 30% 이상에 빠진 필수 부품(missing_required) · 회색 상자 = 선택</text>
 </svg></div>
-<figcaption><b>그림 12.3</b> 유형 1 대민 상담·안내 조립도. 지식 접지 상담이 중심이고, 출처 표시와 한계 안내가 이용자 면이다. PAX 32건에서는 필수 부품 여섯 개가 모두 30% 이상 빠졌고, 평가 세트와 가드레일은 거의 모든 사례에 없었다.</figcaption></figure>
+<figcaption><b>그림 12.3</b> 유형 1 대민 상담·안내 조립도. 지식 접지 상담이 중심이고, 출처 표시와 한계 안내가 이용자 면이다. PAX 33건에서는 필수 부품 여섯 개가 모두 30% 이상 빠졌고, 평가 세트와 가드레일은 거의 모든 사례에 없었다.</figcaption></figure>
 
 <h3>유형 2 · 접수·심사 자동화</h3>
-<p>제출 서류를 인식해 구조화하고, 심사 판단의 재료를 만든다. 주 부품은 <a class="pat lc-b" href="ch05.html#p-B4"><span class="pid">B4</span>인식 파이프라인</a>이다(그림 12.4). 판정 목적(승인·반려)이 있으면 유형 2이고, 형식과 경로만 바꿔 전달하면 유형 8이다(R23). 업무 시스템에 쓰는 순간 P2이므로 라우터·롤백·로그·권한 경계가 한꺼번에 필수가 된다. PAX 557건에서 이 유형은 온나라 AI 문서 분배기를 포함해 3건뿐이고, 3건 모두에 C2·C3·C4·F2가 없었다. 위험도에 따라 자동 처리와 검토를 가르는 분기와 잘못 처리된 건을 되돌리는 경로는 개인이 만든 도구에 좀처럼 붙지 않는다. 사례가 적어 그림 12.4에는 점선을 긋지 않았다. 시민이 제출 전에 서류를 스스로 정리하는 도구는 2b로 따로 다룬다(R20).</p>
+<p>제출 서류를 인식해 구조화하고, 심사 판단의 재료를 만든다. 주 부품은 <a class="pat lc-b" href="ch05.html#p-B4"><span class="pid">B4</span>인식 파이프라인</a>이다(그림 12.4). 판정 목적(승인·반려)이 있으면 유형 2이고, 형식과 경로만 바꿔 전달하면 유형 8이다(R23). 업무 시스템에 쓰는 순간 P2이므로 라우터·롤백·로그·권한 경계가 한꺼번에 필수가 된다. PAX 564건에서 이 유형은 온나라 AI 문서 분배기를 포함해 3건뿐이고, 3건 모두에 C2·C3·C4·F2가 없었다. 위험도에 따라 자동 처리와 검토를 가르는 분기와 잘못 처리된 건을 되돌리는 경로는 개인이 만든 도구에 좀처럼 붙지 않는다. 사례가 적어 그림 12.4에는 점선을 긋지 않았다. 시민이 제출 전에 서류를 스스로 정리하는 도구는 2b로 따로 다룬다(R20).</p>
 <figure class="fig" id="fig-12-4"><div class="canvas"><svg viewBox="0 0 920 336" role="img" aria-label="유형 2 접수·심사 자동화 조립도">
 <defs><marker id="ah-12-4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
 <text class="t b" x="16" y="20">유형 2a · 기관 접수·심사 자동화</text>
@@ -304,7 +304,7 @@
 <figcaption><b>그림 12.4</b> 유형 2a 기관 접수·심사 자동화 조립도. 통제 부품이 다섯 개로 가장 많다. 제출 서류는 신뢰 불가 입력이므로 문서별 격리 LLM(S6)이 위 띠에 함께 놓인다.</figcaption></figure>
 
 <h3>유형 3 · 현장 감시·경보</h3>
-<p>센서·영상 스트림을 상시 또는 주기로 관측해 이상을 찾고 경보를 낸다. 주 부품은 <a class="pat lc-b" href="ch05.html#p-B5"><span class="pid">B5</span>현장 감지·경보</a>이고, 탐지 결과를 규칙으로 판정하는 <a class="pat lc-bp" href="ch06.html#p-Bp9"><span class="pid">B′9</span>결정론 판정 게이트</a>를 거쳐 경보로 나간다(그림 12.5). 경보가 스피커·경광등·전광판 같은 물리 설비를 움직이면 <a class="pat lc-a" href="ch07.html#p-A11"><span class="pid">A11</span>액추에이션·현장 통지 어댑터</a>가 필수이고 권한은 P2a다. 모델이 멈추면 감시도 함께 멈추므로, 이 유형에서 가장 먼저 갖출 통제는 Fail-safe 경로다. PAX 557건에서 이 유형은 레스큐79(CCTV 팔 동작 구조요청 감지) 1건뿐이고, 그 사례에는 C7·C2·C4와 A11이 없었다. A11은 물리 설비를 움직일 때만 필수다(R10). 사례 하나로는 결손 경향을 말할 수 없으므로 그림 12.5에는 점선을 긋지 않고 카탈로그의 조립 템플릿만 옮겼다.</p>
+<p>센서·영상 스트림을 상시 또는 주기로 관측해 이상을 찾고 경보를 낸다. 주 부품은 <a class="pat lc-b" href="ch05.html#p-B5"><span class="pid">B5</span>현장 감지·경보</a>이고, 탐지 결과를 규칙으로 판정하는 <a class="pat lc-bp" href="ch06.html#p-Bp9"><span class="pid">B′9</span>결정론 판정 게이트</a>를 거쳐 경보로 나간다(그림 12.5). 경보가 스피커·경광등·전광판 같은 물리 설비를 움직이면 <a class="pat lc-a" href="ch07.html#p-A11"><span class="pid">A11</span>액추에이션·현장 통지 어댑터</a>가 필수이고 권한은 P2a다. 모델이 멈추면 감시도 함께 멈추므로, 이 유형에서 가장 먼저 갖출 통제는 Fail-safe 경로다. PAX 564건에서 이 유형은 레스큐79(CCTV 팔 동작 구조요청 감지) 1건뿐이고, 그 사례에는 C7·C2·C4와 A11이 없었다. A11은 물리 설비를 움직일 때만 필수다(R10). 사례 하나로는 결손 경향을 말할 수 없으므로 그림 12.5에는 점선을 긋지 않고 카탈로그의 조립 템플릿만 옮겼다.</p>
 <figure class="fig" id="fig-12-5"><div class="canvas"><svg viewBox="0 0 920 336" role="img" aria-label="유형 3 현장 감시·경보 조립도">
 <defs><marker id="ah-12-5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
 <text class="t b" x="16" y="20">유형 3 · 현장 감시·경보</text>
@@ -384,12 +384,12 @@
 <rect class="n a" x="446" y="210" width="140" height="40" rx="6"/><text class="tm ta" x="516" y="226" text-anchor="middle">A2.4</text><text class="t2" x="516" y="242" text-anchor="middle">내부망 프록시</text>
 <path class="ln" d="M256 208 L256 178" marker-end="url(#ah-12-6)"/>
 <text class="t3" x="262" y="198">기댄다</text>
-<text class="t3" x="16" y="274">점선 상자 = PAX 557건 태깅에서 이 유형 사례의 30% 이상에 빠진 필수 부품(missing_required) · 회색 상자 = 선택</text>
+<text class="t3" x="16" y="274">점선 상자 = PAX 564건 태깅에서 이 유형 사례의 30% 이상에 빠진 필수 부품(missing_required) · 회색 상자 = 선택</text>
 </svg></div>
 <figcaption><b>그림 12.6</b> 유형 4 내부 문서·기안 코파일럿 조립도. 점선 상자가 다섯 개다. 규범 스킬·문서 어댑터·검토 큐·비식별·편집 가능 출력이 모두 PAX 사례에서 자주 빠졌다. 외부 공문과 첨부는 간접 인젝션의 통로이므로 S3·S8이 위 띠에 놓인다.</figcaption></figure>
 
 <h3>유형 5a · 분석 대시보드·브리핑</h3>
-<p>공공데이터와 업무 통계를 집계·예측해 판단 자료를 보여 준다. 에이전트는 없다. 주 부품은 학습 모델이면 <a class="pat lc-b" href="ch05.html#p-B2"><span class="pid">B2</span>예측·추천기</a>, 규칙 집계면 B0이고, LLM이 서술을 덧붙이면 B1이 secondary다(그림 12.7). PAX에서 이 유형으로 태깅된 62건은 모두 필수 부품이 하나 이상 빠졌다. 62건 전부에 C6이, 60건에 A2.5가, 58건에 C9가, 57건에 F9가, 44건에 F7이, 32건에 A1이 없었다. 그런데 이 숫자의 상당 부분은 규칙이 현실과 맞지 않아 생겼다. PAX의 대시보드 62건 가운데 59건은 주 부품이 B0이다. 학습 모델 없이 새로고침만 하는 현황판에 학습 모델을 전제한 필수 목록을 대니, 맞지 않는 경고가 늘 나왔다. v0.7.1의 R19가 5a-brief(LLM 브리핑형)와 5a-agg(비LLM 집계형)를 가른 이유다. 집계형의 필수 부품은 A1, F2, C4다.</p>
+<p>공공데이터와 업무 통계를 집계·예측해 판단 자료를 보여 준다. 에이전트는 없다. 주 부품은 학습 모델이면 <a class="pat lc-b" href="ch05.html#p-B2"><span class="pid">B2</span>예측·추천기</a>, 규칙 집계면 B0이고, LLM이 서술을 덧붙이면 B1이 secondary다(그림 12.7). PAX에서 이 유형으로 태깅된 63건은 모두 필수 부품이 하나 이상 빠졌다. 63건 전부에 C6이, 61건에 A2.5가, 59건에 C9가, 58건에 F9가, 45건에 F7이, 32건에 A1이 없었다. 그런데 이 숫자의 상당 부분은 규칙이 현실과 맞지 않아 생겼다. PAX의 대시보드 63건 가운데 60건은 주 부품이 B0이다. 학습 모델 없이 새로고침만 하는 현황판에 학습 모델을 전제한 필수 목록을 대니, 맞지 않는 경고가 늘 나왔다. v0.7.1의 R19가 5a-brief(LLM 브리핑형)와 5a-agg(비LLM 집계형)를 가른 이유다. 집계형의 필수 부품은 A1, F2, C4다.</p>
 <figure class="fig" id="fig-12-7"><div class="canvas"><svg viewBox="0 0 920 286" role="img" aria-label="유형 5a 분석 대시보드·브리핑 조립도">
 <defs><marker id="ah-12-7" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
 <text class="t b" x="16" y="20">유형 5a · 분석 대시보드·브리핑(비에이전트)</text>
@@ -423,12 +423,12 @@
 <rect class="n a" x="596" y="210" width="140" height="40" rx="6"/><text class="tm ta" x="666" y="226" text-anchor="middle">A4</text><text class="t2" x="666" y="242" text-anchor="middle">데이터 연계</text>
 <path class="ln" d="M256 208 L256 178" marker-end="url(#ah-12-7)"/>
 <text class="t3" x="262" y="198">기댄다</text>
-<text class="t3" x="16" y="274">점선 상자 = PAX 557건 태깅에서 이 유형 사례의 30% 이상에 빠진 필수 부품(missing_required) · 회색 상자 = 선택</text>
+<text class="t3" x="16" y="274">점선 상자 = PAX 564건 태깅에서 이 유형 사례의 30% 이상에 빠진 필수 부품(missing_required) · 회색 상자 = 선택</text>
 </svg></div>
-<figcaption><b>그림 12.7</b> 유형 5a 분석 대시보드·브리핑 조립도(브리핑형 기준). PAX 62건에서는 필수 부품 여섯 개가 모두 30% 이상 빠졌는데, 그 상당 부분은 집계형 현황판에 브리핑형 목록을 들이댄 결과다. 집계형 현황판은 R19에 따라 A1·F2·C4로 따로 점검한다.</figcaption></figure>
+<figcaption><b>그림 12.7</b> 유형 5a 분석 대시보드·브리핑 조립도(브리핑형 기준). PAX 63건에서는 필수 부품 여섯 개가 모두 30% 이상 빠졌는데, 그 상당 부분은 집계형 현황판에 브리핑형 목록을 들이댄 결과다. 집계형 현황판은 R19에 따라 A1·F2·C4로 따로 점검한다.</figcaption></figure>
 
 <h3>유형 5b · 데이터 에이전트</h3>
-<p>담당자의 자연어 질의를 받아 에이전트가 공공데이터 MCP 같은 도구를 불러 답을 조합한다. 주 부품은 로컬 호스트 변형의 <a class="pat lc-b" href="ch05.html#p-B6"><span class="pid">B6</span>에이전트 오케스트레이터</a>이고, <a class="pat lc-bp" href="ch06.html#p-Bp7"><span class="pid">B′7</span>ReAct 도구 루프</a>와 <a class="pat lc-bp" href="ch06.html#p-Bp3"><span class="pid">B′3</span>병렬 팬아웃·수집</a>이 배선이다(그림 12.8). 도구 출력은 신뢰 불가 입력이므로 <a class="pat lc-s" href="ch09.html#p-S5"><span class="pid">S5</span>계획 후 실행</a>이나 격리 LLM이 필수다. PAX에서 이 유형 77건 중 76건에 S5·S6이, 73건에 C4가, 69건에 C8이, 62건에 F1이 없었다. 이 결손도 일부는 관점의 문제다. 서버를 만든 사람과 호스트를 만든 사람이 다르므로, v0.7.1은 5b-server(A8, S11, 문서화된 스키마)와 5b-host(C4, F1, S5 또는 S6)를 나눴다(R18). 이 분리로 서버 저장소에 호스트 쪽 통제를 요구하던 경고가 걸러진다.</p>
+<p>담당자의 자연어 질의를 받아 에이전트가 공공데이터 MCP 같은 도구를 불러 답을 조합한다. 주 부품은 로컬 호스트 변형의 <a class="pat lc-b" href="ch05.html#p-B6"><span class="pid">B6</span>에이전트 오케스트레이터</a>이고, <a class="pat lc-bp" href="ch06.html#p-Bp7"><span class="pid">B′7</span>ReAct 도구 루프</a>와 <a class="pat lc-bp" href="ch06.html#p-Bp3"><span class="pid">B′3</span>병렬 팬아웃·수집</a>이 배선이다(그림 12.8). 도구 출력은 신뢰 불가 입력이므로 <a class="pat lc-s" href="ch09.html#p-S5"><span class="pid">S5</span>계획 후 실행</a>이나 격리 LLM이 필수다. PAX에서 이 유형 78건 중 77건에 S5·S6이, 74건에 C4가, 70건에 C8이, 62건에 F1이 없었다. 이 결손도 일부는 관점의 문제다. 서버를 만든 사람과 호스트를 만든 사람이 다르므로, v0.7.1은 5b-server(A8, S11, 문서화된 스키마)와 5b-host(C4, F1, S5 또는 S6)를 나눴다(R18). 이 분리로 서버 저장소에 호스트 쪽 통제를 요구하던 경고가 걸러진다.</p>
 <figure class="fig" id="fig-12-8"><div class="canvas"><svg viewBox="0 0 920 286" role="img" aria-label="유형 5b 데이터 에이전트 조립도">
 <defs><marker id="ah-12-8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
 <text class="t b" x="16" y="20">유형 5b · 데이터 에이전트(도구 호출)</text>
@@ -461,7 +461,7 @@
 <rect class="n a" x="296" y="210" width="140" height="40" rx="6"/><text class="tm ta" x="366" y="226" text-anchor="middle">A2.2</text><text class="t2" x="366" y="242" text-anchor="middle">로컬 모델(폐쇄망)</text>
 <path class="ln" d="M256 208 L256 178" marker-end="url(#ah-12-8)"/>
 <text class="t3" x="262" y="198">기댄다</text>
-<text class="t3" x="16" y="274">점선 상자 = PAX 557건 태깅에서 이 유형 사례의 30% 이상에 빠진 필수 부품(missing_required) · 회색 상자 = 선택</text>
+<text class="t3" x="16" y="274">점선 상자 = PAX 564건 태깅에서 이 유형 사례의 30% 이상에 빠진 필수 부품(missing_required) · 회색 상자 = 선택</text>
 </svg></div>
 <figcaption><b>그림 12.8</b> 유형 5b 데이터 에이전트 조립도. 폐쇄망이면 MCP 호스트와 로컬 모델(A2.2)을 함께 둔다. 읽기 전용 권한 경계·호출 추적·계획 후 실행·출처 표시가 PAX 사례에서 거의 모두 빠져 있었다.</figcaption></figure>
 
@@ -499,7 +499,7 @@
 <rect class="n a" x="446" y="210" width="140" height="40" rx="6"/><text class="tm ta" x="516" y="226" text-anchor="middle">A2</text><text class="t2" x="516" y="242" text-anchor="middle">모델 서빙</text>
 <path class="ln" d="M256 208 L256 178" marker-end="url(#ah-12-9)"/>
 <text class="t3" x="262" y="198">기댄다</text>
-<text class="t3" x="16" y="274">점선 상자 = PAX 557건 태깅에서 이 유형 사례의 30% 이상에 빠진 필수 부품(missing_required) · 회색 상자 = 선택</text>
+<text class="t3" x="16" y="274">점선 상자 = PAX 564건 태깅에서 이 유형 사례의 30% 이상에 빠진 필수 부품(missing_required) · 회색 상자 = 선택</text>
 </svg></div>
 <figcaption><b>그림 12.9</b> 유형 6 정책·홍보 콘텐츠 제작 조립도. 스타일 스킬(A9)이 기관 서식과 어조를 고정하고, 독립 검증기(S8)가 참고 링크로 들어오는 유출 링크와 사실 오류를 걸러 낸다.</figcaption></figure>
 
@@ -537,12 +537,12 @@
 <rect class="n a" x="296" y="210" width="140" height="40" rx="6"/><text class="tm ta" x="366" y="226" text-anchor="middle">A10</text><text class="t2" x="366" y="242" text-anchor="middle">문서 형식 어댑터</text>
 <path class="ln" d="M256 208 L256 178" marker-end="url(#ah-12-10)"/>
 <text class="t3" x="262" y="198">기댄다</text>
-<text class="t3" x="16" y="274">점선 상자 = PAX 557건 태깅에서 이 유형 사례의 30% 이상에 빠진 필수 부품(missing_required) · 회색 상자 = 선택</text>
+<text class="t3" x="16" y="274">점선 상자 = PAX 564건 태깅에서 이 유형 사례의 30% 이상에 빠진 필수 부품(missing_required) · 회색 상자 = 선택</text>
 </svg></div>
 <figcaption><b>그림 12.10</b> 유형 7 대조·점검 도우미 조립도. 기준 출처(A3), 출처 검증(C5), 사람의 최종 판단(C1)이 함께 빠지는 경우가 많다. 셋이 모두 없으면 점검 결과가 곧 판정이 된다.</figcaption></figure>
 
 <h3>유형 8 · 취합·변환 자동화</h3>
-<p>부서별 제출 파일을 모으고 서식을 바꾸는 사무 자동화다. PAX 557건에서 가장 큰 유형(109건)이다. 주 부품은 대개 <a class="pat lc-b" href="ch05.html#p-B0"><span class="pid">B0</span>결정적 도구</a>이고 런타임에 AI를 부르지 않는다(그림 12.11). 필수 부품은 <a class="pat lc-a" href="ch07.html#p-A10"><span class="pid">A10</span>문서 형식 어댑터</a>와 <a class="pat lc-a" href="ch07.html#p-A7"><span class="pid">A7</span>자체 제작 환경</a> 둘뿐이지만, 109건 중 34건에 A10이, 16건에 A7이 없었다. 둘 다 갖춘 사례는 64건이다. 한글 문서와 엑셀을 제대로 읽고 쓰지 못하면 취합 도구는 결국 사람이 다시 옮겨 적게 만든다. 처리 로그(C4)는 개인 도구일 때는 없어도 되지만 기관 공식 도구로 전이하는 순간 붙여야 한다. 부서에서 올라온 파일에 매크로나 숨은 지시가 들어 있을 수 있으므로 파일 검사(S11)와 샌드박스(S9)가 위 띠에 놓인다.</p>
+<p>부서별 제출 파일을 모으고 서식을 바꾸는 사무 자동화다. PAX 564건에서 가장 큰 유형(110건)이다. 주 부품은 대개 <a class="pat lc-b" href="ch05.html#p-B0"><span class="pid">B0</span>결정적 도구</a>이고 런타임에 AI를 부르지 않는다(그림 12.11). 필수 부품은 <a class="pat lc-a" href="ch07.html#p-A10"><span class="pid">A10</span>문서 형식 어댑터</a>와 <a class="pat lc-a" href="ch07.html#p-A7"><span class="pid">A7</span>자체 제작 환경</a> 둘뿐이지만, 110건 중 35건에 A10이, 16건에 A7이 없었다. 둘 다 갖춘 사례는 64건이다. 한글 문서와 엑셀을 제대로 읽고 쓰지 못하면 취합 도구는 결국 사람이 다시 옮겨 적게 만든다. 처리 로그(C4)는 개인 도구일 때는 없어도 되지만 기관 공식 도구로 전이하는 순간 붙여야 한다. 부서에서 올라온 파일에 매크로나 숨은 지시가 들어 있을 수 있으므로 파일 검사(S11)와 샌드박스(S9)가 위 띠에 놓인다.</p>
 <figure class="fig" id="fig-12-11"><div class="canvas"><svg viewBox="0 0 920 286" role="img" aria-label="유형 8 취합·변환 자동화 조립도">
 <defs><marker id="ah-12-11" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
 <text class="t b" x="16" y="20">유형 8 · 취합·변환 자동화</text>
@@ -575,7 +575,7 @@
 <rect class="n a" x="296" y="210" width="140" height="40" rx="6"/><text class="tm ta" x="366" y="226" text-anchor="middle">A7</text><text class="t2" x="366" y="242" text-anchor="middle">자체 제작 환경</text>
 <path class="ln" d="M256 208 L256 178" marker-end="url(#ah-12-11)"/>
 <text class="t3" x="262" y="198">기댄다</text>
-<text class="t3" x="16" y="274">점선 상자 = PAX 557건 태깅에서 이 유형 사례의 30% 이상에 빠진 필수 부품(missing_required) · 회색 상자 = 선택</text>
+<text class="t3" x="16" y="274">점선 상자 = PAX 564건 태깅에서 이 유형 사례의 30% 이상에 빠진 필수 부품(missing_required) · 회색 상자 = 선택</text>
 </svg></div>
 <figcaption><b>그림 12.11</b> 유형 8 취합·변환 자동화 조립도. 가장 단순한 조립이지만 문서 형식 어댑터가 빠지면 성립하지 않는다. 되돌리기(F8)와 원복(C3)이 잘못 합친 파일을 되살린다.</figcaption></figure>
 
@@ -613,12 +613,12 @@
 <rect class="n soft" x="296" y="210" width="140" height="40" rx="6"/><text class="tm ta" x="366" y="226" text-anchor="middle">A6</text><text class="t2" x="366" y="242" text-anchor="middle">온톨로지(승급 시)</text>
 <path class="ln" d="M256 208 L256 178" marker-end="url(#ah-12-12)"/>
 <text class="t3" x="262" y="198">기댄다</text>
-<text class="t3" x="16" y="274">점선 상자 = PAX 557건 태깅에서 이 유형 사례의 30% 이상에 빠진 필수 부품(missing_required) · 회색 상자 = 선택</text>
+<text class="t3" x="16" y="274">점선 상자 = PAX 564건 태깅에서 이 유형 사례의 30% 이상에 빠진 필수 부품(missing_required) · 회색 상자 = 선택</text>
 </svg></div>
 <figcaption><b>그림 12.12</b> 유형 9 인수인계·지식 보존 조립도. 승급 시 온톨로지(A6)와 기억 구역 분리(S3)를 더한다. 비식별과 접근 범위가 빠지면 인수인계 도구가 그대로 유출 경로가 된다.</figcaption></figure>
 
 <h3>유형 10 · 위험 예측·표적 선별</h3>
-<p>행정 데이터와 연계 데이터로 위험 점수나 등급을 매겨 점검·지원 대상을 고른다. 주 부품은 <a class="pat lc-b" href="ch05.html#p-B2"><span class="pid">B2</span>예측·추천기</a>이고, 점수를 규칙으로 등급화하는 <a class="pat lc-bp" href="ch06.html#p-Bp9"><span class="pid">B′9</span>결정론 판정 게이트</a>가 배선이다(그림 12.13). 처분에 가까운 판단을 보조하므로 권한이 P3까지 올라간다. PAX 557건에서 이 유형은 아산 하천 수위 예측 모니터링 1건뿐이고, 그 사례에는 C1·C2·C6·C9·F9·F7이 모두 없었다. 사례 하나로는 결손 경향을 말할 수 없으므로 그림 12.13에는 점선을 긋지 않았다. 등급을 자동으로 매기는데 그 등급에 따라 검토 강도를 다르게 하지 않으면 높은 점수가 곧 처분 대상 명단이 된다. 연속값 예측이나 참고용 순위만 내는 경우에는 C2가 면제된다(R10). 판정 근거(F9)는 담당자에게는 필요하지만, 위조 탐지처럼 상대가 기준을 역이용할 수 있는 접점에서 대상자에게까지 보여 주면 <a class="pat lc-x" href="ch14.html#p-X16"><span class="pid">X16</span>기준을 노출하는 위조 탐지</a>에 빠진다.</p>
+<p>행정 데이터와 연계 데이터로 위험 점수나 등급을 매겨 점검·지원 대상을 고른다. 주 부품은 <a class="pat lc-b" href="ch05.html#p-B2"><span class="pid">B2</span>예측·추천기</a>이고, 점수를 규칙으로 등급화하는 <a class="pat lc-bp" href="ch06.html#p-Bp9"><span class="pid">B′9</span>결정론 판정 게이트</a>가 배선이다(그림 12.13). 처분에 가까운 판단을 보조하므로 권한이 P3까지 올라간다. PAX 564건에서 이 유형은 아산 하천 수위 예측 모니터링 1건뿐이고, 그 사례에는 C1·C2·C6·C9·F9·F7이 모두 없었다. 사례 하나로는 결손 경향을 말할 수 없으므로 그림 12.13에는 점선을 긋지 않았다. 등급을 자동으로 매기는데 그 등급에 따라 검토 강도를 다르게 하지 않으면 높은 점수가 곧 처분 대상 명단이 된다. 연속값 예측이나 참고용 순위만 내는 경우에는 C2가 면제된다(R10). 판정 근거(F9)는 담당자에게는 필요하지만, 위조 탐지처럼 상대가 기준을 역이용할 수 있는 접점에서 대상자에게까지 보여 주면 <a class="pat lc-x" href="ch14.html#p-X16"><span class="pid">X16</span>기준을 노출하는 위조 탐지</a>에 빠진다.</p>
 <figure class="fig" id="fig-12-13"><div class="canvas"><svg viewBox="0 0 920 286" role="img" aria-label="유형 10 위험 예측·표적 선별 조립도">
 <defs><marker id="ah-12-13" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
 <text class="t b" x="16" y="20">유형 10 · 위험 예측·표적 선별</text>
@@ -659,12 +659,12 @@
 <figcaption><b>그림 12.13</b> 유형 10 위험 예측·표적 선별 조립도. 판정 게이트가 점수를 등급으로 바꾸고, 등급 분기(C2)가 검토 강도를 정한다.</figcaption></figure>
 
 <h3>유형 11·12 · 추천·매칭과 개발 코파일럿</h3>
-<p>유형 11 추천·매칭은 유형 10과 같은 B2 계열 조립에 추천 사유(F9)와 대안 제시(F3)를 붙인다. PAX 557건에서 이 유형은 3건뿐이어서 템플릿은 표 12.1로 갈음한다. 3건 모두에 C1·C5·C6·F3이 없었다. 추천이 하나만 나오면 이용자는 그것을 정답으로 읽는다.</p>
+<p>유형 11 추천·매칭은 유형 10과 같은 B2 계열 조립에 추천 사유(F9)와 대안 제시(F3)를 붙인다. PAX 564건에서 이 유형은 3건뿐이어서 템플릿은 표 12.1로 갈음한다. 3건 모두에 C1·C5·C6·F3이 없었다. 추천이 하나만 나오면 이용자는 그것을 정답으로 읽는다.</p>
 <p>유형 12 개발 코파일럿은 공직자 개인 개발의 저변을 반영한 유형이다. 주 부품은 스킬 형태의 B1이고 생성 코드를 격리 실행하는 <a class="pat lc-s" href="ch09.html#p-S9"><span class="pid">S9</span>임시 샌드박스</a>가 필수다. 원래 필수 모델 서빙은 A2.2 주권형 온프레미스였지만, 바이브 코딩 도구 대부분이 상용 API나 BYO 구독을 쓴다는 피드백에 따라 R22가 A2.1 또는 A2.2로 완화했다. PAX 10건 모두에 C9와 S9가 없었다. 개발 도구는 다른 도구를 만드는 도구이므로, 여기서 빠진 평가와 격리는 그 도구로 만든 모든 산출물로 번진다.</p>
 
 <aside class="key"><span class="lbl">핵심 요약</span><ul>
 <li>템플릿은 유형마다 주 부품·원형·필수 A·C·F·S를 정한다. 빠지면 AI-Enabled 이상으로 인정하지 않는다.</li>
-<li>PAX 557건에서 가장 자주 빠진 필수 부품은 가드레일(C5)·검토 큐(C1)·권한 경계(C8)·평가 세트(C9)였다. 현장 감시(3)와 위험 예측(10)은 사례가 1건씩뿐이어서 템플릿을 카탈로그 규칙으로 읽는다.</li>
+<li>PAX 564건에서 가장 자주 빠진 필수 부품은 가드레일(C5)·검토 큐(C1)·권한 경계(C8)·평가 세트(C9)였다. 현장 감시(3)와 위험 예측(10)은 사례가 1건씩뿐이어서 템플릿을 카탈로그 규칙으로 읽는다.</li>
 <li>결손의 일부는 규칙이 맞지 않아 생긴 것이다. 5a·5b의 하위유형 분리(R18·R19)가 그 보정이다.</li>
 </ul></aside>
 
@@ -838,7 +838,7 @@
 <li>진행 경로는 직접 프롬프트 코파일럿에서 튜닝형 모델까지 열한 단계다. 평가 없는 RAG, RAG 없는 튜닝, 처음부터 멀티에이전트가 대표적인 건너뛰기다.</li>
 <li>보안 부품은 진행 경로 6단계와 8단계에 붙는다. 그 전에는 P0~P1 권한 제한이 곧 보안이다.</li>
 <li>서비스 유형별 조립 템플릿은 주 부품·원형·필수 A·C·F·S를 정한다. 필수 부품이 빠지면 AI-Enabled 이상으로 인정하지 않는다.</li>
-<li>PAX 557건에서는 가드레일·검토 큐·권한 경계·평가 세트가 가장 자주 빠졌다. 일부 결손은 하위유형 분리(R18·R19)로 보정된다.</li>
+<li>PAX 564건에서는 가드레일·검토 큐·권한 경계·평가 세트가 가장 자주 빠졌다. 일부 결손은 하위유형 분리(R18·R19)로 보정된다.</li>
 <li>위협 모델은 신뢰 불가 입력의 출처에서 시작한다. 출처가 같으면 유형이 달라도 같은 보안 부품을 쓴다.</li>
 <li>실패→부품 표의 확인 질문에 즉시 답할 수 없다면 그 칸의 부품이 없는 것이다. 같은 표를 운영 중 보강에도, 심사에도 쓴다.</li>
 <li>조립의 품질은 배선에서 갈린다. 가람시 챗봇은 새 기술 없이 부품의 순서와 연결을 바꿔 유형 1의 필수 부품을 채웠다.</li>
